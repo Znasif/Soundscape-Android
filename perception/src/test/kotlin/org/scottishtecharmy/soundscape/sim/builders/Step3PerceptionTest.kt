@@ -69,9 +69,9 @@ class Step3PerceptionTest {
         assertEquals(4, door.normalizedBox.size)
         assertTrue(door.normalizedBox.all { it in 0.0..1.0 })
         assertTrue(door.confidence > 0.60)
-        assertNotNull(door.maskData)
+        val maskData = assertNotNull(door.maskData)
 
-        val decodedMask = MetaSam31Client.decodeOneBitMask(door.maskData!!, 110, 14)
+        val decodedMask = MetaSam31Client.decodeOneBitMask(maskData, 110, 14)
         assertNotNull(decodedMask)
         assertEquals(110 * 14, decodedMask.size)
         assertTrue(decodedMask.any { it }, "Expected non-empty foreground pixels in decoded SAM 3.1 mask")

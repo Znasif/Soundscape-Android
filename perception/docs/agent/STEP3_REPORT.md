@@ -1,5 +1,7 @@
 # Step 3 Report — Outdoor Perception (Panoramas, SAM 3.1, Gemini Flash & Entrance Matching)
 
+> **[2026-11-08 Phase 2 Audit Note (Step 7a)]**: The single-area Ferry Building baseline in Section 2 below (`Precision 80.0%, Recall 88.9%, F1 0.842` for the merged `OSM + Perception` dataset on `ferry-building`) was expanded and superseded in **Step 5 (`STEP5_REPORT.md` & `metrics/STEP5-outdoor.json`)** by a 10-area evaluation (`2` development + `8` held-out areas across 7 cities and 3 countries) scoring **perception-only** doors against visible OSM entrances (`osmEntranceCountVisible`, excluding underground/indoor concourse nodes `osmEntranceCountExcluded`) with 95% bootstrap confidence intervals (`Held-Out Precision = 0.569 [0.431, 0.725]`, `Recall = 0.453 [0.278, 0.723]`, `F1 = 0.504 [0.339, 0.706]`, `Median Error = 3.204 m`).
+
 ## 1. Summary of What Was Built
 
 In Step 3 (`argon/step-3`), we extended the outdoor Street Preview builder with panorama reprojection, Meta SAM 3.1 text-prompted segmentation (`door`, `shop sign`, `steps`), Gemini 3.8 Flash crop verification and storefront sign OCR, 3D ray-to-facade localisation, and entrance-to-venue linking:

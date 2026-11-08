@@ -172,3 +172,28 @@ fun bindIndoorRoomToGeoEngine(
 ```
 
 Because `LocalEnu` maps `[east, up, north]` with `< 0.1 mm` precision into WGS84 `(latitude, longitude)`, Soundscape's existing `GeoEngine`, `CheapRuler`, and `AudioEngine.updateGeometry(...)` work indoors without any changes to the core audio or spatial-indexing pipeline.
+
+---
+
+## 4. GPX Route Export & Phase 2 CLI Commands
+
+`GpxExporter` (`sim/jvm/GpxExporter.kt`) exports any `SimEnvironment` (`--include osm|perceived|all`) into a GPX 1.1 `<wpt>` + `<rte>` file compatible with Soundscape-Android's `parseGpxFile` (`shared/src/commonMain/kotlin/org/scottishtecharmy/soundscape/utils/GpxUtils.kt`):
+
+```bash
+# Export perceived doors/signs/steps from a SimEnvironment into a Soundscape GPX route
+./gradlew -p perception run --args="export-gpx --in samples/fillmore-2318.street.json --out samples/gpx/fillmore-2318-perceived.gpx --include perceived"
+
+# Replay the 10-area Step 5 outdoor evaluation offline
+./gradlew -p perception run --args="run-step5-eval --replay-only"
+
+# Replay the 6-scene Step 6 Apple Hypersim indoor evaluation offline
+./gradlew -p perception run --args="run-step6-eval --replay-only"
+```
+
+---
+
+## 5. Phase 2 Evaluation Summary (`docs/agent/metrics/`)
+
+- **Outdoor (`STEP5-outdoor.json`, `STEP5_REPORT.md`)**: Evaluated across 10 pre-registered areas (`2` development + `8` held-out across 7 cities & 3 countries). On the 8 held-out areas (`65` visible OSM entrances across `47` stations), perception-only door detection achieved **Precision `0.569` `[0.431, 0.725]`**, **Recall `0.453` `[0.278, 0.723]`**, **F1 `0.504` `[0.339, 0.706]`**, and **Median Error `3.204 m`**. At `2318 Fillmore Street` (Smith-Kettlewell Eye Research Institute, `way/160705972`), where OSM has `0` mapped entrances, perception added `6` entrances (`4` on `way/160705972`) and `4` storefront signs (`samples/FILLMORE.md`).
+- **Indoor (`STEP6-hypersim.json`, `STEP6_REPORT.md`)**: Evaluated across 6 pre-registered Apple Hypersim scenes (`ai_006_006`, `ai_006_002`, `ai_003_010`, `ai_006_009`, `ai_006_010`, `ai_006_001`). With 6-DoF pose and real camera height, `RoomCaptureBuilder` achieved **Precision `0.455`**, **Recall `0.730`**, **F1 `0.561`**, **Mean Error `0.615 m`** (`0.472 m` median), and **Mean 5cm Floor IoU `0.333`**. Assuming a fixed `1.65 m` camera height increased mean 3D error by **`+0.192 m`** (`0.807 m`). Cross-trajectory `RoomRecognizer` achieved **`0` false matches** (`noFalseMatch = true`, `100%` abstention on unseen rooms).
+

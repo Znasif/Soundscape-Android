@@ -1,5 +1,7 @@
 # Step 4 Report — Indoor Room Scan (`RoomCaptureBuilder`), Revisit Recognition (`RoomRecognizer`) & Integration Guide
 
+> **[2026-11-08 Phase 2 Audit Note (Step 7a)]**: The synthetic room benchmark in Section 2 below originally used an exact inverse-projection `FakeRoomSegmentationClient` (`0.0123 m` median error). In **Step 6 (`STEP6_REPORT.md` & `Step4RoomCaptureAndRecognitionTest.kt`)**, `FakeRoomSegmentationClient` was updated to inject independent 3D position offsets (`0.08–0.15 m`), pixel-level bounding-box jitter (`2–5 px`), and dropped sightings (`meanError = 0.145 m`, `medianError = 0.147 m`, `floorArea = 46.85 m²`), and the indoor pipeline was evaluated with live `sam-3.1` + `gemini-3.8-flash` on 6 photorealistic rendered rooms from **Apple Hypersim** (`metrics/STEP6-hypersim.json`: `F1 = 0.561 [0.466, 0.638]`, `meanError = 0.615 m` / `medianError = 0.472 m` at real camera height vs `0.807 m` at assumed `1.65 m` height, `0` false matches across 12 cross-trajectory recognition trials).
+
 ## 1. Summary of What Was Built
 
 In Step 4 (`argon/step-4`), we implemented the complete indoor perception pipeline for rotation-only head-turn scans captured with Ray-Ban Meta smart glasses (`mwdat-camera` + `mwdat-motion`), revisit recognition with strict false-match prevention, and the Soundscape-Android integration guide (`perception/README.md`):

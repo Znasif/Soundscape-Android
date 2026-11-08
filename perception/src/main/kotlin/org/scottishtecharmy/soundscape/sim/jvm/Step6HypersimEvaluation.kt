@@ -784,7 +784,7 @@ object Step6HypersimEvaluator {
                     id = obj.id ?: "pred-$idx",
                     category = HypersimNyu40Mapping.canonicalEvalCategory(obj.category),
                     position = EnuPoint.fromPositionList(obj.position),
-                    localisationMethod = obj.evidence?.firstOrNull()?.localisationMethod
+                    localisationMethod = obj.evidence.firstOrNull()?.localisationMethod
                 )
             }
 

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0.0",
+  "fieldWalkId": "fillmore-2026-11-08-example",
+  "areaId": "fillmore-2318",
+  "recordedAtUtc": "2026-11-08T18:30:00Z",
+  "deviceModel": "Pixel 8 Pro + Ray-Ban Meta Wayfarer (Gen 2)",
+  "environmentManifestFile": "perception/samples/fillmore-2318.street.json",
+  "gpxRouteFile": "perception/samples/gpx/fillmore-2318-route.gpx",
+  "gpxLandmarksFile": "perception/samples/gpx/fillmore-2318-landmarks.gpx",
+  "attribution": "OpenStreetMap contributors (ODbL) and Mapillary (CC-BY-SA).",
+  "outdoorVerifications": [
+    {
+      "objectId": "osm-node-3938231575",
+      "category": "ENTRANCE",
+      "manifestName": "2318 Fillmore Street",
+      "manifestText": "2318 Fillmore Street (Entrance)",
+      "predictedPosition": {
+        "latitude": 37.7911583,
+        "longitude": -122.4342847
+      },
+      "verdict": "TRUE_POSITIVE",
+      "observedPosition": {
+        "latitude": 37.7911601,
+        "longitude": -122.4342820
+      },
+      "gpsHorizontalAccuracyMeters": 3.4,
+      "estimatedDistanceErrorMeters": 0.31,
+      "estimatedBearingErrorDegrees": 2.1,
+      "textExactMatch": true,
+      "notes": "Main glass entrance door clearly located at the center of the storefront."
+    },
+    {
+      "objectId": "perceived-sign-1",
+      "category": "SIGN",
+      "manifestName": "No Parking Anytime",
+      "manifestText": "NO PARKING ANYTIME",
+      "predictedPosition": {
+        "latitude": 37.7911120,
+        "longitude": -122.4342510
+      },
+      "verdict": "TRUE_POSITIVE",
+      "observedPosition": {
+        "latitude": 37.7911195,
+        "longitude": -122.4342590
+      },
+      "gpsHorizontalAccuracyMeters": 3.8,
+      "estimatedDistanceErrorMeters": 1.09,
+      "estimatedBearingErrorDegrees": 4.5,
+      "textExactMatch": true,
+      "notes": "Curbside sign post south of 2318 Fillmore entrance."
+    }
+  ],
+  "missedGroundTruthLandmarks": [
+    {
+      "category": "STEPS",
+      "observedText": null,
+      "observedPosition": {
+        "latitude": 37.7912450,
+        "longitude": -122.4343010
+      },
+      "gpsHorizontalAccuracyMeters": 3.5,
+      "notes": "Single recessed threshold step at adjacent residential doorway; occluded by parked van in Mapillary street-level sequence."
+    }
+  ],
+  "indoorScanTrials": [
+    {
+      "trialId": "fillmore-lobby-scan-01",
+      "roomName": "2318 Fillmore Lobby",
+      "scanDurationSeconds": 11.4,
+      "cameraHeightMetersMeasured": 1.66,
+      "cameraHeightMetersAssumed": 1.65,
+      "tapeMeasureLandmarks": [
+        {
+          "objectId": "room-door-front",
+          "category": "DOOR",
+          "predictedBearingDegrees": 1.8,
+          "measuredBearingDegrees": 0.0,
+          "predictedDistanceMeters": 3.42,
+          "measuredDistanceMeters": 3.30,
+          "textPredicted": "2318",
+          "textObserved": "2318",
+          "verdict": "TRUE_POSITIVE"
+        },
+        {
+          "objectId": "room-counter-1",
+          "category": "COUNTER",
+          "predictedBearingDegrees": 88.5,
+          "measuredBearingDegrees": 90.0,
+          "predictedDistanceMeters": 2.75,
+          "measuredDistanceMeters": 2.60,
+          "textPredicted": "Reception",
+          "textObserved": "Reception",
+          "verdict": "TRUE_POSITIVE"
+        }
+      ],
+      "reRecognitionFromNewSpot": {
+        "displacementFromScanOriginMeters": 1.2,
+        "yawOffsetDegrees": 35.0,
+        "recognizedRoomId": "2318-fillmore-lobby",
+        "matchedCorrectly": true,
+        "abstainedOnUnknownAdjacentRoom": true,
+        "estimatedYawAlignmentErrorDegrees": 3.2
+      }
+    }
+  ]
+}
