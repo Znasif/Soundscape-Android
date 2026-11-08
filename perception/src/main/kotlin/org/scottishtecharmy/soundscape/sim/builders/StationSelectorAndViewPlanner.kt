@@ -45,7 +45,10 @@ object StationSelector {
         preferCloseToFootprints: List<List<EnuPoint>> = emptyList(),
         maxDistanceToBuildingMeters: Double = 40.0,
         onlyPanosWhenAvailable: Boolean = true,
-        minCapturedAtEpochMs: Long = 1609459200000L // 2021-01-01 UTC
+        minCapturedAtEpochMs: Long = 1609459200000L, // 2021-01-01 UTC
+        corridorSegmentEnu: Pair<EnuPoint, EnuPoint>? = null,
+        corridorHalfWidthMeters: Double = 35.0,
+        spatialSpread: Boolean = false
     ): List<Station> {
         if (images.isEmpty() || maxStations <= 0) return emptyList()
 
@@ -55,7 +58,7 @@ object StationSelector {
             val minBuildingDist: Double
         )
 
-        val candidates = images.map { img ->
+        val allCandidates = images.map { img ->
             val enu = localEnu.latLonToEnu(img.effectiveLocation)
             val bDist = if (preferCloseToFootprints.isEmpty()) {
                 0.0
@@ -66,6 +69,16 @@ object StationSelector {
                 } ?: Double.POSITIVE_INFINITY
             }
             ScoredCandidate(img, enu, bDist)
+        }
+
+        val candidates = if (corridorSegmentEnu != null) {
+            val filtered = allCandidates.filter { cand ->
+                val snap = Geometry2D.snapPointToSegment(cand.enu, corridorSegmentEnu.first, corridorSegmentEnu.second)
+                snap.distanceMeters <= corridorHalfWidthMeters
+            }
+            filtered.ifEmpty { allCandidates }
+        } else {
+            allCandidates
         }
 
         val panoCandidates = if (onlyPanosWhenAvailable) {
@@ -86,13 +99,36 @@ object StationSelector {
         )
 
         val selected = mutableListOf<ScoredCandidate>()
-        for (cand in sorted) {
-            if (selected.size >= maxStations) break
-            val tooClose = selected.any { existing ->
-                existing.enu.distanceTo2D(cand.enu) < minSpacingMeters
+        if (!spatialSpread) {
+            for (cand in sorted) {
+                if (selected.size >= maxStations) break
+                val tooClose = selected.any { existing ->
+                    existing.enu.distanceTo2D(cand.enu) < minSpacingMeters
+                }
+                if (!tooClose) {
+                    selected.add(cand)
+                }
             }
-            if (!tooClose) {
-                selected.add(cand)
+        } else {
+            val pool = sorted.filter { it.minBuildingDist <= maxDistanceToBuildingMeters }
+                .ifEmpty { sorted }
+            // Seed with the candidate closest to center / corridor that is near a building facade
+            val first = pool.minByOrNull {
+                it.enu.distanceTo2D(EnuPoint(0.0, 0.0)) + it.minBuildingDist * 2.0
+            } ?: sorted.first()
+            selected.add(first)
+
+            while (selected.size < maxStations) {
+                val eligible = pool.filter { cand ->
+                    selected.none { existing -> existing.enu.distanceTo2D(cand.enu) < minSpacingMeters }
+                }
+                if (eligible.isEmpty()) break
+                // Greedily pick the candidate that maximizes minimum distance to already-selected stations while staying close to facades
+                val next = eligible.maxByOrNull { cand ->
+                    val minDistToSelected = selected.minOf { it.enu.distanceTo2D(cand.enu) }
+                    minDistToSelected.coerceAtMost(60.0) - cand.minBuildingDist * 0.6
+                } ?: break
+                selected.add(next)
             }
         }
 
@@ -126,7 +162,8 @@ object ViewPlanner {
         buildingFootprints: List<BuildingFootprint>,
         maxDistanceMeters: Double = 40.0,
         hFovDegrees: Double = 90.0,
-        cropDimension: Int = 640
+        cropDimension: Int = 640,
+        roundRobinAcrossStations: Boolean = false
     ): List<PlannedView> {
         if (stations.isEmpty() || buildingFootprints.isEmpty()) return emptyList()
 
@@ -176,7 +213,38 @@ object ViewPlanner {
                 }
             }
         }
-        return planned
+        if (!roundRobinAcrossStations || planned.isEmpty()) {
+            return planned
+        }
+
+        // Order views in round-robin passes across stations, picking non-overlapping (>= 85 deg) facade views first
+        val byStation = planned.groupBy { it.station.id }.mapValues { (_, views) ->
+            views.sortedBy { it.hitDistanceMeters }
+        }
+        val ordered = mutableListOf<PlannedView>()
+        val chosenPerStation = mutableMapOf<String, MutableList<PlannedView>>()
+
+        for (round in 0 until 4) {
+            for (station in stations) {
+                val candidates = byStation[station.id].orEmpty()
+                val already = chosenPerStation.getOrPut(station.id) { mutableListOf() }
+                val nextNonOverlapping = candidates.firstOrNull { cand ->
+                    cand !in already && already.all { prev ->
+                        org.scottishtecharmy.soundscape.sim.geo.Angles.absAngleDifference(cand.yawDegrees, prev.yawDegrees) >= 85.0
+                    }
+                }
+                if (nextNonOverlapping != null) {
+                    already.add(nextNonOverlapping)
+                    ordered.add(nextNonOverlapping)
+                }
+            }
+        }
+        for (v in planned.sortedBy { it.hitDistanceMeters }) {
+            if (v !in ordered) {
+                ordered.add(v)
+            }
+        }
+        return ordered
     }
 
     /**

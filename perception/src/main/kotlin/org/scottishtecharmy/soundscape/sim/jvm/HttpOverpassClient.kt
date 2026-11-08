@@ -171,6 +171,9 @@ class HttpOverpassClient(
                 if (type == "node") {
                     add(obj)
                 } else if (type == "way") {
+                    if (!hasBuilding && ("highway" in tagsObj || "railway" in tagsObj || "route" in tagsObj || "waterway" in tagsObj)) {
+                        continue
+                    }
                     val pts = waysCoords[id].orEmpty()
                     if (pts.isEmpty()) continue
                     add(buildJsonObject {

@@ -300,6 +300,37 @@ object Geometry2D {
     }
 
     /**
+     * Projects [point] onto the line segment `[segStart, segEnd]` and returns a [SnapResult]
+     * with the closest point on the segment and its 2D distance.
+     */
+    fun snapPointToSegment(
+        point: EnuPoint,
+        segStart: EnuPoint,
+        segEnd: EnuPoint
+    ): SnapResult {
+        val dx = segEnd.east - segStart.east
+        val dy = segEnd.north - segStart.north
+        val lenSq = dx * dx + dy * dy
+        val u = if (lenSq > 1e-12) {
+            (((point.east - segStart.east) * dx + (point.north - segStart.north) * dy) / lenSq).coerceIn(0.0, 1.0)
+        } else {
+            0.0
+        }
+        val proj = EnuPoint(
+            east = segStart.east + u * dx,
+            north = segStart.north + u * dy,
+            up = point.up
+        )
+        return SnapResult(
+            snappedPoint = proj,
+            distanceMeters = point.distanceTo2D(proj),
+            edgeIndex = 0,
+            edgeStart = segStart,
+            edgeEnd = segEnd
+        )
+    }
+
+    /**
      * Computes horizontal ground-plane distance $d = h / \tan(\text{pitchBelowHorizon})$ from camera height $h$
      * and pitch angle below the horizon (positive down from horizon, in degrees).
      *
