@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Soundscape-Android Perception Pipeline" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Prototype: Boston South Station (Atlantic Ave &amp; Summer St) perceived entrances</name>
+    <desc>Soundscape Street Preview prototype GPX (perceived entrances, 3 waypoints). Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </metadata>
+  <wpt lat="42.352185" lon="-71.054784">
+    <name>Door, perceived: South Station</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1046750199855001, sam-3.1 confidence=0.61, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="42.352155" lon="-71.054728">
+    <name>Door, perceived: South Station</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1098509089451477, sam-3.1 confidence=0.62, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="42.352196" lon="-71.054452">
+    <name>Door, perceived</name>
+    <desc>Source: MAPILLARY+SAM_3_1 (Mapillary imageId=1098509089451477, sam-3.1 confidence=0.56, verifier=INSUFFICIENT, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <rte>
+    <name>Prototype: Boston South Station (Atlantic Ave &amp; Summer St) perceived entrances</name>
+    <rtept lat="42.352185" lon="-71.054784">
+      <name>Door, perceived: South Station</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1046750199855001, sam-3.1 confidence=0.61, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="42.352155" lon="-71.054728">
+      <name>Door, perceived: South Station</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1098509089451477, sam-3.1 confidence=0.62, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="42.352196" lon="-71.054452">
+      <name>Door, perceived</name>
+      <desc>Source: MAPILLARY+SAM_3_1 (Mapillary imageId=1098509089451477, sam-3.1 confidence=0.56, verifier=INSUFFICIENT, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+  </rte>
+</gpx>

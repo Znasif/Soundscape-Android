@@ -1,0 +1,94 @@
+{
+    "areaId": "paris-chatelet",
+    "displayName": "Paris Chatelet - Rue de Rivoli",
+    "city": "Paris",
+    "country": "France",
+    "split": "held_out",
+    "centerLatitude": 48.8584,
+    "centerLongitude": 2.3475,
+    "radiusMeters": 70.0,
+    "selectedStationCount": 6,
+    "plannedViewCount": 10,
+    "osmEntranceCountTotal": 51,
+    "osmEntranceCountVisible": 19,
+    "osmEntranceCountExcluded": 32,
+    "perceptionDoorCount": 10,
+    "perceptionSignCount": 0,
+    "perceptionStepsCount": 0,
+    "perceptionOnlyVsVisibleOsm": {
+        "predictedCount": 10,
+        "truthCount": 19,
+        "truePositives": 7,
+        "falsePositives": 3,
+        "falseNegatives": 12,
+        "precision": 0.7,
+        "recall": 0.3684210526315789,
+        "f1": 0.48275862068965514,
+        "meanErrorMeters": 1.173267350706572,
+        "medianErrorMeters": 0.9918699328336874,
+        "p90ErrorMeters": 2.098711142354536
+    },
+    "errorByMethod": {
+        "single_ray_footprint_intersection": {
+            "method": "single_ray_footprint_intersection",
+            "matchedCount": 1,
+            "meanErrorMeters": 1.6188902121279314,
+            "medianErrorMeters": 1.6188902121279314,
+            "p90ErrorMeters": 1.6188902121279314
+        },
+        "multi_view_triangulation": {
+            "method": "multi_view_triangulation",
+            "matchedCount": 1,
+            "meanErrorMeters": 1.8496736432906338,
+            "medianErrorMeters": 1.8496736432906338,
+            "p90ErrorMeters": 1.8496736432906338
+        },
+        "facade_snap": {
+            "method": "facade_snap",
+            "matchedCount": 5,
+            "meanErrorMeters": 0.9488615199054881,
+            "medianErrorMeters": 0.6884802947913358,
+            "p90ErrorMeters": 1.880108407703708
+        }
+    },
+    "unmatchedDoors": {
+        "totalUnmatchedPerceivedDoors": 3,
+        "likelyRealDoorMissingFromOsm": 2,
+        "likelyFalsePositive": 1,
+        "shareOfAllDetections": 0.3,
+        "likelyRealShareOfAllDetections": 0.2,
+        "likelyFalsePositiveShareOfAllDetections": 0.1,
+        "details": [
+            {
+                "objectId": "perc-door-4",
+                "latitude": 48.858972,
+                "longitude": 2.347228,
+                "stationId": "116287654404185",
+                "detectorConfidence": 0.8161,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Yves Rocher"
+            },
+            {
+                "objectId": "perc-door-8",
+                "latitude": 48.858092,
+                "longitude": 2.347653,
+                "stationId": "404132028244089",
+                "detectorConfidence": 0.6364,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Chambre des notaires"
+            },
+            {
+                "objectId": "perc-door-12",
+                "latitude": 48.858729,
+                "longitude": 2.348115,
+                "stationId": "1041396273136787",
+                "detectorConfidence": 0.5631,
+                "secondCropVerifierVerdict": "INSUFFICIENT",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Columbus"
+            }
+        ]
+    }
+}

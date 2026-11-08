@@ -1,0 +1,94 @@
+{
+    "areaId": "nyc-grand-central",
+    "displayName": "New York Grand Central Terminal (42nd St)",
+    "city": "New York",
+    "country": "USA",
+    "split": "held_out",
+    "centerLatitude": 40.7524,
+    "centerLongitude": -73.9774,
+    "radiusMeters": 75.0,
+    "selectedStationCount": 3,
+    "plannedViewCount": 10,
+    "osmEntranceCountTotal": 11,
+    "osmEntranceCountVisible": 2,
+    "osmEntranceCountExcluded": 9,
+    "perceptionDoorCount": 3,
+    "perceptionSignCount": 0,
+    "perceptionStepsCount": 0,
+    "perceptionOnlyVsVisibleOsm": {
+        "predictedCount": 3,
+        "truthCount": 2,
+        "truePositives": 0,
+        "falsePositives": 3,
+        "falseNegatives": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "meanErrorMeters": 0.0,
+        "medianErrorMeters": 0.0,
+        "p90ErrorMeters": 0.0
+    },
+    "errorByMethod": {
+        "single_ray_footprint_intersection": {
+            "method": "single_ray_footprint_intersection",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "multi_view_triangulation": {
+            "method": "multi_view_triangulation",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "facade_snap": {
+            "method": "facade_snap",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        }
+    },
+    "unmatchedDoors": {
+        "totalUnmatchedPerceivedDoors": 3,
+        "likelyRealDoorMissingFromOsm": 2,
+        "likelyFalsePositive": 1,
+        "shareOfAllDetections": 1.0,
+        "likelyRealShareOfAllDetections": 0.6667,
+        "likelyFalsePositiveShareOfAllDetections": 0.3333,
+        "details": [
+            {
+                "objectId": "perc-door-1",
+                "latitude": 40.752328,
+                "longitude": -73.977845,
+                "stationId": "2156804614886662",
+                "detectorConfidence": 0.8129,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Grand Central Terminal"
+            },
+            {
+                "objectId": "perc-door-2",
+                "latitude": 40.7523,
+                "longitude": -73.977703,
+                "stationId": "2109694339895220",
+                "detectorConfidence": 0.8904,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Park Avenue Viaduct"
+            },
+            {
+                "objectId": "perc-door-3",
+                "latitude": 40.752272,
+                "longitude": -73.977711,
+                "stationId": "2109694339895220",
+                "detectorConfidence": 0.7538,
+                "secondCropVerifierVerdict": "INSUFFICIENT",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Park Avenue Viaduct"
+            }
+        ]
+    }
+}

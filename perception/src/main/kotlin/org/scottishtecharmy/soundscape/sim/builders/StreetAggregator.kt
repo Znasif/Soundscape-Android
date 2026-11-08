@@ -389,7 +389,8 @@ object StreetAggregator {
                     if (used[j]) continue
                     val other = projected[j]
                     if (other.sighting.category != seed.sighting.category) continue
-                    if (other.initialPoint.distanceTo2D(seed.initialPoint) <= 5.0) {
+                    if (cluster.any { it.sighting.stationId == other.sighting.stationId }) continue
+                    if (other.initialPoint.distanceTo2D(seed.initialPoint) <= 4.5) {
                         used[j] = true
                         cluster.add(other)
                     }

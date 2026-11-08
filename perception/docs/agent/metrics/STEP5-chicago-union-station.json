@@ -1,0 +1,114 @@
+{
+    "areaId": "chicago-union-station",
+    "displayName": "Chicago Union Station (Canal St & Adams St)",
+    "city": "Chicago",
+    "country": "USA",
+    "split": "held_out",
+    "centerLatitude": 41.8789,
+    "centerLongitude": -87.6395,
+    "radiusMeters": 75.0,
+    "selectedStationCount": 6,
+    "plannedViewCount": 10,
+    "osmEntranceCountTotal": 46,
+    "osmEntranceCountVisible": 12,
+    "osmEntranceCountExcluded": 34,
+    "perceptionDoorCount": 5,
+    "perceptionSignCount": 0,
+    "perceptionStepsCount": 0,
+    "perceptionOnlyVsVisibleOsm": {
+        "predictedCount": 5,
+        "truthCount": 12,
+        "truePositives": 0,
+        "falsePositives": 5,
+        "falseNegatives": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "meanErrorMeters": 0.0,
+        "medianErrorMeters": 0.0,
+        "p90ErrorMeters": 0.0
+    },
+    "errorByMethod": {
+        "single_ray_footprint_intersection": {
+            "method": "single_ray_footprint_intersection",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "multi_view_triangulation": {
+            "method": "multi_view_triangulation",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "facade_snap": {
+            "method": "facade_snap",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        }
+    },
+    "unmatchedDoors": {
+        "totalUnmatchedPerceivedDoors": 5,
+        "likelyRealDoorMissingFromOsm": 5,
+        "likelyFalsePositive": 0,
+        "shareOfAllDetections": 1.0,
+        "likelyRealShareOfAllDetections": 1.0,
+        "likelyFalsePositiveShareOfAllDetections": 0.0,
+        "details": [
+            {
+                "objectId": "perc-door-4",
+                "latitude": 41.879191,
+                "longitude": -87.640178,
+                "stationId": "1262520145898814",
+                "detectorConfidence": 0.8049,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Chicago Union Station"
+            },
+            {
+                "objectId": "perc-door-3",
+                "latitude": 41.879192,
+                "longitude": -87.640093,
+                "stationId": "1320719059846171",
+                "detectorConfidence": 0.6168,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Canal St & Adams St"
+            },
+            {
+                "objectId": "perc-door-2",
+                "latitude": 41.87919,
+                "longitude": -87.640265,
+                "stationId": "2064788314147945",
+                "detectorConfidence": 0.7344,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Chicago Union Station"
+            },
+            {
+                "objectId": "perc-door-1",
+                "latitude": 41.879194,
+                "longitude": -87.639919,
+                "stationId": "1038524595201775",
+                "detectorConfidence": 0.6684,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Canal St & Adams St"
+            },
+            {
+                "objectId": "perc-door-5",
+                "latitude": 41.879207,
+                "longitude": -87.63975,
+                "stationId": "1038524595201775",
+                "detectorConfidence": 0.5776,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Polar Express"
+            }
+        ]
+    }
+}

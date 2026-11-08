@@ -354,12 +354,12 @@
             "name": "Smith-Kettlewell Eye Research Institute Entrance",
             "category": "DOOR",
             "position": [
-                -22.321594182059926,
+                -22.320582708086217,
                 0.0,
-                -6.303721520134902
+                -6.310140239504617
             ],
-            "latitude": 37.79111750589302,
-            "longitude": -122.43418572129227,
+            "latitude": 37.79111744806282,
+            "longitude": -122.43418570980872,
             "confidence": 0.99,
             "sources": [
                 "MAPILLARY",
@@ -370,7 +370,7 @@
                 "osmId": "node/13639682002",
                 "name": "Smith-Kettlewell Eye Research Institute",
                 "category": "research",
-                "matchScore": 0.6869957361029353
+                "matchScore": 0.6867708026317888
             },
             "evidence": [
                 {
@@ -460,12 +460,12 @@
             "name": "Islais Entrance",
             "category": "DOOR",
             "position": [
-                -20.80558189006763,
+                -19.48344656030144,
                 0.0,
-                8.319589804011008
+                8.52934421162699
             ],
-            "latitude": 37.79124925630424,
-            "longitude": -122.4341685099269,
+            "latitude": 37.79125114611077,
+            "longitude": -122.43415349946324,
             "confidence": 0.99,
             "sources": [
                 "MAPILLARY",
@@ -476,7 +476,7 @@
                 "osmId": "node/13639660299",
                 "name": "Islais",
                 "category": "clothes",
-                "matchScore": 0.7880492353761355
+                "matchScore": 0.7680852566518084
             },
             "evidence": [
                 {
@@ -518,7 +518,33 @@
                     "detectorConfidence": 0.9298245906829834,
                     "verifierResult": "YES",
                     "localisationMethod": "MULTI_RAY_TRIANGULATION_FACADE_SNAP"
-                },
+                }
+            ]
+        },
+        {
+            "id": "perc-door-5",
+            "name": "Smith-Kettlewell Eye Research Institute Entrance",
+            "category": "DOOR",
+            "position": [
+                -23.860463847490678,
+                0.0,
+                3.4618016527133566
+            ],
+            "latitude": 37.79120548950152,
+            "longitude": -122.43420319253205,
+            "confidence": 0.99,
+            "sources": [
+                "MAPILLARY",
+                "SAM_3_1",
+                "GEMINI_FLASH"
+            ],
+            "linkedVenue": {
+                "osmId": "node/13639682002",
+                "name": "Smith-Kettlewell Eye Research Institute",
+                "category": "research",
+                "matchScore": 0.6420075170418236
+            },
+            "evidence": [
                 {
                     "stationId": "1116762269018404",
                     "bearingDegrees": 96.12454543120202,
@@ -562,7 +588,7 @@
             ]
         },
         {
-            "id": "perc-door-5",
+            "id": "perc-door-7",
             "name": "Le Labo Entrance",
             "category": "DOOR",
             "position": [
@@ -604,40 +630,20 @@
                     "detectorConfidence": 0.9101123809814453,
                     "verifierResult": "YES",
                     "localisationMethod": "FACADE_SNAP"
-                },
-                {
-                    "stationId": "1167706340838604",
-                    "bearingDegrees": 44.23749807559467,
-                    "elevationDegrees": -3.8693976681829594,
-                    "box": [
-                        52,
-                        249,
-                        162,
-                        346
-                    ],
-                    "normalizedBox": [
-                        0.0812,
-                        0.3891,
-                        0.2531,
-                        0.5406
-                    ],
-                    "detectorConfidence": 0.6246334314346313,
-                    "verifierResult": "YES",
-                    "localisationMethod": "FACADE_SNAP"
                 }
             ]
         },
         {
-            "id": "perc-door-10",
+            "id": "perc-door-15",
             "name": "Reformation Entrance",
             "category": "DOOR",
             "position": [
-                -28.87586588876623,
+                -28.57430859037966,
                 0.0,
-                36.184228891807656
+                37.070160511015935
             ],
-            "latitude": 37.79150030597811,
-            "longitude": -122.4342601340277,
+            "latitude": 37.79150828788085,
+            "longitude": -122.43425671039911,
             "confidence": 0.99,
             "sources": [
                 "MAPILLARY",
@@ -648,7 +654,7 @@
                 "osmId": "node/13639660298",
                 "name": "Reformation",
                 "category": "clothes",
-                "matchScore": 0.8398328786073161
+                "matchScore": 0.8339489943513109
             },
             "evidence": [
                 {
@@ -694,7 +700,7 @@
             ]
         },
         {
-            "id": "perc-door-13",
+            "id": "perc-door-21",
             "name": "Taco Primo Entrance",
             "category": "DOOR",
             "position": [
@@ -736,41 +742,21 @@
                     "detectorConfidence": 0.9101123809814453,
                     "verifierResult": "YES",
                     "localisationMethod": "FACADE_SNAP"
-                },
-                {
-                    "stationId": "1116762269018404",
-                    "bearingDegrees": 255.54201117998147,
-                    "elevationDegrees": -16.52385758617483,
-                    "box": [
-                        282,
-                        369,
-                        334,
-                        415
-                    ],
-                    "normalizedBox": [
-                        0.4406,
-                        0.5766,
-                        0.5219,
-                        0.6484
-                    ],
-                    "detectorConfidence": 0.6332378387451172,
-                    "verifierResult": "YES",
-                    "localisationMethod": "FACADE_SNAP"
                 }
             ]
         },
         {
-            "id": "perc-door-8",
+            "id": "perc-door-12",
             "name": "Detected Entrance",
             "category": "DOOR",
             "position": [
-                -18.62683847692169,
+                -17.99782580819826,
                 0.0,
-                60.728248132683646
+                60.65751068435823
             ],
-            "latitude": 37.79172143813629,
-            "longitude": -122.43414377489063,
-            "confidence": 0.9704109597206115,
+            "latitude": 37.79172080081914,
+            "longitude": -122.43413663356056,
+            "confidence": 0.99,
             "sources": [
                 "MAPILLARY",
                 "SAM_3_1",
@@ -820,83 +806,17 @@
             ]
         },
         {
-            "id": "perc-door-3",
-            "name": "Islais Entrance",
-            "category": "DOOR",
-            "position": [
-                -24.985262179787377,
-                0.0,
-                13.751787639741366
-            ],
-            "latitude": 37.79129819831688,
-            "longitude": -122.43421596276563,
-            "confidence": 0.935203628540039,
-            "sources": [
-                "MAPILLARY",
-                "SAM_3_1",
-                "GEMINI_FLASH"
-            ],
-            "linkedVenue": {
-                "osmId": "node/13639660299",
-                "name": "Islais",
-                "category": "clothes",
-                "matchScore": 0.8400608607021097
-            },
-            "evidence": [
-                {
-                    "stationId": "1116762269018404",
-                    "bearingDegrees": 39.74649955852826,
-                    "elevationDegrees": -28.465552531636966,
-                    "box": [
-                        0,
-                        398,
-                        141,
-                        540
-                    ],
-                    "normalizedBox": [
-                        0.0,
-                        0.6219,
-                        0.2203,
-                        0.8438
-                    ],
-                    "detectorConfidence": 0.8552036285400391,
-                    "verifierResult": "INSUFFICIENT",
-                    "localisationMethod": "FACADE_SNAP"
-                },
-                {
-                    "stationId": "1116762269018404",
-                    "bearingDegrees": 55.3499978293792,
-                    "elevationDegrees": -31.85884036923997,
-                    "box": [
-                        118,
-                        392,
-                        259,
-                        535
-                    ],
-                    "normalizedBox": [
-                        0.1844,
-                        0.6125,
-                        0.4047,
-                        0.8359
-                    ],
-                    "detectorConfidence": 0.7299578189849854,
-                    "verifierResult": "YES",
-                    "localisationMethod": "FACADE_SNAP"
-                }
-            ]
-        },
-        {
-            "id": "perc-door-12",
+            "id": "perc-door-18",
             "name": "Tryst Entrance",
             "category": "DOOR",
             "position": [
-                -45.332030515559964,
+                -43.98516213142853,
                 0.0,
-                -44.04744155896594
+                -43.500725410475134
             ],
-            "latitude": 37.790777449477226,
-            "longitude": -122.4344469619608,
-            "confidence": 0.935203628540039,
+            "latitude": 37.79078237517981,
+            "longitude": -122.4344316707602,
+            "confidence": 0.99,
             "sources": [
                 "MAPILLARY",
                 "SAM_3_1",
@@ -906,7 +826,7 @@
                 "osmId": "node/13639682004",
                 "name": "Tryst",
                 "category": "beauty",
-                "matchScore": 0.8720344621868665
+                "matchScore": 0.9140978411756046
             },
             "evidence": [
                 {
@@ -967,12 +887,78 @@
                     ],
                     "detectorConfidence": 0.7229437232017517,
                     "verifierResult": "YES",
-                    "localisationMethod": "FACADE_SNAP"
+                    "localisationMethod": "SINGLE_RAY_FOOTPRINT_FACADE_SNAP"
                 }
             ]
         },
         {
-            "id": "perc-door-18",
+            "id": "perc-door-4",
+            "name": "Islais Entrance",
+            "category": "DOOR",
+            "position": [
+                -25.415839459820813,
+                0.0,
+                10.483570433752545
+            ],
+            "latitude": 37.79126875293724,
+            "longitude": -122.43422085113986,
+            "confidence": 0.9299578189849853,
+            "sources": [
+                "MAPILLARY",
+                "SAM_3_1",
+                "GEMINI_FLASH"
+            ],
+            "linkedVenue": {
+                "osmId": "node/13639660299",
+                "name": "Islais",
+                "category": "clothes",
+                "matchScore": 0.8100240769543614
+            },
+            "evidence": [
+                {
+                    "stationId": "1116762269018404",
+                    "bearingDegrees": 55.3499978293792,
+                    "elevationDegrees": -31.85884036923997,
+                    "box": [
+                        118,
+                        392,
+                        259,
+                        535
+                    ],
+                    "normalizedBox": [
+                        0.1844,
+                        0.6125,
+                        0.4047,
+                        0.8359
+                    ],
+                    "detectorConfidence": 0.7299578189849854,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_RAY_TRIANGULATION_FACADE_SNAP"
+                },
+                {
+                    "stationId": "1184002609210177",
+                    "bearingDegrees": 25.283442758744524,
+                    "elevationDegrees": -22.942496186709207,
+                    "box": [
+                        238,
+                        369,
+                        305,
+                        457
+                    ],
+                    "normalizedBox": [
+                        0.3719,
+                        0.5766,
+                        0.4766,
+                        0.7141
+                    ],
+                    "detectorConfidence": 0.7104072570800781,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_RAY_TRIANGULATION_FACADE_SNAP"
+                }
+            ]
+        },
+        {
+            "id": "perc-door-28",
             "name": "Margaret O'Leary Entrance",
             "category": "DOOR",
             "position": [
@@ -1018,7 +1004,7 @@
             ]
         },
         {
-            "id": "perc-door-16",
+            "id": "perc-door-25",
             "name": "Paige Entrance",
             "category": "DOOR",
             "position": [
@@ -1065,17 +1051,17 @@
             ]
         },
         {
-            "id": "perc-door-7",
+            "id": "perc-door-10",
             "name": "Nest Entrance",
             "category": "DOOR",
             "position": [
-                -12.378411894718425,
+                -12.277038532380427,
                 0.0,
-                -39.5821165788255
+                -39.56497469774722
             ],
-            "latitude": 37.79081768034067,
-            "longitude": -122.434072834174,
-            "confidence": 0.8687788414955139,
+            "latitude": 37.79081783478244,
+            "longitude": -122.43407168326546,
+            "confidence": 0.9487788414955138,
             "sources": [
                 "MAPILLARY",
                 "SAM_3_1",
@@ -1085,7 +1071,7 @@
                 "osmId": "node/9877758092",
                 "name": "Nest",
                 "category": "interior_decoration",
-                "matchScore": 0.8420504274163164
+                "matchScore": 0.8385722018324553
             },
             "evidence": [
                 {
@@ -1131,7 +1117,52 @@
             ]
         },
         {
-            "id": "perc-door-6",
+            "id": "perc-door-3",
+            "name": "Islais Entrance",
+            "category": "DOOR",
+            "position": [
+                -24.985262179787377,
+                0.0,
+                13.751787639741366
+            ],
+            "latitude": 37.79129819831688,
+            "longitude": -122.43421596276563,
+            "confidence": 0.8552036285400391,
+            "sources": [
+                "MAPILLARY",
+                "SAM_3_1"
+            ],
+            "linkedVenue": {
+                "osmId": "node/13639660299",
+                "name": "Islais",
+                "category": "clothes",
+                "matchScore": 0.8400608607021097
+            },
+            "evidence": [
+                {
+                    "stationId": "1116762269018404",
+                    "bearingDegrees": 39.74649955852826,
+                    "elevationDegrees": -28.465552531636966,
+                    "box": [
+                        0,
+                        398,
+                        141,
+                        540
+                    ],
+                    "normalizedBox": [
+                        0.0,
+                        0.6219,
+                        0.2203,
+                        0.8438
+                    ],
+                    "detectorConfidence": 0.8552036285400391,
+                    "verifierResult": "INSUFFICIENT",
+                    "localisationMethod": "FACADE_SNAP"
+                }
+            ]
+        },
+        {
+            "id": "perc-door-9",
             "name": "Chouquet's Entrance",
             "category": "DOOR",
             "position": [
@@ -1177,53 +1208,7 @@
             ]
         },
         {
-            "id": "perc-door-4",
-            "name": "Islais Entrance",
-            "category": "DOOR",
-            "position": [
-                -25.113474392788508,
-                0.0,
-                8.59906565118706
-            ],
-            "latitude": 37.791251774274116,
-            "longitude": -122.43421741829579,
-            "confidence": 0.7904072570800781,
-            "sources": [
-                "MAPILLARY",
-                "SAM_3_1",
-                "GEMINI_FLASH"
-            ],
-            "linkedVenue": {
-                "osmId": "node/13639660299",
-                "name": "Islais",
-                "category": "clothes",
-                "matchScore": 0.7595492866912553
-            },
-            "evidence": [
-                {
-                    "stationId": "1184002609210177",
-                    "bearingDegrees": 25.283442758744524,
-                    "elevationDegrees": -22.942496186709207,
-                    "box": [
-                        238,
-                        369,
-                        305,
-                        457
-                    ],
-                    "normalizedBox": [
-                        0.3719,
-                        0.5766,
-                        0.4766,
-                        0.7141
-                    ],
-                    "detectorConfidence": 0.7104072570800781,
-                    "verifierResult": "YES",
-                    "localisationMethod": "FACADE_SNAP"
-                }
-            ]
-        },
-        {
-            "id": "perc-door-19",
+            "id": "perc-door-29",
             "name": "Margaret O'Leary Entrance",
             "category": "DOOR",
             "position": [
@@ -1269,7 +1254,7 @@
             ]
         },
         {
-            "id": "perc-sign-17",
+            "id": "perc-sign-26",
             "name": "Sign: PAIGE",
             "category": "SIGN",
             "position": [
@@ -1306,31 +1291,11 @@
                     "detectorConfidence": 0.6800000071525574,
                     "verifierResult": "YES",
                     "localisationMethod": "FACADE_SNAP"
-                },
-                {
-                    "stationId": "1167706340838604",
-                    "bearingDegrees": 276.9366599500993,
-                    "elevationDegrees": -0.7615489792123168,
-                    "box": [
-                        426,
-                        311,
-                        435,
-                        338
-                    ],
-                    "normalizedBox": [
-                        0.6656,
-                        0.4859,
-                        0.6797,
-                        0.5281
-                    ],
-                    "detectorConfidence": 0.6167664527893066,
-                    "verifierResult": "YES",
-                    "localisationMethod": "FACADE_SNAP"
                 }
             ]
         },
         {
-            "id": "perc-door-9",
+            "id": "perc-door-13",
             "name": "Detected Entrance",
             "category": "DOOR",
             "position": [
@@ -1795,7 +1760,7 @@
             ]
         },
         {
-            "id": "perc-door-14",
+            "id": "perc-door-22",
             "name": "Pets Unlimited Entrance",
             "category": "DOOR",
             "position": [
@@ -1841,7 +1806,140 @@
             ]
         },
         {
-            "id": "perc-door-11",
+            "id": "perc-door-23",
+            "name": "Taco Primo Entrance",
+            "category": "DOOR",
+            "position": [
+                -45.979509396769494,
+                0.0,
+                1.5860223364870516
+            ],
+            "latitude": 37.79118858945131,
+            "longitude": -122.43445431434073,
+            "confidence": 0.7132378387451171,
+            "sources": [
+                "MAPILLARY",
+                "SAM_3_1",
+                "GEMINI_FLASH"
+            ],
+            "linkedVenue": {
+                "osmId": "node/13639682003",
+                "name": "Taco Primo",
+                "category": "restaurant",
+                "matchScore": 0.5
+            },
+            "evidence": [
+                {
+                    "stationId": "1116762269018404",
+                    "bearingDegrees": 255.54201117998147,
+                    "elevationDegrees": -16.52385758617483,
+                    "box": [
+                        282,
+                        369,
+                        334,
+                        415
+                    ],
+                    "normalizedBox": [
+                        0.4406,
+                        0.5766,
+                        0.5219,
+                        0.6484
+                    ],
+                    "detectorConfidence": 0.6332378387451172,
+                    "verifierResult": "YES",
+                    "localisationMethod": "FACADE_SNAP"
+                }
+            ]
+        },
+        {
+            "id": "perc-door-8",
+            "name": "Hair Fairies Entrance",
+            "category": "DOOR",
+            "position": [
+                -9.914013410597722,
+                0.0,
+                -83.68081066195872
+            ],
+            "latitude": 37.79042036802822,
+            "longitude": -122.4340448551458,
+            "confidence": 0.7046334314346313,
+            "sources": [
+                "MAPILLARY",
+                "SAM_3_1",
+                "GEMINI_FLASH"
+            ],
+            "linkedVenue": {
+                "osmId": "node/13365517567",
+                "name": "Hair Fairies",
+                "category": "hairdresser",
+                "matchScore": 0.811550976926581
+            },
+            "evidence": [
+                {
+                    "stationId": "1167706340838604",
+                    "bearingDegrees": 44.23749807559467,
+                    "elevationDegrees": -3.8693976681829594,
+                    "box": [
+                        52,
+                        249,
+                        162,
+                        346
+                    ],
+                    "normalizedBox": [
+                        0.0812,
+                        0.3891,
+                        0.2531,
+                        0.5406
+                    ],
+                    "detectorConfidence": 0.6246334314346313,
+                    "verifierResult": "YES",
+                    "localisationMethod": "FACADE_SNAP"
+                }
+            ]
+        },
+        {
+            "id": "perc-sign-27",
+            "name": "Sign: PAIGE",
+            "category": "SIGN",
+            "position": [
+                -28.56198780295374,
+                0.0,
+                -89.27713427067795
+            ],
+            "latitude": 37.790369947297975,
+            "longitude": -122.43425656803112,
+            "confidence": 0.6967664527893066,
+            "sources": [
+                "MAPILLARY",
+                "SAM_3_1",
+                "GEMINI_FLASH"
+            ],
+            "text": "PAIGE",
+            "evidence": [
+                {
+                    "stationId": "1167706340838604",
+                    "bearingDegrees": 276.9366599500993,
+                    "elevationDegrees": -0.7615489792123168,
+                    "box": [
+                        426,
+                        311,
+                        435,
+                        338
+                    ],
+                    "normalizedBox": [
+                        0.6656,
+                        0.4859,
+                        0.6797,
+                        0.5281
+                    ],
+                    "detectorConfidence": 0.6167664527893066,
+                    "verifierResult": "YES",
+                    "localisationMethod": "FACADE_SNAP"
+                }
+            ]
+        },
+        {
+            "id": "perc-door-17",
             "name": "Reformation Entrance",
             "category": "DOOR",
             "position": [
@@ -1887,7 +1985,7 @@
             ]
         },
         {
-            "id": "perc-door-15",
+            "id": "perc-door-24",
             "name": "Mayflower Market Entrance",
             "category": "DOOR",
             "position": [
@@ -1999,6 +2097,20 @@
             ],
             "latitude": 37.78999979829936,
             "longitude": -122.43396159887666
+        },
+        {
+            "id": "sign-5",
+            "text": "PAIGE",
+            "confidence": 0.6967664527893066,
+            "position": [
+                -28.56198780295374,
+                2.2,
+                -89.27713427067795
+            ],
+            "latitude": 37.790369947297975,
+            "longitude": -122.43425656803112,
+            "stationId": "1167706340838604",
+            "bearingDegrees": 276.9366599500993
         }
     ],
     "stations": [

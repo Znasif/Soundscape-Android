@@ -121,6 +121,14 @@ suspend fun runBuildFillmoreCli(args: Array<String>) {
 
 suspend fun runStep5EvalCli(args: Array<String>) {
     val replayOnly = "--replay-only" in args
+    var targetAreaId: String? = null
+    var i = 1
+    while (i < args.size) {
+        when (args[i]) {
+            "--area" -> { targetAreaId = args[++i] }
+        }
+        i++
+    }
     val ledgerStore = JvmFileBudgetLedgerStore(File("docs/agent/metrics/budget-ledger.json"))
     val budget = Budget(
         maxMapillaryCalls = 5000,
@@ -131,6 +139,25 @@ suspend fun runStep5EvalCli(args: Array<String>) {
         ledgerStore = ledgerStore,
         clockEpochMs = { System.currentTimeMillis() }
     )
+    if (targetAreaId != null) {
+        val spec = Step5OutdoorEvaluator.PRE_REGISTERED_AREAS.first { it.areaId == targetAreaId }
+        val exec = Step5OutdoorEvaluator.evaluateSingleArea(
+            spec = spec,
+            budget = budget,
+            fixturesRootDir = File("src/test/resources/fixtures"),
+            samplesDir = File("samples"),
+            gpxOutDir = File("samples/gpx"),
+            metricsOutDir = File("docs/agent/metrics"),
+            replayOnly = replayOnly
+        )
+        println(
+            "[run-step5-eval] Area ${spec.areaId}: percDoors=${exec.report.perceptionDoorCount}, " +
+                "visibleOsm=${exec.report.osmEntranceCountVisible} (excluded=${exec.report.osmEntranceCountExcluded}), " +
+                "P=${exec.report.perceptionOnlyVsVisibleOsm.precision}, R=${exec.report.perceptionOnlyVsVisibleOsm.recall}, " +
+                "F1=${exec.report.perceptionOnlyVsVisibleOsm.f1}, budget=${budget.summary()}"
+        )
+        return
+    }
     val report = Step5OutdoorEvaluator.runFullStep5Evaluation(
         budget = budget,
         fixturesRootDir = File("src/test/resources/fixtures"),

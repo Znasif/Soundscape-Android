@@ -1,13 +1,14 @@
 # Perception Pipeline Agent Progress
 
-- **Current Step**: Step 5 (`argon/step-5`) — In Progress (5a persistent budget ledger + 5b GPX export complete; starting 5c multi-area evaluation & Fillmore Street corridor)
-- **Timestamp (UTC)**: 2026-11-08T03:33:00Z
-- **Status**: Step 5a (`budget-ledger.json` + persistent `Budget`) and Step 5b (`export-gpx` CLI + `GpxExporter` + `SimGpxMirrorParser` tests) passing (`./gradlew -p perception test` -> 32/32 tests passing).
-- **Last Check Result**: `./gradlew -p perception test` -> `BUILD SUCCESSFUL` (32 tests passed, 0 failures)
+- **Current Step**: Step 5 (`argon/step-5`) — COMPLETED (5a persistent budget ledger, 5b GPX export, 5c Fillmore corridor + 10-area outdoor evaluation & ablations complete)
+- **Timestamp (UTC)**: 2026-11-08T05:35:00Z
+- **Status**: Step 5 complete. All 10 pre-registered areas (`fillmore-2318`, `ferry-building`, plus 8 held-out areas across 7 cities & 3 countries), 3 development ablations, 12 GPX files, `STEP5-outdoor.json`, `STEP5-<area>.json`, `FILLMORE.md`, and `STEP5_REPORT.md` committed and verified (`./gradlew -p perception test` -> 34/34 tests passing, fixtures 3.3 MB).
+- **Last Check Result**: `./gradlew -p perception test` -> `BUILD SUCCESSFUL` (34 tests passed, 0 failures)
 - **Ledger Totals (`perception/docs/agent/metrics/budget-ledger.json`)**:
   - **Steps 0 to 3**: Meta `sam-3.1`: `45` | Gemini Flash: `35` | Mapillary Graph API: `16`
   - **Step 4**: Meta `sam-3.1`: `0` | Gemini Flash: `0` | Mapillary Graph API: `0`
-  - **Step 5 (so far)**: Meta `sam-3.1`: `0 / 300` | Gemini Flash: `0 / 600` | Mapillary Graph API: `0 / 5,000`
+  - **Step 5**: Meta `sam-3.1`: `143 / 300` | Gemini Flash: `184 / 600` | Mapillary Graph API: `96 / 5,000`
+  - **Cumulative (Steps 0 to 5)**: Meta `sam-3.1`: `188` | Gemini Flash: `219` | Mapillary Graph API: `112`
 - **Completed Branches & Draft PRs (in `Znasif/Soundscape-Android`)**:
   - `argon/step-0` -> `main`: Draft PR #1 (`https://github.com/Znasif/Soundscape-Android/pull/1`)
   - `argon/step-1` -> `argon/step-0`: Draft PR #2 (`https://github.com/Znasif/Soundscape-Android/pull/2`)

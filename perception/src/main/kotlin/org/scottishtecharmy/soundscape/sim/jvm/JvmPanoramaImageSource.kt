@@ -62,16 +62,29 @@ class JvmPanoramaImageSource(
         val source = mapillarySource ?: return null
         val gw = gateway ?: return null
 
-        val meta = source.getImageById(stationId) ?: return null
-        val signedUrl = meta.thumb2048Url ?: meta.thumb1024Url ?: return null
+        var meta = source.getImageById(stationId) ?: return null
+        var signedUrl = meta.thumb2048Url ?: meta.thumb1024Url ?: return null
 
-        if (signedUrl.startsWith("https://stub.mapillary.example") || gw.replayOnly) {
+        if (gw.replayOnly) {
             // Offline replay mode: return lightweight stub JPEG so StreetBuilder replays recorded SAM/Gemini JSON fixtures
             return PerspectiveCropImage(
                 stationId = stationId,
                 camera = effectiveCamera,
                 jpegBytes = STUB_REPLAY_JPEG
             )
+        }
+
+        if (signedUrl.startsWith("https://stub.mapillary.example")) {
+            val liveSource = HttpMapillaryClient(gateway = HttpGateway(replayOnly = false))
+            meta = liveSource.getImageById(stationId) ?: return null
+            signedUrl = meta.thumb2048Url ?: meta.thumb1024Url ?: return null
+            if (signedUrl.startsWith("https://stub.mapillary.example")) {
+                return PerspectiveCropImage(
+                    stationId = stationId,
+                    camera = effectiveCamera,
+                    jpegBytes = STUB_REPLAY_JPEG
+                )
+            }
         }
 
         val bytes = gw.getBytes(signedUrl)

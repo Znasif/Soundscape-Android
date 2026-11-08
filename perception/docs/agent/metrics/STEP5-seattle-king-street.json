@@ -1,0 +1,84 @@
+{
+    "areaId": "seattle-king-street",
+    "displayName": "Seattle King Street Station",
+    "city": "Seattle",
+    "country": "USA",
+    "split": "held_out",
+    "centerLatitude": 47.5984,
+    "centerLongitude": -122.3299,
+    "radiusMeters": 75.0,
+    "selectedStationCount": 6,
+    "plannedViewCount": 10,
+    "osmEntranceCountTotal": 6,
+    "osmEntranceCountVisible": 4,
+    "osmEntranceCountExcluded": 2,
+    "perceptionDoorCount": 3,
+    "perceptionSignCount": 0,
+    "perceptionStepsCount": 0,
+    "perceptionOnlyVsVisibleOsm": {
+        "predictedCount": 3,
+        "truthCount": 4,
+        "truePositives": 1,
+        "falsePositives": 2,
+        "falseNegatives": 3,
+        "precision": 0.3333333333333333,
+        "recall": 0.25,
+        "f1": 0.28571428571428575,
+        "meanErrorMeters": 3.3644728594184428,
+        "medianErrorMeters": 3.3644728594184428,
+        "p90ErrorMeters": 3.3644728594184428
+    },
+    "errorByMethod": {
+        "single_ray_footprint_intersection": {
+            "method": "single_ray_footprint_intersection",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "multi_view_triangulation": {
+            "method": "multi_view_triangulation",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "facade_snap": {
+            "method": "facade_snap",
+            "matchedCount": 1,
+            "meanErrorMeters": 3.3644728594184428,
+            "medianErrorMeters": 3.3644728594184428,
+            "p90ErrorMeters": 3.3644728594184428
+        }
+    },
+    "unmatchedDoors": {
+        "totalUnmatchedPerceivedDoors": 2,
+        "likelyRealDoorMissingFromOsm": 2,
+        "likelyFalsePositive": 0,
+        "shareOfAllDetections": 0.6667,
+        "likelyRealShareOfAllDetections": 0.6667,
+        "likelyFalsePositiveShareOfAllDetections": 0.0,
+        "details": [
+            {
+                "objectId": "perc-door-3",
+                "latitude": 47.598462,
+                "longitude": -122.330913,
+                "stationId": "1090203966170850",
+                "detectorConfidence": 0.773,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "King Street Center"
+            },
+            {
+                "objectId": "perc-door-7",
+                "latitude": 47.598458,
+                "longitude": -122.330945,
+                "stationId": "1090203966170850",
+                "detectorConfidence": 0.7193,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "King Street Center"
+            }
+        ]
+    }
+}

@@ -1,0 +1,94 @@
+{
+    "areaId": "ferry-building",
+    "displayName": "San Francisco Ferry Building",
+    "city": "San Francisco",
+    "country": "USA",
+    "split": "development",
+    "centerLatitude": 37.79545,
+    "centerLongitude": -122.39373,
+    "radiusMeters": 75.0,
+    "selectedStationCount": 3,
+    "plannedViewCount": 6,
+    "osmEntranceCountTotal": 9,
+    "osmEntranceCountVisible": 3,
+    "osmEntranceCountExcluded": 6,
+    "perceptionDoorCount": 4,
+    "perceptionSignCount": 0,
+    "perceptionStepsCount": 0,
+    "perceptionOnlyVsVisibleOsm": {
+        "predictedCount": 4,
+        "truthCount": 3,
+        "truePositives": 1,
+        "falsePositives": 3,
+        "falseNegatives": 2,
+        "precision": 0.25,
+        "recall": 0.3333333333333333,
+        "f1": 0.28571428571428575,
+        "meanErrorMeters": 2.868355685942345,
+        "medianErrorMeters": 2.868355685942345,
+        "p90ErrorMeters": 2.868355685942345
+    },
+    "errorByMethod": {
+        "single_ray_footprint_intersection": {
+            "method": "single_ray_footprint_intersection",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "multi_view_triangulation": {
+            "method": "multi_view_triangulation",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "facade_snap": {
+            "method": "facade_snap",
+            "matchedCount": 1,
+            "meanErrorMeters": 2.868355685942345,
+            "medianErrorMeters": 2.868355685942345,
+            "p90ErrorMeters": 2.868355685942345
+        }
+    },
+    "unmatchedDoors": {
+        "totalUnmatchedPerceivedDoors": 3,
+        "likelyRealDoorMissingFromOsm": 3,
+        "likelyFalsePositive": 0,
+        "shareOfAllDetections": 0.75,
+        "likelyRealShareOfAllDetections": 0.75,
+        "likelyFalsePositiveShareOfAllDetections": 0.0,
+        "details": [
+            {
+                "objectId": "perc-door-2",
+                "latitude": 37.794909,
+                "longitude": -122.39318,
+                "stationId": "193632279416899",
+                "detectorConfidence": 0.7816,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Far West Fungi"
+            },
+            {
+                "objectId": "perc-door-4",
+                "latitude": 37.795225,
+                "longitude": -122.393568,
+                "stationId": "226638916356333",
+                "detectorConfidence": 0.746,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "SIGNAL Coffee Roasters"
+            },
+            {
+                "objectId": "perc-door-1",
+                "latitude": 37.795118,
+                "longitude": -122.39357,
+                "stationId": "226638916356333",
+                "detectorConfidence": 0.6012,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "SIGNAL Coffee Roasters"
+            }
+        ]
+    }
+}

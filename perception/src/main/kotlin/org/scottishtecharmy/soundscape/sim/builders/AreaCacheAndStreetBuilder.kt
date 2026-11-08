@@ -173,9 +173,27 @@ class StreetBuilder(
         val walledBuildings = overpassData.buildings.filter { it.tags["building"] != "roof" }
             .ifEmpty { overpassData.buildings }
 
-        val footprintsEnu = walledBuildings.map { b ->
-            b.polygon.map { localEnu.latLonToEnu(it) }
-        }.filter { it.size >= 3 }
+        val allFootprintsWithBuilding = walledBuildings.map { b ->
+            b to b.polygon.map { localEnu.latLonToEnu(it) }
+        }.filter { it.second.size >= 3 }
+        val footprintsEnu = allFootprintsWithBuilding.map { it.second }
+
+        val entranceEnus = overpassData.entrances.map { localEnu.latLonToEnu(it.location) }
+        val footprintsWithEntrances = if (entranceEnus.isNotEmpty() && config.priorityPointLatLon == null) {
+            allFootprintsWithBuilding.filter { (_, poly) ->
+                entranceEnus.any { entEnu ->
+                    org.scottishtecharmy.soundscape.sim.geo.Geometry2D.snapPointToPolygonEdge(entEnu, poly, 6.0) != null
+                }
+            }
+        } else {
+            emptyList()
+        }
+        val stationTargetFootprints = if (footprintsWithEntrances.isNotEmpty()) {
+            footprintsWithEntrances.map { it.second }
+        } else {
+            footprintsEnu
+        }
+        val preferredBuildingIds = footprintsWithEntrances.map { it.first.osmId }.toSet()
 
         val corridorEnu = config.corridorSegmentLatLon?.let {
             localEnu.latLonToEnu(it.first) to localEnu.latLonToEnu(it.second)
@@ -187,7 +205,7 @@ class StreetBuilder(
             localEnu = localEnu,
             maxStations = config.maxStations,
             minSpacingMeters = config.minStationSpacingMeters,
-            preferCloseToFootprints = footprintsEnu,
+            preferCloseToFootprints = stationTargetFootprints,
             corridorSegmentEnu = corridorEnu,
             corridorHalfWidthMeters = config.corridorHalfWidthMeters,
             spatialSpread = config.spatialSpread,
@@ -210,7 +228,8 @@ class StreetBuilder(
             buildingFootprints = initialFootprints,
             maxDistanceMeters = config.maxViewDistanceMeters,
             cropDimension = config.cropDimension,
-            roundRobinAcrossStations = config.roundRobinViews
+            roundRobinAcrossStations = config.roundRobinViews,
+            preferredBuildingIds = preferredBuildingIds
         )
         val prioritizedViews = if (priorityEnu != null) {
             allPlannedViews.sortedWith(

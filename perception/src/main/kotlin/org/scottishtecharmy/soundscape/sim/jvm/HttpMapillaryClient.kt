@@ -38,8 +38,9 @@ class HttpMapillaryClient(
     override suspend fun getImagesInBbox(bbox: BoundingBox, limit: Int): List<MapillaryImage> {
         val fKey = "mapillary_images_bbox"
         budget.consumeMapillary(1, isReplay = gateway.hasReplayFixture(fKey))
+        val effectiveLimit = minOf(limit, 350)
         val fields = "id,is_pano,compass_angle,computed_compass_angle,captured_at,sequence,geometry,computed_geometry"
-        val url = "https://graph.mapillary.com/images?bbox=${bbox.toMapillaryBboxString()}&limit=$limit&fields=$fields"
+        val url = "https://graph.mapillary.com/images?bbox=${bbox.toMapillaryBboxString()}&limit=$effectiveLimit&fields=$fields"
         val resp = gateway.get(
             url = url,
             headers = authHeaders(),

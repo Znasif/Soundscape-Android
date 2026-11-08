@@ -1,0 +1,103 @@
+{
+    "areaId": "london-st-pancras",
+    "displayName": "London St Pancras International",
+    "city": "London",
+    "country": "UK",
+    "split": "held_out",
+    "centerLatitude": 51.5293,
+    "centerLongitude": -0.1258,
+    "radiusMeters": 75.0,
+    "selectedStationCount": 6,
+    "plannedViewCount": 10,
+    "osmEntranceCountTotal": 18,
+    "osmEntranceCountVisible": 4,
+    "osmEntranceCountExcluded": 14,
+    "perceptionDoorCount": 4,
+    "perceptionSignCount": 0,
+    "perceptionStepsCount": 0,
+    "perceptionOnlyVsVisibleOsm": {
+        "predictedCount": 4,
+        "truthCount": 4,
+        "truePositives": 0,
+        "falsePositives": 4,
+        "falseNegatives": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "meanErrorMeters": 0.0,
+        "medianErrorMeters": 0.0,
+        "p90ErrorMeters": 0.0
+    },
+    "errorByMethod": {
+        "single_ray_footprint_intersection": {
+            "method": "single_ray_footprint_intersection",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "multi_view_triangulation": {
+            "method": "multi_view_triangulation",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "facade_snap": {
+            "method": "facade_snap",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        }
+    },
+    "unmatchedDoors": {
+        "totalUnmatchedPerceivedDoors": 4,
+        "likelyRealDoorMissingFromOsm": 4,
+        "likelyFalsePositive": 0,
+        "shareOfAllDetections": 1.0,
+        "likelyRealShareOfAllDetections": 1.0,
+        "likelyFalsePositiveShareOfAllDetections": 0.0,
+        "details": [
+            {
+                "objectId": "perc-door-1",
+                "latitude": 51.529448,
+                "longitude": -0.124907,
+                "stationId": "1039885478255046",
+                "detectorConfidence": 0.75,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Double Standard"
+            },
+            {
+                "objectId": "perc-door-2",
+                "latitude": 51.529484,
+                "longitude": -0.124826,
+                "stationId": "1039885478255046",
+                "detectorConfidence": 0.746,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Double Standard"
+            },
+            {
+                "objectId": "perc-door-4",
+                "latitude": 51.529728,
+                "longitude": -0.124156,
+                "stationId": "1353677373025498",
+                "detectorConfidence": 0.6168,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm"
+            },
+            {
+                "objectId": "perc-door-5",
+                "latitude": 51.529588,
+                "longitude": -0.12457,
+                "stationId": "1418172349255462",
+                "detectorConfidence": 0.6484,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "The Standard, London"
+            }
+        ]
+    }
+}

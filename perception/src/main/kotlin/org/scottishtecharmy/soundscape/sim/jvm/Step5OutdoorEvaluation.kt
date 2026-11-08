@@ -46,8 +46,8 @@ data class OutdoorEvalAreaSpec(
     val centerLatitude: Double,
     val centerLongitude: Double,
     val radiusMeters: Double,
-    val maxStations: Int = 8,
-    val maxPlannedViews: Int = 14,
+    val maxStations: Int = 6,
+    val maxPlannedViews: Int = 10,
     val includeSignAndStepsPrompts: Boolean = false,
     val priorityPointLatitude: Double? = null,
     val priorityPointLongitude: Double? = null,
@@ -255,8 +255,8 @@ object Step5OutdoorEvaluator {
             city = "London",
             country = "UK",
             split = "held_out",
-            centerLatitude = 51.5301,
-            centerLongitude = -0.1252,
+            centerLatitude = 51.5293,
+            centerLongitude = -0.1258,
             radiusMeters = 75.0
         ),
         OutdoorEvalAreaSpec(
@@ -728,7 +728,7 @@ object Step5OutdoorEvaluator {
             val walledBuildings = overpassData.buildings.filter { it.tags["building"] != "roof" }.ifEmpty { overpassData.buildings }
             val footprintsEnu = walledBuildings.map { b -> b.polygon.map { localEnu.latLonToEnu(it) } }.filter { it.size >= 3 }
 
-            val topViews640 = exec.plannedViews.take(6)
+            val topViews640 = exec.plannedViews.take(4)
             val topViewKeys640 = topViews640.map { "${it.station.id}_${ kotlin.math.round(it.yawDegrees).toInt() }" }.toSet()
 
             val sightings640 = exec.rawSightings.filter { s ->

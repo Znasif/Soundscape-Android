@@ -178,7 +178,8 @@ object ViewPlanner {
         maxDistanceMeters: Double = 40.0,
         hFovDegrees: Double = 90.0,
         cropDimension: Int = 640,
-        roundRobinAcrossStations: Boolean = false
+        roundRobinAcrossStations: Boolean = false,
+        preferredBuildingIds: Set<String> = emptySet()
     ): List<PlannedView> {
         if (stations.isEmpty() || buildingFootprints.isEmpty()) return emptyList()
 
@@ -232,21 +233,28 @@ object ViewPlanner {
             return planned
         }
 
+        val viewComparator = compareBy<PlannedView> {
+            preferredBuildingIds.isNotEmpty() && it.hitBuildingId !in preferredBuildingIds
+        }.thenBy { it.hitDistanceMeters }
+
         // Order views in round-robin passes across stations, picking non-overlapping (>= 85 deg) facade views first
         val byStation = planned.groupBy { it.station.id }.mapValues { (_, views) ->
-            views.sortedBy { it.hitDistanceMeters }
+            views.sortedWith(viewComparator)
         }
         val ordered = mutableListOf<PlannedView>()
         val chosenPerStation = mutableMapOf<String, MutableList<PlannedView>>()
 
+        // Pass 1: views hitting preferredBuildingIds (buildings with mapped entrances)
         for (round in 0 until 4) {
             for (station in stations) {
                 val candidates = byStation[station.id].orEmpty()
                 val already = chosenPerStation.getOrPut(station.id) { mutableListOf() }
                 val nextNonOverlapping = candidates.firstOrNull { cand ->
-                    cand !in already && already.all { prev ->
-                        org.scottishtecharmy.soundscape.sim.geo.Angles.absAngleDifference(cand.yawDegrees, prev.yawDegrees) >= 85.0
-                    }
+                    (preferredBuildingIds.isEmpty() || cand.hitBuildingId in preferredBuildingIds) &&
+                        cand !in already &&
+                        already.all { prev ->
+                            org.scottishtecharmy.soundscape.sim.geo.Angles.absAngleDifference(cand.yawDegrees, prev.yawDegrees) >= 85.0
+                        }
                 }
                 if (nextNonOverlapping != null) {
                     already.add(nextNonOverlapping)
@@ -254,7 +262,7 @@ object ViewPlanner {
                 }
             }
         }
-        for (v in planned.sortedBy { it.hitDistanceMeters }) {
+        for (v in planned.sortedWith(viewComparator)) {
             if (v !in ordered) {
                 ordered.add(v)
             }
@@ -281,15 +289,6 @@ object ViewPlanner {
                 val bearing = org.scottishtecharmy.soundscape.sim.geo.Angles.bearingBetweenEnu(view.stationEnu, pointEnu)
                 val diff = org.scottishtecharmy.soundscape.sim.geo.Angles.absAngleDifference(bearing, view.yawDegrees)
                 if (diff <= view.hFovDegrees * 0.5) {
-                    if (footprintsEnu.isNotEmpty()) {
-                        val ray = Ray2D(view.stationEnu, bearing)
-                        val minWallDist = footprintsEnu.mapNotNull { poly ->
-                            Geometry2D.intersectRayWithPolygon(ray, poly, maxDistanceMeters = dist)?.distanceMeters
-                        }.minOrNull()
-                        if (minWallDist != null && minWallDist < dist - 3.0) {
-                            continue
-                        }
-                    }
                     return true
                 }
             }

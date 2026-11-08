@@ -137,4 +137,92 @@ class Step5LedgerAndGpxTest {
             assertTrue(wpt.desc.contains("Attribution:"), "Expected attribution in desc: ${wpt.desc}")
         }
     }
+
+    @Test
+    fun offlineReplayReproducesHeldOutMetricsWithZeroNetworkCalls() = kotlinx.coroutines.test.runTest {
+        val fixturesRootDir = File("src/test/resources/fixtures")
+        val metricsDir = File("docs/agent/metrics")
+        val tempOutDir = Files.createTempDirectory("step5-replay-test").toFile()
+        try {
+            val replayAreas = listOf("paris-chatelet", "seattle-king-street")
+            for (areaId in replayAreas) {
+                val spec = org.scottishtecharmy.soundscape.sim.jvm.Step5OutdoorEvaluator.PRE_REGISTERED_AREAS.first { it.areaId == areaId }
+                val committedJson = File(metricsDir, "STEP5-$areaId.json")
+                assertTrue(committedJson.exists(), "Expected committed metrics file ${committedJson.path}")
+                val committedReport = org.scottishtecharmy.soundscape.sim.model.SimJson.decodeFromString(
+                    org.scottishtecharmy.soundscape.sim.jvm.Step5AreaEvalReport.serializer(),
+                    committedJson.readText()
+                )
+
+                val replayBudget = Budget(
+                    maxMapillaryCalls = 5000,
+                    maxSamCalls = 300,
+                    maxGeminiCalls = 600,
+                    step = "step-5-test"
+                )
+                val replayed = org.scottishtecharmy.soundscape.sim.jvm.Step5OutdoorEvaluator.evaluateSingleArea(
+                    spec = spec,
+                    budget = replayBudget,
+                    fixturesRootDir = fixturesRootDir,
+                    samplesDir = File(tempOutDir, "samples"),
+                    gpxOutDir = File(tempOutDir, "gpx"),
+                    metricsOutDir = File(tempOutDir, "metrics"),
+                    replayOnly = true
+                )
+
+                // Zero live calls, non-zero replayed calls
+                assertEquals(0, replayBudget.mapillaryCalls)
+                assertEquals(0, replayBudget.samCalls)
+                assertEquals(0, replayBudget.geminiCalls)
+                assertTrue(replayBudget.replayedSamCalls > 0, "Expected replayed SAM calls for $areaId")
+
+                // Reproduced metrics must match committed STEP5-<area>.json exactly
+                assertEquals(committedReport.perceptionDoorCount, replayed.report.perceptionDoorCount)
+                assertEquals(committedReport.osmEntranceCountVisible, replayed.report.osmEntranceCountVisible)
+                assertEquals(committedReport.osmEntranceCountExcluded, replayed.report.osmEntranceCountExcluded)
+                assertEquals(
+                    committedReport.perceptionOnlyVsVisibleOsm.truePositives,
+                    replayed.report.perceptionOnlyVsVisibleOsm.truePositives
+                )
+                assertEquals(
+                    committedReport.perceptionOnlyVsVisibleOsm.falsePositives,
+                    replayed.report.perceptionOnlyVsVisibleOsm.falsePositives
+                )
+                assertEquals(
+                    committedReport.perceptionOnlyVsVisibleOsm.falseNegatives,
+                    replayed.report.perceptionOnlyVsVisibleOsm.falseNegatives
+                )
+                assertEquals(
+                    committedReport.perceptionOnlyVsVisibleOsm.precision,
+                    replayed.report.perceptionOnlyVsVisibleOsm.precision,
+                    1e-6
+                )
+                assertEquals(
+                    committedReport.perceptionOnlyVsVisibleOsm.recall,
+                    replayed.report.perceptionOnlyVsVisibleOsm.recall,
+                    1e-6
+                )
+                assertEquals(
+                    committedReport.unmatchedDoors.likelyRealDoorMissingFromOsm,
+                    replayed.report.unmatchedDoors.likelyRealDoorMissingFromOsm
+                )
+            }
+        } finally {
+            tempOutDir.deleteRecursively()
+        }
+    }
+
+    @Test
+    fun allExportedStep5GpxFilesParseCleanlyInSoundscapeMirrorParser() {
+        val gpxDir = File("samples/gpx")
+        assertTrue(gpxDir.exists(), "Expected samples/gpx directory")
+        val gpxFiles = gpxDir.listFiles { f -> f.extension == "gpx" }?.toList().orEmpty()
+        assertTrue(gpxFiles.size >= 12, "Expected at least 12 GPX files (10 areas + 2 Fillmore routes), found ${gpxFiles.size}")
+        for (gpxFile in gpxFiles) {
+            val parsed = SimGpxMirrorParser.parseGpxFile(gpxFile.readText())
+            assertTrue(parsed.name.contains("Prototype"), "Expected Prototype route name in ${gpxFile.name}")
+            assertTrue(parsed.markers.isNotEmpty(), "Expected non-empty waypoints in ${gpxFile.name}")
+            assertEquals(parsed.rawWaypoints.size, parsed.rawRoutePoints.size, "Expected matching wpt and rtept counts in ${gpxFile.name}")
+        }
+    }
 }

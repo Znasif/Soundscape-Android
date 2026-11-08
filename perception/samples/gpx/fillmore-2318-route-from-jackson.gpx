@@ -16,7 +16,7 @@
     <name>Crossing: Fillmore Street and Washington Street (south curb)</name>
     <desc>South sidewalk corner at Washington Street entering the 2300 block of Fillmore Street. Continue south ~36 metres toward 2318 Fillmore Street on the east side. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
   </wpt>
-  <wpt lat="37.791118" lon="-122.434186">
+  <wpt lat="37.791117" lon="-122.434186">
     <name>Destination: 2318 Fillmore Street (Smith-Kettlewell Eye Research Institute entrance)</name>
     <desc>2318 Fillmore Street — Smith-Kettlewell Eye Research Institute main entrance (perceived by sam-3.1 on Mapillary pano 1184002609210177, confidence=0.93, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
   </wpt>
@@ -34,7 +34,7 @@
       <name>Crossing: Fillmore Street and Washington Street (south curb)</name>
       <desc>South sidewalk corner at Washington Street entering the 2300 block of Fillmore Street. Continue south ~36 metres toward 2318 Fillmore Street on the east side. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
     </rtept>
-    <rtept lat="37.791118" lon="-122.434186">
+    <rtept lat="37.791117" lon="-122.434186">
       <name>Destination: 2318 Fillmore Street (Smith-Kettlewell Eye Research Institute entrance)</name>
       <desc>2318 Fillmore Street — Smith-Kettlewell Eye Research Institute main entrance (perceived by sam-3.1 on Mapillary pano 1184002609210177, confidence=0.93, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
     </rtept>

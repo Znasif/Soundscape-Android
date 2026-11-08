@@ -10,17 +10,17 @@
     "selectedStationCount": 10,
     "plannedViewCount": 18,
     "osmEntranceCountTotal": 11,
-    "osmEntranceCountVisible": 0,
-    "osmEntranceCountExcluded": 11,
-    "perceptionDoorCount": 18,
-    "perceptionSignCount": 1,
+    "osmEntranceCountVisible": 1,
+    "osmEntranceCountExcluded": 10,
+    "perceptionDoorCount": 21,
+    "perceptionSignCount": 2,
     "perceptionStepsCount": 0,
     "perceptionOnlyVsVisibleOsm": {
-        "predictedCount": 18,
-        "truthCount": 0,
+        "predictedCount": 21,
+        "truthCount": 1,
         "truePositives": 0,
-        "falsePositives": 18,
-        "falseNegatives": 0,
+        "falsePositives": 21,
+        "falseNegatives": 1,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
@@ -52,16 +52,16 @@
         }
     },
     "unmatchedDoors": {
-        "totalUnmatchedPerceivedDoors": 18,
-        "likelyRealDoorMissingFromOsm": 15,
-        "likelyFalsePositive": 3,
+        "totalUnmatchedPerceivedDoors": 21,
+        "likelyRealDoorMissingFromOsm": 14,
+        "likelyFalsePositive": 7,
         "shareOfAllDetections": 1.0,
-        "likelyRealShareOfAllDetections": 0.8333,
-        "likelyFalsePositiveShareOfAllDetections": 0.1667,
+        "likelyRealShareOfAllDetections": 0.6667,
+        "likelyFalsePositiveShareOfAllDetections": 0.3333,
         "details": [
             {
                 "objectId": "perc-door-1",
-                "latitude": 37.791118,
+                "latitude": 37.791117,
                 "longitude": -122.434186,
                 "stationId": "1184002609210177",
                 "detectorConfidence": 0.9259,
@@ -71,8 +71,8 @@
             },
             {
                 "objectId": "perc-door-2",
-                "latitude": 37.791249,
-                "longitude": -122.434169,
+                "latitude": 37.791251,
+                "longitude": -122.434153,
                 "stationId": "1184002609210177",
                 "detectorConfidence": 0.914,
                 "secondCropVerifierVerdict": "YES",
@@ -81,6 +81,16 @@
             },
             {
                 "objectId": "perc-door-5",
+                "latitude": 37.791205,
+                "longitude": -122.434203,
+                "stationId": "1116762269018404",
+                "detectorConfidence": 0.9259,
+                "secondCropVerifierVerdict": "INSUFFICIENT",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Smith-Kettlewell Eye Research Institute"
+            },
+            {
+                "objectId": "perc-door-7",
                 "latitude": 37.790393,
                 "longitude": -122.434036,
                 "stationId": "1167706340838604",
@@ -90,9 +100,9 @@
                 "linkedVenueName": "Le Labo"
             },
             {
-                "objectId": "perc-door-10",
-                "latitude": 37.7915,
-                "longitude": -122.43426,
+                "objectId": "perc-door-15",
+                "latitude": 37.791508,
+                "longitude": -122.434257,
                 "stationId": "665715115056494",
                 "detectorConfidence": 0.9259,
                 "secondCropVerifierVerdict": "YES",
@@ -100,7 +110,7 @@
                 "linkedVenueName": "Reformation"
             },
             {
-                "objectId": "perc-door-13",
+                "objectId": "perc-door-21",
                 "latitude": 37.791153,
                 "longitude": -122.434455,
                 "stationId": "1116762269018404",
@@ -110,13 +120,63 @@
                 "linkedVenueName": "Taco Primo"
             },
             {
-                "objectId": "perc-door-8",
+                "objectId": "perc-door-12",
                 "latitude": 37.791721,
-                "longitude": -122.434144,
+                "longitude": -122.434137,
                 "stationId": "832869624430867",
                 "detectorConfidence": 0.8904,
                 "secondCropVerifierVerdict": "YES",
                 "classification": "likely_real_door_missing_from_osm"
+            },
+            {
+                "objectId": "perc-door-18",
+                "latitude": 37.790782,
+                "longitude": -122.434432,
+                "stationId": "870175101020949",
+                "detectorConfidence": 0.8552,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Tryst"
+            },
+            {
+                "objectId": "perc-door-4",
+                "latitude": 37.791269,
+                "longitude": -122.434221,
+                "stationId": "1116762269018404",
+                "detectorConfidence": 0.73,
+                "secondCropVerifierVerdict": "INSUFFICIENT",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Islais"
+            },
+            {
+                "objectId": "perc-door-28",
+                "latitude": 37.791833,
+                "longitude": -122.434333,
+                "stationId": "982812832518604",
+                "detectorConfidence": 0.8084,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Margaret O'Leary"
+            },
+            {
+                "objectId": "perc-door-25",
+                "latitude": 37.79031,
+                "longitude": -122.434244,
+                "stationId": "1167706340838604",
+                "detectorConfidence": 0.7929,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Paige"
+            },
+            {
+                "objectId": "perc-door-10",
+                "latitude": 37.790818,
+                "longitude": -122.434072,
+                "stationId": "9261504077257367",
+                "detectorConfidence": 0.7888,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Nest"
             },
             {
                 "objectId": "perc-door-3",
@@ -129,47 +189,7 @@
                 "linkedVenueName": "Islais"
             },
             {
-                "objectId": "perc-door-12",
-                "latitude": 37.790777,
-                "longitude": -122.434447,
-                "stationId": "870175101020949",
-                "detectorConfidence": 0.8552,
-                "secondCropVerifierVerdict": "YES",
-                "classification": "likely_real_door_missing_from_osm",
-                "linkedVenueName": "Tryst"
-            },
-            {
-                "objectId": "perc-door-18",
-                "latitude": 37.791833,
-                "longitude": -122.434333,
-                "stationId": "982812832518604",
-                "detectorConfidence": 0.8084,
-                "secondCropVerifierVerdict": "YES",
-                "classification": "likely_real_door_missing_from_osm",
-                "linkedVenueName": "Margaret O'Leary"
-            },
-            {
-                "objectId": "perc-door-16",
-                "latitude": 37.79031,
-                "longitude": -122.434244,
-                "stationId": "1167706340838604",
-                "detectorConfidence": 0.7929,
-                "secondCropVerifierVerdict": "YES",
-                "classification": "likely_real_door_missing_from_osm",
-                "linkedVenueName": "Paige"
-            },
-            {
-                "objectId": "perc-door-7",
-                "latitude": 37.790818,
-                "longitude": -122.434073,
-                "stationId": "9261504077257367",
-                "detectorConfidence": 0.7888,
-                "secondCropVerifierVerdict": "YES",
-                "classification": "likely_real_door_missing_from_osm",
-                "linkedVenueName": "Nest"
-            },
-            {
-                "objectId": "perc-door-6",
+                "objectId": "perc-door-9",
                 "latitude": 37.791826,
                 "longitude": -122.434557,
                 "stationId": "982812832518604",
@@ -179,17 +199,7 @@
                 "linkedVenueName": "Chouquet's"
             },
             {
-                "objectId": "perc-door-4",
-                "latitude": 37.791252,
-                "longitude": -122.434217,
-                "stationId": "1184002609210177",
-                "detectorConfidence": 0.7104,
-                "secondCropVerifierVerdict": "YES",
-                "classification": "likely_real_door_missing_from_osm",
-                "linkedVenueName": "Islais"
-            },
-            {
-                "objectId": "perc-door-19",
+                "objectId": "perc-door-29",
                 "latitude": 37.791771,
                 "longitude": -122.434314,
                 "stationId": "982812832518604",
@@ -199,7 +209,7 @@
                 "linkedVenueName": "Margaret O'Leary"
             },
             {
-                "objectId": "perc-door-9",
+                "objectId": "perc-door-13",
                 "latitude": 37.791726,
                 "longitude": -122.434047,
                 "stationId": "832869624430867",
@@ -208,7 +218,7 @@
                 "classification": "likely_real_door_missing_from_osm"
             },
             {
-                "objectId": "perc-door-14",
+                "objectId": "perc-door-22",
                 "latitude": 37.791238,
                 "longitude": -122.434441,
                 "stationId": "1116762269018404",
@@ -218,7 +228,27 @@
                 "linkedVenueName": "Pets Unlimited"
             },
             {
-                "objectId": "perc-door-11",
+                "objectId": "perc-door-23",
+                "latitude": 37.791189,
+                "longitude": -122.434454,
+                "stationId": "1116762269018404",
+                "detectorConfidence": 0.6332,
+                "secondCropVerifierVerdict": "INSUFFICIENT",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Taco Primo"
+            },
+            {
+                "objectId": "perc-door-8",
+                "latitude": 37.79042,
+                "longitude": -122.434045,
+                "stationId": "1167706340838604",
+                "detectorConfidence": 0.6246,
+                "secondCropVerifierVerdict": "INSUFFICIENT",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Hair Fairies"
+            },
+            {
+                "objectId": "perc-door-17",
                 "latitude": 37.791613,
                 "longitude": -122.434153,
                 "stationId": "665715115056494",
@@ -228,7 +258,7 @@
                 "linkedVenueName": "Reformation"
             },
             {
-                "objectId": "perc-door-15",
+                "objectId": "perc-door-24",
                 "latitude": 37.792304,
                 "longitude": -122.434426,
                 "stationId": "714805729602458",

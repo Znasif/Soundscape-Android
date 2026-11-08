@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Soundscape-Android Perception Pipeline" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Prototype: Paris Gare du Nord perceived entrances</name>
+    <desc>Soundscape Street Preview prototype GPX (perceived entrances, 1 waypoints). Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </metadata>
+  <wpt lat="48.87993" lon="2.355796">
+    <name>Door, perceived: Tortilla</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=761207348373375, sam-3.1 confidence=0.73, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <rte>
+    <name>Prototype: Paris Gare du Nord perceived entrances</name>
+    <rtept lat="48.87993" lon="2.355796">
+      <name>Door, perceived: Tortilla</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=761207348373375, sam-3.1 confidence=0.73, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+  </rte>
+</gpx>
