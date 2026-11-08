@@ -36,13 +36,14 @@ class HttpMapillaryClient(
     }
 
     override suspend fun getImagesInBbox(bbox: BoundingBox, limit: Int): List<MapillaryImage> {
-        budget.consumeMapillary(1)
+        val fKey = "mapillary_images_bbox"
+        budget.consumeMapillary(1, isReplay = gateway.hasReplayFixture(fKey))
         val fields = "id,is_pano,compass_angle,computed_compass_angle,captured_at,sequence,geometry,computed_geometry"
         val url = "https://graph.mapillary.com/images?bbox=${bbox.toMapillaryBboxString()}&limit=$limit&fields=$fields"
         val resp = gateway.get(
             url = url,
             headers = authHeaders(),
-            fixtureKey = "mapillary_images_bbox"
+            fixtureKey = fKey
         )
         val root = json.parseToJsonElement(resp.body).jsonObject
         val data = root["data"]?.jsonArray ?: return emptyList()
@@ -50,26 +51,28 @@ class HttpMapillaryClient(
     }
 
     override suspend fun getImageById(imageId: String): MapillaryImage? {
-        budget.consumeMapillary(1)
+        val fKey = "mapillary_image_$imageId"
+        budget.consumeMapillary(1, isReplay = gateway.hasReplayFixture(fKey))
         val fields = "id,is_pano,compass_angle,computed_compass_angle,captured_at,sequence,geometry,computed_geometry,width,height,thumb_1024_url,thumb_2048_url"
         val url = "https://graph.mapillary.com/$imageId?fields=$fields"
         val resp = gateway.get(
             url = url,
             headers = authHeaders(),
-            fixtureKey = "mapillary_image_$imageId"
+            fixtureKey = fKey
         )
         val obj = json.parseToJsonElement(resp.body).jsonObject
         return parseImage(obj)
     }
 
     override suspend fun getMapFeaturesInBbox(bbox: BoundingBox, limit: Int): List<MapillaryMapFeature> {
-        budget.consumeMapillary(1)
+        val fKey = "mapillary_map_features_bbox"
+        budget.consumeMapillary(1, isReplay = gateway.hasReplayFixture(fKey))
         val fields = "id,aligned_direction,first_seen_at,last_seen_at,object_value,object_type,geometry,images"
         val url = "https://graph.mapillary.com/map_features?bbox=${bbox.toMapillaryBboxString()}&limit=$limit&fields=$fields"
         val resp = gateway.get(
             url = url,
             headers = authHeaders(),
-            fixtureKey = "mapillary_map_features_bbox"
+            fixtureKey = fKey
         )
         val root = json.parseToJsonElement(resp.body).jsonObject
         val data = root["data"]?.jsonArray ?: return emptyList()
@@ -95,13 +98,14 @@ class HttpMapillaryClient(
     }
 
     override suspend fun getImageDetections(imageId: String): List<MapillaryDetection> {
-        budget.consumeMapillary(1)
+        val fKey = "mapillary_detections_$imageId"
+        budget.consumeMapillary(1, isReplay = gateway.hasReplayFixture(fKey))
         val fields = "id,value,geometry,created_at"
         val url = "https://graph.mapillary.com/$imageId/detections?fields=$fields"
         val resp = gateway.get(
             url = url,
             headers = authHeaders(),
-            fixtureKey = "mapillary_detections_$imageId"
+            fixtureKey = fKey
         )
         val root = json.parseToJsonElement(resp.body).jsonObject
         val data = root["data"]?.jsonArray ?: return emptyList()

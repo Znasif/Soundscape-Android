@@ -101,11 +101,11 @@ class Step4RoomCaptureAndRecognitionTest {
                 setOf(SimCategory.DOOR, SimCategory.RECEPTION_DESK, SimCategory.SIGN, SimCategory.STAIRS, SimCategory.CHAIR)
         }
         val verifier = object : Verifier {
-            override suspend fun verifyCrop(cropJpegBytes: ByteArray, category: SimCategory, promptLabel: String): VerifierVerdict =
+            override suspend fun verifyCrop(cropJpegBytes: ByteArray, category: SimCategory, promptLabel: String, contextKey: String?): VerifierVerdict =
                 VerifierVerdict.YES
         }
         val textReader = object : TextReader {
-            override suspend fun readText(cropJpegBytes: ByteArray): OcrResult? {
+            override suspend fun readText(cropJpegBytes: ByteArray, contextKey: String?): OcrResult? {
                 val tag = cropJpegBytes.decodeToString()
                 return if ("SIGN" in tag || "f-" in tag) OcrResult("Room 214", 0.96) else null
             }
@@ -220,7 +220,7 @@ class Step4RoomCaptureAndRecognitionTest {
             ),
             categoryPrecheck = precheck,
             textReader = object : TextReader {
-                override suspend fun readText(cropJpegBytes: ByteArray): OcrResult = OcrResult("Room 214", 0.96)
+                override suspend fun readText(cropJpegBytes: ByteArray, contextKey: String?): OcrResult = OcrResult("Room 214", 0.96)
             },
             embedder = embedder214,
             budget = Budget(maxSamCalls = 150, maxGeminiCalls = 200)
@@ -257,7 +257,7 @@ class Step4RoomCaptureAndRecognitionTest {
             ),
             categoryPrecheck = precheck,
             textReader = object : TextReader {
-                override suspend fun readText(cropJpegBytes: ByteArray): OcrResult = OcrResult("Room 214", 0.95)
+                override suspend fun readText(cropJpegBytes: ByteArray, contextKey: String?): OcrResult = OcrResult("Room 214", 0.95)
             },
             embedder = embedder214,
             budget = Budget(maxSamCalls = 150, maxGeminiCalls = 200)
@@ -291,7 +291,7 @@ class Step4RoomCaptureAndRecognitionTest {
             ),
             categoryPrecheck = precheck,
             textReader = object : TextReader {
-                override suspend fun readText(cropJpegBytes: ByteArray): OcrResult = OcrResult("Room 216", 0.97)
+                override suspend fun readText(cropJpegBytes: ByteArray, contextKey: String?): OcrResult = OcrResult("Room 216", 0.97)
             },
             embedder = embedder214, // even with identical visual appearance!
             budget = Budget(maxSamCalls = 150, maxGeminiCalls = 200)
@@ -405,7 +405,8 @@ class Step4RoomCaptureAndRecognitionTest {
         override suspend fun segment(
             imageJpegBytes: ByteArray,
             prompt: String,
-            category: SimCategory
+            category: SimCategory,
+            contextKey: String?
         ): List<SegmentedInstance> {
             val parts = imageJpegBytes.decodeToString().split("|")
             val frameId = parts.getOrNull(0) ?: "f"

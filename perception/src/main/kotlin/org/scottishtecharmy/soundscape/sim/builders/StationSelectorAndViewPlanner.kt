@@ -30,17 +30,22 @@ data class PlannedView(
 
 /**
  * Selects up to [maxStations] (default `12`) panorama stations spaced at least [minSpacingMeters] (default `8.0 m`)
- * apart, prioritizing `is_pano == true` first and newer `captured_at` timestamps second.
+ * apart, prioritizing `is_pano == true` first, capture within the last 5 years (`>= minCapturedAtEpochMs`),
+ * proximity to building footprints, and newer `captured_at` timestamps.
  */
 object StationSelector {
+    // 5 years in milliseconds (~2021-11-01 epoch ms)
+    const val FIVE_YEARS_MS: Long = 5L * 365L * 24L * 3600L * 1000L
+
     fun selectStations(
         images: List<MapillaryImage>,
         localEnu: LocalEnu,
         maxStations: Int = 12,
         minSpacingMeters: Double = 8.0,
         preferCloseToFootprints: List<List<EnuPoint>> = emptyList(),
-        maxDistanceToBuildingMeters: Double = 45.0,
-        onlyPanosWhenAvailable: Boolean = true
+        maxDistanceToBuildingMeters: Double = 40.0,
+        onlyPanosWhenAvailable: Boolean = true,
+        minCapturedAtEpochMs: Long = 1609459200000L // 2021-01-01 UTC
     ): List<Station> {
         if (images.isEmpty() || maxStations <= 0) return emptyList()
 
@@ -69,8 +74,11 @@ object StationSelector {
             candidates
         }
 
+        val recentPanos = panoCandidates.filter { it.image.capturedAtEpochMs >= minCapturedAtEpochMs }
+            .ifEmpty { panoCandidates }
+
         // Sort: isPano descending first, then within maxDistanceToBuildingMeters, then capturedAtEpochMs descending, then id ascending
-        val sorted = panoCandidates.sortedWith(
+        val sorted = recentPanos.sortedWith(
             compareByDescending<ScoredCandidate> { it.image.isPano }
                 .thenBy { it.minBuildingDist > maxDistanceToBuildingMeters }
                 .thenByDescending { it.image.capturedAtEpochMs }
@@ -108,8 +116,7 @@ object StationSelector {
  * Plans facade-facing 90° perspective views for each selected [Station].
  *
  * Considers the 8 cardinal/intercardinal yaw directions (`0°, 45°, 90°, 135°, 180°, 225°, 270°, 315°`)
- * and keeps only views whose optical ray (or left/right quarter-FOV rays) intersects a building footprint
- * within [maxDistanceMeters] (default `40.0 m`).
+ * and keeps only views whose optical ray intersects a building footprint within [maxDistanceMeters] (default `40.0 m`).
  */
 object ViewPlanner {
     val EIGHT_YAWS: List<Double> = listOf(0.0, 45.0, 90.0, 135.0, 180.0, 225.0, 270.0, 315.0)
@@ -118,7 +125,8 @@ object ViewPlanner {
         stations: List<Station>,
         buildingFootprints: List<BuildingFootprint>,
         maxDistanceMeters: Double = 40.0,
-        hFovDegrees: Double = 90.0
+        hFovDegrees: Double = 90.0,
+        cropDimension: Int = 640
     ): List<PlannedView> {
         if (stations.isEmpty() || buildingFootprints.isEmpty()) return emptyList()
 
@@ -155,12 +163,46 @@ object ViewPlanner {
                             yawDegrees = yaw,
                             hFovDegrees = hFovDegrees,
                             hitBuildingId = bestBuildingId,
-                            hitDistanceMeters = bestDist
+                            hitDistanceMeters = bestDist,
+                            camera = PerspectiveCamera(
+                                yawDegrees = yaw,
+                                pitchDegrees = 0.0,
+                                hFovDegrees = hFovDegrees,
+                                width = cropDimension,
+                                height = cropDimension
+                            )
                         )
                     )
                 }
             }
         }
         return planned
+    }
+
+    /**
+     * Checks whether a ground-truth entrance point [pointEnu] is visible from at least one planned view:
+     * within [maxDistanceMeters] (40 m) of the view's station AND inside the view's horizontal field of view (`hFovDegrees`).
+     */
+    fun isPointVisibleInPlannedViews(
+        pointEnu: EnuPoint,
+        plannedViews: List<PlannedView>,
+        stations: List<Station>,
+        maxDistanceMeters: Double = 40.0
+    ): Boolean {
+        if (plannedViews.isNotEmpty()) {
+            for (view in plannedViews) {
+                val dist = view.stationEnu.distanceTo2D(pointEnu)
+                if (dist > maxDistanceMeters) continue
+                val bearing = org.scottishtecharmy.soundscape.sim.geo.Angles.bearingBetweenEnu(view.stationEnu, pointEnu)
+                val diff = org.scottishtecharmy.soundscape.sim.geo.Angles.absAngleDifference(bearing, view.yawDegrees)
+                if (diff <= view.hFovDegrees * 0.5) {
+                    return true
+                }
+            }
+            return false
+        }
+        return stations.any { st ->
+            EnuPoint.fromPositionList(st.position).distanceTo2D(pointEnu) <= maxDistanceMeters
+        }
     }
 }

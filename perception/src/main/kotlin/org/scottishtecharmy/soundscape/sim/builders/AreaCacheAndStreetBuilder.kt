@@ -20,6 +20,7 @@ import org.scottishtecharmy.soundscape.sim.sources.PanoramaImageSource
 import org.scottishtecharmy.soundscape.sim.sources.SegmentationClient
 import org.scottishtecharmy.soundscape.sim.sources.TextReader
 import org.scottishtecharmy.soundscape.sim.sources.Verifier
+import kotlin.math.roundToInt
 
 /**
  * Geohash-7 keyed cache for [SimEnvironment] street manifests with deterministic invalidation rules.
@@ -82,7 +83,10 @@ sealed class BuildEvent {
         val plannedViews: Int,
         val plannedSamCalls: Int,
         val plannedVerifierCalls: Int,
-        val estimatedCostUsd: Double
+        val estimatedCostUsd: Double,
+        val remainingSamAllowance: Int = 0,
+        val remainingGeminiAllowance: Int = 0,
+        val remainingMapillaryAllowance: Int = 0
     ) : BuildEvent()
     data class Feature(val obj: org.scottishtecharmy.soundscape.sim.model.SimObject) : BuildEvent()
     data class Sign(val sign: org.scottishtecharmy.soundscape.sim.model.Sign) : BuildEvent()
@@ -93,7 +97,9 @@ sealed class BuildEvent {
     ) : BuildEvent()
     data class Completed(
         val environment: SimEnvironment,
-        val perceptionOnlyObjects: List<org.scottishtecharmy.soundscape.sim.model.SimObject> = emptyList()
+        val perceptionOnlyObjects: List<org.scottishtecharmy.soundscape.sim.model.SimObject> = emptyList(),
+        val rawSightings: List<PerceptionSighting> = emptyList(),
+        val plannedViews: List<PlannedView> = emptyList()
     ) : BuildEvent()
     data class Failed(val message: String, val cause: Throwable? = null) : BuildEvent()
 }
@@ -110,8 +116,17 @@ data class StreetBuildConfig(
     val maxStations: Int = 12,
     val minStationSpacingMeters: Double = 8.0,
     val maxViewDistanceMeters: Double = 40.0,
+    val cropDimension: Int = 640,
+    val maxPlannedViews: Int = 24,
+    val prompts: List<Pair<String, SimCategory>> = listOf(
+        "door" to SimCategory.DOOR,
+        "shop sign" to SimCategory.SIGN,
+        "steps" to SimCategory.STEPS
+    ),
     val dryRun: Boolean = false,
     val enablePerception: Boolean = false,
+    val enableVerifier: Boolean = true,
+    val enableTriangulation: Boolean = true,
     val minDetectorConfidence: Double = 0.55
 )
 
@@ -175,29 +190,32 @@ class StreetBuilder(
             )
         }
 
-        val plannedViews = ViewPlanner.planViews(
+        val allPlannedViews = ViewPlanner.planViews(
             stations = selectedStations,
             buildingFootprints = initialFootprints,
-            maxDistanceMeters = config.maxViewDistanceMeters
+            maxDistanceMeters = config.maxViewDistanceMeters,
+            cropDimension = config.cropDimension
         )
+        val plannedViews = allPlannedViews
+            .sortedBy { it.hitDistanceMeters }
+            .take(config.maxPlannedViews)
         emit(BuildEvent.ViewsPlanned(plannedViews))
 
-        val prompts = listOf(
-            "door" to SimCategory.DOOR,
-            "shop sign" to SimCategory.SIGN,
-            "steps" to SimCategory.STEPS
-        )
+        val prompts = config.prompts
 
         if (config.dryRun) {
-            val plannedSam = minOf(plannedViews.size * prompts.size, budget.maxSamCalls)
-            val plannedVerifier = minOf(plannedSam * 2, budget.maxGeminiCalls)
+            val plannedSam = minOf(plannedViews.size * prompts.size, budget.remainingSamAllowance)
+            val plannedVerifier = minOf(plannedSam * 2, budget.remainingGeminiAllowance)
             val estCost = plannedSam * 0.0025 + plannedVerifier * 0.00015
             emit(
                 BuildEvent.DryRunPlan(
                     plannedViews = plannedViews.size,
                     plannedSamCalls = plannedSam,
                     plannedVerifierCalls = plannedVerifier,
-                    estimatedCostUsd = kotlin.math.round(estCost * 10000.0) / 10000.0
+                    estimatedCostUsd = kotlin.math.round(estCost * 10000.0) / 10000.0,
+                    remainingSamAllowance = budget.remainingSamAllowance,
+                    remainingGeminiAllowance = budget.remainingGeminiAllowance,
+                    remainingMapillaryAllowance = budget.remainingMapillaryAllowance
                 )
             )
         }
@@ -217,30 +235,41 @@ class StreetBuilder(
                     camera = view.camera
                 )
                 if (cropImg != null) {
+                    val viewKey = "${view.station.id}_yaw${view.yawDegrees.roundToInt()}_w${cropImg.camera.width}"
                     for ((promptText, cat) in prompts) {
                         if (!budget.canConsumeSam(1)) break
-                        val instances = segmentationClient.segment(cropImg.jpegBytes, promptText, cat)
+                        val instances = segmentationClient.segment(
+                            imageJpegBytes = cropImg.jpegBytes,
+                            prompt = promptText,
+                            category = cat,
+                            contextKey = viewKey
+                        )
                             .filter { it.confidence >= config.minDetectorConfidence }
                             .sortedByDescending { it.confidence }
                             .take(3)
 
                         for (inst in instances) {
-                            // Compute world bearing & elevation: bottom-center for DOOR/STEPS, center for SIGN
                             val refX = if (cat == SimCategory.SIGN) inst.centerX else inst.bottomCenterX
                             val refY = if (cat == SimCategory.SIGN) inst.centerY else inst.bottomY
                             val worldRay = view.camera.pixelToRay(refX, refY)
 
-                            val subCropBytes = panoramaImageSource.cropSubImage(cropImg, inst.box)
+                            val boxKey = "${viewKey}_${inst.box.joinToString("_")}"
+                            val subCropBytes = panoramaImageSource.cropSubImage(cropImg, inst.box, paddingFraction = 0.15)
                             var verdict = VerifierVerdict.YES
-                            if (verifier != null && budget.canConsumeGemini(1)) {
-                                verdict = verifier.verifyCrop(subCropBytes, cat, promptText)
+                            if (config.enableVerifier && verifier != null && budget.canConsumeGemini(1)) {
+                                verdict = verifier.verifyCrop(
+                                    cropJpegBytes = subCropBytes,
+                                    category = cat,
+                                    promptLabel = promptText,
+                                    contextKey = boxKey
+                                )
                             }
                             if (verdict == VerifierVerdict.NO) continue
 
                             var ocrText: String? = null
                             var ocrConf: Double? = null
                             if (cat == SimCategory.SIGN && textReader != null && budget.canConsumeGemini(1)) {
-                                val ocr = textReader.readText(subCropBytes)
+                                val ocr = textReader.readText(subCropBytes, contextKey = boxKey)
                                 if (ocr != null && ocr.text.isNotBlank()) {
                                     ocrText = ocr.text
                                     ocrConf = ocr.confidence
@@ -259,7 +288,9 @@ class StreetBuilder(
                                     detectorConfidence = inst.confidence,
                                     verifierVerdict = verdict,
                                     signText = ocrText,
-                                    signConfidence = ocrConf
+                                    signConfidence = ocrConf,
+                                    viewYawDegrees = view.yawDegrees,
+                                    cropWidth = cropImg.camera.width
                                 )
                             )
                         }
@@ -275,7 +306,8 @@ class StreetBuilder(
             entrances = overpassData.entrances,
             pois = overpassData.pois,
             mapFeatures = mapFeatures,
-            perceptionSightings = sightings
+            perceptionSightings = sightings,
+            enableTriangulation = config.enableTriangulation
         )
 
         for (obj in aggregated.objects) {
@@ -319,6 +351,6 @@ class StreetBuilder(
         )
 
         areaCache.put(env)
-        emit(BuildEvent.Completed(env, aggregated.perceptionOnlyObjects))
+        emit(BuildEvent.Completed(env, aggregated.perceptionOnlyObjects, sightings, plannedViews))
     }
 }

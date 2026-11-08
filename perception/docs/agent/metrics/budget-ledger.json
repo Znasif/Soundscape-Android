@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0",
+  "updatedAtEpochMs": 1731032700000,
+  "stepTotals": {
+    "steps-0-to-3": {
+      "step": "steps-0-to-3",
+      "mapillaryLiveCalls": 16,
+      "samLiveCalls": 45,
+      "geminiLiveCalls": 35,
+      "downloadedBytes": 0,
+      "mapillaryReplayedCalls": 0,
+      "samReplayedCalls": 0,
+      "geminiReplayedCalls": 0
+    },
+    "step-4": {
+      "step": "step-4",
+      "mapillaryLiveCalls": 0,
+      "samLiveCalls": 0,
+      "geminiLiveCalls": 0,
+      "downloadedBytes": 0,
+      "mapillaryReplayedCalls": 0,
+      "samReplayedCalls": 0,
+      "geminiReplayedCalls": 0
+    },
+    "step-5": {
+      "step": "step-5",
+      "mapillaryLiveCalls": 0,
+      "samLiveCalls": 0,
+      "geminiLiveCalls": 0,
+      "downloadedBytes": 0,
+      "mapillaryReplayedCalls": 0,
+      "samReplayedCalls": 0,
+      "geminiReplayedCalls": 0
+    }
+  },
+  "entries": [
+    {
+      "timestampEpochMs": 1731020400000,
+      "step": "steps-0-to-3",
+      "command": "step-0-live-probes",
+      "api": "mapillary",
+      "liveCalls": 3,
+      "downloadedBytes": 0
+    },
+    {
+      "timestampEpochMs": 1731020400000,
+      "step": "steps-0-to-3",
+      "command": "step-0-live-probes",
+      "api": "sam-3.1",
+      "liveCalls": 3,
+      "downloadedBytes": 0
+    },
+    {
+      "timestampEpochMs": 1731020400000,
+      "step": "steps-0-to-3",
+      "command": "step-0-live-probes",
+      "api": "gemini-flash",
+      "liveCalls": 3,
+      "downloadedBytes": 0
+    },
+    {
+      "timestampEpochMs": 1731025200000,
+      "step": "steps-0-to-3",
+      "command": "step-2-build-area-ferry",
+      "api": "mapillary",
+      "liveCalls": 3,
+      "downloadedBytes": 0
+    },
+    {
+      "timestampEpochMs": 1731029400000,
+      "step": "steps-0-to-3",
+      "command": "step-3-build-area-ferry-perceive",
+      "api": "mapillary",
+      "liveCalls": 10,
+      "downloadedBytes": 0
+    },
+    {
+      "timestampEpochMs": 1731029400000,
+      "step": "steps-0-to-3",
+      "command": "step-3-build-area-ferry-perceive",
+      "api": "sam-3.1",
+      "liveCalls": 42,
+      "downloadedBytes": 0
+    },
+    {
+      "timestampEpochMs": 1731029400000,
+      "step": "steps-0-to-3",
+      "command": "step-3-build-area-ferry-perceive",
+      "api": "gemini-flash",
+      "liveCalls": 32,
+      "downloadedBytes": 0
+    }
+  ]
+}
