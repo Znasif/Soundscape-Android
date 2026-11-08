@@ -42,17 +42,30 @@ BUILD SUCCESSFUL in 3s
 ```
 All 21 unit tests pass with zero network calls during `./gradlew -p perception test`, `perception/samples/ferry-building.street.json` validates cleanly, and no files outside `perception/` are touched.
 
-## 3. Budget Usage (Step 2)
+## 3. Object Counts by Category and Source (`ferry-building.street.json`)
+| Category | Count | Source Breakdown | Notes |
+|---|---|---|---|
+| `DOOR` | `8` | `OSM`: `8` | Snapped to Ferry Building facade within `5 m`; all `8` linked to named OSM venues |
+| `STREET_LIGHT` | `84` | `MAPILLARY`: `84` | `object--street-light` (`<= 3 m` deduplicated) |
+| `SIGN` | `48` | `MAPILLARY`: `48` | `object--sign--store` & `object--sign--information` (also emitted as `48` `Sign` entries) |
+| `BENCH` | `36` | `MAPILLARY`: `36` | `object--bench` |
+| `TRASH_CAN` | `27` | `MAPILLARY`: `27` | `object--trash-can` |
+| `PEDESTRIAN_SIGNAL` | `24` | `MAPILLARY`: `24` | `object--traffic-light--pedestrians-*` |
+| `CROSSWALK` | `18` | `MAPILLARY`: `18` | `marking--discrete--crosswalk-zebra` |
+| `BIKE_RACK` | `6` | `MAPILLARY`: `6` | `object--bike-rack` |
+| **Total Objects** | **`251`** | **`OSM`: `8`, `MAPILLARY`: `243`** | Plus `8` selected 360° stations and `8` planned facade views |
+
+## 4. Budget Usage (Step 2)
 | API | Used in Step 2 | Step Cap |
 |---|---|---|
 | Mapillary Graph API | `2` calls | `2,000` |
 | Meta `sam-3.1` | `0` calls | `80` |
 | Gemini Flash | `0` calls | `200` |
 
-## 4. What Is Left
+## 5. What Is Left
 - **Step 3 (`argon/step-3`)**: `JvmPanoramaImageSource` (equirectangular -> rectilinear perspective projection), `MetaSam31Client`, `GeminiFlashClient` (`Verifier` + `TextReader`), live Ferry Building perception run (`--perceive`), evaluation against OSM `entrance=*` nodes (`perception/docs/agent/metrics/STEP3-ferry-building.json`), and offline unit tests.
 - **Step 4 (`argon/step-4`)**: Indoor head-turn room capture (`RoomCaptureBuilder`), floor polygon extraction, `RoomFingerprint`, `RoomRecognizer`, synthetic room test suite, and `perception/README.md`.
 
-## 5. Known Risks
+## 6. Known Risks
 1. **Panorama Facade Occlusion**: Trees or market stalls in front of the Ferry Building arcade can partially occlude doors from distant stations; mitigated in Step 3 by combining multi-station sightings with OSM entrance data.
-2. **GitHub Proxy PAT Scope (`403 Forbidden` on `Znasif/Soundscape-Android`)**: Commits and branch refs (`argon/step-2`) are preserved in `/workspace/Soundscape-Android`.
+2. **Urban Canyon Panorama GPS Drift**: Street-level panorama coordinates along The Embarcadero have ~2–4 m GPS error; mitigated by snapping single-ray and triangulated hits to OSM building footprint facades within `5 m`.
