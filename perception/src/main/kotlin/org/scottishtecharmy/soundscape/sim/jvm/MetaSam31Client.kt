@@ -10,7 +10,7 @@ import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.put
 import org.scottishtecharmy.soundscape.sim.model.SimCategory
 import org.scottishtecharmy.soundscape.sim.sources.Budget
-import org.scottishtecharmy.soundscape.sim.sources. SegmentationClient
+import org.scottishtecharmy.soundscape.sim.sources.SegmentationClient
 import org.scottishtecharmy.soundscape.sim.sources.SegmentedInstance
 import java.security.MessageDigest
 import java.util.Base64
@@ -31,9 +31,19 @@ class MetaSam31Client(
     override suspend fun segment(
         imageJpegBytes: ByteArray,
         prompt: String,
-        category: SimCategory
+        category: SimCategory,
+        contextKey: String?
     ): List<SegmentedInstance> {
-        budget.consumeSam(1)
+        val promptSlug = prompt.lowercase().replace(Regex("[^a-z0-9]+"), "_").trim('_')
+        val fKey = fixtureKeyOverride
+            ?: if (!contextKey.isNullOrBlank()) {
+                "sam31_${contextKey}_$promptSlug"
+            } else {
+                "sam31_${promptSlug}_${sha256Short(imageJpegBytes)}"
+            }
+
+        val isReplay = gateway.hasReplayFixture(fKey)
+        budget.consumeSam(1, isReplay = isReplay)
 
         val base64Jpeg = Base64.getEncoder().encodeToString(imageJpegBytes)
         val payload = buildJsonObject {
@@ -63,12 +73,12 @@ class MetaSam31Client(
 
         val key = apiKeyProvider()
         val headers = if (key.isNotBlank()) mapOf("Authorization" to "Bearer $key") else emptyMap()
-        val fKey = fixtureKeyOverride ?: "sam31_${prompt.lowercase().replace(Regex("[^a-z0-9]+"), "_")}_${sha256Short(imageJpegBytes)}"
 
         val resp = gateway.post(
             url = "https://api.meta.ai/v1/responses",
             headers = headers,
             body = payload,
+            contentType = "application/json",
             fixtureKey = fKey
         )
 
@@ -221,7 +231,7 @@ class MetaSam31Client(
             val mask = BooleanArray(totalPixels)
             for (i in 0 until totalPixels) {
                 val byteIdx = i / 8
-                val bitIdx = i % 8 // LSB or MSB packed bit
+                val bitIdx = i % 8
                 if (byteIdx < bytes.size) {
                     val b = bytes[byteIdx].toInt() and 0xFF
                     mask[i] = ((b shr bitIdx) and 1) != 0

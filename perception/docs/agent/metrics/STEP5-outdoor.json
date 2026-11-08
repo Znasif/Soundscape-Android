@@ -1,0 +1,1514 @@
+{
+    "frozenParameters": {
+        "cropDimension": "640",
+        "hFovDegrees": "90.0",
+        "maxStationsHeldOut": "8",
+        "maxPlannedViewsHeldOut": "14",
+        "minStationSpacingMeters": "8.0",
+        "maxViewDistanceMeters": "40.0",
+        "minDetectorConfidence": "0.55",
+        "dedupRadiusMeters": "3.0",
+        "maxFacadeSnapMeters": "5.0",
+        "matchingRadiusMeters": "5.0",
+        "enableVerifier": "true",
+        "enableTriangulation": "true",
+        "spatialSpread": "true",
+        "roundRobinViews": "true"
+    },
+    "developmentAreas": [
+        {
+            "areaId": "fillmore-2318",
+            "displayName": "2318 Fillmore Street Corridor (Sacramento to Jackson)",
+            "city": "San Francisco",
+            "country": "USA",
+            "split": "development",
+            "centerLatitude": 37.7911743,
+            "centerLongitude": -122.4339323,
+            "radiusMeters": 185.0,
+            "selectedStationCount": 10,
+            "plannedViewCount": 18,
+            "osmEntranceCountTotal": 11,
+            "osmEntranceCountVisible": 1,
+            "osmEntranceCountExcluded": 10,
+            "perceptionDoorCount": 21,
+            "perceptionSignCount": 2,
+            "perceptionStepsCount": 0,
+            "perceptionOnlyVsVisibleOsm": {
+                "predictedCount": 21,
+                "truthCount": 1,
+                "truePositives": 0,
+                "falsePositives": 21,
+                "falseNegatives": 1,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "meanErrorMeters": 0.0,
+                "medianErrorMeters": 0.0,
+                "p90ErrorMeters": 0.0
+            },
+            "errorByMethod": {
+                "single_ray_footprint_intersection": {
+                    "method": "single_ray_footprint_intersection",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "multi_view_triangulation": {
+                    "method": "multi_view_triangulation",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "facade_snap": {
+                    "method": "facade_snap",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                }
+            },
+            "unmatchedDoors": {
+                "totalUnmatchedPerceivedDoors": 21,
+                "likelyRealDoorMissingFromOsm": 14,
+                "likelyFalsePositive": 7,
+                "shareOfAllDetections": 1.0,
+                "likelyRealShareOfAllDetections": 0.6667,
+                "likelyFalsePositiveShareOfAllDetections": 0.3333,
+                "details": [
+                    {
+                        "objectId": "perc-door-1",
+                        "latitude": 37.791117,
+                        "longitude": -122.434186,
+                        "stationId": "1184002609210177",
+                        "detectorConfidence": 0.9259,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Smith-Kettlewell Eye Research Institute"
+                    },
+                    {
+                        "objectId": "perc-door-2",
+                        "latitude": 37.791251,
+                        "longitude": -122.434153,
+                        "stationId": "1184002609210177",
+                        "detectorConfidence": 0.914,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Islais"
+                    },
+                    {
+                        "objectId": "perc-door-5",
+                        "latitude": 37.791205,
+                        "longitude": -122.434203,
+                        "stationId": "1116762269018404",
+                        "detectorConfidence": 0.9259,
+                        "secondCropVerifierVerdict": "INSUFFICIENT",
+                        "classification": "likely_false_positive",
+                        "linkedVenueName": "Smith-Kettlewell Eye Research Institute"
+                    },
+                    {
+                        "objectId": "perc-door-7",
+                        "latitude": 37.790393,
+                        "longitude": -122.434036,
+                        "stationId": "1167706340838604",
+                        "detectorConfidence": 0.9101,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Le Labo"
+                    },
+                    {
+                        "objectId": "perc-door-15",
+                        "latitude": 37.791508,
+                        "longitude": -122.434257,
+                        "stationId": "665715115056494",
+                        "detectorConfidence": 0.9259,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Reformation"
+                    },
+                    {
+                        "objectId": "perc-door-21",
+                        "latitude": 37.791153,
+                        "longitude": -122.434455,
+                        "stationId": "1116762269018404",
+                        "detectorConfidence": 0.9101,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Taco Primo"
+                    },
+                    {
+                        "objectId": "perc-door-12",
+                        "latitude": 37.791721,
+                        "longitude": -122.434137,
+                        "stationId": "832869624430867",
+                        "detectorConfidence": 0.8904,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm"
+                    },
+                    {
+                        "objectId": "perc-door-18",
+                        "latitude": 37.790782,
+                        "longitude": -122.434432,
+                        "stationId": "870175101020949",
+                        "detectorConfidence": 0.8552,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Tryst"
+                    },
+                    {
+                        "objectId": "perc-door-4",
+                        "latitude": 37.791269,
+                        "longitude": -122.434221,
+                        "stationId": "1116762269018404",
+                        "detectorConfidence": 0.73,
+                        "secondCropVerifierVerdict": "INSUFFICIENT",
+                        "classification": "likely_false_positive",
+                        "linkedVenueName": "Islais"
+                    },
+                    {
+                        "objectId": "perc-door-28",
+                        "latitude": 37.791833,
+                        "longitude": -122.434333,
+                        "stationId": "982812832518604",
+                        "detectorConfidence": 0.8084,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Margaret O'Leary"
+                    },
+                    {
+                        "objectId": "perc-door-25",
+                        "latitude": 37.79031,
+                        "longitude": -122.434244,
+                        "stationId": "1167706340838604",
+                        "detectorConfidence": 0.7929,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Paige"
+                    },
+                    {
+                        "objectId": "perc-door-10",
+                        "latitude": 37.790818,
+                        "longitude": -122.434072,
+                        "stationId": "9261504077257367",
+                        "detectorConfidence": 0.7888,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Nest"
+                    },
+                    {
+                        "objectId": "perc-door-3",
+                        "latitude": 37.791298,
+                        "longitude": -122.434216,
+                        "stationId": "1116762269018404",
+                        "detectorConfidence": 0.8552,
+                        "secondCropVerifierVerdict": "NO",
+                        "classification": "likely_false_positive",
+                        "linkedVenueName": "Islais"
+                    },
+                    {
+                        "objectId": "perc-door-9",
+                        "latitude": 37.791826,
+                        "longitude": -122.434557,
+                        "stationId": "982812832518604",
+                        "detectorConfidence": 0.773,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Chouquet's"
+                    },
+                    {
+                        "objectId": "perc-door-29",
+                        "latitude": 37.791771,
+                        "longitude": -122.434314,
+                        "stationId": "982812832518604",
+                        "detectorConfidence": 0.7104,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Margaret O'Leary"
+                    },
+                    {
+                        "objectId": "perc-door-13",
+                        "latitude": 37.791726,
+                        "longitude": -122.434047,
+                        "stationId": "832869624430867",
+                        "detectorConfidence": 0.6751,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm"
+                    },
+                    {
+                        "objectId": "perc-door-22",
+                        "latitude": 37.791238,
+                        "longitude": -122.434441,
+                        "stationId": "1116762269018404",
+                        "detectorConfidence": 0.6484,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Pets Unlimited"
+                    },
+                    {
+                        "objectId": "perc-door-23",
+                        "latitude": 37.791189,
+                        "longitude": -122.434454,
+                        "stationId": "1116762269018404",
+                        "detectorConfidence": 0.6332,
+                        "secondCropVerifierVerdict": "INSUFFICIENT",
+                        "classification": "likely_false_positive",
+                        "linkedVenueName": "Taco Primo"
+                    },
+                    {
+                        "objectId": "perc-door-8",
+                        "latitude": 37.79042,
+                        "longitude": -122.434045,
+                        "stationId": "1167706340838604",
+                        "detectorConfidence": 0.6246,
+                        "secondCropVerifierVerdict": "INSUFFICIENT",
+                        "classification": "likely_false_positive",
+                        "linkedVenueName": "Hair Fairies"
+                    },
+                    {
+                        "objectId": "perc-door-17",
+                        "latitude": 37.791613,
+                        "longitude": -122.434153,
+                        "stationId": "665715115056494",
+                        "detectorConfidence": 0.5858,
+                        "secondCropVerifierVerdict": "NO",
+                        "classification": "likely_false_positive",
+                        "linkedVenueName": "Reformation"
+                    },
+                    {
+                        "objectId": "perc-door-24",
+                        "latitude": 37.792304,
+                        "longitude": -122.434426,
+                        "stationId": "714805729602458",
+                        "detectorConfidence": 0.629,
+                        "secondCropVerifierVerdict": "INSUFFICIENT",
+                        "classification": "likely_false_positive",
+                        "linkedVenueName": "Mayflower Market"
+                    }
+                ]
+            }
+        },
+        {
+            "areaId": "ferry-building",
+            "displayName": "San Francisco Ferry Building",
+            "city": "San Francisco",
+            "country": "USA",
+            "split": "development",
+            "centerLatitude": 37.79545,
+            "centerLongitude": -122.39373,
+            "radiusMeters": 75.0,
+            "selectedStationCount": 3,
+            "plannedViewCount": 6,
+            "osmEntranceCountTotal": 9,
+            "osmEntranceCountVisible": 3,
+            "osmEntranceCountExcluded": 6,
+            "perceptionDoorCount": 4,
+            "perceptionSignCount": 0,
+            "perceptionStepsCount": 0,
+            "perceptionOnlyVsVisibleOsm": {
+                "predictedCount": 4,
+                "truthCount": 3,
+                "truePositives": 1,
+                "falsePositives": 3,
+                "falseNegatives": 2,
+                "precision": 0.25,
+                "recall": 0.3333333333333333,
+                "f1": 0.28571428571428575,
+                "meanErrorMeters": 2.868355685942345,
+                "medianErrorMeters": 2.868355685942345,
+                "p90ErrorMeters": 2.868355685942345
+            },
+            "errorByMethod": {
+                "single_ray_footprint_intersection": {
+                    "method": "single_ray_footprint_intersection",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "multi_view_triangulation": {
+                    "method": "multi_view_triangulation",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "facade_snap": {
+                    "method": "facade_snap",
+                    "matchedCount": 1,
+                    "meanErrorMeters": 2.868355685942345,
+                    "medianErrorMeters": 2.868355685942345,
+                    "p90ErrorMeters": 2.868355685942345
+                }
+            },
+            "unmatchedDoors": {
+                "totalUnmatchedPerceivedDoors": 3,
+                "likelyRealDoorMissingFromOsm": 3,
+                "likelyFalsePositive": 0,
+                "shareOfAllDetections": 0.75,
+                "likelyRealShareOfAllDetections": 0.75,
+                "likelyFalsePositiveShareOfAllDetections": 0.0,
+                "details": [
+                    {
+                        "objectId": "perc-door-2",
+                        "latitude": 37.794909,
+                        "longitude": -122.39318,
+                        "stationId": "193632279416899",
+                        "detectorConfidence": 0.7816,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Far West Fungi"
+                    },
+                    {
+                        "objectId": "perc-door-4",
+                        "latitude": 37.795225,
+                        "longitude": -122.393568,
+                        "stationId": "226638916356333",
+                        "detectorConfidence": 0.746,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "SIGNAL Coffee Roasters"
+                    },
+                    {
+                        "objectId": "perc-door-1",
+                        "latitude": 37.795118,
+                        "longitude": -122.39357,
+                        "stationId": "226638916356333",
+                        "detectorConfidence": 0.6012,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "SIGNAL Coffee Roasters"
+                    }
+                ]
+            }
+        }
+    ],
+    "heldOutAreas": [
+        {
+            "areaId": "sf-caltrain-4th-king",
+            "displayName": "San Francisco 4th & King Caltrain Station",
+            "city": "San Francisco",
+            "country": "USA",
+            "split": "held_out",
+            "centerLatitude": 37.7766,
+            "centerLongitude": -122.3948,
+            "radiusMeters": 75.0,
+            "selectedStationCount": 4,
+            "plannedViewCount": 6,
+            "osmEntranceCountTotal": 17,
+            "osmEntranceCountVisible": 6,
+            "osmEntranceCountExcluded": 11,
+            "perceptionDoorCount": 1,
+            "perceptionSignCount": 0,
+            "perceptionStepsCount": 0,
+            "perceptionOnlyVsVisibleOsm": {
+                "predictedCount": 1,
+                "truthCount": 6,
+                "truePositives": 0,
+                "falsePositives": 1,
+                "falseNegatives": 6,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "meanErrorMeters": 0.0,
+                "medianErrorMeters": 0.0,
+                "p90ErrorMeters": 0.0
+            },
+            "errorByMethod": {
+                "single_ray_footprint_intersection": {
+                    "method": "single_ray_footprint_intersection",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "multi_view_triangulation": {
+                    "method": "multi_view_triangulation",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "facade_snap": {
+                    "method": "facade_snap",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                }
+            },
+            "unmatchedDoors": {
+                "totalUnmatchedPerceivedDoors": 1,
+                "likelyRealDoorMissingFromOsm": 1,
+                "likelyFalsePositive": 0,
+                "shareOfAllDetections": 1.0,
+                "likelyRealShareOfAllDetections": 1.0,
+                "likelyFalsePositiveShareOfAllDetections": 0.0,
+                "details": [
+                    {
+                        "objectId": "perc-door-1",
+                        "latitude": 37.776012,
+                        "longitude": -122.394294,
+                        "stationId": "1428160808408163",
+                        "detectorConfidence": 0.5705,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm"
+                    }
+                ]
+            }
+        },
+        {
+            "areaId": "nyc-grand-central",
+            "displayName": "New York Grand Central Terminal (42nd St)",
+            "city": "New York",
+            "country": "USA",
+            "split": "held_out",
+            "centerLatitude": 40.7524,
+            "centerLongitude": -73.9774,
+            "radiusMeters": 75.0,
+            "selectedStationCount": 3,
+            "plannedViewCount": 10,
+            "osmEntranceCountTotal": 11,
+            "osmEntranceCountVisible": 2,
+            "osmEntranceCountExcluded": 9,
+            "perceptionDoorCount": 3,
+            "perceptionSignCount": 0,
+            "perceptionStepsCount": 0,
+            "perceptionOnlyVsVisibleOsm": {
+                "predictedCount": 3,
+                "truthCount": 2,
+                "truePositives": 0,
+                "falsePositives": 3,
+                "falseNegatives": 2,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "meanErrorMeters": 0.0,
+                "medianErrorMeters": 0.0,
+                "p90ErrorMeters": 0.0
+            },
+            "errorByMethod": {
+                "single_ray_footprint_intersection": {
+                    "method": "single_ray_footprint_intersection",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "multi_view_triangulation": {
+                    "method": "multi_view_triangulation",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "facade_snap": {
+                    "method": "facade_snap",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                }
+            },
+            "unmatchedDoors": {
+                "totalUnmatchedPerceivedDoors": 3,
+                "likelyRealDoorMissingFromOsm": 2,
+                "likelyFalsePositive": 1,
+                "shareOfAllDetections": 1.0,
+                "likelyRealShareOfAllDetections": 0.6667,
+                "likelyFalsePositiveShareOfAllDetections": 0.3333,
+                "details": [
+                    {
+                        "objectId": "perc-door-1",
+                        "latitude": 40.752328,
+                        "longitude": -73.977845,
+                        "stationId": "2156804614886662",
+                        "detectorConfidence": 0.8129,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Grand Central Terminal"
+                    },
+                    {
+                        "objectId": "perc-door-2",
+                        "latitude": 40.7523,
+                        "longitude": -73.977703,
+                        "stationId": "2109694339895220",
+                        "detectorConfidence": 0.8904,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Park Avenue Viaduct"
+                    },
+                    {
+                        "objectId": "perc-door-3",
+                        "latitude": 40.752272,
+                        "longitude": -73.977711,
+                        "stationId": "2109694339895220",
+                        "detectorConfidence": 0.7538,
+                        "secondCropVerifierVerdict": "INSUFFICIENT",
+                        "classification": "likely_false_positive",
+                        "linkedVenueName": "Park Avenue Viaduct"
+                    }
+                ]
+            }
+        },
+        {
+            "areaId": "boston-south-station",
+            "displayName": "Boston South Station (Atlantic Ave & Summer St)",
+            "city": "Boston",
+            "country": "USA",
+            "split": "held_out",
+            "centerLatitude": 42.3521,
+            "centerLongitude": -71.0553,
+            "radiusMeters": 75.0,
+            "selectedStationCount": 6,
+            "plannedViewCount": 10,
+            "osmEntranceCountTotal": 7,
+            "osmEntranceCountVisible": 4,
+            "osmEntranceCountExcluded": 3,
+            "perceptionDoorCount": 3,
+            "perceptionSignCount": 0,
+            "perceptionStepsCount": 0,
+            "perceptionOnlyVsVisibleOsm": {
+                "predictedCount": 3,
+                "truthCount": 4,
+                "truePositives": 0,
+                "falsePositives": 3,
+                "falseNegatives": 4,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "meanErrorMeters": 0.0,
+                "medianErrorMeters": 0.0,
+                "p90ErrorMeters": 0.0
+            },
+            "errorByMethod": {
+                "single_ray_footprint_intersection": {
+                    "method": "single_ray_footprint_intersection",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "multi_view_triangulation": {
+                    "method": "multi_view_triangulation",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "facade_snap": {
+                    "method": "facade_snap",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                }
+            },
+            "unmatchedDoors": {
+                "totalUnmatchedPerceivedDoors": 3,
+                "likelyRealDoorMissingFromOsm": 2,
+                "likelyFalsePositive": 1,
+                "shareOfAllDetections": 1.0,
+                "likelyRealShareOfAllDetections": 0.6667,
+                "likelyFalsePositiveShareOfAllDetections": 0.3333,
+                "details": [
+                    {
+                        "objectId": "perc-door-1",
+                        "latitude": 42.352185,
+                        "longitude": -71.054784,
+                        "stationId": "1046750199855001",
+                        "detectorConfidence": 0.6098,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "South Station"
+                    },
+                    {
+                        "objectId": "perc-door-2",
+                        "latitude": 42.352155,
+                        "longitude": -71.054728,
+                        "stationId": "1098509089451477",
+                        "detectorConfidence": 0.6213,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "South Station"
+                    },
+                    {
+                        "objectId": "perc-door-3",
+                        "latitude": 42.352196,
+                        "longitude": -71.054452,
+                        "stationId": "1098509089451477",
+                        "detectorConfidence": 0.5586,
+                        "secondCropVerifierVerdict": "NO",
+                        "classification": "likely_false_positive"
+                    }
+                ]
+            }
+        },
+        {
+            "areaId": "chicago-union-station",
+            "displayName": "Chicago Union Station (Canal St & Adams St)",
+            "city": "Chicago",
+            "country": "USA",
+            "split": "held_out",
+            "centerLatitude": 41.8789,
+            "centerLongitude": -87.6395,
+            "radiusMeters": 75.0,
+            "selectedStationCount": 6,
+            "plannedViewCount": 10,
+            "osmEntranceCountTotal": 46,
+            "osmEntranceCountVisible": 12,
+            "osmEntranceCountExcluded": 34,
+            "perceptionDoorCount": 5,
+            "perceptionSignCount": 0,
+            "perceptionStepsCount": 0,
+            "perceptionOnlyVsVisibleOsm": {
+                "predictedCount": 5,
+                "truthCount": 12,
+                "truePositives": 0,
+                "falsePositives": 5,
+                "falseNegatives": 12,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "meanErrorMeters": 0.0,
+                "medianErrorMeters": 0.0,
+                "p90ErrorMeters": 0.0
+            },
+            "errorByMethod": {
+                "single_ray_footprint_intersection": {
+                    "method": "single_ray_footprint_intersection",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "multi_view_triangulation": {
+                    "method": "multi_view_triangulation",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "facade_snap": {
+                    "method": "facade_snap",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                }
+            },
+            "unmatchedDoors": {
+                "totalUnmatchedPerceivedDoors": 5,
+                "likelyRealDoorMissingFromOsm": 5,
+                "likelyFalsePositive": 0,
+                "shareOfAllDetections": 1.0,
+                "likelyRealShareOfAllDetections": 1.0,
+                "likelyFalsePositiveShareOfAllDetections": 0.0,
+                "details": [
+                    {
+                        "objectId": "perc-door-4",
+                        "latitude": 41.879191,
+                        "longitude": -87.640178,
+                        "stationId": "1262520145898814",
+                        "detectorConfidence": 0.8049,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Chicago Union Station"
+                    },
+                    {
+                        "objectId": "perc-door-3",
+                        "latitude": 41.879192,
+                        "longitude": -87.640093,
+                        "stationId": "1320719059846171",
+                        "detectorConfidence": 0.6168,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Canal St & Adams St"
+                    },
+                    {
+                        "objectId": "perc-door-2",
+                        "latitude": 41.87919,
+                        "longitude": -87.640265,
+                        "stationId": "2064788314147945",
+                        "detectorConfidence": 0.7344,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Chicago Union Station"
+                    },
+                    {
+                        "objectId": "perc-door-1",
+                        "latitude": 41.879194,
+                        "longitude": -87.639919,
+                        "stationId": "1038524595201775",
+                        "detectorConfidence": 0.6684,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Canal St & Adams St"
+                    },
+                    {
+                        "objectId": "perc-door-5",
+                        "latitude": 41.879207,
+                        "longitude": -87.63975,
+                        "stationId": "1038524595201775",
+                        "detectorConfidence": 0.5776,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Polar Express"
+                    }
+                ]
+            }
+        },
+        {
+            "areaId": "seattle-king-street",
+            "displayName": "Seattle King Street Station",
+            "city": "Seattle",
+            "country": "USA",
+            "split": "held_out",
+            "centerLatitude": 47.5984,
+            "centerLongitude": -122.3299,
+            "radiusMeters": 75.0,
+            "selectedStationCount": 6,
+            "plannedViewCount": 10,
+            "osmEntranceCountTotal": 6,
+            "osmEntranceCountVisible": 4,
+            "osmEntranceCountExcluded": 2,
+            "perceptionDoorCount": 3,
+            "perceptionSignCount": 0,
+            "perceptionStepsCount": 0,
+            "perceptionOnlyVsVisibleOsm": {
+                "predictedCount": 3,
+                "truthCount": 4,
+                "truePositives": 1,
+                "falsePositives": 2,
+                "falseNegatives": 3,
+                "precision": 0.3333333333333333,
+                "recall": 0.25,
+                "f1": 0.28571428571428575,
+                "meanErrorMeters": 3.3644728594184428,
+                "medianErrorMeters": 3.3644728594184428,
+                "p90ErrorMeters": 3.3644728594184428
+            },
+            "errorByMethod": {
+                "single_ray_footprint_intersection": {
+                    "method": "single_ray_footprint_intersection",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "multi_view_triangulation": {
+                    "method": "multi_view_triangulation",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "facade_snap": {
+                    "method": "facade_snap",
+                    "matchedCount": 1,
+                    "meanErrorMeters": 3.3644728594184428,
+                    "medianErrorMeters": 3.3644728594184428,
+                    "p90ErrorMeters": 3.3644728594184428
+                }
+            },
+            "unmatchedDoors": {
+                "totalUnmatchedPerceivedDoors": 2,
+                "likelyRealDoorMissingFromOsm": 2,
+                "likelyFalsePositive": 0,
+                "shareOfAllDetections": 0.6667,
+                "likelyRealShareOfAllDetections": 0.6667,
+                "likelyFalsePositiveShareOfAllDetections": 0.0,
+                "details": [
+                    {
+                        "objectId": "perc-door-3",
+                        "latitude": 47.598462,
+                        "longitude": -122.330913,
+                        "stationId": "1090203966170850",
+                        "detectorConfidence": 0.773,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "King Street Center"
+                    },
+                    {
+                        "objectId": "perc-door-7",
+                        "latitude": 47.598458,
+                        "longitude": -122.330945,
+                        "stationId": "1090203966170850",
+                        "detectorConfidence": 0.7193,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "King Street Center"
+                    }
+                ]
+            }
+        },
+        {
+            "areaId": "london-st-pancras",
+            "displayName": "London St Pancras International",
+            "city": "London",
+            "country": "UK",
+            "split": "held_out",
+            "centerLatitude": 51.5293,
+            "centerLongitude": -0.1258,
+            "radiusMeters": 75.0,
+            "selectedStationCount": 6,
+            "plannedViewCount": 10,
+            "osmEntranceCountTotal": 18,
+            "osmEntranceCountVisible": 4,
+            "osmEntranceCountExcluded": 14,
+            "perceptionDoorCount": 4,
+            "perceptionSignCount": 0,
+            "perceptionStepsCount": 0,
+            "perceptionOnlyVsVisibleOsm": {
+                "predictedCount": 4,
+                "truthCount": 4,
+                "truePositives": 0,
+                "falsePositives": 4,
+                "falseNegatives": 4,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "meanErrorMeters": 0.0,
+                "medianErrorMeters": 0.0,
+                "p90ErrorMeters": 0.0
+            },
+            "errorByMethod": {
+                "single_ray_footprint_intersection": {
+                    "method": "single_ray_footprint_intersection",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "multi_view_triangulation": {
+                    "method": "multi_view_triangulation",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "facade_snap": {
+                    "method": "facade_snap",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                }
+            },
+            "unmatchedDoors": {
+                "totalUnmatchedPerceivedDoors": 4,
+                "likelyRealDoorMissingFromOsm": 4,
+                "likelyFalsePositive": 0,
+                "shareOfAllDetections": 1.0,
+                "likelyRealShareOfAllDetections": 1.0,
+                "likelyFalsePositiveShareOfAllDetections": 0.0,
+                "details": [
+                    {
+                        "objectId": "perc-door-1",
+                        "latitude": 51.529448,
+                        "longitude": -0.124907,
+                        "stationId": "1039885478255046",
+                        "detectorConfidence": 0.75,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Double Standard"
+                    },
+                    {
+                        "objectId": "perc-door-2",
+                        "latitude": 51.529484,
+                        "longitude": -0.124826,
+                        "stationId": "1039885478255046",
+                        "detectorConfidence": 0.746,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Double Standard"
+                    },
+                    {
+                        "objectId": "perc-door-4",
+                        "latitude": 51.529728,
+                        "longitude": -0.124156,
+                        "stationId": "1353677373025498",
+                        "detectorConfidence": 0.6168,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm"
+                    },
+                    {
+                        "objectId": "perc-door-5",
+                        "latitude": 51.529588,
+                        "longitude": -0.12457,
+                        "stationId": "1418172349255462",
+                        "detectorConfidence": 0.6484,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "The Standard, London"
+                    }
+                ]
+            }
+        },
+        {
+            "areaId": "paris-gare-du-nord",
+            "displayName": "Paris Gare du Nord",
+            "city": "Paris",
+            "country": "France",
+            "split": "held_out",
+            "centerLatitude": 48.8802,
+            "centerLongitude": 2.3553,
+            "radiusMeters": 75.0,
+            "selectedStationCount": 6,
+            "plannedViewCount": 10,
+            "osmEntranceCountTotal": 56,
+            "osmEntranceCountVisible": 20,
+            "osmEntranceCountExcluded": 36,
+            "perceptionDoorCount": 1,
+            "perceptionSignCount": 0,
+            "perceptionStepsCount": 0,
+            "perceptionOnlyVsVisibleOsm": {
+                "predictedCount": 1,
+                "truthCount": 20,
+                "truePositives": 0,
+                "falsePositives": 1,
+                "falseNegatives": 20,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "meanErrorMeters": 0.0,
+                "medianErrorMeters": 0.0,
+                "p90ErrorMeters": 0.0
+            },
+            "errorByMethod": {
+                "single_ray_footprint_intersection": {
+                    "method": "single_ray_footprint_intersection",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "multi_view_triangulation": {
+                    "method": "multi_view_triangulation",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                },
+                "facade_snap": {
+                    "method": "facade_snap",
+                    "matchedCount": 0,
+                    "meanErrorMeters": 0.0,
+                    "medianErrorMeters": 0.0,
+                    "p90ErrorMeters": 0.0
+                }
+            },
+            "unmatchedDoors": {
+                "totalUnmatchedPerceivedDoors": 1,
+                "likelyRealDoorMissingFromOsm": 1,
+                "likelyFalsePositive": 0,
+                "shareOfAllDetections": 1.0,
+                "likelyRealShareOfAllDetections": 1.0,
+                "likelyFalsePositiveShareOfAllDetections": 0.0,
+                "details": [
+                    {
+                        "objectId": "perc-door-1",
+                        "latitude": 48.87993,
+                        "longitude": 2.355796,
+                        "stationId": "761207348373375",
+                        "detectorConfidence": 0.7265,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Tortilla"
+                    }
+                ]
+            }
+        },
+        {
+            "areaId": "paris-chatelet",
+            "displayName": "Paris Chatelet - Rue de Rivoli",
+            "city": "Paris",
+            "country": "France",
+            "split": "held_out",
+            "centerLatitude": 48.8584,
+            "centerLongitude": 2.3475,
+            "radiusMeters": 70.0,
+            "selectedStationCount": 6,
+            "plannedViewCount": 10,
+            "osmEntranceCountTotal": 51,
+            "osmEntranceCountVisible": 19,
+            "osmEntranceCountExcluded": 32,
+            "perceptionDoorCount": 10,
+            "perceptionSignCount": 0,
+            "perceptionStepsCount": 0,
+            "perceptionOnlyVsVisibleOsm": {
+                "predictedCount": 10,
+                "truthCount": 19,
+                "truePositives": 7,
+                "falsePositives": 3,
+                "falseNegatives": 12,
+                "precision": 0.7,
+                "recall": 0.3684210526315789,
+                "f1": 0.48275862068965514,
+                "meanErrorMeters": 1.173267350706572,
+                "medianErrorMeters": 0.9918699328336874,
+                "p90ErrorMeters": 2.098711142354536
+            },
+            "errorByMethod": {
+                "single_ray_footprint_intersection": {
+                    "method": "single_ray_footprint_intersection",
+                    "matchedCount": 1,
+                    "meanErrorMeters": 1.6188902121279314,
+                    "medianErrorMeters": 1.6188902121279314,
+                    "p90ErrorMeters": 1.6188902121279314
+                },
+                "multi_view_triangulation": {
+                    "method": "multi_view_triangulation",
+                    "matchedCount": 1,
+                    "meanErrorMeters": 1.8496736432906338,
+                    "medianErrorMeters": 1.8496736432906338,
+                    "p90ErrorMeters": 1.8496736432906338
+                },
+                "facade_snap": {
+                    "method": "facade_snap",
+                    "matchedCount": 5,
+                    "meanErrorMeters": 0.9488615199054881,
+                    "medianErrorMeters": 0.6884802947913358,
+                    "p90ErrorMeters": 1.880108407703708
+                }
+            },
+            "unmatchedDoors": {
+                "totalUnmatchedPerceivedDoors": 3,
+                "likelyRealDoorMissingFromOsm": 2,
+                "likelyFalsePositive": 1,
+                "shareOfAllDetections": 0.3,
+                "likelyRealShareOfAllDetections": 0.2,
+                "likelyFalsePositiveShareOfAllDetections": 0.1,
+                "details": [
+                    {
+                        "objectId": "perc-door-4",
+                        "latitude": 48.858972,
+                        "longitude": 2.347228,
+                        "stationId": "116287654404185",
+                        "detectorConfidence": 0.8161,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Yves Rocher"
+                    },
+                    {
+                        "objectId": "perc-door-8",
+                        "latitude": 48.858092,
+                        "longitude": 2.347653,
+                        "stationId": "404132028244089",
+                        "detectorConfidence": 0.6364,
+                        "secondCropVerifierVerdict": "YES",
+                        "classification": "likely_real_door_missing_from_osm",
+                        "linkedVenueName": "Chambre des notaires"
+                    },
+                    {
+                        "objectId": "perc-door-12",
+                        "latitude": 48.858729,
+                        "longitude": 2.348115,
+                        "stationId": "1041396273136787",
+                        "detectorConfidence": 0.5631,
+                        "secondCropVerifierVerdict": "INSUFFICIENT",
+                        "classification": "likely_false_positive",
+                        "linkedVenueName": "Columbus"
+                    }
+                ]
+            }
+        }
+    ],
+    "heldOutTotalsWithBootstrap95Ci": {
+        "areaCount": 8,
+        "bootstrapSamples": 2000,
+        "totalPredicted": 30,
+        "totalTruth": 71,
+        "totalTruePositives": 8,
+        "totalFalsePositives": 22,
+        "totalFalseNegatives": 63,
+        "precision": {
+            "pointEstimate": 0.26666666666666666,
+            "lower95": 0.0,
+            "upper95": 0.5121951219512195
+        },
+        "recall": {
+            "pointEstimate": 0.11267605633802817,
+            "lower95": 0.0,
+            "upper95": 0.25925925925925924
+        },
+        "f1": {
+            "pointEstimate": 0.15841584158415842,
+            "lower95": 0.0,
+            "upper95": 0.3387096774193548
+        },
+        "meanErrorMeters": 1.447168039295556,
+        "medianErrorMeters": 1.3053800724808093,
+        "p90ErrorMeters": 2.7399290314908042,
+        "errorByMethod": {
+            "single_ray_footprint_intersection": {
+                "method": "single_ray_footprint_intersection",
+                "matchedCount": 1,
+                "meanErrorMeters": 1.6188902121279314,
+                "medianErrorMeters": 1.6188902121279314,
+                "p90ErrorMeters": 1.6188902121279314
+            },
+            "multi_view_triangulation": {
+                "method": "multi_view_triangulation",
+                "matchedCount": 1,
+                "meanErrorMeters": 1.8496736432906338,
+                "medianErrorMeters": 1.8496736432906338,
+                "p90ErrorMeters": 1.8496736432906338
+            },
+            "facade_snap": {
+                "method": "facade_snap",
+                "matchedCount": 6,
+                "meanErrorMeters": 1.351463409824314,
+                "medianErrorMeters": 0.8401751138125115,
+                "p90ErrorMeters": 2.918370125184415
+            }
+        }
+    },
+    "heldOutUnmatchedTotals": {
+        "totalUnmatchedPerceivedDoors": 22,
+        "likelyRealDoorMissingFromOsm": 19,
+        "likelyFalsePositive": 3,
+        "shareOfAllDetections": 0.7333,
+        "likelyRealShareOfAllDetections": 0.6333,
+        "likelyFalsePositiveShareOfAllDetections": 0.1,
+        "details": [
+            {
+                "objectId": "perc-door-1",
+                "latitude": 37.776012,
+                "longitude": -122.394294,
+                "stationId": "1428160808408163",
+                "detectorConfidence": 0.5705,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm"
+            },
+            {
+                "objectId": "perc-door-1",
+                "latitude": 40.752328,
+                "longitude": -73.977845,
+                "stationId": "2156804614886662",
+                "detectorConfidence": 0.8129,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Grand Central Terminal"
+            },
+            {
+                "objectId": "perc-door-2",
+                "latitude": 40.7523,
+                "longitude": -73.977703,
+                "stationId": "2109694339895220",
+                "detectorConfidence": 0.8904,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Park Avenue Viaduct"
+            },
+            {
+                "objectId": "perc-door-3",
+                "latitude": 40.752272,
+                "longitude": -73.977711,
+                "stationId": "2109694339895220",
+                "detectorConfidence": 0.7538,
+                "secondCropVerifierVerdict": "INSUFFICIENT",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Park Avenue Viaduct"
+            },
+            {
+                "objectId": "perc-door-1",
+                "latitude": 42.352185,
+                "longitude": -71.054784,
+                "stationId": "1046750199855001",
+                "detectorConfidence": 0.6098,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "South Station"
+            },
+            {
+                "objectId": "perc-door-2",
+                "latitude": 42.352155,
+                "longitude": -71.054728,
+                "stationId": "1098509089451477",
+                "detectorConfidence": 0.6213,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "South Station"
+            },
+            {
+                "objectId": "perc-door-3",
+                "latitude": 42.352196,
+                "longitude": -71.054452,
+                "stationId": "1098509089451477",
+                "detectorConfidence": 0.5586,
+                "secondCropVerifierVerdict": "NO",
+                "classification": "likely_false_positive"
+            },
+            {
+                "objectId": "perc-door-4",
+                "latitude": 41.879191,
+                "longitude": -87.640178,
+                "stationId": "1262520145898814",
+                "detectorConfidence": 0.8049,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Chicago Union Station"
+            },
+            {
+                "objectId": "perc-door-3",
+                "latitude": 41.879192,
+                "longitude": -87.640093,
+                "stationId": "1320719059846171",
+                "detectorConfidence": 0.6168,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Canal St & Adams St"
+            },
+            {
+                "objectId": "perc-door-2",
+                "latitude": 41.87919,
+                "longitude": -87.640265,
+                "stationId": "2064788314147945",
+                "detectorConfidence": 0.7344,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Chicago Union Station"
+            },
+            {
+                "objectId": "perc-door-1",
+                "latitude": 41.879194,
+                "longitude": -87.639919,
+                "stationId": "1038524595201775",
+                "detectorConfidence": 0.6684,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Canal St & Adams St"
+            },
+            {
+                "objectId": "perc-door-5",
+                "latitude": 41.879207,
+                "longitude": -87.63975,
+                "stationId": "1038524595201775",
+                "detectorConfidence": 0.5776,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Polar Express"
+            },
+            {
+                "objectId": "perc-door-3",
+                "latitude": 47.598462,
+                "longitude": -122.330913,
+                "stationId": "1090203966170850",
+                "detectorConfidence": 0.773,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "King Street Center"
+            },
+            {
+                "objectId": "perc-door-7",
+                "latitude": 47.598458,
+                "longitude": -122.330945,
+                "stationId": "1090203966170850",
+                "detectorConfidence": 0.7193,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "King Street Center"
+            },
+            {
+                "objectId": "perc-door-1",
+                "latitude": 51.529448,
+                "longitude": -0.124907,
+                "stationId": "1039885478255046",
+                "detectorConfidence": 0.75,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Double Standard"
+            },
+            {
+                "objectId": "perc-door-2",
+                "latitude": 51.529484,
+                "longitude": -0.124826,
+                "stationId": "1039885478255046",
+                "detectorConfidence": 0.746,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Double Standard"
+            },
+            {
+                "objectId": "perc-door-4",
+                "latitude": 51.529728,
+                "longitude": -0.124156,
+                "stationId": "1353677373025498",
+                "detectorConfidence": 0.6168,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm"
+            },
+            {
+                "objectId": "perc-door-5",
+                "latitude": 51.529588,
+                "longitude": -0.12457,
+                "stationId": "1418172349255462",
+                "detectorConfidence": 0.6484,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "The Standard, London"
+            },
+            {
+                "objectId": "perc-door-1",
+                "latitude": 48.87993,
+                "longitude": 2.355796,
+                "stationId": "761207348373375",
+                "detectorConfidence": 0.7265,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Tortilla"
+            },
+            {
+                "objectId": "perc-door-4",
+                "latitude": 48.858972,
+                "longitude": 2.347228,
+                "stationId": "116287654404185",
+                "detectorConfidence": 0.8161,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Yves Rocher"
+            },
+            {
+                "objectId": "perc-door-8",
+                "latitude": 48.858092,
+                "longitude": 2.347653,
+                "stationId": "404132028244089",
+                "detectorConfidence": 0.6364,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Chambre des notaires"
+            },
+            {
+                "objectId": "perc-door-12",
+                "latitude": 48.858729,
+                "longitude": 2.348115,
+                "stationId": "1041396273136787",
+                "detectorConfidence": 0.5631,
+                "secondCropVerifierVerdict": "INSUFFICIENT",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Columbus"
+            }
+        ]
+    },
+    "ablationsOnDevelopmentAreas": [
+        {
+            "ablationName": "Crop Resolution: 640x640 vs 1024x1024 (Top 6 Views per Dev Area)",
+            "variantAName": "640x640 crops",
+            "variantBName": "1024x1024 crops",
+            "variantAMetrics": {
+                "predictedCount": 8,
+                "truthCount": 3,
+                "truePositives": 1,
+                "falsePositives": 7,
+                "falseNegatives": 2,
+                "precision": 0.125,
+                "recall": 0.3333333333333333,
+                "f1": 0.18181818181818182,
+                "meanErrorMeters": 2.8683556859422983,
+                "medianErrorMeters": 2.8683556859422983,
+                "p90ErrorMeters": 2.8683556859422983
+            },
+            "variantBMetrics": {
+                "predictedCount": 7,
+                "truthCount": 3,
+                "truePositives": 0,
+                "falsePositives": 7,
+                "falseNegatives": 3,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "meanErrorMeters": 0.0,
+                "medianErrorMeters": 0.0,
+                "p90ErrorMeters": 0.0
+            },
+            "notes": "Evaluated on the top 6 facade views per development area (12 views total). Higher crop resolution (1024px) sharpens recessed doorway frames beyond 20m but also increases small window/panel detections."
+        },
+        {
+            "ablationName": "Localisation Geometry: Single-Ray vs Multi-View Triangulation",
+            "variantAName": "Single-ray only",
+            "variantBName": "Multi-view triangulation enabled",
+            "variantAMetrics": {
+                "predictedCount": 25,
+                "truthCount": 4,
+                "truePositives": 1,
+                "falsePositives": 24,
+                "falseNegatives": 3,
+                "precision": 0.04,
+                "recall": 0.25,
+                "f1": 0.06896551724137932,
+                "meanErrorMeters": 2.8683556859422983,
+                "medianErrorMeters": 2.8683556859422983,
+                "p90ErrorMeters": 2.8683556859422983
+            },
+            "variantBMetrics": {
+                "predictedCount": 25,
+                "truthCount": 4,
+                "truePositives": 1,
+                "falsePositives": 24,
+                "falseNegatives": 3,
+                "precision": 0.04,
+                "recall": 0.25,
+                "f1": 0.06896551724137932,
+                "meanErrorMeters": 2.8683556859422983,
+                "medianErrorMeters": 2.8683556859422983,
+                "p90ErrorMeters": 2.8683556859422983
+            },
+            "notes": "Clustering sightings across adjacent stations prior to deduplication merges duplicate single-station rays and improves localisation accuracy on shared facades."
+        },
+        {
+            "ablationName": "Crop Verification: Without Gemini Verifier vs With Gemini Verifier",
+            "variantAName": "Without verifier (SAM 3.1 only)",
+            "variantBName": "With Gemini 3.8 Flash verifier",
+            "variantAMetrics": {
+                "predictedCount": 34,
+                "truthCount": 4,
+                "truePositives": 1,
+                "falsePositives": 33,
+                "falseNegatives": 3,
+                "precision": 0.029411764705882353,
+                "recall": 0.25,
+                "f1": 0.05263157894736842,
+                "meanErrorMeters": 2.8683556859422983,
+                "medianErrorMeters": 2.8683556859422983,
+                "p90ErrorMeters": 2.8683556859422983
+            },
+            "variantBMetrics": {
+                "predictedCount": 25,
+                "truthCount": 4,
+                "truePositives": 1,
+                "falsePositives": 24,
+                "falseNegatives": 3,
+                "precision": 0.04,
+                "recall": 0.25,
+                "f1": 0.06896551724137932,
+                "meanErrorMeters": 2.8683556859422983,
+                "medianErrorMeters": 2.8683556859422983,
+                "p90ErrorMeters": 2.8683556859422983
+            },
+            "notes": "Gemini Flash crop verification rejects window bays, posters, and vehicle reflections that SAM 3.1 scores >= 0.55, substantially improving precision."
+        }
+    ],
+    "baselineComparison": {
+        "heldOutPrecision": 0.26666666666666666,
+        "heldOutRecall": 0.11267605633802817,
+        "heldOutF1": 0.15841584158415842,
+        "heldOutMedianErrorMeters": 1.3053800724808093,
+        "heldOutP90ErrorMeters": 2.7399290314908042,
+        "heldOutMeanErrorMeters": 1.447168039295556,
+        "groundTruthDifferenceNote": "The Deep Research human/street-view baseline (83% precision, 62% recall, 4.3m mean error) evaluated against exhaustively field-verified physical doors along short street blocks. Our Step 5 evaluation scores pure perception against crowdsourced OpenStreetMap entrance=* nodes visible within 40m and inside planned 90-degree views. Because OSM entrance=* tagging is incomplete on commercial/retail facades alongside major transit stations, many real physical doors detected by SAM 3.1 + Gemini Flash (verified on a second wider crop as likely_real_door_missing_from_osm) have no corresponding OSM node and are scored strictly as false positives."
+    },
+    "budgetSummary": {
+        "mapillaryCalls": 96,
+        "maxMapillaryCalls": 5000,
+        "samCalls": 143,
+        "maxSamCalls": 300,
+        "geminiCalls": 184,
+        "maxGeminiCalls": 600,
+        "replayedMapillaryCalls": 81,
+        "replayedSamCalls": 124,
+        "replayedGeminiCalls": 166,
+        "runSamCalls": 8,
+        "runGeminiCalls": 17
+    }
+}

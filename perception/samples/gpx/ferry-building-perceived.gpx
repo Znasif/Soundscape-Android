@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Soundscape-Android Perception Pipeline" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Prototype: San Francisco Ferry Building perceived entrances</name>
+    <desc>Soundscape Street Preview prototype GPX (perceived entrances, 4 waypoints). Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </metadata>
+  <wpt lat="37.795118" lon="-122.39357">
+    <name>Door, perceived: SIGNAL Coffee Roasters</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=226638916356333, sam-3.1 confidence=0.6, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.795225" lon="-122.393568">
+    <name>Door, perceived: SIGNAL Coffee Roasters</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=226638916356333, sam-3.1 confidence=0.75, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.794909" lon="-122.39318">
+    <name>Door, perceived: Far West Fungi</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=193632279416899, sam-3.1 confidence=0.78, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.79552" lon="-122.393079">
+    <name>Door, perceived: Cholita Linda</name>
+    <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/11041574557, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <rte>
+    <name>Prototype: San Francisco Ferry Building perceived entrances</name>
+    <rtept lat="37.795118" lon="-122.39357">
+      <name>Door, perceived: SIGNAL Coffee Roasters</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=226638916356333, sam-3.1 confidence=0.6, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.795225" lon="-122.393568">
+      <name>Door, perceived: SIGNAL Coffee Roasters</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=226638916356333, sam-3.1 confidence=0.75, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.794909" lon="-122.39318">
+      <name>Door, perceived: Far West Fungi</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=193632279416899, sam-3.1 confidence=0.78, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.79552" lon="-122.393079">
+      <name>Door, perceived: Cholita Linda</name>
+      <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/11041574557, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+  </rte>
+</gpx>

@@ -1,0 +1,73 @@
+{
+    "areaId": "sf-caltrain-4th-king",
+    "displayName": "San Francisco 4th & King Caltrain Station",
+    "city": "San Francisco",
+    "country": "USA",
+    "split": "held_out",
+    "centerLatitude": 37.7766,
+    "centerLongitude": -122.3948,
+    "radiusMeters": 75.0,
+    "selectedStationCount": 4,
+    "plannedViewCount": 6,
+    "osmEntranceCountTotal": 17,
+    "osmEntranceCountVisible": 6,
+    "osmEntranceCountExcluded": 11,
+    "perceptionDoorCount": 1,
+    "perceptionSignCount": 0,
+    "perceptionStepsCount": 0,
+    "perceptionOnlyVsVisibleOsm": {
+        "predictedCount": 1,
+        "truthCount": 6,
+        "truePositives": 0,
+        "falsePositives": 1,
+        "falseNegatives": 6,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "meanErrorMeters": 0.0,
+        "medianErrorMeters": 0.0,
+        "p90ErrorMeters": 0.0
+    },
+    "errorByMethod": {
+        "single_ray_footprint_intersection": {
+            "method": "single_ray_footprint_intersection",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "multi_view_triangulation": {
+            "method": "multi_view_triangulation",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "facade_snap": {
+            "method": "facade_snap",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        }
+    },
+    "unmatchedDoors": {
+        "totalUnmatchedPerceivedDoors": 1,
+        "likelyRealDoorMissingFromOsm": 1,
+        "likelyFalsePositive": 0,
+        "shareOfAllDetections": 1.0,
+        "likelyRealShareOfAllDetections": 1.0,
+        "likelyFalsePositiveShareOfAllDetections": 0.0,
+        "details": [
+            {
+                "objectId": "perc-door-1",
+                "latitude": 37.776012,
+                "longitude": -122.394294,
+                "stationId": "1428160808408163",
+                "detectorConfidence": 0.5705,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm"
+            }
+        ]
+    }
+}

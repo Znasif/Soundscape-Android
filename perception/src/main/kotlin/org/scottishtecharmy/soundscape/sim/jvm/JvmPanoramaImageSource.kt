@@ -20,6 +20,9 @@ import kotlin.math.roundToInt
  * - Downloads and caches the equirectangular [BufferedImage] in memory only (never committed to git).
  * - Reprojects equirectangular panoramas into rectilinear [PerspectiveCamera] crops using bilinear interpolation
  *   and downscales to [maxDimension] (default `1024`, with standard views at `640x640`).
+ * - In offline fixture replay mode (when `signedUrl` is scrubbed to `https://stub.mapillary.example/thumb.jpg`
+ *   or `gateway.replayOnly == true`), returns a deterministic stub crop in memory so downstream `SegmentationClient`,
+ *   `Verifier`, and `TextReader` calls replay from recorded JSON fixtures via `contextKey` with zero stored images.
  */
 class JvmPanoramaImageSource(
     private val mapillarySource: MapillarySource? = null,
@@ -41,18 +44,61 @@ class JvmPanoramaImageSource(
         compassAngleDegrees: Double,
         camera: PerspectiveCamera
     ): PerspectiveCropImage? {
-        val pano = getOrFetchPanorama(stationId) ?: return null
         val effectiveCamera = downscaleCameraIfNeeded(camera, maxDimension)
+        val cachedPano = panoCache[stationId]
+        if (cachedPano != null) {
+            val projected = reprojectEquirectangularToPerspective(
+                pano = cachedPano,
+                compassAngleDegrees = compassAngleDegrees,
+                camera = effectiveCamera
+            )
+            return PerspectiveCropImage(
+                stationId = stationId,
+                camera = effectiveCamera,
+                jpegBytes = encodeJpeg(projected)
+            )
+        }
+
+        val source = mapillarySource ?: return null
+        val gw = gateway ?: return null
+
+        var meta = source.getImageById(stationId) ?: return null
+        var signedUrl = meta.thumb2048Url ?: meta.thumb1024Url ?: return null
+
+        if (gw.replayOnly) {
+            // Offline replay mode: return lightweight stub JPEG so StreetBuilder replays recorded SAM/Gemini JSON fixtures
+            return PerspectiveCropImage(
+                stationId = stationId,
+                camera = effectiveCamera,
+                jpegBytes = STUB_REPLAY_JPEG
+            )
+        }
+
+        if (signedUrl.startsWith("https://stub.mapillary.example")) {
+            val liveSource = HttpMapillaryClient(gateway = HttpGateway(replayOnly = false))
+            meta = liveSource.getImageById(stationId) ?: return null
+            signedUrl = meta.thumb2048Url ?: meta.thumb1024Url ?: return null
+            if (signedUrl.startsWith("https://stub.mapillary.example")) {
+                return PerspectiveCropImage(
+                    stationId = stationId,
+                    camera = effectiveCamera,
+                    jpegBytes = STUB_REPLAY_JPEG
+                )
+            }
+        }
+
+        val bytes = gw.getBytes(signedUrl)
+        val decoded = ImageIO.read(ByteArrayInputStream(bytes)) ?: return null
+        panoCache[stationId] = decoded
         val projected = reprojectEquirectangularToPerspective(
-            pano = pano,
+            pano = decoded,
             compassAngleDegrees = compassAngleDegrees,
             camera = effectiveCamera
         )
-        val jpegBytes = encodeJpeg(projected)
         return PerspectiveCropImage(
             stationId = stationId,
             camera = effectiveCamera,
-            jpegBytes = jpegBytes
+            jpegBytes = encodeJpeg(projected)
         )
     }
 
@@ -61,6 +107,7 @@ class JvmPanoramaImageSource(
         box: List<Int>,
         paddingFraction: Double
     ): ByteArray {
+        if (crop.jpegBytes === STUB_REPLAY_JPEG) return STUB_REPLAY_JPEG
         val src = ImageIO.read(ByteArrayInputStream(crop.jpegBytes)) ?: return crop.jpegBytes
         if (box.size < 4) return crop.jpegBytes
 
@@ -87,22 +134,11 @@ class JvmPanoramaImageSource(
         return encodeJpeg(copy)
     }
 
-    private suspend fun getOrFetchPanorama(stationId: String): BufferedImage? {
-        panoCache[stationId]?.let { return it }
-        val source = mapillarySource ?: return null
-        val gw = gateway ?: return null
-
-        val meta = source.getImageById(stationId) ?: return null
-        val signedUrl = meta.thumb2048Url ?: meta.thumb1024Url ?: return null
-        if (signedUrl.startsWith("https://stub.mapillary.example")) return null
-
-        val bytes = gw.getBytes(signedUrl)
-        val decoded = ImageIO.read(ByteArrayInputStream(bytes)) ?: return null
-        panoCache[stationId] = decoded
-        return decoded
-    }
-
     companion object {
+        private val STUB_REPLAY_JPEG: ByteArray by lazy {
+            encodeJpeg(BufferedImage(16, 16, BufferedImage.TYPE_INT_RGB))
+        }
+
         fun downscaleCameraIfNeeded(camera: PerspectiveCamera, maxDimension: Int): PerspectiveCamera {
             val maxSide = max(camera.width, camera.height)
             if (maxSide <= maxDimension) return camera

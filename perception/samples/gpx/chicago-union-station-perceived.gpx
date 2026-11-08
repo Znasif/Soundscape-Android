@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Soundscape-Android Perception Pipeline" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Prototype: Chicago Union Station (Canal St &amp; Adams St) perceived entrances</name>
+    <desc>Soundscape Street Preview prototype GPX (perceived entrances, 5 waypoints). Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </metadata>
+  <wpt lat="41.87919" lon="-87.640265">
+    <name>Door, perceived: Chicago Union Station</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=2064788314147945, sam-3.1 confidence=0.73, verifier=YES, method=SINGLE_RAY_FOOTPRINT_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="41.879191" lon="-87.640178">
+    <name>Door, perceived: Chicago Union Station</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1262520145898814, sam-3.1 confidence=0.8, verifier=YES, method=SINGLE_RAY_FOOTPRINT_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="41.879192" lon="-87.640093">
+    <name>Door, perceived: Canal St &amp; Adams St</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1320719059846171, sam-3.1 confidence=0.62, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="41.879194" lon="-87.639919">
+    <name>Door, perceived: Canal St &amp; Adams St</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1038524595201775, sam-3.1 confidence=0.67, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="41.879207" lon="-87.63975">
+    <name>Door, perceived: Polar Express</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1038524595201775, sam-3.1 confidence=0.58, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <rte>
+    <name>Prototype: Chicago Union Station (Canal St &amp; Adams St) perceived entrances</name>
+    <rtept lat="41.87919" lon="-87.640265">
+      <name>Door, perceived: Chicago Union Station</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=2064788314147945, sam-3.1 confidence=0.73, verifier=YES, method=SINGLE_RAY_FOOTPRINT_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="41.879191" lon="-87.640178">
+      <name>Door, perceived: Chicago Union Station</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1262520145898814, sam-3.1 confidence=0.8, verifier=YES, method=SINGLE_RAY_FOOTPRINT_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="41.879192" lon="-87.640093">
+      <name>Door, perceived: Canal St &amp; Adams St</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1320719059846171, sam-3.1 confidence=0.62, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="41.879194" lon="-87.639919">
+      <name>Door, perceived: Canal St &amp; Adams St</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1038524595201775, sam-3.1 confidence=0.67, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="41.879207" lon="-87.63975">
+      <name>Door, perceived: Polar Express</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1038524595201775, sam-3.1 confidence=0.58, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+  </rte>
+</gpx>

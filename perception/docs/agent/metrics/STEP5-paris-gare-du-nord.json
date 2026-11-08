@@ -1,0 +1,74 @@
+{
+    "areaId": "paris-gare-du-nord",
+    "displayName": "Paris Gare du Nord",
+    "city": "Paris",
+    "country": "France",
+    "split": "held_out",
+    "centerLatitude": 48.8802,
+    "centerLongitude": 2.3553,
+    "radiusMeters": 75.0,
+    "selectedStationCount": 6,
+    "plannedViewCount": 10,
+    "osmEntranceCountTotal": 56,
+    "osmEntranceCountVisible": 20,
+    "osmEntranceCountExcluded": 36,
+    "perceptionDoorCount": 1,
+    "perceptionSignCount": 0,
+    "perceptionStepsCount": 0,
+    "perceptionOnlyVsVisibleOsm": {
+        "predictedCount": 1,
+        "truthCount": 20,
+        "truePositives": 0,
+        "falsePositives": 1,
+        "falseNegatives": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "meanErrorMeters": 0.0,
+        "medianErrorMeters": 0.0,
+        "p90ErrorMeters": 0.0
+    },
+    "errorByMethod": {
+        "single_ray_footprint_intersection": {
+            "method": "single_ray_footprint_intersection",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "multi_view_triangulation": {
+            "method": "multi_view_triangulation",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "facade_snap": {
+            "method": "facade_snap",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        }
+    },
+    "unmatchedDoors": {
+        "totalUnmatchedPerceivedDoors": 1,
+        "likelyRealDoorMissingFromOsm": 1,
+        "likelyFalsePositive": 0,
+        "shareOfAllDetections": 1.0,
+        "likelyRealShareOfAllDetections": 1.0,
+        "likelyFalsePositiveShareOfAllDetections": 0.0,
+        "details": [
+            {
+                "objectId": "perc-door-1",
+                "latitude": 48.87993,
+                "longitude": 2.355796,
+                "stationId": "761207348373375",
+                "detectorConfidence": 0.7265,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Tortilla"
+            }
+        ]
+    }
+}

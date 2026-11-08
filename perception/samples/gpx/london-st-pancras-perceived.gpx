@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Soundscape-Android Perception Pipeline" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Prototype: London St Pancras International perceived entrances</name>
+    <desc>Soundscape Street Preview prototype GPX (perceived entrances, 4 waypoints). Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </metadata>
+  <wpt lat="51.529448" lon="-0.124907">
+    <name>Door, perceived: Double Standard</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1039885478255046, sam-3.1 confidence=0.75, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="51.529484" lon="-0.124826">
+    <name>Door, perceived: Double Standard</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1039885478255046, sam-3.1 confidence=0.75, verifier=YES, method=SINGLE_RAY_FOOTPRINT_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="51.529588" lon="-0.12457">
+    <name>Door, perceived: The Standard, London</name>
+    <desc>Source: MAPILLARY+SAM_3_1 (Mapillary imageId=1418172349255462, sam-3.1 confidence=0.65, verifier=INSUFFICIENT, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="51.529728" lon="-0.124156">
+    <name>Door, perceived</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1353677373025498, sam-3.1 confidence=0.62, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <rte>
+    <name>Prototype: London St Pancras International perceived entrances</name>
+    <rtept lat="51.529448" lon="-0.124907">
+      <name>Door, perceived: Double Standard</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1039885478255046, sam-3.1 confidence=0.75, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="51.529484" lon="-0.124826">
+      <name>Door, perceived: Double Standard</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1039885478255046, sam-3.1 confidence=0.75, verifier=YES, method=SINGLE_RAY_FOOTPRINT_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="51.529588" lon="-0.12457">
+      <name>Door, perceived: The Standard, London</name>
+      <desc>Source: MAPILLARY+SAM_3_1 (Mapillary imageId=1418172349255462, sam-3.1 confidence=0.65, verifier=INSUFFICIENT, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="51.529728" lon="-0.124156">
+      <name>Door, perceived</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1353677373025498, sam-3.1 confidence=0.62, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+  </rte>
+</gpx>

@@ -60,7 +60,8 @@ class Step3PerceptionTest {
             prompt = "door",
             category = SimCategory.DOOR
         )
-        assertEquals(1, budget.samCalls)
+        assertEquals(0, budget.samCalls, "Replayed fixture call must not charge live SAM cap")
+        assertEquals(1, budget.replayedSamCalls, "Replayed fixture call must be counted in replayedSamCalls")
         // Two co-horizontal door wings [29, 250, 43, 372] and [145, 259, 158, 368] merge into [29, 250, 158, 372]
         assertEquals(1, instances.size)
         val door = instances.first()
@@ -245,7 +246,7 @@ class Step3PerceptionTest {
 
         val budget = Budget(maxSamCalls = 2, maxGeminiCalls = 1)
         val fakeSam = object : SegmentationClient {
-            override suspend fun segment(imageJpegBytes: ByteArray, prompt: String, category: SimCategory): List<SegmentedInstance> {
+            override suspend fun segment(imageJpegBytes: ByteArray, prompt: String, category: SimCategory, contextKey: String?): List<SegmentedInstance> {
                 budget.consumeSam(1)
                 return listOf(
                     SegmentedInstance(prompt, category, listOf(280, 260, 360, 420), 640, 640, 0.85)
@@ -253,13 +254,13 @@ class Step3PerceptionTest {
             }
         }
         val fakeVerifier = object : Verifier {
-            override suspend fun verifyCrop(cropJpegBytes: ByteArray, category: SimCategory, promptLabel: String): VerifierVerdict {
+            override suspend fun verifyCrop(cropJpegBytes: ByteArray, category: SimCategory, promptLabel: String, contextKey: String?): VerifierVerdict {
                 budget.consumeGemini(1)
                 return VerifierVerdict.YES
             }
         }
         val fakeReader = object : TextReader {
-            override suspend fun readText(cropJpegBytes: ByteArray): OcrResult? {
+            override suspend fun readText(cropJpegBytes: ByteArray, contextKey: String?): OcrResult? {
                 budget.consumeGemini(1)
                 return OcrResult("Test Sign", 0.9)
             }

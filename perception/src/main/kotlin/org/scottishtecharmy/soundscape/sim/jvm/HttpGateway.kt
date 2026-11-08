@@ -3,6 +3,8 @@ package org.scottishtecharmy.soundscape.sim.jvm
 import kotlinx.coroutines.delay
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import org.scottishtecharmy.soundscape.sim.sources.BudgetLedgerData
+import org.scottishtecharmy.soundscape.sim.sources.BudgetLedgerStore
 import java.io.File
 import java.net.InetSocketAddress
 import java.net.ProxySelector
@@ -11,6 +13,29 @@ import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse
 import java.time.Duration
+
+/**
+ * JVM file-backed implementation of [BudgetLedgerStore] for `perception/docs/agent/metrics/budget-ledger.json`.
+ */
+class JvmFileBudgetLedgerStore(
+    val file: File
+) : BudgetLedgerStore {
+    private val json = Json {
+        ignoreUnknownKeys = true
+        prettyPrint = true
+        encodeDefaults = true
+    }
+
+    override fun load(): BudgetLedgerData? {
+        if (!file.exists()) return null
+        return json.decodeFromString(BudgetLedgerData.serializer(), file.readText())
+    }
+
+    override fun save(data: BudgetLedgerData) {
+        file.parentFile?.mkdirs()
+        file.writeText(json.encodeToString(BudgetLedgerData.serializer(), data))
+    }
+}
 
 /**
  * Recorded HTTP fixture stored on disk for offline deterministic test replay.
@@ -39,7 +64,7 @@ class HttpGateway(
 ) {
     private val json = Json {
         ignoreUnknownKeys = true
-        prettyPrint = true
+        prettyPrint = false
     }
 
     private val httpClient: HttpClient by lazy {
@@ -60,6 +85,14 @@ class HttpGateway(
         builder.build()
     }
 
+    /**
+     * Returns true if [fixtureKey] is present in [replayDir] and will be served offline without network I/O.
+     */
+    fun hasReplayFixture(fixtureKey: String?): Boolean {
+        if (fixtureKey == null || replayDir == null) return false
+        return File(replayDir, "$fixtureKey.json").exists()
+    }
+
     suspend fun get(
         url: String,
         headers: Map<String, String> = emptyMap(),
@@ -76,7 +109,7 @@ class HttpGateway(
         url: String,
         headers: Map<String, String> = emptyMap(),
         body: String,
-        contentType: String = "application/json",
+        contentType: String = "application/x-www-form-urlencoded",
         fixtureKey: String? = null
     ): RecordedHttpFixture = execute(
         method = "POST",

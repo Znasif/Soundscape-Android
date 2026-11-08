@@ -51,6 +51,7 @@ enum class SimCategory {
     CURB_CUT,
     PEDESTRIAN_SIGNAL,
     STREET_LIGHT,
+    BUS_STOP,
     BUILDING,
     OTHER
 }

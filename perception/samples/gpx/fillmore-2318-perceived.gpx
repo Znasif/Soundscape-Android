@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Soundscape-Android Perception Pipeline" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Prototype: 2318 Fillmore Street Corridor (Sacramento to Jackson) perceived entrances</name>
+    <desc>Soundscape Street Preview prototype GPX (perceived entrances, 23 waypoints). Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </metadata>
+  <wpt lat="37.79031" lon="-122.434244">
+    <name>Door, perceived: Paige</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1167706340838604, sam-3.1 confidence=0.79, verifier=YES, method=SINGLE_RAY_FOOTPRINT_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.790338" lon="-122.43425">
+    <name>Shop sign: PAIGE</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1167706340838604, sam-3.1 confidence=0.68, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.79037" lon="-122.434257">
+    <name>Shop sign: PAIGE</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1167706340838604, sam-3.1 confidence=0.62, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.79042" lon="-122.434045">
+    <name>Door, perceived: Hair Fairies</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1167706340838604, sam-3.1 confidence=0.62, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.790393" lon="-122.434036">
+    <name>Door, perceived: Le Labo</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1167706340838604, sam-3.1 confidence=0.91, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.790818" lon="-122.434072">
+    <name>Door, perceived: Nest</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=9261504077257367, sam-3.1 confidence=0.79, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.790782" lon="-122.434432">
+    <name>Door, perceived: Tryst</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=870175101020949, sam-3.1 confidence=0.86, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791153" lon="-122.434455">
+    <name>Door, perceived: Taco Primo</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.91, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791189" lon="-122.434454">
+    <name>Door, perceived: Taco Primo</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.63, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791238" lon="-122.434441">
+    <name>Door, perceived: Pets Unlimited</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.65, verifier=YES, method=SINGLE_RAY_FOOTPRINT_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791269" lon="-122.434221">
+    <name>Door, perceived: Islais</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.73, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791298" lon="-122.434216">
+    <name>Door, perceived: Islais</name>
+    <desc>Source: MAPILLARY+SAM_3_1 (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.86, verifier=INSUFFICIENT, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791251" lon="-122.434153">
+    <name>Door, perceived: Islais</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1184002609210177, sam-3.1 confidence=0.91, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791205" lon="-122.434203">
+    <name>Door, perceived: Smith-Kettlewell Eye Research Institute</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.93, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791117" lon="-122.434186">
+    <name>Door, perceived: Smith-Kettlewell Eye Research Institute</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1184002609210177, sam-3.1 confidence=0.93, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791508" lon="-122.434257">
+    <name>Door, perceived: Reformation</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=665715115056494, sam-3.1 confidence=0.93, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791613" lon="-122.434153">
+    <name>Door, perceived: Reformation</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=665715115056494, sam-3.1 confidence=0.59, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791721" lon="-122.434137">
+    <name>Door, perceived</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=832869624430867, sam-3.1 confidence=0.89, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791726" lon="-122.434047">
+    <name>Door, perceived</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=832869624430867, sam-3.1 confidence=0.68, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791771" lon="-122.434314">
+    <name>Door, perceived: Margaret O&apos;Leary</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=982812832518604, sam-3.1 confidence=0.71, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791833" lon="-122.434333">
+    <name>Door, perceived: Margaret O&apos;Leary</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=982812832518604, sam-3.1 confidence=0.81, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791826" lon="-122.434557">
+    <name>Door, perceived: Chouquet&apos;s</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=982812832518604, sam-3.1 confidence=0.77, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.792304" lon="-122.434426">
+    <name>Door, perceived: Mayflower Market</name>
+    <desc>Source: MAPILLARY+SAM_3_1 (Mapillary imageId=714805729602458, sam-3.1 confidence=0.63, verifier=INSUFFICIENT, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <rte>
+    <name>Prototype: 2318 Fillmore Street Corridor (Sacramento to Jackson) perceived entrances</name>
+    <rtept lat="37.79031" lon="-122.434244">
+      <name>Door, perceived: Paige</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1167706340838604, sam-3.1 confidence=0.79, verifier=YES, method=SINGLE_RAY_FOOTPRINT_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.790338" lon="-122.43425">
+      <name>Shop sign: PAIGE</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1167706340838604, sam-3.1 confidence=0.68, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.79037" lon="-122.434257">
+      <name>Shop sign: PAIGE</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1167706340838604, sam-3.1 confidence=0.62, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.79042" lon="-122.434045">
+      <name>Door, perceived: Hair Fairies</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1167706340838604, sam-3.1 confidence=0.62, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.790393" lon="-122.434036">
+      <name>Door, perceived: Le Labo</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1167706340838604, sam-3.1 confidence=0.91, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.790818" lon="-122.434072">
+      <name>Door, perceived: Nest</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=9261504077257367, sam-3.1 confidence=0.79, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.790782" lon="-122.434432">
+      <name>Door, perceived: Tryst</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=870175101020949, sam-3.1 confidence=0.86, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791153" lon="-122.434455">
+      <name>Door, perceived: Taco Primo</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.91, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791189" lon="-122.434454">
+      <name>Door, perceived: Taco Primo</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.63, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791238" lon="-122.434441">
+      <name>Door, perceived: Pets Unlimited</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.65, verifier=YES, method=SINGLE_RAY_FOOTPRINT_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791269" lon="-122.434221">
+      <name>Door, perceived: Islais</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.73, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791298" lon="-122.434216">
+      <name>Door, perceived: Islais</name>
+      <desc>Source: MAPILLARY+SAM_3_1 (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.86, verifier=INSUFFICIENT, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791251" lon="-122.434153">
+      <name>Door, perceived: Islais</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1184002609210177, sam-3.1 confidence=0.91, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791205" lon="-122.434203">
+      <name>Door, perceived: Smith-Kettlewell Eye Research Institute</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1116762269018404, sam-3.1 confidence=0.93, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791117" lon="-122.434186">
+      <name>Door, perceived: Smith-Kettlewell Eye Research Institute</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1184002609210177, sam-3.1 confidence=0.93, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791508" lon="-122.434257">
+      <name>Door, perceived: Reformation</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=665715115056494, sam-3.1 confidence=0.93, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791613" lon="-122.434153">
+      <name>Door, perceived: Reformation</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=665715115056494, sam-3.1 confidence=0.59, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791721" lon="-122.434137">
+      <name>Door, perceived</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=832869624430867, sam-3.1 confidence=0.89, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791726" lon="-122.434047">
+      <name>Door, perceived</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=832869624430867, sam-3.1 confidence=0.68, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791771" lon="-122.434314">
+      <name>Door, perceived: Margaret O&apos;Leary</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=982812832518604, sam-3.1 confidence=0.71, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791833" lon="-122.434333">
+      <name>Door, perceived: Margaret O&apos;Leary</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=982812832518604, sam-3.1 confidence=0.81, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791826" lon="-122.434557">
+      <name>Door, perceived: Chouquet&apos;s</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=982812832518604, sam-3.1 confidence=0.77, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.792304" lon="-122.434426">
+      <name>Door, perceived: Mayflower Market</name>
+      <desc>Source: MAPILLARY+SAM_3_1 (Mapillary imageId=714805729602458, sam-3.1 confidence=0.63, verifier=INSUFFICIENT, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+  </rte>
+</gpx>

@@ -20,6 +20,7 @@ import org.scottishtecharmy.soundscape.sim.sources.PanoramaImageSource
 import org.scottishtecharmy.soundscape.sim.sources.SegmentationClient
 import org.scottishtecharmy.soundscape.sim.sources.TextReader
 import org.scottishtecharmy.soundscape.sim.sources.Verifier
+import kotlin.math.roundToInt
 
 /**
  * Geohash-7 keyed cache for [SimEnvironment] street manifests with deterministic invalidation rules.
@@ -82,7 +83,10 @@ sealed class BuildEvent {
         val plannedViews: Int,
         val plannedSamCalls: Int,
         val plannedVerifierCalls: Int,
-        val estimatedCostUsd: Double
+        val estimatedCostUsd: Double,
+        val remainingSamAllowance: Int = 0,
+        val remainingGeminiAllowance: Int = 0,
+        val remainingMapillaryAllowance: Int = 0
     ) : BuildEvent()
     data class Feature(val obj: org.scottishtecharmy.soundscape.sim.model.SimObject) : BuildEvent()
     data class Sign(val sign: org.scottishtecharmy.soundscape.sim.model.Sign) : BuildEvent()
@@ -93,7 +97,10 @@ sealed class BuildEvent {
     ) : BuildEvent()
     data class Completed(
         val environment: SimEnvironment,
-        val perceptionOnlyObjects: List<org.scottishtecharmy.soundscape.sim.model.SimObject> = emptyList()
+        val perceptionOnlyObjects: List<org.scottishtecharmy.soundscape.sim.model.SimObject> = emptyList(),
+        val rawSightings: List<PerceptionSighting> = emptyList(),
+        val plannedViews: List<PlannedView> = emptyList(),
+        val unmatchedDoorSecondVerdicts: Map<String, VerifierVerdict> = emptyMap()
     ) : BuildEvent()
     data class Failed(val message: String, val cause: Throwable? = null) : BuildEvent()
 }
@@ -110,9 +117,23 @@ data class StreetBuildConfig(
     val maxStations: Int = 12,
     val minStationSpacingMeters: Double = 8.0,
     val maxViewDistanceMeters: Double = 40.0,
+    val cropDimension: Int = 640,
+    val maxPlannedViews: Int = 24,
+    val prompts: List<Pair<String, SimCategory>> = listOf(
+        "door" to SimCategory.DOOR,
+        "shop sign" to SimCategory.SIGN,
+        "steps" to SimCategory.STEPS
+    ),
     val dryRun: Boolean = false,
     val enablePerception: Boolean = false,
-    val minDetectorConfidence: Double = 0.55
+    val enableVerifier: Boolean = true,
+    val enableTriangulation: Boolean = true,
+    val minDetectorConfidence: Double = 0.55,
+    val spatialSpread: Boolean = true,
+    val roundRobinViews: Boolean = true,
+    val corridorSegmentLatLon: Pair<LatLon, LatLon>? = null,
+    val corridorHalfWidthMeters: Double = 35.0,
+    val priorityPointLatLon: LatLon? = null
 )
 
 /**
@@ -152,16 +173,43 @@ class StreetBuilder(
         val walledBuildings = overpassData.buildings.filter { it.tags["building"] != "roof" }
             .ifEmpty { overpassData.buildings }
 
-        val footprintsEnu = walledBuildings.map { b ->
-            b.polygon.map { localEnu.latLonToEnu(it) }
-        }.filter { it.size >= 3 }
+        val allFootprintsWithBuilding = walledBuildings.map { b ->
+            b to b.polygon.map { localEnu.latLonToEnu(it) }
+        }.filter { it.second.size >= 3 }
+        val footprintsEnu = allFootprintsWithBuilding.map { it.second }
+
+        val entranceEnus = overpassData.entrances.map { localEnu.latLonToEnu(it.location) }
+        val footprintsWithEntrances = if (entranceEnus.isNotEmpty() && config.priorityPointLatLon == null) {
+            allFootprintsWithBuilding.filter { (_, poly) ->
+                entranceEnus.any { entEnu ->
+                    org.scottishtecharmy.soundscape.sim.geo.Geometry2D.snapPointToPolygonEdge(entEnu, poly, 6.0) != null
+                }
+            }
+        } else {
+            emptyList()
+        }
+        val stationTargetFootprints = if (footprintsWithEntrances.isNotEmpty()) {
+            footprintsWithEntrances.map { it.second }
+        } else {
+            footprintsEnu
+        }
+        val preferredBuildingIds = footprintsWithEntrances.map { it.first.osmId }.toSet()
+
+        val corridorEnu = config.corridorSegmentLatLon?.let {
+            localEnu.latLonToEnu(it.first) to localEnu.latLonToEnu(it.second)
+        }
+        val priorityEnu = config.priorityPointLatLon?.let { localEnu.latLonToEnu(it) }
 
         val selectedStations = StationSelector.selectStations(
             images = images,
             localEnu = localEnu,
             maxStations = config.maxStations,
             minSpacingMeters = config.minStationSpacingMeters,
-            preferCloseToFootprints = footprintsEnu
+            preferCloseToFootprints = stationTargetFootprints,
+            corridorSegmentEnu = corridorEnu,
+            corridorHalfWidthMeters = config.corridorHalfWidthMeters,
+            spatialSpread = config.spatialSpread,
+            priorityPointEnu = priorityEnu
         )
         emit(BuildEvent.StationsSelected(selectedStations, images.size))
 
@@ -175,34 +223,52 @@ class StreetBuilder(
             )
         }
 
-        val plannedViews = ViewPlanner.planViews(
+        val allPlannedViews = ViewPlanner.planViews(
             stations = selectedStations,
             buildingFootprints = initialFootprints,
-            maxDistanceMeters = config.maxViewDistanceMeters
+            maxDistanceMeters = config.maxViewDistanceMeters,
+            cropDimension = config.cropDimension,
+            roundRobinAcrossStations = config.roundRobinViews,
+            preferredBuildingIds = preferredBuildingIds
         )
+        val prioritizedViews = if (priorityEnu != null) {
+            allPlannedViews.sortedWith(
+                compareBy<PlannedView> {
+                    val d = it.stationEnu.distanceTo2D(priorityEnu)
+                    val bearingToPriority = org.scottishtecharmy.soundscape.sim.geo.Angles.bearingBetweenEnu(it.stationEnu, priorityEnu)
+                    val yawDiff = org.scottishtecharmy.soundscape.sim.geo.Angles.absAngleDifference(it.yawDegrees, bearingToPriority)
+                    !(d <= 35.0 && yawDiff <= 60.0)
+                }
+            )
+        } else if (config.roundRobinViews) {
+            allPlannedViews
+        } else {
+            allPlannedViews.sortedBy { it.hitDistanceMeters }
+        }
+        val plannedViews = prioritizedViews.take(config.maxPlannedViews)
         emit(BuildEvent.ViewsPlanned(plannedViews))
 
-        val prompts = listOf(
-            "door" to SimCategory.DOOR,
-            "shop sign" to SimCategory.SIGN,
-            "steps" to SimCategory.STEPS
-        )
+        val prompts = config.prompts
 
         if (config.dryRun) {
-            val plannedSam = minOf(plannedViews.size * prompts.size, budget.maxSamCalls)
-            val plannedVerifier = minOf(plannedSam * 2, budget.maxGeminiCalls)
+            val plannedSam = minOf(plannedViews.size * prompts.size, budget.remainingSamAllowance)
+            val plannedVerifier = minOf(plannedSam * 2, budget.remainingGeminiAllowance)
             val estCost = plannedSam * 0.0025 + plannedVerifier * 0.00015
             emit(
                 BuildEvent.DryRunPlan(
                     plannedViews = plannedViews.size,
                     plannedSamCalls = plannedSam,
                     plannedVerifierCalls = plannedVerifier,
-                    estimatedCostUsd = kotlin.math.round(estCost * 10000.0) / 10000.0
+                    estimatedCostUsd = kotlin.math.round(estCost * 10000.0) / 10000.0,
+                    remainingSamAllowance = budget.remainingSamAllowance,
+                    remainingGeminiAllowance = budget.remainingGeminiAllowance,
+                    remainingMapillaryAllowance = budget.remainingMapillaryAllowance
                 )
             )
         }
 
         val sightings = mutableListOf<PerceptionSighting>()
+        val cropImagesByKey = mutableMapOf<String, org.scottishtecharmy.soundscape.sim.sources.PerspectiveCropImage>()
         val runPerception = config.enablePerception &&
             !config.dryRun &&
             panoramaImageSource != null &&
@@ -217,30 +283,42 @@ class StreetBuilder(
                     camera = view.camera
                 )
                 if (cropImg != null) {
+                    val viewKey = "${view.station.id}_yaw${view.yawDegrees.roundToInt()}_w${cropImg.camera.width}"
+                    cropImagesByKey[viewKey] = cropImg
                     for ((promptText, cat) in prompts) {
                         if (!budget.canConsumeSam(1)) break
-                        val instances = segmentationClient.segment(cropImg.jpegBytes, promptText, cat)
+                        val instances = segmentationClient.segment(
+                            imageJpegBytes = cropImg.jpegBytes,
+                            prompt = promptText,
+                            category = cat,
+                            contextKey = viewKey
+                        )
                             .filter { it.confidence >= config.minDetectorConfidence }
                             .sortedByDescending { it.confidence }
                             .take(3)
 
                         for (inst in instances) {
-                            // Compute world bearing & elevation: bottom-center for DOOR/STEPS, center for SIGN
                             val refX = if (cat == SimCategory.SIGN) inst.centerX else inst.bottomCenterX
                             val refY = if (cat == SimCategory.SIGN) inst.centerY else inst.bottomY
                             val worldRay = view.camera.pixelToRay(refX, refY)
 
-                            val subCropBytes = panoramaImageSource.cropSubImage(cropImg, inst.box)
+                            val boxKey = "${viewKey}_${inst.box.joinToString("_")}"
+                            val subCropBytes = panoramaImageSource.cropSubImage(cropImg, inst.box, paddingFraction = 0.15)
                             var verdict = VerifierVerdict.YES
-                            if (verifier != null && budget.canConsumeGemini(1)) {
-                                verdict = verifier.verifyCrop(subCropBytes, cat, promptText)
+                            if (config.enableVerifier && verifier != null && budget.canConsumeGemini(1)) {
+                                verdict = verifier.verifyCrop(
+                                    cropJpegBytes = subCropBytes,
+                                    category = cat,
+                                    promptLabel = promptText,
+                                    contextKey = boxKey
+                                )
                             }
                             if (verdict == VerifierVerdict.NO) continue
 
                             var ocrText: String? = null
                             var ocrConf: Double? = null
                             if (cat == SimCategory.SIGN && textReader != null && budget.canConsumeGemini(1)) {
-                                val ocr = textReader.readText(subCropBytes)
+                                val ocr = textReader.readText(subCropBytes, contextKey = boxKey)
                                 if (ocr != null && ocr.text.isNotBlank()) {
                                     ocrText = ocr.text
                                     ocrConf = ocr.confidence
@@ -259,7 +337,9 @@ class StreetBuilder(
                                     detectorConfidence = inst.confidence,
                                     verifierVerdict = verdict,
                                     signText = ocrText,
-                                    signConfidence = ocrConf
+                                    signConfidence = ocrConf,
+                                    viewYawDegrees = view.yawDegrees,
+                                    cropWidth = cropImg.camera.width
                                 )
                             )
                         }
@@ -275,8 +355,59 @@ class StreetBuilder(
             entrances = overpassData.entrances,
             pois = overpassData.pois,
             mapFeatures = mapFeatures,
-            perceptionSightings = sightings
+            perceptionSightings = sightings,
+            enableTriangulation = config.enableTriangulation
         )
+
+        val unmatchedDoorSecondVerdicts = LinkedHashMap<String, VerifierVerdict>()
+        if (runPerception && config.enableVerifier && verifier != null) {
+            val osmDoorLandmarks = overpassData.entrances.mapIndexed { idx, ent ->
+                val rawEnu = localEnu.latLonToEnu(ent.location)
+                val snappedEnu = footprintsEnu.mapNotNull { poly ->
+                    org.scottishtecharmy.soundscape.sim.geo.Geometry2D.snapPointToPolygonEdge(rawEnu, poly, 5.0)
+                }.minByOrNull { it.distanceMeters }?.snappedPoint ?: rawEnu
+                org.scottishtecharmy.soundscape.sim.eval.EvalLandmark("osm-$idx", SimCategory.DOOR, snappedEnu)
+            }
+            val percDoors = aggregated.perceptionOnlyObjects.filter { it.category == SimCategory.DOOR }
+            val percLandmarks = percDoors.map {
+                org.scottishtecharmy.soundscape.sim.eval.EvalLandmark(
+                    id = it.id ?: it.name,
+                    category = SimCategory.DOOR,
+                    position = org.scottishtecharmy.soundscape.sim.geo.EnuPoint.fromPositionList(it.position)
+                )
+            }
+            val matchVsOsm = org.scottishtecharmy.soundscape.sim.eval.SimEval.evaluateObjectsDetailed(
+                predicted = percLandmarks,
+                truth = osmDoorLandmarks,
+                maxDistanceMeters = 5.0
+            )
+            for (unmatchedId in matchVsOsm.unmatchedPredictedIds) {
+                val doorObj = percDoors.firstOrNull { (it.id ?: it.name) == unmatchedId } ?: continue
+                val firstEv = doorObj.evidence.firstOrNull() ?: continue
+                val matchingSighting = sightings.firstOrNull { s ->
+                    s.stationId == firstEv.stationId && s.box == firstEv.box
+                }
+                if (matchingSighting != null && budget.canConsumeGemini(1)) {
+                    val vKey = "${matchingSighting.stationId}_yaw${matchingSighting.viewYawDegrees.roundToInt()}_w${matchingSighting.cropWidth}"
+                    val cropImg = cropImagesByKey[vKey]
+                    if (cropImg != null) {
+                        val widerCropBytes = panoramaImageSource.cropSubImage(
+                            crop = cropImg,
+                            box = matchingSighting.box,
+                            paddingFraction = 0.45
+                        )
+                        val secondKey = "${vKey}_${matchingSighting.box.joinToString("_")}_secondcrop"
+                        val secondVerdict = verifier.verifyCrop(
+                            cropJpegBytes = widerCropBytes,
+                            category = SimCategory.DOOR,
+                            promptLabel = "building entrance door on facade",
+                            contextKey = secondKey
+                        )
+                        unmatchedDoorSecondVerdicts[unmatchedId] = secondVerdict
+                    }
+                }
+            }
+        }
 
         for (obj in aggregated.objects) {
             emit(BuildEvent.Feature(obj))
@@ -319,6 +450,14 @@ class StreetBuilder(
         )
 
         areaCache.put(env)
-        emit(BuildEvent.Completed(env, aggregated.perceptionOnlyObjects))
+        emit(
+            BuildEvent.Completed(
+                environment = env,
+                perceptionOnlyObjects = aggregated.perceptionOnlyObjects,
+                rawSightings = sightings,
+                plannedViews = plannedViews,
+                unmatchedDoorSecondVerdicts = unmatchedDoorSecondVerdicts
+            )
+        )
     }
 }

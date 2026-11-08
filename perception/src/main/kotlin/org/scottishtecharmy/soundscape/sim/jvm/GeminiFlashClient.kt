@@ -43,9 +43,17 @@ class GeminiFlashClient(
     override suspend fun verifyCrop(
         cropJpegBytes: ByteArray,
         category: SimCategory,
-        promptLabel: String
+        promptLabel: String,
+        contextKey: String?
     ): VerifierVerdict {
-        budget.consumeGemini(1)
+        val fKey = if (!contextKey.isNullOrBlank()) {
+            "gemini_verify_${category.name.lowercase()}_$contextKey"
+        } else {
+            "gemini_verify_${category.name.lowercase()}_${sha256Short(cropJpegBytes)}"
+        }
+
+        val isReplay = gateway.hasReplayFixture(fKey)
+        budget.consumeGemini(1, isReplay = isReplay)
 
         val base64Jpeg = Base64.getEncoder().encodeToString(cropJpegBytes)
         val prompt = "You are verifying a candidate detection of '$promptLabel' (${category.name}) for a blind navigation map. " +
@@ -70,26 +78,39 @@ class GeminiFlashClient(
             })
             put("generationConfig", buildJsonObject {
                 put("temperature", 0.0)
-                put("maxOutputTokens", 512)
+                put("maxOutputTokens", 128)
+                put("thinkingConfig", buildJsonObject {
+                    put("thinkingBudget", 0)
+                })
             })
         }.toString()
 
         val key = apiKeyProvider()
         val headers = if (key.isNotBlank()) mapOf("x-goog-api-key" to key) else emptyMap()
-        val fKey = "gemini_verify_${category.name.lowercase()}_${sha256Short(cropJpegBytes)}"
 
         val resp = gateway.post(
             url = "https://generativelanguage.googleapis.com/v1beta/models/$modelId:generateContent",
             headers = headers,
             body = payload,
+            contentType = "application/json",
             fixtureKey = fKey
         )
 
         return parseVerifierResponseJson(resp.body)
     }
 
-    override suspend fun readText(cropJpegBytes: ByteArray): OcrResult? {
-        budget.consumeGemini(1)
+    override suspend fun readText(
+        cropJpegBytes: ByteArray,
+        contextKey: String?
+    ): OcrResult? {
+        val fKey = if (!contextKey.isNullOrBlank()) {
+            "gemini_ocr_$contextKey"
+        } else {
+            "gemini_ocr_${sha256Short(cropJpegBytes)}"
+        }
+
+        val isReplay = gateway.hasReplayFixture(fKey)
+        budget.consumeGemini(1, isReplay = isReplay)
 
         val base64Jpeg = Base64.getEncoder().encodeToString(cropJpegBytes)
         val prompt = "Read the visible shop, building, room, or directional sign text in this image crop. " +
@@ -114,19 +135,22 @@ class GeminiFlashClient(
             })
             put("generationConfig", buildJsonObject {
                 put("temperature", 0.0)
-                put("maxOutputTokens", 512)
+                put("maxOutputTokens", 128)
                 put("responseMimeType", "application/json")
+                put("thinkingConfig", buildJsonObject {
+                    put("thinkingBudget", 0)
+                })
             })
         }.toString()
 
         val key = apiKeyProvider()
         val headers = if (key.isNotBlank()) mapOf("x-goog-api-key" to key) else emptyMap()
-        val fKey = "gemini_ocr_${sha256Short(cropJpegBytes)}"
 
         val resp = gateway.post(
             url = "https://generativelanguage.googleapis.com/v1beta/models/$modelId:generateContent",
             headers = headers,
             body = payload,
+            contentType = "application/json",
             fixtureKey = fKey
         )
 
@@ -134,11 +158,13 @@ class GeminiFlashClient(
     }
 
     override suspend fun embedImage(jpegBytes: ByteArray): List<Double> {
-        if (!budget.canConsumeGemini(1)) {
+        val fKey = "gemini_embed_${sha256Short(jpegBytes)}"
+        val isReplay = gateway.hasReplayFixture(fKey)
+        if (!isReplay && !budget.canConsumeGemini(1)) {
             return computeLocalFallbackEmbedding(jpegBytes)
         }
         return try {
-            budget.consumeGemini(1)
+            budget.consumeGemini(1, isReplay = isReplay)
             val base64Jpeg = Base64.getEncoder().encodeToString(jpegBytes)
             val payload = buildJsonObject {
                 put("model", "models/$embeddingModelId")
@@ -156,12 +182,12 @@ class GeminiFlashClient(
 
             val key = apiKeyProvider()
             val headers = if (key.isNotBlank()) mapOf("x-goog-api-key" to key) else emptyMap()
-            val fKey = "gemini_embed_${sha256Short(jpegBytes)}"
 
             val resp = gateway.post(
                 url = "https://generativelanguage.googleapis.com/v1beta/models/$embeddingModelId:embedContent",
                 headers = headers,
                 body = payload,
+                contentType = "application/json",
                 fixtureKey = fKey
             )
             val root = json.parseToJsonElement(resp.body).jsonObject
@@ -176,9 +202,11 @@ class GeminiFlashClient(
 
     override suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>): Set<SimCategory> {
         if (keyframeJpegs.isEmpty()) return emptySet()
-        budget.consumeGemini(1)
-
         val selected = keyframeJpegs.take(6)
+        val fKey = "gemini_precheck_${sha256Short(selected.first())}"
+        val isReplay = gateway.hasReplayFixture(fKey)
+        budget.consumeGemini(1, isReplay = isReplay)
+
         val prompt = "Inspect these indoor room keyframes and list which of the following categories are actually visible: " +
             "door, desk, reception desk, counter, chair, table, sofa, sign, stairs, lift, window. " +
             "Return ONLY a comma-separated list of present categories from that exact list."
@@ -203,18 +231,21 @@ class GeminiFlashClient(
             })
             put("generationConfig", buildJsonObject {
                 put("temperature", 0.0)
-                put("maxOutputTokens", 512)
+                put("maxOutputTokens", 128)
+                put("thinkingConfig", buildJsonObject {
+                    put("thinkingBudget", 0)
+                })
             })
         }.toString()
 
         val key = apiKeyProvider()
         val headers = if (key.isNotBlank()) mapOf("x-goog-api-key" to key) else emptyMap()
-        val fKey = "gemini_precheck_${sha256Short(selected.first())}"
 
         val resp = gateway.post(
             url = "https://generativelanguage.googleapis.com/v1beta/models/$modelId:generateContent",
             headers = headers,
             body = payload,
+            contentType = "application/json",
             fixtureKey = fKey
         )
 
@@ -295,7 +326,6 @@ class GeminiFlashClient(
             }
             val vec = DoubleArray(32)
             if (img != null && img.width > 0 && img.height > 0) {
-                // 4x2 spatial grid x 4 channels (R, G, B, edge-energy) = 32 dims
                 val gridX = 4
                 val gridY = 2
                 for (gy in 0 until gridY) {

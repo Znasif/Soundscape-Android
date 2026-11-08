@@ -1,7 +1,6 @@
 package org.scottishtecharmy.soundscape.sim.builders
 
 import org.scottishtecharmy.soundscape.sim.eval.SimEval
-import org.scottishtecharmy.soundscape.sim.geo.Angles
 import org.scottishtecharmy.soundscape.sim.geo.EnuPoint
 import org.scottishtecharmy.soundscape.sim.geo.Geometry2D
 import org.scottishtecharmy.soundscape.sim.geo.LocalEnu
@@ -33,7 +32,9 @@ data class PerceptionSighting(
     val detectorConfidence: Double,
     val verifierVerdict: VerifierVerdict = VerifierVerdict.YES,
     val signText: String? = null,
-    val signConfidence: Double? = null
+    val signConfidence: Double? = null,
+    val viewYawDegrees: Double = 0.0,
+    val cropWidth: Int = 640
 )
 
 /**
@@ -60,7 +61,8 @@ object StreetAggregator {
         mapFeatures: List<MapillaryMapFeature>,
         perceptionSightings: List<PerceptionSighting> = emptyList(),
         dedupRadiusMeters: Double = 3.0,
-        maxFacadeSnapMeters: Double = 5.0
+        maxFacadeSnapMeters: Double = 5.0,
+        enableTriangulation: Boolean = true
     ): StreetAggregationResult {
         val footprints = buildings.map { b ->
             val enuVerts = b.polygon.map { localEnu.latLonToEnu(it) }
@@ -144,16 +146,29 @@ object StreetAggregator {
             sightings = perceptionSightings.filter { it.verifierVerdict != VerifierVerdict.NO },
             localEnu = localEnu,
             footprintPolygonsEnu = footprintPolygonsEnu,
-            maxFacadeSnapMeters = maxFacadeSnapMeters
+            maxFacadeSnapMeters = maxFacadeSnapMeters,
+            enableTriangulation = enableTriangulation
         )
-        val deduplicatedPerceptionOnly = mergeCandidates(
+
+        val poisWithEnu = pois.map { poi -> poi to localEnu.latLonToEnu(poi.location) }
+        val deduplicatedPerceptionCandidates = mergeCandidates(
             localizedSightings.map { it.deepCopy() },
             localEnu,
             dedupRadiusMeters
-        ).map { cand ->
+        )
+        val deduplicatedPerceptionOnly = deduplicatedPerceptionCandidates.map { cand ->
+            val linkedVenue = linkCandidateToVenue(cand, deduplicatedPerceptionCandidates, poisWithEnu, footprintPolygonsEnu, maxFacadeSnapMeters)
+            val bestText = cand.text ?: deduplicatedPerceptionCandidates
+                .filter { (it.category == SimCategory.SIGN || !it.text.isNullOrBlank()) && !it.text.isNullOrBlank() && it.enu.distanceTo2D(cand.enu) <= 8.0 }
+                .minByOrNull { it.enu.distanceTo2D(cand.enu) }?.text
+            val displayName = when {
+                linkedVenue != null && cand.category == SimCategory.DOOR -> "${linkedVenue.name} Entrance"
+                !bestText.isNullOrBlank() && cand.category == SimCategory.SIGN -> "Sign: $bestText"
+                else -> cand.name
+            }
             SimObject(
                 id = cand.id,
-                name = cand.name,
+                name = displayName,
                 category = cand.category,
                 subCategory = cand.subCategory,
                 position = cand.enu.toPositionList(),
@@ -161,7 +176,8 @@ object StreetAggregator {
                 longitude = cand.latLon.longitude,
                 confidence = cand.confidence.coerceIn(0.0, 0.99),
                 sources = cand.sources.toList(),
-                text = cand.text,
+                text = bestText,
+                linkedVenue = linkedVenue,
                 evidence = cand.evidence
             )
         }
@@ -193,80 +209,11 @@ object StreetAggregator {
         }
 
         // 6. Link DOOR objects to OSM venues via sign text fuzzy matching or spatial proximity / shared footprint
-        val poisWithEnu = pois.map { poi -> poi to localEnu.latLonToEnu(poi.location) }
         val finalObjects = merged.map { cand ->
-            var linkedVenue: LinkedVenue? = null
-            var bestText: String? = cand.text
-
-            if (cand.category == SimCategory.DOOR) {
-                // Find any sign within 8m of this door that has OCR text
-                val nearbySigns = merged.filter {
-                    (it.category == SimCategory.SIGN || !it.text.isNullOrBlank()) &&
-                        !it.text.isNullOrBlank() &&
-                        it.enu.distanceTo2D(cand.enu) <= 8.0
-                }
-                if (bestText.isNullOrBlank() && nearbySigns.isNotEmpty()) {
-                    bestText = nearbySigns.minByOrNull { it.enu.distanceTo2D(cand.enu) }?.text
-                }
-
-                // Try matching sign/door text against nearby OSM POIs (within 40m) using Soundscape fuzzyCompare
-                if (!bestText.isNullOrBlank()) {
-                    val nearbyPois = poisWithEnu.filter { (_, pEnu) -> pEnu.distanceTo2D(cand.enu) <= 40.0 }
-                    var bestPoi: OsmPoi? = null
-                    var bestScore = Double.POSITIVE_INFINITY
-                    for ((poi, _) in nearbyPois) {
-                        val fDist = min(
-                            SimEval.fuzzyCompare(bestText, poi.name, needleCanBeShorter = true),
-                            SimEval.fuzzyCompare(poi.name, bestText, needleCanBeShorter = true)
-                        )
-                        if (fDist <= 0.35 && fDist < bestScore) {
-                            bestScore = fDist
-                            bestPoi = poi
-                        }
-                    }
-                    if (bestPoi != null) {
-                        linkedVenue = LinkedVenue(
-                            osmId = bestPoi.osmId,
-                            name = bestPoi.name,
-                            category = bestPoi.category,
-                            matchScore = 1.0 - bestScore
-                        )
-                    }
-                }
-
-                // Fallback: nearest OSM POI within 15m or enclosing building name
-                if (linkedVenue == null) {
-                    val closestPoi = poisWithEnu
-                        .map { (poi, pEnu) -> poi to pEnu.distanceTo2D(cand.enu) }
-                        .filter { it.second <= 15.0 }
-                        .minByOrNull { it.second }
-                    if (closestPoi != null) {
-                        val (poi, dist) = closestPoi
-                        linkedVenue = LinkedVenue(
-                            osmId = poi.osmId,
-                            name = poi.name,
-                            category = poi.category,
-                            matchScore = (1.0 - (dist / 20.0)).coerceIn(0.5, 0.95)
-                        )
-                    } else {
-                        val closestBuilding = footprintPolygonsEnu
-                            .mapNotNull { (b, poly) ->
-                                val snap = Geometry2D.snapPointToPolygonEdge(cand.enu, poly, maxFacadeSnapMeters)
-                                if (snap != null && !b.name.isNullOrBlank()) b to snap.distanceMeters else null
-                            }
-                            .minByOrNull { it.second }
-                        if (closestBuilding != null) {
-                            val (b, _) = closestBuilding
-                            linkedVenue = LinkedVenue(
-                                osmId = b.osmId,
-                                name = b.name!!,
-                                category = "building",
-                                matchScore = 0.75
-                            )
-                        }
-                    }
-                }
-            }
+            val linkedVenue = linkCandidateToVenue(cand, merged, poisWithEnu, footprintPolygonsEnu, maxFacadeSnapMeters)
+            val bestText = cand.text ?: merged
+                .filter { (it.category == SimCategory.SIGN || !it.text.isNullOrBlank()) && !it.text.isNullOrBlank() && it.enu.distanceTo2D(cand.enu) <= 8.0 }
+                .minByOrNull { it.enu.distanceTo2D(cand.enu) }?.text
 
             val displayName = when {
                 linkedVenue != null && cand.category == SimCategory.DOOR -> "${linkedVenue.name} Entrance"
@@ -298,20 +245,94 @@ object StreetAggregator {
         )
     }
 
+    private fun linkCandidateToVenue(
+        cand: MutableObjectCandidate,
+        allCandidates: List<MutableObjectCandidate>,
+        poisWithEnu: List<Pair<OsmPoi, EnuPoint>>,
+        footprintPolygonsEnu: List<Pair<OsmBuilding, List<EnuPoint>>>,
+        maxFacadeSnapMeters: Double
+    ): LinkedVenue? {
+        if (cand.category != SimCategory.DOOR) return null
+        var bestText: String? = cand.text
+        if (bestText.isNullOrBlank()) {
+            bestText = allCandidates
+                .filter { (it.category == SimCategory.SIGN || !it.text.isNullOrBlank()) && !it.text.isNullOrBlank() && it.enu.distanceTo2D(cand.enu) <= 8.0 }
+                .minByOrNull { it.enu.distanceTo2D(cand.enu) }?.text
+        }
+
+        if (!bestText.isNullOrBlank()) {
+            val nearbyPois = poisWithEnu.filter { (_, pEnu) -> pEnu.distanceTo2D(cand.enu) <= 40.0 }
+            var bestPoi: OsmPoi? = null
+            var bestScore = Double.POSITIVE_INFINITY
+            for ((poi, _) in nearbyPois) {
+                val fDist = min(
+                    SimEval.fuzzyCompare(bestText, poi.name, needleCanBeShorter = true),
+                    SimEval.fuzzyCompare(poi.name, bestText, needleCanBeShorter = true)
+                )
+                if (fDist <= 0.35 && fDist < bestScore) {
+                    bestScore = fDist
+                    bestPoi = poi
+                }
+            }
+            if (bestPoi != null) {
+                return LinkedVenue(
+                    osmId = bestPoi.osmId,
+                    name = bestPoi.name,
+                    category = bestPoi.category,
+                    matchScore = 1.0 - bestScore
+                )
+            }
+        }
+
+        val closestPoi = poisWithEnu
+            .filter { (poi, _) -> poi.category != "bus_stop" }
+            .map { (poi, pEnu) -> poi to pEnu.distanceTo2D(cand.enu) }
+            .filter { it.second <= 15.0 }
+            .minByOrNull { it.second }
+        if (closestPoi != null) {
+            val (poi, dist) = closestPoi
+            return LinkedVenue(
+                osmId = poi.osmId,
+                name = poi.name,
+                category = poi.category,
+                matchScore = (1.0 - (dist / 20.0)).coerceIn(0.5, 0.95)
+            )
+        }
+
+        val closestBuilding = footprintPolygonsEnu
+            .mapNotNull { (b, poly) ->
+                val snap = Geometry2D.snapPointToPolygonEdge(cand.enu, poly, maxFacadeSnapMeters)
+                if (snap != null && !b.name.isNullOrBlank()) b to snap.distanceMeters else null
+            }
+            .minByOrNull { it.second }
+        if (closestBuilding != null) {
+            val (b, _) = closestBuilding
+            return LinkedVenue(
+                osmId = b.osmId,
+                name = b.name!!,
+                category = "building",
+                matchScore = 0.75
+            )
+        }
+        return null
+    }
+
     private fun localizeSightings(
         sightings: List<PerceptionSighting>,
         localEnu: LocalEnu,
         footprintPolygonsEnu: List<Pair<OsmBuilding, List<EnuPoint>>>,
-        maxFacadeSnapMeters: Double
+        maxFacadeSnapMeters: Double,
+        enableTriangulation: Boolean = true
     ): List<MutableObjectCandidate> {
         if (sightings.isEmpty()) return emptyList()
 
-        // First project each sighting individually via building footprint ray hit or ground-plane fallback
         data class ProjectedSighting(
             val sighting: PerceptionSighting,
             val ray2D: Ray2D,
             val initialPoint: EnuPoint,
-            val usedFootprintHit: Boolean
+            val usedFootprintHit: Boolean,
+            val hitDistanceMeters: Double,
+            val nearCornerOrGrazing: Boolean
         )
 
         val projected = mutableListOf<ProjectedSighting>()
@@ -319,12 +340,20 @@ object StreetAggregator {
             val ray = Ray2D(s.stationEnu, s.bearingDegrees)
             var bestHitDist = Double.POSITIVE_INFINITY
             var bestHitPoint: EnuPoint? = null
+            var nearCorner = false
 
             for ((_, poly) in footprintPolygonsEnu) {
-                val hit = Geometry2D.intersectRayWithPolygon(ray, poly, maxDistanceMeters = 55.0)
+                val hit = Geometry2D.intersectRayWithPolygon(ray, poly, maxDistanceMeters = 36.0)
                 if (hit != null && hit.distanceMeters < bestHitDist) {
                     bestHitDist = hit.distanceMeters
                     bestHitPoint = hit.point
+                    val dStart = hit.point.distanceTo2D(hit.edgeStart)
+                    val dEnd = hit.point.distanceTo2D(hit.edgeEnd)
+                    val incidenceDiff = org.scottishtecharmy.soundscape.sim.geo.Angles.absAngleDifference(
+                        s.bearingDegrees,
+                        org.scottishtecharmy.soundscape.sim.geo.Angles.normalizeBearing(hit.facadeNormalBearingDegrees + 180.0)
+                    )
+                    nearCorner = (minOf(dStart, dEnd) <= 2.2) || (incidenceDiff >= 52.0) || (hit.distanceMeters > 24.0)
                 }
             }
 
@@ -339,12 +368,12 @@ object StreetAggregator {
                 )?.let { gp ->
                     snapToNearestBuildingEdge(gp, footprintPolygonsEnu, maxFacadeSnapMeters) ?: gp
                 }
+                ?: snapToNearestBuildingEdge(ray.pointAtDistance(14.0), footprintPolygonsEnu, maxFacadeSnapMeters * 1.5)
                 ?: continue
 
-            projected.add(ProjectedSighting(s, ray, point, usedFootprint))
+            projected.add(ProjectedSighting(s, ray, point, usedFootprint, bestHitDist, nearCorner))
         }
 
-        // Group projected sightings of the same category from different stations within 4.5m to attempt multi-ray triangulation
         val used = BooleanArray(projected.size)
         val result = mutableListOf<MutableObjectCandidate>()
         var idxCounter = 1
@@ -355,38 +384,43 @@ object StreetAggregator {
             val seed = projected[i]
             val cluster = mutableListOf(seed)
 
-            for (j in i + 1 until projected.size) {
-                if (used[j]) continue
-                val other = projected[j]
-                if (other.sighting.category != seed.sighting.category) continue
-                if (other.initialPoint.distanceTo2D(seed.initialPoint) <= 4.5) {
-                    used[j] = true
-                    cluster.add(other)
+            if (enableTriangulation) {
+                for (j in i + 1 until projected.size) {
+                    if (used[j]) continue
+                    val other = projected[j]
+                    if (other.sighting.category != seed.sighting.category) continue
+                    if (cluster.any { it.sighting.stationId == other.sighting.stationId }) continue
+                    if (other.initialPoint.distanceTo2D(seed.initialPoint) <= 4.5) {
+                        used[j] = true
+                        cluster.add(other)
+                    }
                 }
             }
 
             val distinctStations = cluster.map { it.sighting.stationId }.distinct()
             var locMethod: String
-            val finalEnu: EnuPoint = if (distinctStations.size >= 2) {
+            val finalEnu: EnuPoint = if (enableTriangulation && distinctStations.size >= 2) {
                 val triangulated = Geometry2D.triangulateRays(
                     rays = cluster.map { it.ray2D },
-                    minParallaxDegrees = 6.0,
+                    minParallaxDegrees = 4.0,
+                    maxConditionNumber = 180.0,
+                    maxRmsResidualMeters = 6.0,
                     maxDistanceMeters = 45.0
-                )?.point
-                locMethod = if (triangulated != null) {
-                    "MULTI_RAY_TRIANGULATION_FACADE_SNAP"
-                } else if (seed.usedFootprintHit) {
-                    "SINGLE_RAY_FOOTPRINT_FACADE_SNAP"
-                } else {
-                    "GROUND_PLANE_FACADE_SNAP"
+                )?.point ?: run {
+                    val wSum = cluster.sumOf { it.sighting.detectorConfidence }.coerceAtLeast(1e-6)
+                    EnuPoint(
+                        east = cluster.sumOf { it.initialPoint.east * it.sighting.detectorConfidence } / wSum,
+                        north = cluster.sumOf { it.initialPoint.north * it.sighting.detectorConfidence } / wSum,
+                        up = 0.0
+                    )
                 }
-                val candidatePt = triangulated ?: seed.initialPoint
-                snapToNearestBuildingEdge(candidatePt, footprintPolygonsEnu, maxFacadeSnapMeters) ?: candidatePt
+                locMethod = "MULTI_RAY_TRIANGULATION_FACADE_SNAP"
+                snapToNearestBuildingEdge(triangulated, footprintPolygonsEnu, maxFacadeSnapMeters) ?: triangulated
             } else {
-                locMethod = if (seed.usedFootprintHit) {
+                locMethod = if (seed.usedFootprintHit && !seed.nearCornerOrGrazing) {
                     "SINGLE_RAY_FOOTPRINT_FACADE_SNAP"
                 } else {
-                    "GROUND_PLANE_FACADE_SNAP"
+                    "FACADE_SNAP"
                 }
                 snapToNearestBuildingEdge(seed.initialPoint, footprintPolygonsEnu, maxFacadeSnapMeters) ?: seed.initialPoint
             }
@@ -444,7 +478,6 @@ object StreetAggregator {
         localEnu: LocalEnu,
         dedupRadiusMeters: Double
     ): List<MutableObjectCandidate> {
-        // Sort so OSM and higher-confidence candidates anchor clusters first
         val sorted = candidates.sortedWith(
             compareByDescending<MutableObjectCandidate> { "OSM" in it.sources }
                 .thenByDescending { it.confidence }
@@ -459,13 +492,11 @@ object StreetAggregator {
             if (match == null) {
                 merged.add(cand)
             } else {
-                // Combine sources, evidence, text, and boost confidence
                 match.sources.addAll(cand.sources)
                 match.evidence.addAll(cand.evidence)
                 if (match.text.isNullOrBlank() && !cand.text.isNullOrBlank()) {
                     match.text = cand.text
                 }
-                // Weighted average position if neither is OSM, otherwise keep OSM-snapped position
                 if ("OSM" !in match.sources) {
                     val w1 = match.confidence
                     val w2 = cand.confidence

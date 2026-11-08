@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Soundscape-Android Perception Pipeline" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Prototype: Paris Chatelet - Rue de Rivoli perceived entrances</name>
+    <desc>Soundscape Street Preview prototype GPX (perceived entrances, 10 waypoints). Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </metadata>
+  <wpt lat="48.858025" lon="2.347724">
+    <name>Door, perceived: Chambre des notaires</name>
+    <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/676860109, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="48.858092" lon="2.347653">
+    <name>Door, perceived: Chambre des notaires</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=404132028244089, sam-3.1 confidence=0.64, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="48.85822" lon="2.347834">
+    <name>Door, perceived: BG Factory Institut de beauté pour hommes</name>
+    <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/676860108, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="48.858359" lon="2.347911">
+    <name>Door, perceived: Le Chat Noir</name>
+    <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/676860132, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="48.858729" lon="2.348115">
+    <name>Door, perceived: Columbus</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1041396273136787, sam-3.1 confidence=0.56, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="48.858972" lon="2.347228">
+    <name>Door, perceived: Yves Rocher</name>
+    <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=116287654404185, sam-3.1 confidence=0.82, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="48.85901" lon="2.347025">
+    <name>Door, perceived: Yves Rocher</name>
+    <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/677731964, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="48.858856" lon="2.346823">
+    <name>Door, perceived: Levi&apos;s</name>
+    <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/676872574, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="48.858887" lon="2.346729">
+    <name>Door, perceived: Courir</name>
+    <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/5503133325, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="48.858911" lon="2.346654">
+    <name>Door, perceived: Courir</name>
+    <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/5503133342, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <rte>
+    <name>Prototype: Paris Chatelet - Rue de Rivoli perceived entrances</name>
+    <rtept lat="48.858025" lon="2.347724">
+      <name>Door, perceived: Chambre des notaires</name>
+      <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/676860109, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="48.858092" lon="2.347653">
+      <name>Door, perceived: Chambre des notaires</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=404132028244089, sam-3.1 confidence=0.64, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="48.85822" lon="2.347834">
+      <name>Door, perceived: BG Factory Institut de beauté pour hommes</name>
+      <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/676860108, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="48.858359" lon="2.347911">
+      <name>Door, perceived: Le Chat Noir</name>
+      <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/676860132, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="48.858729" lon="2.348115">
+      <name>Door, perceived: Columbus</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=1041396273136787, sam-3.1 confidence=0.56, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="48.858972" lon="2.347228">
+      <name>Door, perceived: Yves Rocher</name>
+      <desc>Source: MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=116287654404185, sam-3.1 confidence=0.82, verifier=YES, method=FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="48.85901" lon="2.347025">
+      <name>Door, perceived: Yves Rocher</name>
+      <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/677731964, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="48.858856" lon="2.346823">
+      <name>Door, perceived: Levi&apos;s</name>
+      <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/676872574, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="48.858887" lon="2.346729">
+      <name>Door, perceived: Courir</name>
+      <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/5503133325, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="48.858911" lon="2.346654">
+      <name>Door, perceived: Courir</name>
+      <desc>Source: OSM+MAPILLARY+SAM_3_1+GEMINI_FLASH (Mapillary imageId=node/5503133342, sam-3.1 confidence=0.85, verifier=N/A, method=OSM_NODE_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+  </rte>
+</gpx>

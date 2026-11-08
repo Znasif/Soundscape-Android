@@ -1,0 +1,93 @@
+{
+    "areaId": "boston-south-station",
+    "displayName": "Boston South Station (Atlantic Ave & Summer St)",
+    "city": "Boston",
+    "country": "USA",
+    "split": "held_out",
+    "centerLatitude": 42.3521,
+    "centerLongitude": -71.0553,
+    "radiusMeters": 75.0,
+    "selectedStationCount": 6,
+    "plannedViewCount": 10,
+    "osmEntranceCountTotal": 7,
+    "osmEntranceCountVisible": 4,
+    "osmEntranceCountExcluded": 3,
+    "perceptionDoorCount": 3,
+    "perceptionSignCount": 0,
+    "perceptionStepsCount": 0,
+    "perceptionOnlyVsVisibleOsm": {
+        "predictedCount": 3,
+        "truthCount": 4,
+        "truePositives": 0,
+        "falsePositives": 3,
+        "falseNegatives": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "meanErrorMeters": 0.0,
+        "medianErrorMeters": 0.0,
+        "p90ErrorMeters": 0.0
+    },
+    "errorByMethod": {
+        "single_ray_footprint_intersection": {
+            "method": "single_ray_footprint_intersection",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "multi_view_triangulation": {
+            "method": "multi_view_triangulation",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "facade_snap": {
+            "method": "facade_snap",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        }
+    },
+    "unmatchedDoors": {
+        "totalUnmatchedPerceivedDoors": 3,
+        "likelyRealDoorMissingFromOsm": 2,
+        "likelyFalsePositive": 1,
+        "shareOfAllDetections": 1.0,
+        "likelyRealShareOfAllDetections": 0.6667,
+        "likelyFalsePositiveShareOfAllDetections": 0.3333,
+        "details": [
+            {
+                "objectId": "perc-door-1",
+                "latitude": 42.352185,
+                "longitude": -71.054784,
+                "stationId": "1046750199855001",
+                "detectorConfidence": 0.6098,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "South Station"
+            },
+            {
+                "objectId": "perc-door-2",
+                "latitude": 42.352155,
+                "longitude": -71.054728,
+                "stationId": "1098509089451477",
+                "detectorConfidence": 0.6213,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "South Station"
+            },
+            {
+                "objectId": "perc-door-3",
+                "latitude": 42.352196,
+                "longitude": -71.054452,
+                "stationId": "1098509089451477",
+                "detectorConfidence": 0.5586,
+                "secondCropVerifierVerdict": "NO",
+                "classification": "likely_false_positive"
+            }
+        ]
+    }
+}

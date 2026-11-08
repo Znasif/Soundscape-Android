@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Soundscape-Android Perception Pipeline" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Prototype Route: Fillmore and Jackson Muni Stop to 2318 Fillmore Street</name>
+    <desc>Walking route (125 m southbound along Fillmore St sidewalk) from Muni Stop Fillmore St &amp; Jackson St (ref 14624) to Smith-Kettlewell Eye Research Institute (2318 Fillmore St). Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </metadata>
+  <wpt lat="37.792224" lon="-122.434622">
+    <name>Bus stop: Fillmore St and Jackson St (Muni 22, 24, Stop 14624)</name>
+    <desc>Start at Muni stop Fillmore St &amp; Jackson St (OSM node/6368210995, ref 14624). Head south on the Fillmore Street sidewalk toward Washington Street. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791612" lon="-122.434402">
+    <name>Crossing: Fillmore Street and Washington Street (north curb)</name>
+    <desc>North sidewalk corner &amp; crosswalk at Washington Street (near Muni Stop Washington St &amp; Fillmore St, OSM node/6384667509, ref 16916). Cross Washington Street heading south. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791485" lon="-122.434368">
+    <name>Crossing: Fillmore Street and Washington Street (south curb)</name>
+    <desc>South sidewalk corner at Washington Street entering the 2300 block of Fillmore Street. Continue south ~36 metres toward 2318 Fillmore Street on the east side. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791117" lon="-122.434186">
+    <name>Destination: 2318 Fillmore Street (Smith-Kettlewell Eye Research Institute entrance)</name>
+    <desc>2318 Fillmore Street — Smith-Kettlewell Eye Research Institute main entrance (perceived by sam-3.1 on Mapillary pano 1184002609210177, confidence=0.93, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <rte>
+    <name>Prototype Route: Fillmore and Jackson Muni Stop to 2318 Fillmore Street</name>
+    <rtept lat="37.792224" lon="-122.434622">
+      <name>Bus stop: Fillmore St and Jackson St (Muni 22, 24, Stop 14624)</name>
+      <desc>Start at Muni stop Fillmore St &amp; Jackson St (OSM node/6368210995, ref 14624). Head south on the Fillmore Street sidewalk toward Washington Street. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791612" lon="-122.434402">
+      <name>Crossing: Fillmore Street and Washington Street (north curb)</name>
+      <desc>North sidewalk corner &amp; crosswalk at Washington Street (near Muni Stop Washington St &amp; Fillmore St, OSM node/6384667509, ref 16916). Cross Washington Street heading south. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791485" lon="-122.434368">
+      <name>Crossing: Fillmore Street and Washington Street (south curb)</name>
+      <desc>South sidewalk corner at Washington Street entering the 2300 block of Fillmore Street. Continue south ~36 metres toward 2318 Fillmore Street on the east side. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791117" lon="-122.434186">
+      <name>Destination: 2318 Fillmore Street (Smith-Kettlewell Eye Research Institute entrance)</name>
+      <desc>2318 Fillmore Street — Smith-Kettlewell Eye Research Institute main entrance (perceived by sam-3.1 on Mapillary pano 1184002609210177, confidence=0.93, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+  </rte>
+</gpx>
