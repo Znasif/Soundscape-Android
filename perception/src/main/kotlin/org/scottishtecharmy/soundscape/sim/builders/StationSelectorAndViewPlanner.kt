@@ -129,7 +129,8 @@ object ViewPlanner {
         val planned = mutableListOf<PlannedView>()
         for (station in stations) {
             val stationEnu = EnuPoint.fromPositionList(station.position)
-            for (yaw in EIGHT_YAWS) {
+            for (yawOffset in EIGHT_YAWS) {
+                val yaw = org.scottishtecharmy.soundscape.sim.geo.Angles.normalizeBearing(station.compassAngle + yawOffset)
                 val ray = Ray2D(stationEnu, yaw)
                 var bestBuildingId: String? = null
                 var bestDist = Double.POSITIVE_INFINITY

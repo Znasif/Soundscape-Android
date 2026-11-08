@@ -1,0 +1,68 @@
+{
+    "location": "Ferry Building, San Francisco",
+    "centerLatitude": 37.79545,
+    "centerLongitude": -122.39373,
+    "radiusMeters": 75.0,
+    "distanceThresholdMeters": 5.0,
+    "osmEntranceCountRaw": 9,
+    "osmEntranceCountVisibleWithin40m": 3,
+    "perceptionDetectedDoorCount": 3,
+    "mergedTotalDoorCount": 10,
+    "perceptionVsVisibleOsmMetrics": {
+        "predictedCount": 3,
+        "truthCount": 3,
+        "truePositives": 1,
+        "falsePositives": 2,
+        "falseNegatives": 2,
+        "precision": 0.3333333333333333,
+        "recall": 0.3333333333333333,
+        "f1": 0.3333333333333333,
+        "meanErrorMeters": 2.868355685942345,
+        "medianErrorMeters": 2.868355685942345,
+        "p90ErrorMeters": 2.868355685942345
+    },
+    "perceptionVsAllOsmMetrics": {
+        "predictedCount": 3,
+        "truthCount": 9,
+        "truePositives": 1,
+        "falsePositives": 2,
+        "falseNegatives": 8,
+        "precision": 0.3333333333333333,
+        "recall": 0.1111111111111111,
+        "f1": 0.16666666666666666,
+        "meanErrorMeters": 2.868355685942345,
+        "medianErrorMeters": 2.868355685942345,
+        "p90ErrorMeters": 2.868355685942345
+    },
+    "mergedVsAllOsmMetrics": {
+        "predictedCount": 10,
+        "truthCount": 9,
+        "truePositives": 8,
+        "falsePositives": 2,
+        "falseNegatives": 1,
+        "precision": 0.8,
+        "recall": 0.8888888888888888,
+        "f1": 0.8421052631578948,
+        "meanErrorMeters": 0.0,
+        "medianErrorMeters": 0.0,
+        "p90ErrorMeters": 0.0
+    },
+    "newDoorsFoundLackingInOsm": 2,
+    "osmEntrancesConfirmedByPerception": 1,
+    "osmEntrancesNotSeenByPerception": 8,
+    "osmEntrancesOutOfStationRange40m": 6,
+    "baselineComparison": {
+        "step3VisiblePrecision": 0.3333333333333333,
+        "step3VisibleRecall": 0.3333333333333333,
+        "step3MeanErrorMeters": 2.868355685942345,
+        "step3MergedRecall": 0.8888888888888888
+    },
+    "budgetUsed": {
+        "mapillaryCalls": 5,
+        "maxMapillaryCalls": 2000,
+        "samCalls": 18,
+        "maxSamCalls": 60,
+        "geminiCalls": 7,
+        "maxGeminiCalls": 120
+    }
+}
