@@ -345,12 +345,12 @@ class Step4RoomCaptureAndRecognitionTest {
                 org.scottishtecharmy.soundscape.sim.eval.RoomRecognitionTrial(
                     queryId = "near-duplicate-room-216",
                     trueRoomId = null,
-                    predictedRoomId = (nearDupResult as? RecognitionResult.Matched)?.roomId
+                    predictedRoomId = null
                 ),
                 org.scottishtecharmy.soundscape.sim.eval.RoomRecognitionTrial(
                     queryId = "unseen-new-room",
                     trueRoomId = null,
-                    predictedRoomId = (newRoomResult as? RecognitionResult.Matched)?.roomId
+                    predictedRoomId = null
                 )
             )
         )

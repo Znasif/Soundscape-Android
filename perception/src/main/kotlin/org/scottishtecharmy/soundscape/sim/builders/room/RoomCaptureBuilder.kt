@@ -81,9 +81,10 @@ class RoomCaptureBuilder(
                 geoAnchor = geoAnchor,
                 provenance = Provenance(
                     createdAtEpochMs = createdAtEpochMs,
-                    builderVersion = "0.4.0-step4",
+                    builderVersion = "0.6.0-step6",
                     sources = listOf("MWDAT_GLASSES", "SAM_3_1", "GEMINI_FLASH")
-                )
+                ),
+                attribution = "Indoor Head-Turn Scan (Ray-Ban Meta Smart Glasses / Synthetic Benchmark)."
             )
             return RoomBuildResult(
                 environment = emptyEnv,
@@ -384,6 +385,7 @@ class RoomCaptureBuilder(
                 newestCaptureEpochMs = keyframes.maxOfOrNull { it.timestampNs / 1_000_000L },
                 geohash7 = geoAnchor?.let { Geohash.encode(it.latitude, it.longitude, precision = 7) }
             ),
+            attribution = "Indoor Head-Turn Scan (Ray-Ban Meta Smart Glasses / Synthetic Benchmark).",
             objects = objects,
             signs = signs,
             stations = stations,
