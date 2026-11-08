@@ -1,5 +1,6 @@
 package org.scottishtecharmy.soundscape.sim.geo
 
+import kotlinx.serialization.Serializable
 import kotlin.math.PI
 import kotlin.math.atan2
 import kotlin.math.cos
@@ -11,6 +12,7 @@ import kotlin.math.sqrt
 /**
  * WGS84 geographic coordinate in decimal degrees.
  */
+@Serializable
 data class LatLon(
     val latitude: Double,
     val longitude: Double
@@ -19,6 +21,7 @@ data class LatLon(
 /**
  * Geographic bounding box `(minLon, minLat, maxLon, maxLat)`.
  */
+@Serializable
 data class BoundingBox(
     val minLon: Double,
     val minLat: Double,
@@ -37,6 +40,7 @@ data class BoundingBox(
  * Note: When stored in `SimObject.position`, the 3-element array uses XR Blocks / glTF Y-up ordering
  * `[east, up, north]`. `toPositionList()` and `fromPositionList()` convert between the two.
  */
+@Serializable
 data class EnuPoint(
     val east: Double,
     val north: Double,
