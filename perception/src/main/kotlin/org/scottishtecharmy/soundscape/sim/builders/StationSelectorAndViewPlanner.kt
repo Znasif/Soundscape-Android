@@ -48,7 +48,8 @@ object StationSelector {
         minCapturedAtEpochMs: Long = 1609459200000L, // 2021-01-01 UTC
         corridorSegmentEnu: Pair<EnuPoint, EnuPoint>? = null,
         corridorHalfWidthMeters: Double = 35.0,
-        spatialSpread: Boolean = false
+        spatialSpread: Boolean = false,
+        priorityPointEnu: EnuPoint? = null
     ): List<Station> {
         if (images.isEmpty() || maxStations <= 0) return emptyList()
 
@@ -112,11 +113,25 @@ object StationSelector {
         } else {
             val pool = sorted.filter { it.minBuildingDist <= maxDistanceToBuildingMeters }
                 .ifEmpty { sorted }
-            // Seed with the candidate closest to center / corridor that is near a building facade
+            val seedTarget = priorityPointEnu ?: EnuPoint(0.0, 0.0)
+            // Seed with the candidate closest to priorityPointEnu / center that is near a building facade
             val first = pool.minByOrNull {
-                it.enu.distanceTo2D(EnuPoint(0.0, 0.0)) + it.minBuildingDist * 2.0
+                it.enu.distanceTo2D(seedTarget) + it.minBuildingDist * 1.5
             } ?: sorted.first()
             selected.add(first)
+
+            // If priorityPointEnu is specified, also add a second nearby station (8-22m away) for multi-view stereo on the target
+            if (priorityPointEnu != null && selected.size < maxStations) {
+                val secondNearTarget = pool
+                    .filter { cand ->
+                        selected.none { existing -> existing.enu.distanceTo2D(cand.enu) < minSpacingMeters } &&
+                            cand.enu.distanceTo2D(priorityPointEnu) <= 32.0
+                    }
+                    .minByOrNull { it.enu.distanceTo2D(priorityPointEnu) + it.minBuildingDist }
+                if (secondNearTarget != null) {
+                    selected.add(secondNearTarget)
+                }
+            }
 
             while (selected.size < maxStations) {
                 val eligible = pool.filter { cand ->
@@ -126,7 +141,7 @@ object StationSelector {
                 // Greedily pick the candidate that maximizes minimum distance to already-selected stations while staying close to facades
                 val next = eligible.maxByOrNull { cand ->
                     val minDistToSelected = selected.minOf { it.enu.distanceTo2D(cand.enu) }
-                    minDistToSelected.coerceAtMost(60.0) - cand.minBuildingDist * 0.6
+                    minDistToSelected.coerceAtMost(55.0) - cand.minBuildingDist * 0.8
                 } ?: break
                 selected.add(next)
             }
@@ -249,13 +264,15 @@ object ViewPlanner {
 
     /**
      * Checks whether a ground-truth entrance point [pointEnu] is visible from at least one planned view:
-     * within [maxDistanceMeters] (40 m) of the view's station AND inside the view's horizontal field of view (`hFovDegrees`).
+     * within [maxDistanceMeters] (40 m) of the view's station, inside the view's horizontal field of view (`hFovDegrees`),
+     * and (when [footprintsEnu] is provided) not occluded by an intervening building wall more than 3.0 m before [pointEnu].
      */
     fun isPointVisibleInPlannedViews(
         pointEnu: EnuPoint,
         plannedViews: List<PlannedView>,
         stations: List<Station>,
-        maxDistanceMeters: Double = 40.0
+        maxDistanceMeters: Double = 40.0,
+        footprintsEnu: List<List<EnuPoint>> = emptyList()
     ): Boolean {
         if (plannedViews.isNotEmpty()) {
             for (view in plannedViews) {
@@ -264,6 +281,15 @@ object ViewPlanner {
                 val bearing = org.scottishtecharmy.soundscape.sim.geo.Angles.bearingBetweenEnu(view.stationEnu, pointEnu)
                 val diff = org.scottishtecharmy.soundscape.sim.geo.Angles.absAngleDifference(bearing, view.yawDegrees)
                 if (diff <= view.hFovDegrees * 0.5) {
+                    if (footprintsEnu.isNotEmpty()) {
+                        val ray = Ray2D(view.stationEnu, bearing)
+                        val minWallDist = footprintsEnu.mapNotNull { poly ->
+                            Geometry2D.intersectRayWithPolygon(ray, poly, maxDistanceMeters = dist)?.distanceMeters
+                        }.minOrNull()
+                        if (minWallDist != null && minWallDist < dist - 3.0) {
+                            continue
+                        }
+                    }
                     return true
                 }
             }

@@ -64,7 +64,7 @@ class HttpGateway(
 ) {
     private val json = Json {
         ignoreUnknownKeys = true
-        prettyPrint = true
+        prettyPrint = false
     }
 
     private val httpClient: HttpClient by lazy {

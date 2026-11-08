@@ -1,0 +1,242 @@
+{
+    "areaId": "fillmore-2318",
+    "displayName": "2318 Fillmore Street Corridor (Sacramento to Jackson)",
+    "city": "San Francisco",
+    "country": "USA",
+    "split": "development",
+    "centerLatitude": 37.7911743,
+    "centerLongitude": -122.4339323,
+    "radiusMeters": 185.0,
+    "selectedStationCount": 10,
+    "plannedViewCount": 18,
+    "osmEntranceCountTotal": 11,
+    "osmEntranceCountVisible": 0,
+    "osmEntranceCountExcluded": 11,
+    "perceptionDoorCount": 18,
+    "perceptionSignCount": 1,
+    "perceptionStepsCount": 0,
+    "perceptionOnlyVsVisibleOsm": {
+        "predictedCount": 18,
+        "truthCount": 0,
+        "truePositives": 0,
+        "falsePositives": 18,
+        "falseNegatives": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "meanErrorMeters": 0.0,
+        "medianErrorMeters": 0.0,
+        "p90ErrorMeters": 0.0
+    },
+    "errorByMethod": {
+        "single_ray_footprint_intersection": {
+            "method": "single_ray_footprint_intersection",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "multi_view_triangulation": {
+            "method": "multi_view_triangulation",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        },
+        "facade_snap": {
+            "method": "facade_snap",
+            "matchedCount": 0,
+            "meanErrorMeters": 0.0,
+            "medianErrorMeters": 0.0,
+            "p90ErrorMeters": 0.0
+        }
+    },
+    "unmatchedDoors": {
+        "totalUnmatchedPerceivedDoors": 18,
+        "likelyRealDoorMissingFromOsm": 15,
+        "likelyFalsePositive": 3,
+        "shareOfAllDetections": 1.0,
+        "likelyRealShareOfAllDetections": 0.8333,
+        "likelyFalsePositiveShareOfAllDetections": 0.1667,
+        "details": [
+            {
+                "objectId": "perc-door-1",
+                "latitude": 37.791118,
+                "longitude": -122.434186,
+                "stationId": "1184002609210177",
+                "detectorConfidence": 0.9259,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Smith-Kettlewell Eye Research Institute"
+            },
+            {
+                "objectId": "perc-door-2",
+                "latitude": 37.791249,
+                "longitude": -122.434169,
+                "stationId": "1184002609210177",
+                "detectorConfidence": 0.914,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Islais"
+            },
+            {
+                "objectId": "perc-door-5",
+                "latitude": 37.790393,
+                "longitude": -122.434036,
+                "stationId": "1167706340838604",
+                "detectorConfidence": 0.9101,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Le Labo"
+            },
+            {
+                "objectId": "perc-door-10",
+                "latitude": 37.7915,
+                "longitude": -122.43426,
+                "stationId": "665715115056494",
+                "detectorConfidence": 0.9259,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Reformation"
+            },
+            {
+                "objectId": "perc-door-13",
+                "latitude": 37.791153,
+                "longitude": -122.434455,
+                "stationId": "1116762269018404",
+                "detectorConfidence": 0.9101,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Taco Primo"
+            },
+            {
+                "objectId": "perc-door-8",
+                "latitude": 37.791721,
+                "longitude": -122.434144,
+                "stationId": "832869624430867",
+                "detectorConfidence": 0.8904,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm"
+            },
+            {
+                "objectId": "perc-door-3",
+                "latitude": 37.791298,
+                "longitude": -122.434216,
+                "stationId": "1116762269018404",
+                "detectorConfidence": 0.8552,
+                "secondCropVerifierVerdict": "NO",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Islais"
+            },
+            {
+                "objectId": "perc-door-12",
+                "latitude": 37.790777,
+                "longitude": -122.434447,
+                "stationId": "870175101020949",
+                "detectorConfidence": 0.8552,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Tryst"
+            },
+            {
+                "objectId": "perc-door-18",
+                "latitude": 37.791833,
+                "longitude": -122.434333,
+                "stationId": "982812832518604",
+                "detectorConfidence": 0.8084,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Margaret O'Leary"
+            },
+            {
+                "objectId": "perc-door-16",
+                "latitude": 37.79031,
+                "longitude": -122.434244,
+                "stationId": "1167706340838604",
+                "detectorConfidence": 0.7929,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Paige"
+            },
+            {
+                "objectId": "perc-door-7",
+                "latitude": 37.790818,
+                "longitude": -122.434073,
+                "stationId": "9261504077257367",
+                "detectorConfidence": 0.7888,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Nest"
+            },
+            {
+                "objectId": "perc-door-6",
+                "latitude": 37.791826,
+                "longitude": -122.434557,
+                "stationId": "982812832518604",
+                "detectorConfidence": 0.773,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Chouquet's"
+            },
+            {
+                "objectId": "perc-door-4",
+                "latitude": 37.791252,
+                "longitude": -122.434217,
+                "stationId": "1184002609210177",
+                "detectorConfidence": 0.7104,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Islais"
+            },
+            {
+                "objectId": "perc-door-19",
+                "latitude": 37.791771,
+                "longitude": -122.434314,
+                "stationId": "982812832518604",
+                "detectorConfidence": 0.7104,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Margaret O'Leary"
+            },
+            {
+                "objectId": "perc-door-9",
+                "latitude": 37.791726,
+                "longitude": -122.434047,
+                "stationId": "832869624430867",
+                "detectorConfidence": 0.6751,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm"
+            },
+            {
+                "objectId": "perc-door-14",
+                "latitude": 37.791238,
+                "longitude": -122.434441,
+                "stationId": "1116762269018404",
+                "detectorConfidence": 0.6484,
+                "secondCropVerifierVerdict": "YES",
+                "classification": "likely_real_door_missing_from_osm",
+                "linkedVenueName": "Pets Unlimited"
+            },
+            {
+                "objectId": "perc-door-11",
+                "latitude": 37.791613,
+                "longitude": -122.434153,
+                "stationId": "665715115056494",
+                "detectorConfidence": 0.5858,
+                "secondCropVerifierVerdict": "NO",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Reformation"
+            },
+            {
+                "objectId": "perc-door-15",
+                "latitude": 37.792304,
+                "longitude": -122.434426,
+                "stationId": "714805729602458",
+                "detectorConfidence": 0.629,
+                "secondCropVerifierVerdict": "INSUFFICIENT",
+                "classification": "likely_false_positive",
+                "linkedVenueName": "Mayflower Market"
+            }
+        ]
+    }
+}

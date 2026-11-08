@@ -1,238 +1,1110 @@
 {
-  "schemaVersion": "1.0",
-  "updatedAtEpochMs": 1794109072397,
-  "stepTotals": {
-    "steps-0-to-3": {
-      "step": "steps-0-to-3",
-      "mapillaryLiveCalls": 16,
-      "samLiveCalls": 45,
-      "geminiLiveCalls": 35,
-      "downloadedBytes": 0,
-      "mapillaryReplayedCalls": 0,
-      "samReplayedCalls": 0,
-      "geminiReplayedCalls": 0
+    "schemaVersion": "1.0",
+    "updatedAtEpochMs": 1794113694798,
+    "stepTotals": {
+        "steps-0-to-3": {
+            "step": "steps-0-to-3",
+            "mapillaryLiveCalls": 16,
+            "samLiveCalls": 45,
+            "geminiLiveCalls": 35,
+            "downloadedBytes": 0,
+            "mapillaryReplayedCalls": 0,
+            "samReplayedCalls": 0,
+            "geminiReplayedCalls": 0
+        },
+        "step-4": {
+            "step": "step-4",
+            "mapillaryLiveCalls": 0,
+            "samLiveCalls": 0,
+            "geminiLiveCalls": 0,
+            "downloadedBytes": 0,
+            "mapillaryReplayedCalls": 0,
+            "samReplayedCalls": 0,
+            "geminiReplayedCalls": 0
+        },
+        "step-5": {
+            "step": "step-5",
+            "mapillaryLiveCalls": 30,
+            "samLiveCalls": 36,
+            "geminiLiveCalls": 61,
+            "downloadedBytes": 0,
+            "mapillaryReplayedCalls": 117,
+            "samReplayedCalls": 114,
+            "geminiReplayedCalls": 113
+        }
     },
-    "step-4": {
-      "step": "step-4",
-      "mapillaryLiveCalls": 0,
-      "samLiveCalls": 0,
-      "geminiLiveCalls": 0,
-      "downloadedBytes": 0,
-      "mapillaryReplayedCalls": 0,
-      "samReplayedCalls": 0,
-      "geminiReplayedCalls": 0
-    },
-    "step-5": {
-      "step": "step-5",
-      "mapillaryLiveCalls": 18,
-      "samLiveCalls": 0,
-      "geminiLiveCalls": 0,
-      "downloadedBytes": 0,
-      "mapillaryReplayedCalls": 0,
-      "samReplayedCalls": 0,
-      "geminiReplayedCalls": 0
-    }
-  },
-  "entries": [
-    {
-      "timestampEpochMs": 1731020400000,
-      "step": "steps-0-to-3",
-      "command": "step-0-live-probes",
-      "api": "mapillary",
-      "liveCalls": 3,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1731020400000,
-      "step": "steps-0-to-3",
-      "command": "step-0-live-probes",
-      "api": "sam-3.1",
-      "liveCalls": 3,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1731020400000,
-      "step": "steps-0-to-3",
-      "command": "step-0-live-probes",
-      "api": "gemini-flash",
-      "liveCalls": 3,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1731025200000,
-      "step": "steps-0-to-3",
-      "command": "step-2-build-area-ferry",
-      "api": "mapillary",
-      "liveCalls": 3,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1731029400000,
-      "step": "steps-0-to-3",
-      "command": "step-3-build-area-ferry-perceive",
-      "api": "mapillary",
-      "liveCalls": 10,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1731029400000,
-      "step": "steps-0-to-3",
-      "command": "step-3-build-area-ferry-perceive",
-      "api": "sam-3.1",
-      "liveCalls": 42,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1731029400000,
-      "step": "steps-0-to-3",
-      "command": "step-3-build-area-ferry-perceive",
-      "api": "gemini-flash",
-      "liveCalls": 32,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108860807,
-      "step": "step-5",
-      "command": "area-screening-nyc-grand-central",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108869970,
-      "step": "step-5",
-      "command": "area-screening-boston-south-station",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108879054,
-      "step": "step-5",
-      "command": "area-screening-chicago-union-station",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108886143,
-      "step": "step-5",
-      "command": "area-screening-london-covent-garden",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108893204,
-      "step": "step-5",
-      "command": "area-screening-london-st-pancras",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108901972,
-      "step": "step-5",
-      "command": "area-screening-edinburgh-royal-mile",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108910726,
-      "step": "step-5",
-      "command": "area-screening-paris-rivoli-louvre",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108918451,
-      "step": "step-5",
-      "command": "area-screening-paris-opera",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108929994,
-      "step": "step-5",
-      "command": "area-screening-berlin-friedrichstrasse",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108986598,
-      "step": "step-5",
-      "command": "area-screening-sf-caltrain-4th-king",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794108994719,
-      "step": "step-5",
-      "command": "area-screening-sf-transbay-terminal",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794109015151,
-      "step": "step-5",
-      "command": "area-screening-nyc-penn-moynihan",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794109027101,
-      "step": "step-5",
-      "command": "area-screening-dc-union-station",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794109036926,
-      "step": "step-5",
-      "command": "area-screening-seattle-king-street",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794109045740,
-      "step": "step-5",
-      "command": "area-screening-london-victoria",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794109056025,
-      "step": "step-5",
-      "command": "area-screening-london-kings-cross",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794109064686,
-      "step": "step-5",
-      "command": "area-screening-paris-gare-du-nord",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    },
-    {
-      "timestampEpochMs": 1794109072397,
-      "step": "step-5",
-      "command": "area-screening-paris-chatelet",
-      "api": "mapillary",
-      "liveCalls": 1,
-      "downloadedBytes": 0
-    }
-  ]
+    "entries": [
+        {
+            "timestampEpochMs": 1731020400000,
+            "step": "steps-0-to-3",
+            "command": "step-0-live-probes",
+            "api": "mapillary",
+            "liveCalls": 3,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1731020400000,
+            "step": "steps-0-to-3",
+            "command": "step-0-live-probes",
+            "api": "sam-3.1",
+            "liveCalls": 3,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1731020400000,
+            "step": "steps-0-to-3",
+            "command": "step-0-live-probes",
+            "api": "gemini-flash",
+            "liveCalls": 3,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1731025200000,
+            "step": "steps-0-to-3",
+            "command": "step-2-build-area-ferry",
+            "api": "mapillary",
+            "liveCalls": 3,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1731029400000,
+            "step": "steps-0-to-3",
+            "command": "step-3-build-area-ferry-perceive",
+            "api": "mapillary",
+            "liveCalls": 10,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1731029400000,
+            "step": "steps-0-to-3",
+            "command": "step-3-build-area-ferry-perceive",
+            "api": "sam-3.1",
+            "liveCalls": 42,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1731029400000,
+            "step": "steps-0-to-3",
+            "command": "step-3-build-area-ferry-perceive",
+            "api": "gemini-flash",
+            "liveCalls": 32,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108860807,
+            "step": "step-5",
+            "command": "area-screening-nyc-grand-central",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108869970,
+            "step": "step-5",
+            "command": "area-screening-boston-south-station",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108879054,
+            "step": "step-5",
+            "command": "area-screening-chicago-union-station",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108886143,
+            "step": "step-5",
+            "command": "area-screening-london-covent-garden",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108893204,
+            "step": "step-5",
+            "command": "area-screening-london-st-pancras",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108901972,
+            "step": "step-5",
+            "command": "area-screening-edinburgh-royal-mile",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108910726,
+            "step": "step-5",
+            "command": "area-screening-paris-rivoli-louvre",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108918451,
+            "step": "step-5",
+            "command": "area-screening-paris-opera",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108929994,
+            "step": "step-5",
+            "command": "area-screening-berlin-friedrichstrasse",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108986598,
+            "step": "step-5",
+            "command": "area-screening-sf-caltrain-4th-king",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794108994719,
+            "step": "step-5",
+            "command": "area-screening-sf-transbay-terminal",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794109015151,
+            "step": "step-5",
+            "command": "area-screening-nyc-penn-moynihan",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794109027101,
+            "step": "step-5",
+            "command": "area-screening-dc-union-station",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794109036926,
+            "step": "step-5",
+            "command": "area-screening-seattle-king-street",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794109045740,
+            "step": "step-5",
+            "command": "area-screening-london-victoria",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794109056025,
+            "step": "step-5",
+            "command": "area-screening-london-kings-cross",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794109064686,
+            "step": "step-5",
+            "command": "area-screening-paris-gare-du-nord",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794109072397,
+            "step": "step-5",
+            "command": "area-screening-paris-chatelet",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113320135,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113328455,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113334454,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113337198,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113340214,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113343589,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113346573,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113348325,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113350422,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113351325,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113353733,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113356707,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113359693,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113360470,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113362026,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113364213,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113367769,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113371493,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113373285,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113374748,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113379613,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113383199,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113384020,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113385517,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113388079,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113391134,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113394367,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113395849,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113398826,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113400819,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113402662,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113404554,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113406368,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113409995,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113412512,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113413106,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113414900,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113416421,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113418508,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113420064,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113421930,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113422639,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113425449,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113426079,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113427827,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113429436,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113432782,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113436586,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113440519,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113441328,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113442911,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113444209,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113447523,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113450028,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113452509,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113453929,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113455573,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113457310,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113460274,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113463093,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113466454,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113467249,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "mapillary",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113469316,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113470191,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113473498,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113476719,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113479251,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113480402,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113481348,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113483609,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113484518,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113487624,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113490956,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113493915,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113495558,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113497055,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113499899,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113503170,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113504232,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113505001,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113508436,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113512101,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113512723,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113515924,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113518430,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113520869,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113524194,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113525002,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113527944,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113531102,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113534329,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113535750,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113538727,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113541497,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113545054,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113548316,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113550679,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113553920,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113557355,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113560206,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113565546,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113570513,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113574012,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113577191,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113579859,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113582281,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113585769,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113589105,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794113593401,
+            "step": "step-5",
+            "command": "build-fillmore",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        }
+    ]
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Soundscape-Android Perception Pipeline" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Prototype Route: Fillmore and Sacramento Muni Stop to 2318 Fillmore Street</name>
+    <desc>Walking route (135 m northbound along Fillmore St sidewalk) from Muni Stop Fillmore St &amp; Sacramento St (ref 14637) to Smith-Kettlewell Eye Research Institute (2318 Fillmore St). Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </metadata>
+  <wpt lat="37.789989" lon="-122.434141">
+    <name>Bus stop: Fillmore St and Sacramento St (Muni 22, 24, Stop 14637)</name>
+    <desc>Start at Muni stop Fillmore St &amp; Sacramento St (OSM node/6368210990, shelter=yes, bench=yes). Head north on the Fillmore Street sidewalk toward Clay Street. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.790365" lon="-122.434168">
+    <name>Sidewalk: 2200 block of Fillmore Street (northbound)</name>
+    <desc>Mid-block on Fillmore Street between Sacramento St and Clay St (OSM footway=sidewalk way/843691037). Continue north toward Clay Street. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.790728" lon="-122.434195">
+    <name>Crossing: Fillmore Street and Clay Street (south curb)</name>
+    <desc>South sidewalk corner &amp; marked crosswalk at Clay Street (OSM highway=crossing, tactile_paving=yes). Cross Clay Street heading north. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.790848" lon="-122.434218">
+    <name>Crossing: Fillmore Street and Clay Street (north curb)</name>
+    <desc>North sidewalk corner at Clay Street entering the 2300 block of Fillmore Street. Continue north ~35 metres along the east facade toward 2318 Fillmore Street. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <wpt lat="37.791118" lon="-122.434186">
+    <name>Destination: 2318 Fillmore Street (Smith-Kettlewell Eye Research Institute entrance)</name>
+    <desc>2318 Fillmore Street — Smith-Kettlewell Eye Research Institute main entrance (perceived by sam-3.1 on Mapillary pano 1184002609210177, confidence=0.93, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+  </wpt>
+  <rte>
+    <name>Prototype Route: Fillmore and Sacramento Muni Stop to 2318 Fillmore Street</name>
+    <rtept lat="37.789989" lon="-122.434141">
+      <name>Bus stop: Fillmore St and Sacramento St (Muni 22, 24, Stop 14637)</name>
+      <desc>Start at Muni stop Fillmore St &amp; Sacramento St (OSM node/6368210990, shelter=yes, bench=yes). Head north on the Fillmore Street sidewalk toward Clay Street. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.790365" lon="-122.434168">
+      <name>Sidewalk: 2200 block of Fillmore Street (northbound)</name>
+      <desc>Mid-block on Fillmore Street between Sacramento St and Clay St (OSM footway=sidewalk way/843691037). Continue north toward Clay Street. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.790728" lon="-122.434195">
+      <name>Crossing: Fillmore Street and Clay Street (south curb)</name>
+      <desc>South sidewalk corner &amp; marked crosswalk at Clay Street (OSM highway=crossing, tactile_paving=yes). Cross Clay Street heading north. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.790848" lon="-122.434218">
+      <name>Crossing: Fillmore Street and Clay Street (north curb)</name>
+      <desc>North sidewalk corner at Clay Street entering the 2300 block of Fillmore Street. Continue north ~35 metres along the east facade toward 2318 Fillmore Street. Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+    <rtept lat="37.791118" lon="-122.434186">
+      <name>Destination: 2318 Fillmore Street (Smith-Kettlewell Eye Research Institute entrance)</name>
+      <desc>2318 Fillmore Street — Smith-Kettlewell Eye Research Institute main entrance (perceived by sam-3.1 on Mapillary pano 1184002609210177, confidence=0.93, verifier=YES, method=MULTI_RAY_TRIANGULATION_FACADE_SNAP). Attribution: Imagery (c) Mapillary contributors (CC-BY-SA 4.0); Map data (c) OpenStreetMap contributors (ODbL).</desc>
+    </rtept>
+  </rte>
+</gpx>

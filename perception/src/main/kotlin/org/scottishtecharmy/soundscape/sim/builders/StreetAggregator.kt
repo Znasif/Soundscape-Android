@@ -330,7 +330,9 @@ object StreetAggregator {
             val sighting: PerceptionSighting,
             val ray2D: Ray2D,
             val initialPoint: EnuPoint,
-            val usedFootprintHit: Boolean
+            val usedFootprintHit: Boolean,
+            val hitDistanceMeters: Double,
+            val nearCornerOrGrazing: Boolean
         )
 
         val projected = mutableListOf<ProjectedSighting>()
@@ -338,12 +340,20 @@ object StreetAggregator {
             val ray = Ray2D(s.stationEnu, s.bearingDegrees)
             var bestHitDist = Double.POSITIVE_INFINITY
             var bestHitPoint: EnuPoint? = null
+            var nearCorner = false
 
             for ((_, poly) in footprintPolygonsEnu) {
-                val hit = Geometry2D.intersectRayWithPolygon(ray, poly, maxDistanceMeters = 55.0)
+                val hit = Geometry2D.intersectRayWithPolygon(ray, poly, maxDistanceMeters = 36.0)
                 if (hit != null && hit.distanceMeters < bestHitDist) {
                     bestHitDist = hit.distanceMeters
                     bestHitPoint = hit.point
+                    val dStart = hit.point.distanceTo2D(hit.edgeStart)
+                    val dEnd = hit.point.distanceTo2D(hit.edgeEnd)
+                    val incidenceDiff = org.scottishtecharmy.soundscape.sim.geo.Angles.absAngleDifference(
+                        s.bearingDegrees,
+                        org.scottishtecharmy.soundscape.sim.geo.Angles.normalizeBearing(hit.facadeNormalBearingDegrees + 180.0)
+                    )
+                    nearCorner = (minOf(dStart, dEnd) <= 2.2) || (incidenceDiff >= 52.0) || (hit.distanceMeters > 24.0)
                 }
             }
 
@@ -358,9 +368,10 @@ object StreetAggregator {
                 )?.let { gp ->
                     snapToNearestBuildingEdge(gp, footprintPolygonsEnu, maxFacadeSnapMeters) ?: gp
                 }
+                ?: snapToNearestBuildingEdge(ray.pointAtDistance(14.0), footprintPolygonsEnu, maxFacadeSnapMeters * 1.5)
                 ?: continue
 
-            projected.add(ProjectedSighting(s, ray, point, usedFootprint))
+            projected.add(ProjectedSighting(s, ray, point, usedFootprint, bestHitDist, nearCorner))
         }
 
         val used = BooleanArray(projected.size)
@@ -378,7 +389,7 @@ object StreetAggregator {
                     if (used[j]) continue
                     val other = projected[j]
                     if (other.sighting.category != seed.sighting.category) continue
-                    if (other.initialPoint.distanceTo2D(seed.initialPoint) <= 4.5) {
+                    if (other.initialPoint.distanceTo2D(seed.initialPoint) <= 5.0) {
                         used[j] = true
                         cluster.add(other)
                     }
@@ -390,23 +401,25 @@ object StreetAggregator {
             val finalEnu: EnuPoint = if (enableTriangulation && distinctStations.size >= 2) {
                 val triangulated = Geometry2D.triangulateRays(
                     rays = cluster.map { it.ray2D },
-                    minParallaxDegrees = 6.0,
+                    minParallaxDegrees = 4.0,
+                    maxConditionNumber = 180.0,
+                    maxRmsResidualMeters = 6.0,
                     maxDistanceMeters = 45.0
-                )?.point
-                locMethod = if (triangulated != null) {
-                    "MULTI_RAY_TRIANGULATION_FACADE_SNAP"
-                } else if (seed.usedFootprintHit) {
-                    "SINGLE_RAY_FOOTPRINT_FACADE_SNAP"
-                } else {
-                    "GROUND_PLANE_FACADE_SNAP"
+                )?.point ?: run {
+                    val wSum = cluster.sumOf { it.sighting.detectorConfidence }.coerceAtLeast(1e-6)
+                    EnuPoint(
+                        east = cluster.sumOf { it.initialPoint.east * it.sighting.detectorConfidence } / wSum,
+                        north = cluster.sumOf { it.initialPoint.north * it.sighting.detectorConfidence } / wSum,
+                        up = 0.0
+                    )
                 }
-                val candidatePt = triangulated ?: seed.initialPoint
-                snapToNearestBuildingEdge(candidatePt, footprintPolygonsEnu, maxFacadeSnapMeters) ?: candidatePt
+                locMethod = "MULTI_RAY_TRIANGULATION_FACADE_SNAP"
+                snapToNearestBuildingEdge(triangulated, footprintPolygonsEnu, maxFacadeSnapMeters) ?: triangulated
             } else {
-                locMethod = if (seed.usedFootprintHit) {
+                locMethod = if (seed.usedFootprintHit && !seed.nearCornerOrGrazing) {
                     "SINGLE_RAY_FOOTPRINT_FACADE_SNAP"
                 } else {
-                    "GROUND_PLANE_FACADE_SNAP"
+                    "FACADE_SNAP"
                 }
                 snapToNearestBuildingEdge(seed.initialPoint, footprintPolygonsEnu, maxFacadeSnapMeters) ?: seed.initialPoint
             }

@@ -265,12 +265,32 @@ object SimEval {
     }
 
     /**
-     * Computes localisation error (count, mean, median, p90) grouped by `localisationMethod`.
+     * Maps raw evidence localisationMethod strings onto the three canonical Step 5 method keys:
+     * `single_ray_footprint_intersection`, `multi_view_triangulation`, and `facade_snap`.
+     */
+    fun canonicalMethodName(raw: String?): String = when {
+        raw == null -> "single_ray_footprint_intersection"
+        raw.contains("MULTI", ignoreCase = true) || raw.contains("TRIANGULAT", ignoreCase = true) ->
+            "multi_view_triangulation"
+        raw == "FACADE_SNAP" || raw.contains("GROUND_PLANE", ignoreCase = true) || raw.equals("facade_snap", ignoreCase = true) ->
+            "facade_snap"
+        else -> "single_ray_footprint_intersection"
+    }
+
+    /**
+     * Computes localisation error (count, mean, median, p90) grouped by canonical `localisationMethod`:
+     * `single_ray_footprint_intersection`, `multi_view_triangulation`, and `facade_snap`.
      */
     fun computeErrorByMethod(matchedPairs: List<MatchedLandmarkPair>): Map<String, MethodErrorStats> {
-        val grouped = matchedPairs.groupBy { it.localisationMethod ?: "UNKNOWN" }
-        val result = mutableMapOf<String, MethodErrorStats>()
-        for ((method, pairs) in grouped) {
+        val canonicalKeys = listOf(
+            "single_ray_footprint_intersection",
+            "multi_view_triangulation",
+            "facade_snap"
+        )
+        val grouped = matchedPairs.groupBy { canonicalMethodName(it.localisationMethod) }
+        val result = LinkedHashMap<String, MethodErrorStats>()
+        for (method in canonicalKeys) {
+            val pairs = grouped[method].orEmpty()
             val errs = pairs.map { it.distanceMeters }.sorted()
             val mean = if (errs.isNotEmpty()) errs.sum() / errs.size else 0.0
             result[method] = MethodErrorStats(

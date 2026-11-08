@@ -73,6 +73,8 @@ fun main(args: Array<String>) = runBlocking {
     when (args[0]) {
         "build-area" -> runBuildAreaCli(args)
         "export-gpx" -> runExportGpxCli(args)
+        "build-fillmore" -> runBuildFillmoreCli(args)
+        "run-step5-eval" -> runStep5EvalCli(args)
         else -> {
             printUsage()
         }
@@ -86,7 +88,63 @@ private fun printUsage() {
             "[--name <areaName>] [--record <dir>] [--replay <dir>] [--ledger <file>] [--step <step>] " +
             "[--max-sam-calls <n>] [--max-verifier-calls <n>] [--crop-size <px>] " +
             "[--dry-run] [--perceive|--no-perceive] [--metrics-out <file>]\n" +
-            "  export-gpx --in <environment.json> --out <file.gpx> [--include osm|perceived|all] [--route-name <name>]"
+            "  export-gpx --in <environment.json> --out <file.gpx> [--include osm|perceived|all] [--route-name <name>]\n" +
+            "  build-fillmore [--replay-only]\n" +
+            "  run-step5-eval [--replay-only]"
+    )
+}
+
+suspend fun runBuildFillmoreCli(args: Array<String>) {
+    val replayOnly = "--replay-only" in args
+    val ledgerStore = JvmFileBudgetLedgerStore(File("docs/agent/metrics/budget-ledger.json"))
+    val budget = Budget(
+        maxMapillaryCalls = 5000,
+        maxSamCalls = 300,
+        maxGeminiCalls = 600,
+        step = "step-5",
+        command = args.joinToString(" "),
+        ledgerStore = ledgerStore,
+        clockEpochMs = { System.currentTimeMillis() }
+    )
+    val fillmoreSpec = Step5OutdoorEvaluator.PRE_REGISTERED_AREAS.first { it.areaId == "fillmore-2318" }
+    val exec = Step5OutdoorEvaluator.evaluateSingleArea(
+        spec = fillmoreSpec,
+        budget = budget,
+        fixturesRootDir = File("src/test/resources/fixtures"),
+        samplesDir = File("samples"),
+        gpxOutDir = File("samples/gpx"),
+        metricsOutDir = File("docs/agent/metrics"),
+        replayOnly = replayOnly
+    )
+    println("[build-fillmore] Completed Fillmore corridor: percDoors=${exec.report.perceptionDoorCount}, signs=${exec.report.perceptionSignCount}, budget=${budget.summary()}")
+}
+
+suspend fun runStep5EvalCli(args: Array<String>) {
+    val replayOnly = "--replay-only" in args
+    val ledgerStore = JvmFileBudgetLedgerStore(File("docs/agent/metrics/budget-ledger.json"))
+    val budget = Budget(
+        maxMapillaryCalls = 5000,
+        maxSamCalls = 300,
+        maxGeminiCalls = 600,
+        step = "step-5",
+        command = args.joinToString(" "),
+        ledgerStore = ledgerStore,
+        clockEpochMs = { System.currentTimeMillis() }
+    )
+    val report = Step5OutdoorEvaluator.runFullStep5Evaluation(
+        budget = budget,
+        fixturesRootDir = File("src/test/resources/fixtures"),
+        samplesDir = File("samples"),
+        gpxOutDir = File("samples/gpx"),
+        metricsOutDir = File("docs/agent/metrics"),
+        replayOnly = replayOnly
+    )
+    println(
+        "[run-step5-eval] Completed all 10 areas! Held-out Precision=${report.heldOutTotalsWithBootstrap95Ci.precision.pointEstimate}, " +
+            "Recall=${report.heldOutTotalsWithBootstrap95Ci.recall.pointEstimate}, " +
+            "F1=${report.heldOutTotalsWithBootstrap95Ci.f1.pointEstimate}, " +
+            "MedianError=${report.heldOutTotalsWithBootstrap95Ci.medianErrorMeters}m, " +
+            "Budget=${report.budgetSummary}"
     )
 }
 

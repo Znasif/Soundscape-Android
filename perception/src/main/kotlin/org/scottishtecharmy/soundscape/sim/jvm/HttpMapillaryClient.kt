@@ -67,8 +67,9 @@ class HttpMapillaryClient(
     override suspend fun getMapFeaturesInBbox(bbox: BoundingBox, limit: Int): List<MapillaryMapFeature> {
         val fKey = "mapillary_map_features_bbox"
         budget.consumeMapillary(1, isReplay = gateway.hasReplayFixture(fKey))
-        val fields = "id,aligned_direction,first_seen_at,last_seen_at,object_value,object_type,geometry,images"
-        val url = "https://graph.mapillary.com/map_features?bbox=${bbox.toMapillaryBboxString()}&limit=$limit&fields=$fields"
+        val effectiveLimit = minOf(limit, 150)
+        val fields = "id,aligned_direction,first_seen_at,last_seen_at,object_value,object_type,geometry"
+        val url = "https://graph.mapillary.com/map_features?bbox=${bbox.toMapillaryBboxString()}&limit=$effectiveLimit&fields=$fields"
         val resp = gateway.get(
             url = url,
             headers = authHeaders(),
