@@ -34,7 +34,16 @@ enum class SimCategory {
     DOOR,
     SIGN,
     STEPS,
+    STAIRS,
     COUNTER,
+    RECEPTION_DESK,
+    DESK,
+    CHAIR,
+    TABLE,
+    SOFA,
+    LIFT,
+    WINDOW,
+    FLOOR,
     BENCH,
     TRASH_CAN,
     BIKE_RACK,
@@ -63,13 +72,15 @@ enum class VerifierVerdict {
  * @property longitude Anchor longitude in decimal degrees.
  * @property yawDegrees Rotation offset (clockwise from true North) of the local frame in degrees.
  * @property altitudeMeters Optional altitude in metres above WGS84 ellipsoid.
+ * @property source Optional anchor source (e.g. `"gps_coarse"`, `"building_entrance"`).
  */
 @Serializable
 data class GeoAnchor(
     val latitude: Double,
     val longitude: Double,
     val yawDegrees: Double = 0.0,
-    val altitudeMeters: Double? = null
+    val altitudeMeters: Double? = null,
+    val source: String? = null
 )
 
 /**

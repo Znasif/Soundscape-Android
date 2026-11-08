@@ -339,3 +339,12 @@ interface TextReader {
 interface Embedder {
     suspend fun embedImage(jpegBytes: ByteArray): List<Double>
 }
+
+/**
+ * Precheck interface that inspects 4-6 keyframes spread around a room and returns which
+ * indoor categories from `{door, desk, reception desk, counter, chair, table, sofa, sign, stairs, lift, window}`
+ * are visible so `SegmentationClient` is called only for present categories (plus `floor`).
+ */
+interface CategoryPrecheck {
+    suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>): Set<SimCategory>
+}
