@@ -1,6 +1,6 @@
 {
     "schemaVersion": "1.0",
-    "updatedAtEpochMs": 1794115737942,
+    "updatedAtEpochMs": 1794122071249,
     "stepTotals": {
         "steps-0-to-3": {
             "step": "steps-0-to-3",
@@ -31,6 +31,16 @@
             "mapillaryReplayedCalls": 985,
             "samReplayedCalls": 965,
             "geminiReplayedCalls": 946
+        },
+        "step-6": {
+            "step": "step-6",
+            "mapillaryLiveCalls": 0,
+            "samLiveCalls": 274,
+            "geminiLiveCalls": 72,
+            "downloadedBytes": 30827601,
+            "mapillaryReplayedCalls": 0,
+            "samReplayedCalls": 1399,
+            "geminiReplayedCalls": 1403
         }
     },
     "entries": [
@@ -3471,6 +3481,2790 @@
             "step": "step-5",
             "command": "run-step5-eval",
             "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794120876577,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "download-bytes",
+            "liveCalls": 0,
+            "downloadedBytes": 4335588
+        },
+        {
+            "timestampEpochMs": 1794120876668,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121068861,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121072802,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121075480,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121078002,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121080094,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121081283,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121081917,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121083401,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121084114,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121085261,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121086968,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121088302,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121089058,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121089851,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121091609,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121093529,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121094369,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121095635,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121096263,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121097584,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121099048,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121101390,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121105234,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121119030,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121121504,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121125450,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121127958,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121131099,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121134153,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121136924,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121138637,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121139930,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121141292,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121142606,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121144003,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121147610,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121148459,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121149705,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121151513,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121153393,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121154253,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121155211,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121155835,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121156559,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121157182,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121158689,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121163535,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121165411,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121166261,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121167169,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121167874,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121168599,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121170014,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121171064,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121171706,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121172574,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121174463,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121175916,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121178000,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121179414,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121180387,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121180994,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121181787,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121184004,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121184738,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121185532,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121186360,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121189644,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121193317,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121196198,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121198663,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121201518,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121203926,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121206944,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121210247,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121213912,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121217240,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121220972,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121223017,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121225949,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121227634,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121229424,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121231020,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121231638,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121232677,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121236151,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121241904,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121243677,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121244628,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121245275,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121247592,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121248394,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121248995,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121249537,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121250494,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121251182,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121252075,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121255058,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121258856,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121261804,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121265431,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121268659,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121271165,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121272764,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121273629,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121274288,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121275175,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121277289,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121278399,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121279067,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121279719,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121281220,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121282537,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121283411,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121285780,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121286537,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121288003,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121289033,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121291584,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121292698,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121293664,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121294499,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121297745,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121301636,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121305050,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121308397,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121309180,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121310126,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121311063,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121311667,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121313598,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121314656,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121315271,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121316932,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121318605,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121319632,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121320597,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121322080,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121323106,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121324377,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121325035,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121325861,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121326601,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121327270,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121328251,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121329509,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121332782,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121334364,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121335193,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121336006,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121337335,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121338540,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121339245,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121339730,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121340890,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121341700,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121343138,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121344229,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121346067,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121346672,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121347348,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121348890,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121349692,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121350897,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121351993,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121353120,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121354166,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121357638,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121360585,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121361512,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121362535,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121363729,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121364777,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121365409,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121366683,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121368064,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121368582,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121369496,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121370376,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121373053,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121374498,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121375553,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121377068,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121377730,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121378432,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121379236,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121380004,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121381287,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121381936,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121383061,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121387005,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121391995,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121393637,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121395114,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121396718,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121398099,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121399077,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121399984,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121401558,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121402821,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121403770,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121404556,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121405483,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121406284,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121406787,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121408209,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121408981,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121410775,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121411405,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121412665,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121413833,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121414791,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121417808,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121420712,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121423981,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121424938,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121425673,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121427018,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121428840,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121429430,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121431179,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121431869,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121433198,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121434244,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121434906,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121438128,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121440690,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121444724,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121448462,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121449307,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121450006,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121451684,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121452612,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121454449,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121455200,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121455959,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121456780,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121458949,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121460177,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121471187,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121473894,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121480698,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121484047,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121487665,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121490844,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121493989,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121496219,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121497093,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121497962,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121498706,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121500180,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121501473,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121503253,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121505053,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121506520,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121508127,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121508888,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121510243,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121511780,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121513315,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121514071,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121514806,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121519235,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121521729,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121524501,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121527162,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121528688,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121529374,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121530201,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121531011,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121531928,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121532576,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121533464,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121534649,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121536144,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121536807,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121537500,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121539023,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121539966,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121542463,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121544206,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121544840,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121548041,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "download-bytes",
+            "liveCalls": 0,
+            "downloadedBytes": 26492013
+        },
+        {
+            "timestampEpochMs": 1794121579828,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121582259,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121583641,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121584402,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121586652,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121587626,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121588811,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121591042,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121592326,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121596146,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121599397,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121602258,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121603733,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121604819,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121607526,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121608381,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121609817,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121610688,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121611508,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121613098,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121614592,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121616293,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121617822,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121618584,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121619326,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121620404,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121622222,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121625877,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121628481,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121631323,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121635096,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121635882,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121636660,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121639241,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121640639,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121642003,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121642943,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121644959,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121646425,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121647337,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121648135,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121649484,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121650347,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121652062,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121654133,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121655694,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121656639,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121658307,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121659495,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121660457,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121664197,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "gemini-flash",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121668202,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121669117,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121669968,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121671079,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121671792,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121672763,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121673532,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121674118,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121674892,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121675866,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121676508,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
+            "liveCalls": 1,
+            "downloadedBytes": 0
+        },
+        {
+            "timestampEpochMs": 1794121678834,
+            "step": "step-6",
+            "command": "run-step6-eval",
+            "api": "sam-3.1",
             "liveCalls": 1,
             "downloadedBytes": 0
         }

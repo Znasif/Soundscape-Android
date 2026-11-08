@@ -75,6 +75,7 @@ fun main(args: Array<String>) = runBlocking {
         "export-gpx" -> runExportGpxCli(args)
         "build-fillmore" -> runBuildFillmoreCli(args)
         "run-step5-eval" -> runStep5EvalCli(args)
+        "run-step6-eval" -> runStep6EvalCli(args)
         else -> {
             printUsage()
         }
@@ -90,7 +91,36 @@ private fun printUsage() {
             "[--dry-run] [--perceive|--no-perceive] [--metrics-out <file>]\n" +
             "  export-gpx --in <environment.json> --out <file.gpx> [--include osm|perceived|all] [--route-name <name>]\n" +
             "  build-fillmore [--replay-only]\n" +
-            "  run-step5-eval [--replay-only]"
+            "  run-step5-eval [--replay-only]\n" +
+            "  run-step6-eval [--replay-only]"
+    )
+}
+
+suspend fun runStep6EvalCli(args: Array<String>) {
+    val replayOnly = "--replay-only" in args
+    val ledgerStore = JvmFileBudgetLedgerStore(File("docs/agent/metrics/budget-ledger.json"))
+    val budget = Budget(
+        maxMapillaryCalls = 5000,
+        maxSamCalls = 300,
+        maxGeminiCalls = 300,
+        maxDownloadBytes = 15L * 1024L * 1024L * 1024L,
+        step = "step-6",
+        command = args.joinToString(" "),
+        ledgerStore = ledgerStore,
+        clockEpochMs = { System.currentTimeMillis() }
+    )
+    val report = Step6HypersimEvaluator.runFullStep6Evaluation(
+        budget = budget,
+        replayOnly = replayOnly
+    )
+    println(
+        "[run-step6-eval] Completed all 6 Hypersim scenes! " +
+            "6-DoF Real Height F1=${report.pose6DofRealHeightAggregate.f1.pointEstimate} (err=${report.pose6DofRealHeightAggregate.meanErrorMeters}m, floorIoU=${report.pose6DofRealHeightAggregate.meanFloorIou5cm}), " +
+            "6-DoF 1.65m Assumed F1=${report.pose6DofAssumed165mAggregate.f1.pointEstimate} (err=${report.pose6DofAssumed165mAggregate.meanErrorMeters}m, growth=${report.heightAssumptionErrorGrowthMeters}m), " +
+            "Rot-Only (<0.5m) F1=${report.rotationOnlySubsetAggregate.f1.pointEstimate} (err=${report.rotationOnlySubsetAggregate.meanErrorMeters}m), " +
+            "Cross-Traj Recognition: correct=${report.crossTrajectoryRecognition.recognitionMetrics.correctMatches}, falseMatches=${report.crossTrajectoryRecognition.recognitionMetrics.falseMatches}, " +
+            "abstentions=${report.crossTrajectoryRecognition.recognitionMetrics.correctAbstentions}, yawErr=${report.crossTrajectoryRecognition.meanYawErrorDegrees} deg, " +
+            "Budget=${report.budgetSummary}"
     )
 }
 

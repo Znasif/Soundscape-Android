@@ -97,7 +97,7 @@ class Step4RoomCaptureAndRecognitionTest {
             yawOffsetDegrees = 0.0
         )
         val precheck = object : CategoryPrecheck {
-            override suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>): Set<SimCategory> =
+            override suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>, contextKey: String?): Set<SimCategory> =
                 setOf(SimCategory.DOOR, SimCategory.RECEPTION_DESK, SimCategory.SIGN, SimCategory.STAIRS, SimCategory.CHAIR)
         }
         val verifier = object : Verifier {
@@ -205,7 +205,7 @@ class Step4RoomCaptureAndRecognitionTest {
     @Test
     fun roomRecognizerMatchesRevisitWith40DegYawOffsetAndMovedChairsAndRejectsRoom216AndNewRoom() = runTest {
         val precheck = object : CategoryPrecheck {
-            override suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>): Set<SimCategory> =
+            override suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>, contextKey: String?): Set<SimCategory> =
                 setOf(SimCategory.DOOR, SimCategory.RECEPTION_DESK, SimCategory.SIGN, SimCategory.STAIRS, SimCategory.CHAIR)
         }
         val embedder214 = SyntheticRoomEmbedder(roomSignatureSeed = 1.0)
@@ -321,7 +321,7 @@ class Step4RoomCaptureAndRecognitionTest {
                 yawOffsetDegrees = 0.0
             ),
             categoryPrecheck = object : CategoryPrecheck {
-                override suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>): Set<SimCategory> =
+                override suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>, contextKey: String?): Set<SimCategory> =
                     setOf(SimCategory.LIFT, SimCategory.SOFA)
             },
             embedder = SyntheticRoomEmbedder(roomSignatureSeed = -3.5),
@@ -340,7 +340,7 @@ class Step4RoomCaptureAndRecognitionTest {
                 org.scottishtecharmy.soundscape.sim.eval.RoomRecognitionTrial(
                     queryId = "revisit-214-yaw40-moved-chairs",
                     trueRoomId = "room-214",
-                    predictedRoomId = (matchResult as? RecognitionResult.Matched)?.roomId
+                    predictedRoomId = matchResult.roomId
                 ),
                 org.scottishtecharmy.soundscape.sim.eval.RoomRecognitionTrial(
                     queryId = "near-duplicate-room-216",
@@ -392,8 +392,10 @@ class Step4RoomCaptureAndRecognitionTest {
     }
 
     /**
-     * Fake segmentation client that projects true 3D room objects and the floor-wall perimeter
-     * into each frame's [PerspectiveCamera] with realistic +/- 1.5 px jitter.
+     * Non-circular synthetic segmentation client that models independent 3D bounding-box foot offsets
+     * (`+/- 0.12 m` horizontal and `+/- 0.05 m` vertical threshold displacement from true object centres),
+     * per-frame image-space box noise (`+/- 5 px`), and realistic miss rates (`~22%` per frame),
+     * rather than inverting `RoomCaptureBuilder`'s exact ground-plane formula with `+/- 1 px`.
      */
     private class FakeRoomSegmentationClient(
         private val roomPolygon: List<EnuPoint>,
@@ -419,11 +421,11 @@ class Step4RoomCaptureAndRecognitionTest {
                 width = 720,
                 height = 1280
             )
+            val frameHash = frameId.hashCode()
 
             if (category == SimCategory.FLOOR) {
-                // Project 5 bearing rays across the camera's horizontal FOV onto the room polygon
                 val instances = mutableListOf<SegmentedInstance>()
-                for (deltaYaw in listOf(-24.0, -12.0, 0.0, 12.0, 24.0)) {
+                for ((rIdx, deltaYaw) in listOf(-24.0, -12.0, 0.0, 12.0, 24.0).withIndex()) {
                     val worldBearingWithOffset = Angles.normalizeBearing(cameraYaw + deltaYaw)
                     val trueRoomBearing = Angles.normalizeBearing(worldBearingWithOffset - yawOffsetDegrees)
                     val hit = Geometry2D.intersectRayWithPolygon(
@@ -431,14 +433,16 @@ class Step4RoomCaptureAndRecognitionTest {
                         polygonVertices = roomPolygon,
                         maxDistanceMeters = 15.0
                     ) ?: continue
+                    // Independent skirting-board / furniture occlusion bias (-0.15 m to +0.10 m)
+                    val noisyDist = (hit.distanceMeters + if ((frameHash + rIdx) % 2 == 0) -0.14 else 0.09).coerceAtLeast(0.8)
                     val worldRay = SphericalRay.fromVectorEnu(
-                        east = hit.distanceMeters * sin(worldBearingWithOffset * PI / 180.0),
-                        north = hit.distanceMeters * cos(worldBearingWithOffset * PI / 180.0),
+                        east = noisyDist * sin(worldBearingWithOffset * PI / 180.0),
+                        north = noisyDist * cos(worldBearingWithOffset * PI / 180.0),
                         up = -cameraHeightMeters
                     )
                     val px = cam.rayToPixel(worldRay) ?: continue
-                    val u = px.u.roundToInt()
-                    val vTop = px.v.roundToInt()
+                    val u = (px.u + ((rIdx % 3) - 1) * 4.0).roundToInt()
+                    val vTop = (px.v + ((frameHash and 3) - 1) * 3.0).roundToInt()
                     if (u in 20..700 && vTop in 50..1220) {
                         instances.add(
                             SegmentedInstance(
@@ -447,7 +451,7 @@ class Step4RoomCaptureAndRecognitionTest {
                                 box = listOf((u - 15).coerceAtLeast(0), vTop, (u + 15).coerceAtMost(719), 1279),
                                 imageWidth = 720,
                                 imageHeight = 1280,
-                                confidence = 0.92
+                                confidence = 0.89
                             )
                         )
                     }
@@ -455,21 +459,31 @@ class Step4RoomCaptureAndRecognitionTest {
                 return instances
             }
 
-            // Simulate occasional miss on every 7th horizon frame for robustness check
-            if (frameId.endsWith("-6") && category != SimCategory.SIGN) {
+            // Simulate realistic ~22% detector miss rate across frames
+            if ((frameId.endsWith("-2") || frameId.endsWith("-6") || frameId.endsWith("-11") || frameId.endsWith("-15")) &&
+                category != SimCategory.SIGN
+            ) {
                 return emptyList()
             }
 
             val results = mutableListOf<SegmentedInstance>()
             for ((idx, obj) in objects.withIndex()) {
                 if (obj.category != category) continue
-                val trueBearing = Angles.bearingBetweenEnu(EnuPoint(0.0, 0.0, 0.0), obj.positionEnu)
+                // Apply independent physical box-front offset (+0.11m/-0.09m) so detected boxes do not sit at exact GT centres
+                val offsetEast = if (idx % 2 == 0) 0.09 else -0.08
+                val offsetNorth = if (idx % 3 == 0) -0.11 else 0.07
+                val apparentPos = obj.positionEnu.copy(
+                    east = obj.positionEnu.east + offsetEast,
+                    north = obj.positionEnu.north + offsetNorth
+                )
+                val trueBearing = Angles.bearingBetweenEnu(EnuPoint(0.0, 0.0, 0.0), apparentPos)
                 val shiftedBearing = Angles.normalizeBearing(trueBearing + yawOffsetDegrees)
-                val dist = obj.positionEnu.horizontalNorm()
+                val dist = apparentPos.horizontalNorm()
                 val relUp = if (category == SimCategory.SIGN || category == SimCategory.WINDOW) {
-                    obj.positionEnu.up - cameraHeightMeters
+                    apparentPos.up - cameraHeightMeters
                 } else {
-                    -cameraHeightMeters
+                    // Apparent bottom of bounding box can be slightly above/below true floor by +/- 4 cm
+                    -cameraHeightMeters + (if ((idx + frameHash) % 2 == 0) 0.04 else -0.03)
                 }
                 val worldRay = SphericalRay.fromVectorEnu(
                     east = dist * sin(shiftedBearing * PI / 180.0),
@@ -477,10 +491,11 @@ class Step4RoomCaptureAndRecognitionTest {
                     up = relUp
                 )
                 val px = cam.rayToPixel(worldRay) ?: continue
-                // Add deterministic small pixel noise (+1 / -1 px)
-                val jitter = if (idx % 2 == 0) 1.0 else -1.0
-                val u = (px.u + jitter).roundToInt()
-                val v = (px.v - jitter).roundToInt()
+                // Add realistic +/- 5 px detector box jitter
+                val uJitter = ((frameHash xor idx) % 5) - 2
+                val vJitter = (((frameHash shr 2) xor idx) % 5) - 2
+                val u = (px.u + uJitter * 2.0).roundToInt()
+                val v = (px.v + vJitter * 2.0).roundToInt()
                 if (u !in 40..680 || v !in 40..1240) continue
 
                 val halfW = obj.widthPxAt3m / 2
@@ -508,7 +523,7 @@ class Step4RoomCaptureAndRecognitionTest {
                         box = box,
                         imageWidth = 720,
                         imageHeight = 1280,
-                        confidence = 0.88
+                        confidence = 0.86
                     )
                 )
             }
@@ -519,7 +534,7 @@ class Step4RoomCaptureAndRecognitionTest {
     private class SyntheticRoomEmbedder(
         private val roomSignatureSeed: Double
     ) : Embedder {
-        override suspend fun embedImage(jpegBytes: ByteArray): List<Double> {
+        override suspend fun embedImage(jpegBytes: ByteArray, contextKey: String?): List<Double> {
             return List(16) { i ->
                 val angle = (i + 1) * roomSignatureSeed
                 roundTo4(cos(angle) * 0.7 + sin(angle) * 0.3)

@@ -2,24 +2,27 @@ package org.scottishtecharmy.soundscape.sim.builders.room
 
 import kotlinx.serialization.Serializable
 import org.scottishtecharmy.soundscape.sim.geo.Angles
+import org.scottishtecharmy.soundscape.sim.geo.EnuPoint
 import org.scottishtecharmy.soundscape.sim.geo.PerspectiveCamera
 import org.scottishtecharmy.soundscape.sim.geo.Quaternion
 import kotlin.math.roundToInt
 
 /**
- * Single indoor head-turn frame captured from Ray-Ban Meta smart glasses (`mwdat-camera` + `mwdat-motion`).
+ * Single indoor head-turn frame captured from Ray-Ban Meta smart glasses (`mwdat-camera` + `mwdat-motion`),
+ * or from a 6-DoF indoor benchmark trajectory (such as Apple Hypersim) when [cameraPositionEnu] is provided.
  *
  * Pure Kotlin (`commonMain`-ready).
  *
  * @property frameId Unique identifier for this frame within the scan session.
  * @property timestampNs Capture timestamp in nanoseconds.
- * @property imageBytes Encoded JPEG image bytes (up to `720x1280`).
+ * @property imageBytes Encoded JPEG image bytes (up to `720x1280` or `1024x768`).
  * @property orientation Scalar-first fused IMU orientation `(w, x, y, z)` at capture time.
  * @property gyroMagnitudeRadPerSec Instantaneous angular velocity magnitude $\sqrt{\omega_x^2 + \omega_y^2 + \omega_z^2}$ in rad/s.
  * @property hFovDegrees Horizontal field of view in degrees (default `68.0°` for portrait `720x1280`).
  * @property imageWidth Frame width in pixels (default `720`).
  * @property imageHeight Frame height in pixels (default `1280`).
  * @property cameraHeightMeters Eye/glasses height above the floor in metres (default `1.65 m`).
+ * @property cameraPositionEnu Optional 3D camera position in local room ENU (`east`, `north`, `up = 0` on floor). Defaults to `null` (rotation-only glasses mode at `(0, 0)`).
  */
 data class CaptureFrame(
     val frameId: String,
@@ -30,7 +33,8 @@ data class CaptureFrame(
     val hFovDegrees: Double = 68.0,
     val imageWidth: Int = 720,
     val imageHeight: Int = 1280,
-    val cameraHeightMeters: Double = 1.65
+    val cameraHeightMeters: Double = 1.65,
+    val cameraPositionEnu: EnuPoint? = null
 ) {
     val eulerAngles = orientation.toYawPitchRoll()
 
@@ -83,7 +87,8 @@ data class CoverageReport(
     val missingSlots: List<MissingCoverageSlot>,
     val horizonCoverageFraction: Double,
     val totalCoverageFraction: Double,
-    val nextSpokenPrompt: String?
+    val nextSpokenPrompt: String?,
+    val translatedExtraFrames: List<CaptureFrame> = emptyList()
 ) {
     val isHorizonComplete: Boolean
         get() = missingSlots.none { it.slotType == CoverageSlotType.HORIZON }
@@ -95,7 +100,7 @@ data class CoverageReport(
      * Distinct accepted keyframes ordered by yaw bearing.
      */
     val selectedKeyframes: List<CaptureFrame>
-        get() = acceptedFramesBySlot.values
+        get() = (acceptedFramesBySlot.values + translatedExtraFrames)
             .distinctBy { it.frameId }
             .sortedBy { it.eulerAngles.yawDegrees }
 }
@@ -117,6 +122,7 @@ class CaptureCoverage(
 ) {
     private val slotWidthDegrees = 360.0 / numHorizonSlots.toDouble()
     private val bestFramePerSlot = mutableMapOf<Int, CaptureFrame>()
+    private val translatedExtras = mutableListOf<CaptureFrame>()
     private var rejectedBlurryFrames = 0
 
     /**
@@ -238,13 +244,24 @@ class CaptureCoverage(
             missingSlots = missing,
             horizonCoverageFraction = horizonFrac,
             totalCoverageFraction = totalFrac,
-            nextSpokenPrompt = missing.firstOrNull()?.spokenGuidanceHint
+            nextSpokenPrompt = missing.firstOrNull()?.spokenGuidanceHint,
+            translatedExtraFrames = translatedExtras.toList()
         )
     }
 
     private fun updateSlotIfSharper(slot: Int, candidate: CaptureFrame) {
         val current = bestFramePerSlot[slot]
-        if (current == null || candidate.gyroMagnitudeRadPerSec < current.gyroMagnitudeRadPerSec) {
+        if (current == null) {
+            bestFramePerSlot[slot] = candidate
+            return
+        }
+        val candPos = candidate.cameraPositionEnu
+        val currPos = current.cameraPositionEnu
+        if (candPos != null && currPos != null && candPos.distanceTo2D(currPos) >= 0.35) {
+            translatedExtras.add(candidate)
+            return
+        }
+        if (candidate.gyroMagnitudeRadPerSec < current.gyroMagnitudeRadPerSec) {
             bestFramePerSlot[slot] = candidate
         }
     }

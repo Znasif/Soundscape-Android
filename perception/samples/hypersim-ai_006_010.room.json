@@ -1,0 +1,1260 @@
+{
+    "name": "Hypersim ai_006_010 (Kitchen & Dining Area)",
+    "kind": "ROOM",
+    "objects": [
+        {
+            "id": "room-chair-1",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                0.365,
+                0.0,
+                7.881
+            ],
+            "confidence": 0.898,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0075",
+                    "bearingDegrees": 282.58,
+                    "elevationDegrees": -26.3,
+                    "box": [
+                        695,
+                        479,
+                        994,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.6787,
+                        0.6237,
+                        0.9707,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.953,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 20.11,
+                    "elevationDegrees": -9.39,
+                    "box": [
+                        56,
+                        445,
+                        140,
+                        545
+                    ],
+                    "normalizedBox": [
+                        0.0547,
+                        0.5794,
+                        0.1367,
+                        0.7096
+                    ],
+                    "detectorConfidence": 0.91,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0024",
+                    "bearingDegrees": 344.17,
+                    "elevationDegrees": -17.72,
+                    "box": [
+                        356,
+                        438,
+                        473,
+                        609
+                    ],
+                    "normalizedBox": [
+                        0.3477,
+                        0.5703,
+                        0.4619,
+                        0.793
+                    ],
+                    "detectorConfidence": 0.899,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0050",
+                    "bearingDegrees": 314.15,
+                    "elevationDegrees": -17.08,
+                    "box": [
+                        302,
+                        474,
+                        434,
+                        635
+                    ],
+                    "normalizedBox": [
+                        0.2949,
+                        0.6172,
+                        0.4238,
+                        0.8268
+                    ],
+                    "detectorConfidence": 0.89,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 27.44,
+                    "elevationDegrees": -8.72,
+                    "box": [
+                        207,
+                        463,
+                        251,
+                        526
+                    ],
+                    "normalizedBox": [
+                        0.2021,
+                        0.6029,
+                        0.2451,
+                        0.6849
+                    ],
+                    "detectorConfidence": 0.867,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0050",
+                    "bearingDegrees": 324.39,
+                    "elevationDegrees": -19.57,
+                    "box": [
+                        452,
+                        489,
+                        601,
+                        674
+                    ],
+                    "normalizedBox": [
+                        0.4414,
+                        0.6367,
+                        0.5869,
+                        0.8776
+                    ],
+                    "detectorConfidence": 0.867,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-2",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                -0.926,
+                0.0,
+                7.88
+            ],
+            "confidence": 0.942,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0075",
+                    "bearingDegrees": 277.78,
+                    "elevationDegrees": -17.53,
+                    "box": [
+                        680,
+                        418,
+                        875,
+                        596
+                    ],
+                    "normalizedBox": [
+                        0.6641,
+                        0.5443,
+                        0.8545,
+                        0.776
+                    ],
+                    "detectorConfidence": 0.942,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-3",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                0.957,
+                0.0,
+                6.071
+            ],
+            "confidence": 0.915,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0075",
+                    "bearingDegrees": 247.3,
+                    "elevationDegrees": -28.97,
+                    "box": [
+                        80,
+                        702,
+                        524,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.0781,
+                        0.9141,
+                        0.5117,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.938,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0024",
+                    "bearingDegrees": 333.74,
+                    "elevationDegrees": -24.86,
+                    "box": [
+                        154,
+                        576,
+                        384,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.1504,
+                        0.75,
+                        0.375,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.93,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0024",
+                    "bearingDegrees": 353.13,
+                    "elevationDegrees": -27.96,
+                    "box": [
+                        476,
+                        509,
+                        666,
+                        765
+                    ],
+                    "normalizedBox": [
+                        0.4648,
+                        0.6628,
+                        0.6504,
+                        0.9961
+                    ],
+                    "detectorConfidence": 0.926,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0075",
+                    "bearingDegrees": 244.2,
+                    "elevationDegrees": -23.23,
+                    "box": [
+                        193,
+                        422,
+                        318,
+                        666
+                    ],
+                    "normalizedBox": [
+                        0.1885,
+                        0.5495,
+                        0.3105,
+                        0.8672
+                    ],
+                    "detectorConfidence": 0.906,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0050",
+                    "bearingDegrees": 302.6,
+                    "elevationDegrees": -23.42,
+                    "box": [
+                        53,
+                        601,
+                        303,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.0518,
+                        0.7826,
+                        0.2959,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.906,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0075",
+                    "bearingDegrees": 234.98,
+                    "elevationDegrees": -27.72,
+                    "box": [
+                        0,
+                        542,
+                        197,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.0,
+                        0.7057,
+                        0.1924,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.902,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 33.35,
+                    "elevationDegrees": -10.8,
+                    "box": [
+                        282,
+                        452,
+                        372,
+                        556
+                    ],
+                    "normalizedBox": [
+                        0.2754,
+                        0.5885,
+                        0.3633,
+                        0.724
+                    ],
+                    "detectorConfidence": 0.895,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-4",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                -0.046,
+                0.0,
+                5.995
+            ],
+            "confidence": 0.901,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 24.19,
+                    "elevationDegrees": -11.88,
+                    "box": [
+                        129,
+                        465,
+                        216,
+                        583
+                    ],
+                    "normalizedBox": [
+                        0.126,
+                        0.6055,
+                        0.2109,
+                        0.7591
+                    ],
+                    "detectorConfidence": 0.93,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 16.89,
+                    "elevationDegrees": -10.46,
+                    "box": [
+                        0,
+                        478,
+                        71,
+                        569
+                    ],
+                    "normalizedBox": [
+                        0.0,
+                        0.6224,
+                        0.0693,
+                        0.7409
+                    ],
+                    "detectorConfidence": 0.906,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0050",
+                    "bearingDegrees": 295.23,
+                    "elevationDegrees": -21.84,
+                    "box": [
+                        0,
+                        585,
+                        83,
+                        759
+                    ],
+                    "normalizedBox": [
+                        0.0,
+                        0.7617,
+                        0.0811,
+                        0.9883
+                    ],
+                    "detectorConfidence": 0.867,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-5",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                -0.848,
+                0.0,
+                8.879
+            ],
+            "confidence": 0.914,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0024",
+                    "bearingDegrees": 330.94,
+                    "elevationDegrees": -14.0,
+                    "box": [
+                        116,
+                        410,
+                        271,
+                        589
+                    ],
+                    "normalizedBox": [
+                        0.1133,
+                        0.5339,
+                        0.2646,
+                        0.7669
+                    ],
+                    "detectorConfidence": 0.914,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-6",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                1.818,
+                0.0,
+                6.984
+            ],
+            "confidence": 0.906,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0050",
+                    "bearingDegrees": 327.9,
+                    "elevationDegrees": -24.75,
+                    "box": [
+                        472,
+                        549,
+                        688,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.4609,
+                        0.7148,
+                        0.6719,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.906,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-7",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                -6.346,
+                0.0,
+                6.221
+            ],
+            "confidence": 0.895,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0075",
+                    "bearingDegrees": 263.36,
+                    "elevationDegrees": -7.73,
+                    "box": [
+                        509,
+                        395,
+                        613,
+                        418
+                    ],
+                    "normalizedBox": [
+                        0.4971,
+                        0.5143,
+                        0.5986,
+                        0.5443
+                    ],
+                    "detectorConfidence": 0.895,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-table-8",
+            "name": "Table",
+            "category": "TABLE",
+            "position": [
+                0.024,
+                0.0,
+                5.809
+            ],
+            "confidence": 0.883,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 25.38,
+                    "elevationDegrees": -11.45,
+                    "box": [
+                        46,
+                        444,
+                        341,
+                        574
+                    ],
+                    "normalizedBox": [
+                        0.0449,
+                        0.5781,
+                        0.333,
+                        0.7474
+                    ],
+                    "detectorConfidence": 0.883,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-9",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                -1.459,
+                0.0,
+                7.14
+            ],
+            "confidence": 0.879,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0050",
+                    "bearingDegrees": 299.61,
+                    "elevationDegrees": -14.25,
+                    "box": [
+                        58,
+                        479,
+                        188,
+                        605
+                    ],
+                    "normalizedBox": [
+                        0.0566,
+                        0.6237,
+                        0.1836,
+                        0.7878
+                    ],
+                    "detectorConfidence": 0.879,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-table-10",
+            "name": "Table",
+            "category": "TABLE",
+            "position": [
+                0.621,
+                0.0,
+                6.627
+            ],
+            "confidence": 0.818,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0024",
+                    "bearingDegrees": 332.59,
+                    "elevationDegrees": -24.58,
+                    "box": [
+                        0,
+                        417,
+                        499,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.0,
+                        0.543,
+                        0.4873,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.84,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0075",
+                    "bearingDegrees": 253.59,
+                    "elevationDegrees": -29.02,
+                    "box": [
+                        111,
+                        416,
+                        684,
+                        764
+                    ],
+                    "normalizedBox": [
+                        0.1084,
+                        0.5417,
+                        0.668,
+                        0.9948
+                    ],
+                    "detectorConfidence": 0.816,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0050",
+                    "bearingDegrees": 310.45,
+                    "elevationDegrees": -24.29,
+                    "box": [
+                        44,
+                        485,
+                        575,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.043,
+                        0.6315,
+                        0.5615,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.797,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                }
+            ]
+        },
+        {
+            "id": "room-door-11",
+            "name": "Door",
+            "category": "DOOR",
+            "position": [
+                6.393,
+                0.0,
+                7.796
+            ],
+            "confidence": 0.75,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 48.88,
+                    "elevationDegrees": -6.34,
+                    "box": [
+                        548,
+                        270,
+                        592,
+                        482
+                    ],
+                    "normalizedBox": [
+                        0.5352,
+                        0.3516,
+                        0.5781,
+                        0.6276
+                    ],
+                    "detectorConfidence": 0.75,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-door-12",
+            "name": "Door",
+            "category": "DOOR",
+            "position": [
+                -0.14,
+                0.0,
+                1.445
+            ],
+            "confidence": 0.698,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 57.73,
+                    "elevationDegrees": 3.48,
+                    "box": [
+                        593,
+                        244,
+                        827,
+                        328
+                    ],
+                    "normalizedBox": [
+                        0.5791,
+                        0.3177,
+                        0.8076,
+                        0.4271
+                    ],
+                    "detectorConfidence": 0.739,
+                    "verifierResult": "YES",
+                    "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 61.63,
+                    "elevationDegrees": -22.54,
+                    "box": [
+                        697,
+                        520,
+                        852,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.6807,
+                        0.6771,
+                        0.832,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.734,
+                    "verifierResult": "YES",
+                    "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
+                },
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 52.43,
+                    "elevationDegrees": -3.25,
+                    "box": [
+                        591,
+                        326,
+                        660,
+                        434
+                    ],
+                    "normalizedBox": [
+                        0.5771,
+                        0.4245,
+                        0.6445,
+                        0.5651
+                    ],
+                    "detectorConfidence": 0.621,
+                    "verifierResult": "YES",
+                    "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
+                }
+            ]
+        },
+        {
+            "id": "room-door-13",
+            "name": "Door",
+            "category": "DOOR",
+            "position": [
+                -2.243,
+                0.0,
+                4.746
+            ],
+            "confidence": 0.648,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0075",
+                    "bearingDegrees": 244.4,
+                    "elevationDegrees": -12.25,
+                    "box": [
+                        143,
+                        196,
+                        382,
+                        481
+                    ],
+                    "normalizedBox": [
+                        0.1396,
+                        0.2552,
+                        0.373,
+                        0.6263
+                    ],
+                    "detectorConfidence": 0.648,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-counter-14",
+            "name": "Counter",
+            "category": "COUNTER",
+            "position": [
+                6.282,
+                0.0,
+                3.652
+            ],
+            "confidence": 0.575,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 66.71,
+                    "elevationDegrees": -7.81,
+                    "box": [
+                        702,
+                        462,
+                        1023,
+                        514
+                    ],
+                    "normalizedBox": [
+                        0.6855,
+                        0.6016,
+                        0.999,
+                        0.6693
+                    ],
+                    "detectorConfidence": 0.575,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-counter-15",
+            "name": "Counter",
+            "category": "COUNTER",
+            "position": [
+                -0.307,
+                0.0,
+                1.613
+            ],
+            "confidence": 0.504,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_006_010_cam_00_f0000",
+                    "bearingDegrees": 53.42,
+                    "elevationDegrees": -23.19,
+                    "box": [
+                        430,
+                        485,
+                        852,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.4199,
+                        0.6315,
+                        0.832,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.504,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        }
+    ],
+    "geoAnchor": {
+        "latitude": 37.791174,
+        "longitude": -122.433932,
+        "source": "HYPERSIM_SYNTHETIC"
+    },
+    "provenance": {
+        "createdAtEpochMs": 1710000000000,
+        "builderVersion": "0.6.0-step6",
+        "sources": [
+            "MWDAT_GLASSES",
+            "SAM_3_1",
+            "GEMINI_FLASH"
+        ],
+        "newestCaptureEpochMs": 1500,
+        "geohash7": "9q8yvzw"
+    },
+    "attribution": "Apple Hypersim Dataset (ai_006_010, CC BY-SA 3.0, https://github.com/apple/ml-hypersim)",
+    "signs": [],
+    "stations": [
+        {
+            "id": "ai_006_010_cam_00_f0000",
+            "compassAngle": 45.14,
+            "isPano": false,
+            "position": [
+                -2.868,
+                1.366,
+                -0.288
+            ]
+        },
+        {
+            "id": "ai_006_010_cam_00_f0075",
+            "compassAngle": 260.07,
+            "capturedAtEpochMs": 1500,
+            "isPano": false,
+            "position": [
+                3.139,
+                1.296,
+                7.324
+            ]
+        },
+        {
+            "id": "ai_006_010_cam_00_f0050",
+            "compassAngle": 323.41,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                3.481,
+                1.443,
+                4.333
+            ]
+        },
+        {
+            "id": "ai_006_010_cam_00_f0024",
+            "compassAngle": 352.32,
+            "capturedAtEpochMs": 500,
+            "isPano": false,
+            "position": [
+                2.066,
+                1.496,
+                3.634
+            ]
+        }
+    ],
+    "walkable": {
+        "floorPolygon": [
+            [
+                0.624,
+                0.0,
+                10.436
+            ],
+            [
+                0.831,
+                0.0,
+                6.971
+            ],
+            [
+                0.485,
+                0.0,
+                6.547
+            ],
+            [
+                1.623,
+                0.0,
+                6.838
+            ],
+            [
+                1.355,
+                0.0,
+                6.458
+            ],
+            [
+                0.896,
+                0.0,
+                6.293
+            ],
+            [
+                2.665,
+                0.0,
+                5.225
+            ],
+            [
+                0.01,
+                0.0,
+                1.295
+            ],
+            [
+                -1.275,
+                0.0,
+                2.586
+            ],
+            [
+                -3.717,
+                0.0,
+                8.119
+            ],
+            [
+                -1.788,
+                0.0,
+                8.337
+            ],
+            [
+                -0.319,
+                0.0,
+                9.449
+            ]
+        ]
+    },
+    "fingerprint": {
+        "embeddings": [
+            [
+                -0.0019,
+                -0.0043,
+                0.0271,
+                0.0025,
+                -0.0302,
+                -0.003,
+                0.4182,
+                0.4207,
+                0.4142,
+                0.048,
+                0.1147,
+                0.4172,
+                0.2209,
+                0.2237,
+                0.236,
+                -0.0028,
+                -0.0137,
+                0.0148,
+                0.0278,
+                0.0802,
+                -0.013,
+                -0.0589,
+                -0.1212,
+                -0.115,
+                -0.0684,
+                -0.0063,
+                -0.0497,
+                -0.1499,
+                -0.1818,
+                -0.1672,
+                0.0319,
+                0.0014
+            ],
+            [
+                0.0076,
+                -0.0045,
+                0.0034,
+                0.0122,
+                -0.0019,
+                -0.0378,
+                0.388,
+                0.3826,
+                0.3752,
+                0.0526,
+                0.1101,
+                0.3813,
+                0.3132,
+                0.2905,
+                0.267,
+                0.0227,
+                0.0349,
+                0.0061,
+                0.0053,
+                0.0167,
+                8.0E-4,
+                -0.011,
+                -0.1749,
+                -0.1894,
+                -0.1876,
+                0.0145,
+                0.0055,
+                -0.1227,
+                -0.1333,
+                -0.091,
+                0.0106,
+                -0.037
+            ],
+            [
+                -0.0258,
+                -0.0044,
+                0.0905,
+                -0.0214,
+                -0.1056,
+                -0.1038,
+                0.4843,
+                0.459,
+                0.4078,
+                0.0555,
+                0.1406,
+                0.4587,
+                -0.0708,
+                -0.0329,
+                0.0867,
+                -0.0379,
+                -0.1386,
+                0.0243,
+                0.0443,
+                0.1263,
+                -0.02,
+                -0.092,
+                -0.1417,
+                -0.1194,
+                -0.021,
+                -0.0222,
+                -0.1096,
+                0.0046,
+                0.01,
+                0.0895,
+                -0.0053,
+                -0.0822
+            ],
+            [
+                -0.0391,
+                -0.0029,
+                0.1175,
+                -0.0362,
+                -0.1385,
+                -0.054,
+                0.3827,
+                0.3659,
+                0.3184,
+                0.0491,
+                0.1561,
+                0.3622,
+                -0.1715,
+                -0.111,
+                0.0427,
+                -0.0605,
+                -0.184,
+                -0.153,
+                -0.0958,
+                0.0475,
+                -0.0573,
+                -0.1719,
+                -0.1656,
+                -0.1409,
+                -0.0265,
+                -0.0247,
+                -0.1267,
+                0.2332,
+                0.2354,
+                0.3056,
+                -0.0022,
+                -0.0713
+            ]
+        ],
+        "objectBearings": [
+            {
+                "objectId": "lm-0",
+                "category": "CHAIR",
+                "bearingDegrees": 2.6516972612614573,
+                "distanceMeters": 7.889447762676422,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-1",
+                "category": "CHAIR",
+                "bearingDegrees": 353.29775695439366,
+                "distanceMeters": 7.934221826997276,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-2",
+                "category": "CHAIR",
+                "bearingDegrees": 8.95808699936183,
+                "distanceMeters": 6.14596534321501,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-3",
+                "category": "CHAIR",
+                "bearingDegrees": 359.56037462303493,
+                "distanceMeters": 5.995176477802801,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-4",
+                "category": "CHAIR",
+                "bearingDegrees": 354.54444228321296,
+                "distanceMeters": 8.919402726640389,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-5",
+                "category": "CHAIR",
+                "bearingDegrees": 14.59081324662963,
+                "distanceMeters": 7.2167430326983375,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-6",
+                "category": "CHAIR",
+                "bearingDegrees": 314.43011567919774,
+                "distanceMeters": 8.886650493858752,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-7",
+                "category": "TABLE",
+                "bearingDegrees": 0.23671731525751527,
+                "distanceMeters": 5.809049578029095,
+                "text": "Table"
+            },
+            {
+                "objectId": "lm-8",
+                "category": "CHAIR",
+                "bearingDegrees": 348.451073088083,
+                "distanceMeters": 7.287542864367935,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-9",
+                "category": "TABLE",
+                "bearingDegrees": 5.353414585010628,
+                "distanceMeters": 6.6560326020836165,
+                "text": "Table"
+            },
+            {
+                "objectId": "lm-10",
+                "category": "DOOR",
+                "bearingDegrees": 39.352983067923454,
+                "distanceMeters": 10.08206650444243,
+                "text": "Door"
+            },
+            {
+                "objectId": "lm-11",
+                "category": "DOOR",
+                "bearingDegrees": 354.4661239222928,
+                "distanceMeters": 1.4517661657443324,
+                "text": "Door"
+            },
+            {
+                "objectId": "lm-12",
+                "category": "DOOR",
+                "bearingDegrees": 334.7041832354948,
+                "distanceMeters": 5.249339482258697,
+                "text": "Door"
+            },
+            {
+                "objectId": "lm-13",
+                "category": "COUNTER",
+                "bearingDegrees": 59.82869934835499,
+                "distanceMeters": 7.26640406253327,
+                "text": "Counter"
+            },
+            {
+                "objectId": "lm-14",
+                "category": "COUNTER",
+                "bearingDegrees": 349.22386369181254,
+                "distanceMeters": 1.641955541420047,
+                "text": "Counter"
+            }
+        ]
+    }
+}
