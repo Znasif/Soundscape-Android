@@ -389,6 +389,26 @@ object Geometry2D {
         return 0.5 * abs(sum)
     }
 
+    /**
+     * Ray-casting 2D point-in-polygon check in `(east, north)` coordinates.
+     */
+    fun pointInPolygon2D(point: EnuPoint, polygon: List<EnuPoint>): Boolean {
+        if (polygon.size < 3) return false
+        var inside = false
+        var j = polygon.size - 1
+        for (i in polygon.indices) {
+            val xi = polygon[i].east
+            val yi = polygon[i].north
+            val xj = polygon[j].east
+            val yj = polygon[j].north
+            val intersect = ((yi > point.north) != (yj > point.north)) &&
+                (point.east < (xj - xi) * (point.north - yi) / ((yj - yi) + 1e-12) + xi)
+            if (intersect) inside = !inside
+            j = i
+        }
+        return inside
+    }
+
     private fun buildPolygonEdges(vertices: List<EnuPoint>): List<Pair<EnuPoint, EnuPoint>> {
         val result = mutableListOf<Pair<EnuPoint, EnuPoint>>()
         for (i in 0 until vertices.size - 1) {

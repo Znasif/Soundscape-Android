@@ -1,0 +1,1090 @@
+{
+    "name": "Hypersim ai_003_010 (Modern Living Room)",
+    "kind": "ROOM",
+    "objects": [
+        {
+            "id": "room-chair-1",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                1.145,
+                0.0,
+                1.021
+            ],
+            "confidence": 0.93,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0058",
+                    "bearingDegrees": 166.2,
+                    "elevationDegrees": -34.31,
+                    "box": [
+                        90,
+                        532,
+                        300,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.0879,
+                        0.6927,
+                        0.293,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.953,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 13.54,
+                    "elevationDegrees": -32.95,
+                    "box": [
+                        470,
+                        488,
+                        802,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.459,
+                        0.6354,
+                        0.7832,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.906,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-2",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                0.085,
+                0.0,
+                -0.197
+            ],
+            "confidence": 0.913,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0058",
+                    "bearingDegrees": 186.86,
+                    "elevationDegrees": -29.14,
+                    "box": [
+                        425,
+                        439,
+                        575,
+                        668
+                    ],
+                    "normalizedBox": [
+                        0.415,
+                        0.5716,
+                        0.5615,
+                        0.8698
+                    ],
+                    "detectorConfidence": 0.949,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_003_010_cam_00_f0037",
+                    "bearingDegrees": 157.22,
+                    "elevationDegrees": -49.02,
+                    "box": [
+                        0,
+                        398,
+                        337,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.0,
+                        0.5182,
+                        0.3291,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.918,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_003_010_cam_00_f0058",
+                    "bearingDegrees": 180.97,
+                    "elevationDegrees": -25.0,
+                    "box": [
+                        366,
+                        397,
+                        475,
+                        594
+                    ],
+                    "normalizedBox": [
+                        0.3574,
+                        0.5169,
+                        0.4639,
+                        0.7734
+                    ],
+                    "detectorConfidence": 0.91,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_003_010_cam_00_f0058",
+                    "bearingDegrees": 183.64,
+                    "elevationDegrees": -34.92,
+                    "box": [
+                        377,
+                        735,
+                        518,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.3682,
+                        0.957,
+                        0.5059,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.875,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-3",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                0.853,
+                0.0,
+                -1.858
+            ],
+            "confidence": 0.924,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0078",
+                    "bearingDegrees": 130.71,
+                    "elevationDegrees": -35.76,
+                    "box": [
+                        38,
+                        465,
+                        271,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.0371,
+                        0.6055,
+                        0.2646,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.942,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_003_010_cam_00_f0037",
+                    "bearingDegrees": 156.12,
+                    "elevationDegrees": -36.83,
+                    "box": [
+                        11,
+                        240,
+                        214,
+                        557
+                    ],
+                    "normalizedBox": [
+                        0.0107,
+                        0.3125,
+                        0.209,
+                        0.7253
+                    ],
+                    "detectorConfidence": 0.906,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                }
+            ]
+        },
+        {
+            "id": "room-sofa-4",
+            "name": "Sofa",
+            "category": "SOFA",
+            "position": [
+                0.059,
+                0.0,
+                3.164
+            ],
+            "confidence": 0.89,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 358.18,
+                    "elevationDegrees": -18.17,
+                    "box": [
+                        390,
+                        285,
+                        646,
+                        451
+                    ],
+                    "normalizedBox": [
+                        0.3809,
+                        0.3711,
+                        0.6309,
+                        0.5872
+                    ],
+                    "detectorConfidence": 0.89,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-5",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                -0.988,
+                0.0,
+                0.757
+            ],
+            "confidence": 0.84,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 340.46,
+                    "elevationDegrees": -31.96,
+                    "box": [
+                        113,
+                        439,
+                        293,
+                        596
+                    ],
+                    "normalizedBox": [
+                        0.1104,
+                        0.5716,
+                        0.2861,
+                        0.776
+                    ],
+                    "detectorConfidence": 0.883,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_003_010_cam_00_f0058",
+                    "bearingDegrees": 208.83,
+                    "elevationDegrees": -31.32,
+                    "box": [
+                        735,
+                        730,
+                        899,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.7178,
+                        0.9505,
+                        0.8779,
+                        0.9987
+                    ],
+                    "detectorConfidence": 0.797,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-6",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                5.169,
+                0.0,
+                13.783
+            ],
+            "confidence": 0.875,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 16.62,
+                    "elevationDegrees": -6.4,
+                    "box": [
+                        766,
+                        231,
+                        954,
+                        382
+                    ],
+                    "normalizedBox": [
+                        0.748,
+                        0.3008,
+                        0.9316,
+                        0.4974
+                    ],
+                    "detectorConfidence": 0.875,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-table-7",
+            "name": "Table",
+            "category": "TABLE",
+            "position": [
+                2.107,
+                0.0,
+                0.865
+            ],
+            "confidence": 0.871,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 27.46,
+                    "elevationDegrees": -25.57,
+                    "box": [
+                        762,
+                        441,
+                        1023,
+                        766
+                    ],
+                    "normalizedBox": [
+                        0.7441,
+                        0.5742,
+                        0.999,
+                        0.9974
+                    ],
+                    "detectorConfidence": 0.871,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-table-8",
+            "name": "Table",
+            "category": "TABLE",
+            "position": [
+                0.752,
+                0.0,
+                -0.802
+            ],
+            "confidence": 0.783,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 10.09,
+                    "elevationDegrees": -3.46,
+                    "box": [
+                        725,
+                        227,
+                        825,
+                        298
+                    ],
+                    "normalizedBox": [
+                        0.708,
+                        0.2956,
+                        0.8057,
+                        0.388
+                    ],
+                    "detectorConfidence": 0.863,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_003_010_cam_00_f0058",
+                    "bearingDegrees": 173.5,
+                    "elevationDegrees": -28.53,
+                    "box": [
+                        188,
+                        458,
+                        428,
+                        653
+                    ],
+                    "normalizedBox": [
+                        0.1836,
+                        0.5964,
+                        0.418,
+                        0.8503
+                    ],
+                    "detectorConfidence": 0.813,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "stationId": "ai_003_010_cam_00_f0037",
+                    "bearingDegrees": 151.06,
+                    "elevationDegrees": -36.8,
+                    "box": [
+                        0,
+                        364,
+                        69,
+                        577
+                    ],
+                    "normalizedBox": [
+                        0.0,
+                        0.474,
+                        0.0674,
+                        0.7513
+                    ],
+                    "detectorConfidence": 0.672,
+                    "verifierResult": "YES",
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                }
+            ]
+        },
+        {
+            "id": "room-table-9",
+            "name": "Table",
+            "category": "TABLE",
+            "position": [
+                0.31,
+                0.0,
+                2.467
+            ],
+            "confidence": 0.852,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 0.71,
+                    "elevationDegrees": -20.43,
+                    "box": [
+                        448,
+                        391,
+                        634,
+                        497
+                    ],
+                    "normalizedBox": [
+                        0.4375,
+                        0.5091,
+                        0.6191,
+                        0.6471
+                    ],
+                    "detectorConfidence": 0.852,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-table-10",
+            "name": "Table",
+            "category": "TABLE",
+            "position": [
+                1.256,
+                0.0,
+                -1.673
+            ],
+            "confidence": 0.758,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0078",
+                    "bearingDegrees": 123.62,
+                    "elevationDegrees": -29.22,
+                    "box": [
+                        0,
+                        553,
+                        59,
+                        665
+                    ],
+                    "normalizedBox": [
+                        0.0,
+                        0.7201,
+                        0.0576,
+                        0.8659
+                    ],
+                    "detectorConfidence": 0.758,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-11",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                3.856,
+                0.0,
+                4.539
+            ],
+            "confidence": 0.726,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 26.46,
+                    "elevationDegrees": -13.4,
+                    "box": [
+                        928,
+                        281,
+                        1023,
+                        563
+                    ],
+                    "normalizedBox": [
+                        0.9062,
+                        0.3659,
+                        0.999,
+                        0.7331
+                    ],
+                    "detectorConfidence": 0.726,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-sofa-12",
+            "name": "Sofa",
+            "category": "SOFA",
+            "position": [
+                5.169,
+                0.0,
+                13.783
+            ],
+            "confidence": 0.706,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 16.62,
+                    "elevationDegrees": -6.4,
+                    "box": [
+                        766,
+                        230,
+                        954,
+                        382
+                    ],
+                    "normalizedBox": [
+                        0.748,
+                        0.2995,
+                        0.9316,
+                        0.4974
+                    ],
+                    "detectorConfidence": 0.706,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-sofa-13",
+            "name": "Sofa",
+            "category": "SOFA",
+            "position": [
+                -0.79,
+                0.0,
+                0.2
+            ],
+            "confidence": 0.594,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 340.46,
+                    "elevationDegrees": -31.96,
+                    "box": [
+                        113,
+                        438,
+                        293,
+                        596
+                    ],
+                    "normalizedBox": [
+                        0.1104,
+                        0.5703,
+                        0.2861,
+                        0.776
+                    ],
+                    "detectorConfidence": 0.594,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-14",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                1.258,
+                0.0,
+                2.101
+            ],
+            "confidence": 0.578,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 11.87,
+                    "elevationDegrees": -21.42,
+                    "box": [
+                        624,
+                        438,
+                        756,
+                        576
+                    ],
+                    "normalizedBox": [
+                        0.6094,
+                        0.5703,
+                        0.7383,
+                        0.75
+                    ],
+                    "detectorConfidence": 0.578,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-15",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                0.072,
+                0.0,
+                0.635
+            ],
+            "confidence": 0.575,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "ai_003_010_cam_00_f0000",
+                    "bearingDegrees": 357.05,
+                    "elevationDegrees": -29.92,
+                    "box": [
+                        388,
+                        495,
+                        493,
+                        623
+                    ],
+                    "normalizedBox": [
+                        0.3789,
+                        0.6445,
+                        0.4814,
+                        0.8112
+                    ],
+                    "detectorConfidence": 0.575,
+                    "verifierResult": "YES",
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        }
+    ],
+    "geoAnchor": {
+        "latitude": 37.791174,
+        "longitude": -122.433932,
+        "source": "HYPERSIM_SYNTHETIC"
+    },
+    "provenance": {
+        "createdAtEpochMs": 1710000000000,
+        "builderVersion": "0.6.0-step6",
+        "sources": [
+            "MWDAT_GLASSES",
+            "SAM_3_1",
+            "GEMINI_FLASH"
+        ],
+        "newestCaptureEpochMs": 1500,
+        "geohash7": "9q8yvzw"
+    },
+    "attribution": "Apple Hypersim Dataset (ai_003_010, CC BY-SA 3.0, https://github.com/apple/ml-hypersim)",
+    "signs": [],
+    "stations": [
+        {
+            "id": "ai_003_010_cam_00_f0078",
+            "compassAngle": 153.91,
+            "capturedAtEpochMs": 1500,
+            "isPano": false,
+            "position": [
+                -1.466,
+                1.828,
+                0.137
+            ]
+        },
+        {
+            "id": "ai_003_010_cam_00_f0037",
+            "compassAngle": 185.48,
+            "capturedAtEpochMs": 500,
+            "isPano": false,
+            "position": [
+                -0.523,
+                1.934,
+                1.251
+            ]
+        },
+        {
+            "id": "ai_003_010_cam_00_f0058",
+            "compassAngle": 186.17,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.532,
+                2.11,
+                3.518
+            ]
+        },
+        {
+            "id": "ai_003_010_cam_00_f0000",
+            "compassAngle": 356.32,
+            "isPano": false,
+            "position": [
+                0.245,
+                1.931,
+                -2.717
+            ]
+        }
+    ],
+    "walkable": {
+        "floorPolygon": [
+            [
+                0.205,
+                0.0,
+                -1.679
+            ],
+            [
+                1.051,
+                0.0,
+                0.512
+            ],
+            [
+                1.455,
+                0.0,
+                0.479
+            ],
+            [
+                3.102,
+                0.0,
+                -4.819
+            ],
+            [
+                1.609,
+                0.0,
+                -6.157
+            ],
+            [
+                0.994,
+                0.0,
+                -6.15
+            ],
+            [
+                -0.141,
+                0.0,
+                -7.725
+            ],
+            [
+                -1.136,
+                0.0,
+                -6.485
+            ],
+            [
+                -1.174,
+                0.0,
+                -2.552
+            ],
+            [
+                -0.463,
+                0.0,
+                -2.102
+            ],
+            [
+                -1.401,
+                0.0,
+                -0.266
+            ],
+            [
+                -0.731,
+                0.0,
+                -0.28
+            ],
+            [
+                -0.253,
+                0.0,
+                -0.518
+            ],
+            [
+                -0.087,
+                0.0,
+                -0.294
+            ]
+        ]
+    },
+    "fingerprint": {
+        "embeddings": [
+            [
+                0.1325,
+                -0.0339,
+                -0.1728,
+                0.1664,
+                0.2221,
+                0.229,
+                0.1747,
+                0.2106,
+                0.242,
+                0.0741,
+                0.1088,
+                0.1994,
+                0.1771,
+                0.0547,
+                -0.0316,
+                0.1224,
+                0.1475,
+                0.1656,
+                0.0483,
+                -0.0316,
+                0.1173,
+                0.1385,
+                0.0519,
+                -0.1361,
+                -0.3032,
+                0.1879,
+                0.2611,
+                0.2343,
+                -0.0035,
+                -0.2259,
+                0.2379,
+                0.3414
+            ],
+            [
+                0.1343,
+                -0.0333,
+                -0.1807,
+                0.1676,
+                0.2312,
+                0.1278,
+                0.222,
+                0.226,
+                0.2199,
+                0.0632,
+                0.0903,
+                0.2209,
+                0.0881,
+                -0.0136,
+                -0.0848,
+                0.1017,
+                0.1221,
+                0.0458,
+                -0.1406,
+                -0.2961,
+                0.1864,
+                0.2487,
+                0.2734,
+                0.0714,
+                -0.1221,
+                0.202,
+                0.2945,
+                0.2363,
+                0.0558,
+                -0.1135,
+                0.1805,
+                0.2596
+            ],
+            [
+                0.1274,
+                -0.0326,
+                -0.1661,
+                0.16,
+                0.2135,
+                0.2196,
+                0.1995,
+                0.2297,
+                0.2546,
+                0.0689,
+                0.0992,
+                0.2203,
+                0.2384,
+                0.122,
+                0.0335,
+                0.1164,
+                0.1467,
+                0.1506,
+                0.0362,
+                -0.0481,
+                0.1144,
+                0.1415,
+                0.0634,
+                -0.1222,
+                -0.2809,
+                0.1856,
+                0.2515,
+                0.1523,
+                -0.0714,
+                -0.2739,
+                0.2237,
+                0.3144
+            ],
+            [
+                0.1182,
+                -0.0307,
+                -0.1519,
+                0.1489,
+                0.1956,
+                0.216,
+                0.2556,
+                0.2806,
+                0.3094,
+                0.0777,
+                0.1076,
+                0.273,
+                0.2375,
+                0.1264,
+                0.0472,
+                0.1111,
+                0.1347,
+                0.131,
+                0.013,
+                -0.0799,
+                0.118,
+                0.1519,
+                0.0911,
+                -0.0606,
+                -0.1883,
+                0.1517,
+                0.2036,
+                0.099,
+                -0.1158,
+                -0.3008,
+                0.2148,
+                0.2923
+            ]
+        ],
+        "objectBearings": [
+            {
+                "objectId": "lm-0",
+                "category": "CHAIR",
+                "bearingDegrees": 48.276514458648805,
+                "distanceMeters": 1.5341010396971901,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-1",
+                "category": "CHAIR",
+                "bearingDegrees": 156.66115082034665,
+                "distanceMeters": 0.21455535416297586,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-2",
+                "category": "CHAIR",
+                "bearingDegrees": 155.34034338899562,
+                "distanceMeters": 2.044449314607726,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-3",
+                "category": "SOFA",
+                "bearingDegrees": 1.0682867430233547,
+                "distanceMeters": 3.164550047005103,
+                "text": "Sofa"
+            },
+            {
+                "objectId": "lm-4",
+                "category": "CHAIR",
+                "bearingDegrees": 307.45913123317473,
+                "distanceMeters": 1.2446658186035318,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-5",
+                "category": "CHAIR",
+                "bearingDegrees": 20.55741188867655,
+                "distanceMeters": 14.720382128192188,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-6",
+                "category": "TABLE",
+                "bearingDegrees": 67.68006969014154,
+                "distanceMeters": 2.2776465924282463,
+                "text": "Table"
+            },
+            {
+                "objectId": "lm-7",
+                "category": "TABLE",
+                "bearingDegrees": 136.84285779590655,
+                "distanceMeters": 1.0994125704211317,
+                "text": "Table"
+            },
+            {
+                "objectId": "lm-8",
+                "category": "TABLE",
+                "bearingDegrees": 7.162173139745454,
+                "distanceMeters": 2.4864008124194297,
+                "text": "Table"
+            },
+            {
+                "objectId": "lm-9",
+                "category": "TABLE",
+                "bearingDegrees": 143.1027143163218,
+                "distanceMeters": 2.0920002390057224,
+                "text": "Table"
+            },
+            {
+                "objectId": "lm-10",
+                "category": "CHAIR",
+                "bearingDegrees": 40.348777045573044,
+                "distanceMeters": 5.955775096492479,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-11",
+                "category": "SOFA",
+                "bearingDegrees": 20.55741188867655,
+                "distanceMeters": 14.720382128192188,
+                "text": "Sofa"
+            },
+            {
+                "objectId": "lm-12",
+                "category": "SOFA",
+                "bearingDegrees": 284.20676611776037,
+                "distanceMeters": 0.8149233092751734,
+                "text": "Sofa"
+            },
+            {
+                "objectId": "lm-13",
+                "category": "CHAIR",
+                "bearingDegrees": 30.911592870201215,
+                "distanceMeters": 2.4488293121408033,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-14",
+                "category": "CHAIR",
+                "bearingDegrees": 6.46890159224663,
+                "distanceMeters": 0.6390688538803937,
+                "text": "Chair"
+            }
+        ]
+    }
+}

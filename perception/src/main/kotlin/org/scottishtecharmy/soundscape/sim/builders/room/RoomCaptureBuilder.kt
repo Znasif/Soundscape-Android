@@ -133,19 +133,47 @@ class RoomCaptureBuilder(
                             inst.bottomCenterX,
                             0.25 * inst.box[0] + 0.75 * inst.box[2]
                         ).distinct()
+                        val maxFloorDist = if (frame.cameraPositionEnu != null) 8.5 else 18.0
+                        val minFloorPitch = if (frame.cameraPositionEnu != null) 7.5 else 4.0
                         for (u in sampleXs) {
-                            val ray = cam.pixelToRay(u, inst.topY)
+                            var ray = cam.pixelToRay(u, inst.topY)
+                            // If topY of the floor bounding box reaches near/above the horizon, step down into the floor box
+                            if (ray.elevationDegrees > -minFloorPitch && inst.bottomY > inst.topY) {
+                                for (frac in listOf(0.15, 0.25, 0.35, 0.50)) {
+                                    val vStep = inst.topY + frac * (inst.bottomY - inst.topY)
+                                    val candRay = cam.pixelToRay(u, vStep)
+                                    if (candRay.elevationDegrees <= -minFloorPitch) {
+                                        ray = candRay
+                                        break
+                                    }
+                                }
+                            }
                             val pt = Geometry2D.groundPlanePoint(
                                 origin = frameOrigin,
                                 bearingDegrees = ray.bearingDegrees,
                                 elevationDegrees = ray.elevationDegrees,
                                 cameraHeightMeters = frame.cameraHeightMeters,
-                                minPitchBelowHorizonDegrees = 4.0,
-                                maxDistanceMeters = 18.0
+                                minPitchBelowHorizonDegrees = minFloorPitch,
+                                maxDistanceMeters = maxFloorDist
                             )
                             if (pt != null) {
                                 val sectorBearing = Angles.bearingBetweenEnu(EnuPoint(0.0, 0.0, 0.0), pt)
                                 floorBoundaryPoints.add(sectorBearing to pt)
+                            }
+                            if (frame.cameraPositionEnu != null) {
+                                val nearRay = cam.pixelToRay(u, inst.bottomY)
+                                val nearPt = Geometry2D.groundPlanePoint(
+                                    origin = frameOrigin,
+                                    bearingDegrees = nearRay.bearingDegrees,
+                                    elevationDegrees = nearRay.elevationDegrees,
+                                    cameraHeightMeters = frame.cameraHeightMeters,
+                                    minPitchBelowHorizonDegrees = 4.0,
+                                    maxDistanceMeters = maxFloorDist
+                                )
+                                if (nearPt != null) {
+                                    val b = Angles.bearingBetweenEnu(EnuPoint(0.0, 0.0, 0.0), nearPt)
+                                    floorBoundaryPoints.add(b to nearPt)
+                                }
                             }
                         }
                     } else {
@@ -175,7 +203,8 @@ class RoomCaptureBuilder(
         }
 
         // 4. Construct simplified walkable floor polygon from floor-wall boundary samples
-        val floorPolygonEnu = buildSimplifiedFloorPolygon(floorBoundaryPoints)
+        val hasTranslatedPose = keyframes.any { it.cameraPositionEnu != null }
+        val floorPolygonEnu = buildSimplifiedFloorPolygon(floorBoundaryPoints, centerAtSampleMean = hasTranslatedPose)
 
         // 5. Project each sighting to 3D local ENU (east, up, north)
         val localizedSightings = rawSightings.mapNotNull { sighting ->
@@ -411,21 +440,38 @@ class RoomCaptureBuilder(
         val origin = s.originEnu
         val isWallElevated = (s.category == SimCategory.SIGN || s.category == SimCategory.WINDOW)
         if (!isWallElevated) {
+            val minPitch = if (s.frame.cameraPositionEnu != null) 2.5 else 4.0
             val groundPt = Geometry2D.groundPlanePoint(
                 origin = origin,
                 bearingDegrees = s.bearingDegrees,
                 elevationDegrees = s.elevationDegrees,
                 cameraHeightMeters = s.frame.cameraHeightMeters,
-                minPitchBelowHorizonDegrees = 4.0,
+                minPitchBelowHorizonDegrees = minPitch,
                 maxDistanceMeters = 18.0
-            ) ?: return null
-            val dist = origin.distanceTo2D(groundPt)
-            return LocalizedRoomSighting(
-                sighting = s,
-                position = groundPt,
-                distanceMeters = dist,
-                localisationMethod = if (s.frame.cameraPositionEnu != null) "POSE_GROUND_PLANE_PITCH" else "GROUND_PLANE_PITCH"
             )
+            if (groundPt != null) {
+                val dist = origin.distanceTo2D(groundPt)
+                return LocalizedRoomSighting(
+                    sighting = s,
+                    position = groundPt,
+                    distanceMeters = dist,
+                    localisationMethod = if (s.frame.cameraPositionEnu != null) "POSE_GROUND_PLANE_PITCH" else "GROUND_PLANE_PITCH"
+                )
+            }
+            // If bottom edge is near the horizon (e.g. elevated counter or occluded doorway bottom), intersect with floor polygon
+            if (floorPolygonEnu.size >= 3) {
+                val ray2d = Ray2D(origin = origin, bearingDegrees = s.bearingDegrees)
+                val wallHit = Geometry2D.intersectRayWithPolygon(ray2d, floorPolygonEnu, maxDistanceMeters = 18.0)
+                if (wallHit != null) {
+                    return LocalizedRoomSighting(
+                        sighting = s,
+                        position = wallHit.point.copy(up = 0.0),
+                        distanceMeters = wallHit.distanceMeters,
+                        localisationMethod = "WALL_POLYGON_RAY_INTERSECTION"
+                    )
+                }
+            }
+            return null
         }
 
         // For wall-mounted SIGN / WINDOW, intersect bearing ray with reconstructed floor/wall polygon first
@@ -495,14 +541,24 @@ class RoomCaptureBuilder(
     }
 
     /**
-     * Builds a simplified 2D floor polygon around `(0, 0)` from sampled floor-wall boundary rays.
+     * Builds a simplified 2D floor polygon around `(0, 0)` (or around the sample mean when [centerAtSampleMean] is true)
+     * from sampled floor-wall boundary rays.
      */
     private fun buildSimplifiedFloorPolygon(
-        samples: List<Pair<Double, EnuPoint>>
+        samples: List<Pair<Double, EnuPoint>>,
+        centerAtSampleMean: Boolean = false
     ): List<EnuPoint> {
         if (samples.size < 3) return emptyList()
 
-        // Bin samples into 36 angular sectors (10 deg each) and keep the median boundary point per sector
+        val center = if (centerAtSampleMean) {
+            val meanE = samples.sumOf { it.second.east } / samples.size
+            val meanN = samples.sumOf { it.second.north } / samples.size
+            EnuPoint(meanE, meanN, 0.0)
+        } else {
+            EnuPoint(0.0, 0.0, 0.0)
+        }
+
+        // Bin samples into 36 angular sectors (10 deg each) and keep the boundary point per sector
         val numSectors = 36
         val sectorWidth = 360.0 / numSectors
         val sectorVertices = mutableListOf<EnuPoint>()
@@ -510,14 +566,19 @@ class RoomCaptureBuilder(
         for (sec in 0 until numSectors) {
             val startAng = sec * sectorWidth
             val endAng = (sec + 1) * sectorWidth
-            val inSector = samples.filter { (b, _) ->
+            val inSector = samples.filter { (_, pt) ->
+                val b = if (centerAtSampleMean) Angles.bearingBetweenEnu(center, pt) else Angles.bearingBetweenEnu(EnuPoint(0.0, 0.0, 0.0), pt)
                 val norm = Angles.normalizeBearing(b)
                 norm >= startAng && norm < endAng
             }
             if (inSector.isNotEmpty()) {
-                val sortedByDist = inSector.sortedBy { (_, pt) -> pt.horizontalNorm() }
-                val medianPt = sortedByDist[sortedByDist.size / 2].second
-                sectorVertices.add(medianPt)
+                val sortedByDist = inSector.sortedBy { (_, pt) -> center.distanceTo2D(pt) }
+                val idx = if (centerAtSampleMean) {
+                    ((sortedByDist.size - 1) * 0.75).toInt().coerceIn(0, sortedByDist.size - 1)
+                } else {
+                    sortedByDist.size / 2
+                }
+                sectorVertices.add(sortedByDist[idx].second)
             }
         }
 

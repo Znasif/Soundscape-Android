@@ -334,40 +334,100 @@ class GeminiFlashClient(
             }
             val vec = DoubleArray(32)
             if (img != null && img.width > 0 && img.height > 0) {
-                val gridX = 4
-                val gridY = 2
-                for (gy in 0 until gridY) {
-                    for (gx in 0 until gridX) {
-                        val xStart = (gx * img.width) / gridX
-                        val xEnd = ((gx + 1) * img.width) / gridX
-                        val yStart = (gy * img.height) / gridY
-                        val yEnd = ((gy + 1) * img.height) / gridY
-                        var rSum = 0.0
-                        var gSum = 0.0
-                        var bSum = 0.0
-                        var count = 0
-                        for (y in yStart until yEnd) {
-                            for (x in xStart until xEnd) {
-                                val rgb = img.getRGB(x, y)
-                                rSum += ((rgb shr 16) and 0xFF) / 255.0
-                                gSum += ((rgb shr 8) and 0xFF) / 255.0
-                                bSum += (rgb and 0xFF) / 255.0
-                                count++
-                            }
+                val stepX = maxOf(1, img.width / 64)
+                val stepY = maxOf(1, img.height / 48)
+                var globalSumR = 0.0
+                var globalSumG = 0.0
+                var globalSumB = 0.0
+                var globalCount = 0
+                for (y in 0 until img.height step stepY) {
+                    for (x in 0 until img.width step stepX) {
+                        val rgb = img.getRGB(x, y)
+                        globalSumR += ((rgb shr 16) and 0xFF) / 255.0
+                        globalSumG += ((rgb shr 8) and 0xFF) / 255.0
+                        globalSumB += (rgb and 0xFF) / 255.0
+                        globalCount++
+                    }
+                }
+                val meanR = if (globalCount > 0) globalSumR / globalCount else 0.5
+                val meanG = if (globalCount > 0) globalSumG / globalCount else 0.5
+                val meanB = if (globalCount > 0) globalSumB / globalCount else 0.5
+                val meanY = 0.299 * meanR + 0.587 * meanG + 0.114 * meanB
+                val meanAll = (meanR + meanG + meanB) / 3.0
+
+                var varR = 0.0
+                var varG = 0.0
+                var varB = 0.0
+                var varRg = 0.0
+                var varYb = 0.0
+                var varY = 0.0
+                val meanRg = meanR - meanG
+                val meanYb = 0.5 * (meanR + meanG) - meanB
+                for (y in 0 until img.height step stepY) {
+                    for (x in 0 until img.width step stepX) {
+                        val rgb = img.getRGB(x, y)
+                        val r = ((rgb shr 16) and 0xFF) / 255.0
+                        val g = ((rgb shr 8) and 0xFF) / 255.0
+                        val b = (rgb and 0xFF) / 255.0
+                        val lum = 0.299 * r + 0.587 * g + 0.114 * b
+                        val rg = r - g
+                        val yb = 0.5 * (r + g) - b
+                        varR += (r - meanR) * (r - meanR)
+                        varG += (g - meanG) * (g - meanG)
+                        varB += (b - meanB) * (b - meanB)
+                        varRg += (rg - meanRg) * (rg - meanRg)
+                        varYb += (yb - meanYb) * (yb - meanYb)
+                        varY += (lum - meanY) * (lum - meanY)
+                    }
+                }
+                val denom = globalCount.coerceAtLeast(1).toDouble()
+                vec[0] = meanR - meanY
+                vec[1] = meanG - meanY
+                vec[2] = meanB - meanY
+                vec[3] = meanRg
+                vec[4] = meanYb
+                vec[5] = (meanY - 0.5) * 0.5
+                vec[6] = sqrt(varR / denom)
+                vec[7] = sqrt(varG / denom)
+                vec[8] = sqrt(varB / denom)
+                vec[9] = sqrt(varRg / denom)
+                vec[10] = sqrt(varYb / denom)
+                vec[11] = sqrt(varY / denom)
+
+                // 4 vertical bands (ceiling, upper wall, lower wall, floor) x 5 chromatic features = 20 features
+                val bands = 4
+                for (by in 0 until bands) {
+                    val yStart = (by * img.height) / bands
+                    val yEnd = ((by + 1) * img.height) / bands
+                    var bR = 0.0
+                    var bG = 0.0
+                    var bB = 0.0
+                    var cnt = 0
+                    for (y in yStart until yEnd step stepY) {
+                        for (x in 0 until img.width step stepX) {
+                            val rgb = img.getRGB(x, y)
+                            bR += ((rgb shr 16) and 0xFF) / 255.0
+                            bG += ((rgb shr 8) and 0xFF) / 255.0
+                            bB += (rgb and 0xFF) / 255.0
+                            cnt++
                         }
-                        val baseIdx = (gy * gridX + gx) * 4
-                        if (count > 0) {
-                            vec[baseIdx] = rSum / count
-                            vec[baseIdx + 1] = gSum / count
-                            vec[baseIdx + 2] = bSum / count
-                            vec[baseIdx + 3] = (0.299 * vec[baseIdx] + 0.587 * vec[baseIdx + 1] + 0.114 * vec[baseIdx + 2])
-                        }
+                    }
+                    val base = 12 + by * 5
+                    if (cnt > 0) {
+                        val mr = bR / cnt
+                        val mg = bG / cnt
+                        val mb = bB / cnt
+                        vec[base] = mr - meanAll
+                        vec[base + 1] = mg - meanAll
+                        vec[base + 2] = mb - meanAll
+                        vec[base + 3] = mr - mg
+                        vec[base + 4] = 0.5 * (mr + mg) - mb
                     }
                 }
             } else {
                 val digest = MessageDigest.getInstance("SHA-256").digest(jpegBytes)
                 for (i in 0 until 32) {
-                    vec[i] = ((digest[i].toInt() and 0xFF) / 255.0)
+                    vec[i] = ((digest[i].toInt() and 0xFF) / 255.0) - 0.5
                 }
             }
             val norm = sqrt(vec.sumOf { it * it }).coerceAtLeast(1e-9)

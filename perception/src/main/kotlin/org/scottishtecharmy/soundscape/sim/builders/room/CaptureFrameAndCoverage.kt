@@ -87,7 +87,8 @@ data class CoverageReport(
     val missingSlots: List<MissingCoverageSlot>,
     val horizonCoverageFraction: Double,
     val totalCoverageFraction: Double,
-    val nextSpokenPrompt: String?
+    val nextSpokenPrompt: String?,
+    val translatedExtraFrames: List<CaptureFrame> = emptyList()
 ) {
     val isHorizonComplete: Boolean
         get() = missingSlots.none { it.slotType == CoverageSlotType.HORIZON }
@@ -99,7 +100,7 @@ data class CoverageReport(
      * Distinct accepted keyframes ordered by yaw bearing.
      */
     val selectedKeyframes: List<CaptureFrame>
-        get() = acceptedFramesBySlot.values
+        get() = (acceptedFramesBySlot.values + translatedExtraFrames)
             .distinctBy { it.frameId }
             .sortedBy { it.eulerAngles.yawDegrees }
 }
@@ -121,6 +122,7 @@ class CaptureCoverage(
 ) {
     private val slotWidthDegrees = 360.0 / numHorizonSlots.toDouble()
     private val bestFramePerSlot = mutableMapOf<Int, CaptureFrame>()
+    private val translatedExtras = mutableListOf<CaptureFrame>()
     private var rejectedBlurryFrames = 0
 
     /**
@@ -242,13 +244,24 @@ class CaptureCoverage(
             missingSlots = missing,
             horizonCoverageFraction = horizonFrac,
             totalCoverageFraction = totalFrac,
-            nextSpokenPrompt = missing.firstOrNull()?.spokenGuidanceHint
+            nextSpokenPrompt = missing.firstOrNull()?.spokenGuidanceHint,
+            translatedExtraFrames = translatedExtras.toList()
         )
     }
 
     private fun updateSlotIfSharper(slot: Int, candidate: CaptureFrame) {
         val current = bestFramePerSlot[slot]
-        if (current == null || candidate.gyroMagnitudeRadPerSec < current.gyroMagnitudeRadPerSec) {
+        if (current == null) {
+            bestFramePerSlot[slot] = candidate
+            return
+        }
+        val candPos = candidate.cameraPositionEnu
+        val currPos = current.cameraPositionEnu
+        if (candPos != null && currPos != null && candPos.distanceTo2D(currPos) >= 0.35) {
+            translatedExtras.add(candidate)
+            return
+        }
+        if (candidate.gyroMagnitudeRadPerSec < current.gyroMagnitudeRadPerSec) {
             bestFramePerSlot[slot] = candidate
         }
     }

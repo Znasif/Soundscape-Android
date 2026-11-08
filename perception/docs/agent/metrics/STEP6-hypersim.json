@@ -1,0 +1,1520 @@
+{
+    "preRegisteredScenes": [
+        "ai_006_006",
+        "ai_006_002",
+        "ai_003_010",
+        "ai_006_009",
+        "ai_006_010",
+        "ai_006_001"
+    ],
+    "nyu40Mapping": {
+        "2 (floor)": "FLOOR",
+        "5 (chair)": "CHAIR",
+        "6 (sofa)": "SOFA",
+        "7 (table)": "TABLE",
+        "8 (door)": "DOOR",
+        "9 (window)": "WINDOW",
+        "12 (counter)": "COUNTER",
+        "14 (desk)": "DESK",
+        "30 (whiteboard)": "SIGN"
+    },
+    "totalHypersimBytesDownloaded": 30827601,
+    "pose6DofRealHeightAggregate": {
+        "configName": "pose_6dof_real_height",
+        "sceneCount": 6,
+        "totalPredicted": 101,
+        "totalTruth": 63,
+        "totalTruePositives": 46,
+        "totalFalsePositives": 55,
+        "totalFalseNegatives": 17,
+        "precision": {
+            "pointEstimate": 0.455,
+            "lower95": 0.375,
+            "upper95": 0.545
+        },
+        "recall": {
+            "pointEstimate": 0.73,
+            "lower95": 0.6,
+            "upper95": 0.831
+        },
+        "f1": {
+            "pointEstimate": 0.561,
+            "lower95": 0.466,
+            "upper95": 0.638
+        },
+        "meanErrorMeters": 0.615,
+        "medianErrorMeters": 0.472,
+        "p90ErrorMeters": 1.282,
+        "meanFloorIou5cm": 0.333,
+        "medianFloorIou5cm": 0.379,
+        "meanFloorRelativeAreaError": 0.491
+    },
+    "pose6DofAssumed165mAggregate": {
+        "configName": "pose_6dof_assumed_165m",
+        "sceneCount": 6,
+        "totalPredicted": 103,
+        "totalTruth": 63,
+        "totalTruePositives": 46,
+        "totalFalsePositives": 57,
+        "totalFalseNegatives": 17,
+        "precision": {
+            "pointEstimate": 0.447,
+            "lower95": 0.378,
+            "upper95": 0.511
+        },
+        "recall": {
+            "pointEstimate": 0.73,
+            "lower95": 0.596,
+            "upper95": 0.818
+        },
+        "f1": {
+            "pointEstimate": 0.554,
+            "lower95": 0.468,
+            "upper95": 0.61
+        },
+        "meanErrorMeters": 0.807,
+        "medianErrorMeters": 0.576,
+        "p90ErrorMeters": 1.854,
+        "meanFloorIou5cm": 0.211,
+        "medianFloorIou5cm": 0.292,
+        "meanFloorRelativeAreaError": 0.593
+    },
+    "rotationOnlySubsetAggregate": {
+        "configName": "rotation_only_subset_lt_05m",
+        "sceneCount": 6,
+        "totalPredicted": 28,
+        "totalTruth": 38,
+        "totalTruePositives": 19,
+        "totalFalsePositives": 9,
+        "totalFalseNegatives": 19,
+        "precision": {
+            "pointEstimate": 0.679,
+            "lower95": 0.583,
+            "upper95": 0.9
+        },
+        "recall": {
+            "pointEstimate": 0.5,
+            "lower95": 0.272,
+            "upper95": 0.622
+        },
+        "f1": {
+            "pointEstimate": 0.576,
+            "lower95": 0.378,
+            "upper95": 0.703
+        },
+        "meanErrorMeters": 0.768,
+        "medianErrorMeters": 0.636,
+        "p90ErrorMeters": 1.348,
+        "meanFloorIou5cm": 0.003,
+        "medianFloorIou5cm": 0.0,
+        "meanFloorRelativeAreaError": 0.887
+    },
+    "heightAssumptionErrorGrowthMeters": 0.192,
+    "perScenePose6DofRealHeight": [
+        {
+            "sceneId": "ai_006_006",
+            "configName": "pose_6dof_real_height",
+            "meanCameraHeightMeters": 1.543,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 10.51,
+            "objectMetrics": {
+                "predictedCount": 13,
+                "truthCount": 8,
+                "truePositives": 5,
+                "falsePositives": 8,
+                "falseNegatives": 3,
+                "precision": 0.385,
+                "recall": 0.625,
+                "f1": 0.476,
+                "meanErrorMeters": 0.656,
+                "medianErrorMeters": 0.859,
+                "p90ErrorMeters": 1.064
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 15.43,
+                "truthAreaSqM": 43.115,
+                "relativeAreaError": 0.642,
+                "iou5cm": 0.29
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-table-10",
+                    "truthId": "nyu-9",
+                    "category": "TABLE",
+                    "distanceMeters": 0.122,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-1",
+                    "truthId": "nyu-71",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.236,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-5",
+                    "truthId": "nyu-17",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.859,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-4",
+                    "truthId": "nyu-14",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.868,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-counter-12",
+                    "truthId": "nyu-47",
+                    "category": "COUNTER",
+                    "distanceMeters": 1.195,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_002",
+            "configName": "pose_6dof_real_height",
+            "meanCameraHeightMeters": 1.492,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 5.187,
+            "objectMetrics": {
+                "predictedCount": 36,
+                "truthCount": 20,
+                "truePositives": 16,
+                "falsePositives": 20,
+                "falseNegatives": 4,
+                "precision": 0.444,
+                "recall": 0.8,
+                "f1": 0.571,
+                "meanErrorMeters": 0.592,
+                "medianErrorMeters": 0.448,
+                "p90ErrorMeters": 1.247
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 23.663,
+                "truthAreaSqM": 35.668,
+                "relativeAreaError": 0.337,
+                "iou5cm": 0.565
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-table-2",
+                    "truthId": "nyu-93",
+                    "category": "TABLE",
+                    "distanceMeters": 0.056,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-8",
+                    "truthId": "nyu-86",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.073,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-table-1",
+                    "truthId": "nyu-87",
+                    "category": "TABLE",
+                    "distanceMeters": 0.137,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-table-6",
+                    "truthId": "nyu-100",
+                    "category": "TABLE",
+                    "distanceMeters": 0.165,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-15",
+                    "truthId": "nyu-92",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.333,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-18",
+                    "truthId": "nyu-97",
+                    "category": "TABLE",
+                    "distanceMeters": 0.338,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-25",
+                    "truthId": "nyu-96",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.378,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-4",
+                    "truthId": "nyu-98",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.446,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-3",
+                    "truthId": "nyu-102",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.449,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-counter-35",
+                    "truthId": "nyu-127",
+                    "category": "COUNTER",
+                    "distanceMeters": 0.573,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-19",
+                    "truthId": "nyu-95",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.651,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-10",
+                    "truthId": "nyu-76",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.888,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-23",
+                    "truthId": "nyu-104",
+                    "category": "TABLE",
+                    "distanceMeters": 1.004,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-11",
+                    "truthId": "nyu-85",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.125,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-table-12",
+                    "truthId": "nyu-78",
+                    "category": "TABLE",
+                    "distanceMeters": 1.368,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-9",
+                    "truthId": "nyu-101",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.479,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_003_010",
+            "configName": "pose_6dof_real_height",
+            "meanCameraHeightMeters": 1.951,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 6.242,
+            "objectMetrics": {
+                "predictedCount": 15,
+                "truthCount": 12,
+                "truePositives": 9,
+                "falsePositives": 6,
+                "falseNegatives": 3,
+                "precision": 0.6,
+                "recall": 0.75,
+                "f1": 0.667,
+                "meanErrorMeters": 0.717,
+                "medianErrorMeters": 0.578,
+                "p90ErrorMeters": 1.183
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 21.953,
+                "truthAreaSqM": 0.0,
+                "relativeAreaError": 1.0,
+                "iou5cm": 0.0
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-chair-2",
+                    "truthId": "nyu-40",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.352,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-table-8",
+                    "truthId": "nyu-42",
+                    "category": "TABLE",
+                    "distanceMeters": 0.381,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-3",
+                    "truthId": "nyu-41",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.395,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-table-9",
+                    "truthId": "nyu-25",
+                    "category": "TABLE",
+                    "distanceMeters": 0.494,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-1",
+                    "truthId": "nyu-35",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.578,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-5",
+                    "truthId": "nyu-34",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.668,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-sofa-4",
+                    "truthId": "nyu-6",
+                    "category": "SOFA",
+                    "distanceMeters": 0.891,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-14",
+                    "truthId": "nyu-36",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.075,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-15",
+                    "truthId": "nyu-38",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.615,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_009",
+            "configName": "pose_6dof_real_height",
+            "meanCameraHeightMeters": 1.381,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 5.985,
+            "objectMetrics": {
+                "predictedCount": 17,
+                "truthCount": 9,
+                "truePositives": 5,
+                "falsePositives": 12,
+                "falseNegatives": 4,
+                "precision": 0.294,
+                "recall": 0.556,
+                "f1": 0.385,
+                "meanErrorMeters": 0.523,
+                "medianErrorMeters": 0.611,
+                "p90ErrorMeters": 0.811
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 23.468,
+                "truthAreaSqM": 40.253,
+                "relativeAreaError": 0.417,
+                "iou5cm": 0.379
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-sofa-3",
+                    "truthId": "nyu-7",
+                    "category": "SOFA",
+                    "distanceMeters": 0.03,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-13",
+                    "truthId": "nyu-2",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.405,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-window-11",
+                    "truthId": "nyu-6",
+                    "category": "WINDOW",
+                    "distanceMeters": 0.611,
+                    "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
+                },
+                {
+                    "predictedId": "room-chair-14",
+                    "truthId": "nyu-26",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.65,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-window-7",
+                    "truthId": "nyu-5",
+                    "category": "WINDOW",
+                    "distanceMeters": 0.918,
+                    "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_010",
+            "configName": "pose_6dof_real_height",
+            "meanCameraHeightMeters": 1.4,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 9.697,
+            "objectMetrics": {
+                "predictedCount": 15,
+                "truthCount": 8,
+                "truePositives": 8,
+                "falsePositives": 7,
+                "falseNegatives": 0,
+                "precision": 0.533,
+                "recall": 1.0,
+                "f1": 0.696,
+                "meanErrorMeters": 0.676,
+                "medianErrorMeters": 0.36,
+                "p90ErrorMeters": 1.6
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 26.655,
+                "truthAreaSqM": 30.27,
+                "relativeAreaError": 0.119,
+                "iou5cm": 0.475
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-table-10",
+                    "truthId": "nyu-101",
+                    "category": "TABLE",
+                    "distanceMeters": 0.165,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-4",
+                    "truthId": "nyu-98",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.179,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-6",
+                    "truthId": "nyu-104",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.202,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-3",
+                    "truthId": "nyu-99",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.349,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-1",
+                    "truthId": "nyu-102",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.372,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-9",
+                    "truthId": "nyu-100",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.697,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-counter-15",
+                    "truthId": "nyu-14",
+                    "category": "COUNTER",
+                    "distanceMeters": 1.417,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-2",
+                    "truthId": "nyu-103",
+                    "category": "CHAIR",
+                    "distanceMeters": 2.026,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_001",
+            "configName": "pose_6dof_real_height",
+            "meanCameraHeightMeters": 1.146,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 7.154,
+            "objectMetrics": {
+                "predictedCount": 5,
+                "truthCount": 6,
+                "truePositives": 3,
+                "falsePositives": 2,
+                "falseNegatives": 3,
+                "precision": 0.6,
+                "recall": 0.5,
+                "f1": 0.545,
+                "meanErrorMeters": 0.352,
+                "medianErrorMeters": 0.264,
+                "p90ErrorMeters": 0.624
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 16.47,
+                "truthAreaSqM": 28.97,
+                "relativeAreaError": 0.431,
+                "iou5cm": 0.292
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-table-1",
+                    "truthId": "nyu-26",
+                    "category": "TABLE",
+                    "distanceMeters": 0.077,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-door-3",
+                    "truthId": "nyu-7",
+                    "category": "DOOR",
+                    "distanceMeters": 0.264,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-door-5",
+                    "truthId": "nyu-8",
+                    "category": "DOOR",
+                    "distanceMeters": 0.715,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        }
+    ],
+    "perScenePose6DofAssumed165m": [
+        {
+            "sceneId": "ai_006_006",
+            "configName": "pose_6dof_assumed_165m",
+            "meanCameraHeightMeters": 1.543,
+            "cameraHeightErrorMeters": 0.107,
+            "translationSpreadMeters": 10.51,
+            "objectMetrics": {
+                "predictedCount": 13,
+                "truthCount": 8,
+                "truePositives": 5,
+                "falsePositives": 8,
+                "falseNegatives": 3,
+                "precision": 0.385,
+                "recall": 0.625,
+                "f1": 0.476,
+                "meanErrorMeters": 0.628,
+                "medianErrorMeters": 0.584,
+                "p90ErrorMeters": 0.977
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 16.125,
+                "truthAreaSqM": 43.115,
+                "relativeAreaError": 0.626,
+                "iou5cm": 0.316
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-chair-1",
+                    "truthId": "nyu-71",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.15,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-10",
+                    "truthId": "nyu-9",
+                    "category": "TABLE",
+                    "distanceMeters": 0.46,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-4",
+                    "truthId": "nyu-14",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.584,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-2",
+                    "truthId": "nyu-17",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.951,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-counter-12",
+                    "truthId": "nyu-47",
+                    "category": "COUNTER",
+                    "distanceMeters": 0.994,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_002",
+            "configName": "pose_6dof_assumed_165m",
+            "meanCameraHeightMeters": 1.492,
+            "cameraHeightErrorMeters": 0.158,
+            "translationSpreadMeters": 5.187,
+            "objectMetrics": {
+                "predictedCount": 38,
+                "truthCount": 20,
+                "truePositives": 17,
+                "falsePositives": 21,
+                "falseNegatives": 3,
+                "precision": 0.447,
+                "recall": 0.85,
+                "f1": 0.586,
+                "meanErrorMeters": 0.811,
+                "medianErrorMeters": 0.621,
+                "p90ErrorMeters": 1.814
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 11.51,
+                "truthAreaSqM": 35.66,
+                "relativeAreaError": 0.677,
+                "iou5cm": 0.292
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-chair-8",
+                    "truthId": "nyu-86",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.073,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-16",
+                    "truthId": "nyu-92",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.118,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-18",
+                    "truthId": "nyu-97",
+                    "category": "TABLE",
+                    "distanceMeters": 0.13,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-1",
+                    "truthId": "nyu-87",
+                    "category": "TABLE",
+                    "distanceMeters": 0.137,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-3",
+                    "truthId": "nyu-102",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.449,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-table-11",
+                    "truthId": "nyu-100",
+                    "category": "TABLE",
+                    "distanceMeters": 0.499,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-30",
+                    "truthId": "nyu-96",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.518,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-2",
+                    "truthId": "nyu-93",
+                    "category": "TABLE",
+                    "distanceMeters": 0.592,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-37",
+                    "truthId": "nyu-104",
+                    "category": "TABLE",
+                    "distanceMeters": 0.621,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-19",
+                    "truthId": "nyu-95",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.651,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-counter-31",
+                    "truthId": "nyu-127",
+                    "category": "COUNTER",
+                    "distanceMeters": 0.74,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-9",
+                    "truthId": "nyu-98",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.751,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-12",
+                    "truthId": "nyu-85",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.125,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-10",
+                    "truthId": "nyu-76",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.164,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-13",
+                    "truthId": "nyu-78",
+                    "category": "TABLE",
+                    "distanceMeters": 1.714,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-4",
+                    "truthId": "nyu-101",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.964,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-33",
+                    "truthId": "nyu-103",
+                    "category": "CHAIR",
+                    "distanceMeters": 2.545,
+                    "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_003_010",
+            "configName": "pose_6dof_assumed_165m",
+            "meanCameraHeightMeters": 1.951,
+            "cameraHeightErrorMeters": 0.301,
+            "translationSpreadMeters": 6.242,
+            "objectMetrics": {
+                "predictedCount": 16,
+                "truthCount": 12,
+                "truePositives": 9,
+                "falsePositives": 7,
+                "falseNegatives": 3,
+                "precision": 0.562,
+                "recall": 0.75,
+                "f1": 0.643,
+                "meanErrorMeters": 0.788,
+                "medianErrorMeters": 0.567,
+                "p90ErrorMeters": 1.483
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 17.405,
+                "truthAreaSqM": 0.0,
+                "relativeAreaError": 1.0,
+                "iou5cm": 0.0
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-chair-12",
+                    "truthId": "nyu-34",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.245,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-2",
+                    "truthId": "nyu-40",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.338,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-3",
+                    "truthId": "nyu-41",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.395,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-table-9",
+                    "truthId": "nyu-42",
+                    "category": "TABLE",
+                    "distanceMeters": 0.545,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-1",
+                    "truthId": "nyu-35",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.567,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-4",
+                    "truthId": "nyu-38",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.711,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-10",
+                    "truthId": "nyu-25",
+                    "category": "TABLE",
+                    "distanceMeters": 1.126,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-14",
+                    "truthId": "nyu-36",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.418,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-sofa-5",
+                    "truthId": "nyu-6",
+                    "category": "SOFA",
+                    "distanceMeters": 1.745,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_009",
+            "configName": "pose_6dof_assumed_165m",
+            "meanCameraHeightMeters": 1.381,
+            "cameraHeightErrorMeters": 0.269,
+            "translationSpreadMeters": 5.985,
+            "objectMetrics": {
+                "predictedCount": 16,
+                "truthCount": 9,
+                "truePositives": 5,
+                "falsePositives": 11,
+                "falseNegatives": 4,
+                "precision": 0.312,
+                "recall": 0.556,
+                "f1": 0.4,
+                "meanErrorMeters": 0.471,
+                "medianErrorMeters": 0.358,
+                "p90ErrorMeters": 0.982
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 5.523,
+                "truthAreaSqM": 40.238,
+                "relativeAreaError": 0.863,
+                "iou5cm": 0.137
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-sofa-2",
+                    "truthId": "nyu-7",
+                    "category": "SOFA",
+                    "distanceMeters": 0.03,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-window-1",
+                    "truthId": "nyu-6",
+                    "category": "WINDOW",
+                    "distanceMeters": 0.143,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-13",
+                    "truthId": "nyu-26",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.358,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-11",
+                    "truthId": "nyu-2",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.561,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-window-6",
+                    "truthId": "nyu-5",
+                    "category": "WINDOW",
+                    "distanceMeters": 1.263,
+                    "localisationMethod": "WALL_DEFAULT_DEPTH"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_010",
+            "configName": "pose_6dof_assumed_165m",
+            "meanCameraHeightMeters": 1.4,
+            "cameraHeightErrorMeters": 0.25,
+            "translationSpreadMeters": 9.697,
+            "objectMetrics": {
+                "predictedCount": 14,
+                "truthCount": 8,
+                "truePositives": 7,
+                "falsePositives": 7,
+                "falseNegatives": 1,
+                "precision": 0.5,
+                "recall": 0.875,
+                "f1": 0.636,
+                "meanErrorMeters": 0.797,
+                "medianErrorMeters": 0.556,
+                "p90ErrorMeters": 1.565
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 33.265,
+                "truthAreaSqM": 30.245,
+                "relativeAreaError": 0.1,
+                "iou5cm": 0.298
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-table-8",
+                    "truthId": "nyu-101",
+                    "category": "TABLE",
+                    "distanceMeters": 0.096,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-4",
+                    "truthId": "nyu-104",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.166,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-9",
+                    "truthId": "nyu-103",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.524,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-1",
+                    "truthId": "nyu-102",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.556,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-chair-3",
+                    "truthId": "nyu-98",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.768,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                },
+                {
+                    "predictedId": "room-counter-14",
+                    "truthId": "nyu-14",
+                    "category": "COUNTER",
+                    "distanceMeters": 0.881,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-6",
+                    "truthId": "nyu-100",
+                    "category": "CHAIR",
+                    "distanceMeters": 2.589,
+                    "localisationMethod": "MULTI_VIEW_TRIANGULATION"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_001",
+            "configName": "pose_6dof_assumed_165m",
+            "meanCameraHeightMeters": 1.146,
+            "cameraHeightErrorMeters": 0.504,
+            "translationSpreadMeters": 7.154,
+            "objectMetrics": {
+                "predictedCount": 6,
+                "truthCount": 6,
+                "truePositives": 3,
+                "falsePositives": 3,
+                "falseNegatives": 3,
+                "precision": 0.5,
+                "recall": 0.5,
+                "f1": 0.5,
+                "meanErrorMeters": 1.719,
+                "medianErrorMeters": 2.164,
+                "p90ErrorMeters": 2.509
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 20.523,
+                "truthAreaSqM": 28.963,
+                "relativeAreaError": 0.291,
+                "iou5cm": 0.224
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-table-2",
+                    "truthId": "nyu-26",
+                    "category": "TABLE",
+                    "distanceMeters": 0.399,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-door-6",
+                    "truthId": "nyu-8",
+                    "category": "DOOR",
+                    "distanceMeters": 2.164,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-door-4",
+                    "truthId": "nyu-7",
+                    "category": "DOOR",
+                    "distanceMeters": 2.596,
+                    "localisationMethod": "POSE_GROUND_PLANE_PITCH"
+                }
+            ]
+        }
+    ],
+    "perSceneRotationOnlySubset": [
+        {
+            "sceneId": "ai_006_006",
+            "configName": "rotation_only_subset_lt_05m",
+            "meanCameraHeightMeters": 1.536,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 0.322,
+            "objectMetrics": {
+                "predictedCount": 2,
+                "truthCount": 4,
+                "truePositives": 1,
+                "falsePositives": 1,
+                "falseNegatives": 3,
+                "precision": 0.5,
+                "recall": 0.25,
+                "f1": 0.333,
+                "meanErrorMeters": 1.095,
+                "medianErrorMeters": 1.095,
+                "p90ErrorMeters": 1.095
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 2.273,
+                "truthAreaSqM": 43.103,
+                "relativeAreaError": 0.947,
+                "iou5cm": 0.016
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-chair-1",
+                    "truthId": "nyu-17",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.095,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_002",
+            "configName": "rotation_only_subset_lt_05m",
+            "meanCameraHeightMeters": 1.556,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 0.408,
+            "objectMetrics": {
+                "predictedCount": 14,
+                "truthCount": 17,
+                "truePositives": 9,
+                "falsePositives": 5,
+                "falseNegatives": 8,
+                "precision": 0.643,
+                "recall": 0.529,
+                "f1": 0.581,
+                "meanErrorMeters": 0.905,
+                "medianErrorMeters": 0.791,
+                "p90ErrorMeters": 1.623
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 2.075,
+                "truthAreaSqM": 35.665,
+                "relativeAreaError": 0.942,
+                "iou5cm": 0.002
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-chair-7",
+                    "truthId": "nyu-92",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.196,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-4",
+                    "truthId": "nyu-97",
+                    "category": "TABLE",
+                    "distanceMeters": 0.521,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-2",
+                    "truthId": "nyu-95",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.558,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-3",
+                    "truthId": "nyu-91",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.592,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-1",
+                    "truthId": "nyu-93",
+                    "category": "TABLE",
+                    "distanceMeters": 0.791,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-13",
+                    "truthId": "nyu-96",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.86,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-5",
+                    "truthId": "nyu-85",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.2,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-12",
+                    "truthId": "nyu-98",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.564,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-6",
+                    "truthId": "nyu-102",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.86,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_003_010",
+            "configName": "rotation_only_subset_lt_05m",
+            "meanCameraHeightMeters": 1.915,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 0.415,
+            "objectMetrics": {
+                "predictedCount": 4,
+                "truthCount": 5,
+                "truePositives": 4,
+                "falsePositives": 0,
+                "falseNegatives": 1,
+                "precision": 1.0,
+                "recall": 0.8,
+                "f1": 0.889,
+                "meanErrorMeters": 0.284,
+                "medianErrorMeters": 0.317,
+                "p90ErrorMeters": 0.384
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 2.308,
+                "truthAreaSqM": 0.0,
+                "relativeAreaError": 1.0,
+                "iou5cm": 0.0
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-chair-1",
+                    "truthId": "nyu-40",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.094,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-3",
+                    "truthId": "nyu-41",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.308,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-table-4",
+                    "truthId": "nyu-42",
+                    "category": "TABLE",
+                    "distanceMeters": 0.327,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-2",
+                    "truthId": "nyu-38",
+                    "category": "CHAIR",
+                    "distanceMeters": 0.408,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_009",
+            "configName": "rotation_only_subset_lt_05m",
+            "meanCameraHeightMeters": 1.569,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 0.486,
+            "objectMetrics": {
+                "predictedCount": 8,
+                "truthCount": 8,
+                "truePositives": 5,
+                "falsePositives": 3,
+                "falseNegatives": 3,
+                "precision": 0.625,
+                "recall": 0.625,
+                "f1": 0.625,
+                "meanErrorMeters": 0.843,
+                "medianErrorMeters": 1.046,
+                "p90ErrorMeters": 1.242
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 1.288,
+                "truthAreaSqM": 40.208,
+                "relativeAreaError": 0.968,
+                "iou5cm": 0.0
+            },
+            "matchedPairs": [
+                {
+                    "predictedId": "room-sofa-1",
+                    "truthId": "nyu-7",
+                    "category": "SOFA",
+                    "distanceMeters": 0.073,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-window-4",
+                    "truthId": "nyu-5",
+                    "category": "WINDOW",
+                    "distanceMeters": 0.636,
+                    "localisationMethod": "WALL_DEFAULT_DEPTH"
+                },
+                {
+                    "predictedId": "room-chair-8",
+                    "truthId": "nyu-2",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.046,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-chair-7",
+                    "truthId": "nyu-26",
+                    "category": "CHAIR",
+                    "distanceMeters": 1.164,
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "predictedId": "room-window-2",
+                    "truthId": "nyu-6",
+                    "category": "WINDOW",
+                    "distanceMeters": 1.294,
+                    "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
+                }
+            ]
+        },
+        {
+            "sceneId": "ai_006_010",
+            "configName": "rotation_only_subset_lt_05m",
+            "meanCameraHeightMeters": 1.409,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 0.193,
+            "objectMetrics": {
+                "predictedCount": 0,
+                "truthCount": 1,
+                "truePositives": 0,
+                "falsePositives": 0,
+                "falseNegatives": 1,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "meanErrorMeters": 0.0,
+                "medianErrorMeters": 0.0,
+                "p90ErrorMeters": 0.0
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 5.173,
+                "truthAreaSqM": 30.258,
+                "relativeAreaError": 0.829,
+                "iou5cm": 0.0
+            },
+            "matchedPairs": []
+        },
+        {
+            "sceneId": "ai_006_001",
+            "configName": "rotation_only_subset_lt_05m",
+            "meanCameraHeightMeters": 1.209,
+            "cameraHeightErrorMeters": 0.0,
+            "translationSpreadMeters": 0.103,
+            "objectMetrics": {
+                "predictedCount": 0,
+                "truthCount": 3,
+                "truePositives": 0,
+                "falsePositives": 0,
+                "falseNegatives": 3,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "meanErrorMeters": 0.0,
+                "medianErrorMeters": 0.0,
+                "p90ErrorMeters": 0.0
+            },
+            "floorMetrics": {
+                "predictedAreaSqM": 10.533,
+                "truthAreaSqM": 29.005,
+                "relativeAreaError": 0.637,
+                "iou5cm": 0.0
+            },
+            "matchedPairs": []
+        }
+    ],
+    "crossTrajectoryRecognition": {
+        "recognitionMetrics": {
+            "totalTrials": 12,
+            "correctMatches": 2,
+            "falseMatches": 0,
+            "correctAbstentions": 6,
+            "missedMatches": 4,
+            "noFalseMatch": true
+        },
+        "falseMatchRate": 0.0,
+        "abstentionRateOnUnseen": 1.0,
+        "crossTrajectoryRecall": 0.333,
+        "meanYawErrorDegrees": 16.2,
+        "maxYawErrorDegrees": 32.0,
+        "trials": [
+            {
+                "querySceneId": "ai_006_006",
+                "trueRoomId": "ai_006_006",
+                "matched": false,
+                "confidence": 0.586,
+                "appliedYawOffsetDegrees": 36.0,
+                "recoveredYawOffsetDegrees": 0.0,
+                "yawErrorDegrees": 0.0
+            },
+            {
+                "querySceneId": "ai_006_002",
+                "trueRoomId": "ai_006_002",
+                "predictedRoomId": "ai_006_002",
+                "matched": true,
+                "confidence": 0.807,
+                "appliedYawOffsetDegrees": 36.0,
+                "recoveredYawOffsetDegrees": 35.59,
+                "yawErrorDegrees": 0.41
+            },
+            {
+                "querySceneId": "ai_003_010",
+                "trueRoomId": "ai_003_010",
+                "predictedRoomId": "ai_003_010",
+                "matched": true,
+                "confidence": 0.759,
+                "appliedYawOffsetDegrees": 36.0,
+                "recoveredYawOffsetDegrees": 4.0,
+                "yawErrorDegrees": 32.0
+            },
+            {
+                "querySceneId": "ai_006_009",
+                "trueRoomId": "ai_006_009",
+                "matched": false,
+                "confidence": 0.615,
+                "appliedYawOffsetDegrees": 36.0,
+                "recoveredYawOffsetDegrees": 0.0,
+                "yawErrorDegrees": 0.0
+            },
+            {
+                "querySceneId": "ai_006_010",
+                "trueRoomId": "ai_006_010",
+                "matched": false,
+                "confidence": 0.563,
+                "appliedYawOffsetDegrees": 36.0,
+                "recoveredYawOffsetDegrees": 0.0,
+                "yawErrorDegrees": 0.0
+            },
+            {
+                "querySceneId": "ai_006_001",
+                "trueRoomId": "ai_006_001",
+                "matched": false,
+                "confidence": 0.561,
+                "appliedYawOffsetDegrees": 36.0,
+                "recoveredYawOffsetDegrees": 0.0,
+                "yawErrorDegrees": 0.0
+            },
+            {
+                "querySceneId": "ai_006_006_unseen_loo",
+                "matched": false,
+                "confidence": 0.15,
+                "appliedYawOffsetDegrees": 0.0,
+                "recoveredYawOffsetDegrees": 0.0,
+                "yawErrorDegrees": 0.0
+            },
+            {
+                "querySceneId": "ai_006_002_unseen_loo",
+                "matched": false,
+                "confidence": 0.15,
+                "appliedYawOffsetDegrees": 0.0,
+                "recoveredYawOffsetDegrees": 0.0,
+                "yawErrorDegrees": 0.0
+            },
+            {
+                "querySceneId": "ai_003_010_unseen_loo",
+                "matched": false,
+                "confidence": 0.15,
+                "appliedYawOffsetDegrees": 0.0,
+                "recoveredYawOffsetDegrees": 0.0,
+                "yawErrorDegrees": 0.0
+            },
+            {
+                "querySceneId": "ai_006_009_unseen_loo",
+                "matched": false,
+                "confidence": 0.15,
+                "appliedYawOffsetDegrees": 0.0,
+                "recoveredYawOffsetDegrees": 0.0,
+                "yawErrorDegrees": 0.0
+            },
+            {
+                "querySceneId": "ai_006_010_unseen_loo",
+                "matched": false,
+                "confidence": 0.15,
+                "appliedYawOffsetDegrees": 0.0,
+                "recoveredYawOffsetDegrees": 0.0,
+                "yawErrorDegrees": 0.0
+            },
+            {
+                "querySceneId": "ai_006_001_unseen_loo",
+                "matched": false,
+                "confidence": 0.15,
+                "appliedYawOffsetDegrees": 0.0,
+                "recoveredYawOffsetDegrees": 0.0,
+                "yawErrorDegrees": 0.0
+            }
+        ]
+    },
+    "budgetSummary": "BudgetSummary(mapillaryCalls=0, maxMapillaryCalls=5000, samCalls=274, maxSamCalls=300, geminiCalls=72, maxGeminiCalls=300, replayedMapillaryCalls=0, replayedSamCalls=343, replayedGeminiCalls=89, runMapillaryCalls=0, runSamCalls=0, runGeminiCalls=0, downloadedBytes=30827601)"
+}
