@@ -30,3 +30,7 @@ Non-obvious build, API, and testing lessons discovered while developing `percept
 6. **Fixture Scrubbing & Privacy**:
    - Always strip `Authorization` and `x-goog-api-key` headers and replace Mapillary signed CDN URLs (`thumb_*_url` containing `scontent` / access tokens) with `"https://stub.mapillary.example/thumb.jpg"` before writing fixtures to `perception/src/test/resources/fixtures/`.
    - Never commit downloaded `.jpg`/`.png` Mapillary images.
+
+7. **JDK 21 & Sandbox Egress Proxy Setup for Gradle/Java**:
+   - Java's `HttpURLConnection` does not read `$HTTPS_PROXY` directly; configure `/root/.gradle/gradle.properties` with `systemProp.http.proxyHost=10.100.1.1`, `systemProp.http.proxyPort=8081`, `systemProp.https.proxyHost=10.100.1.1`, and `systemProp.https.proxyPort=8081`.
+   - Import the sandbox egress proxy root CA certificate into `/etc/ssl/certs/java/cacerts` (`keytool -importcert -alias sandbox-proxy-ca ...`) so Gradle and Ktor CIO trust TLS connections through the proxy.
