@@ -157,8 +157,12 @@ class GeminiFlashClient(
         return parseOcrResponseJson(resp.body)
     }
 
-    override suspend fun embedImage(jpegBytes: ByteArray): List<Double> {
-        val fKey = "gemini_embed_${sha256Short(jpegBytes)}"
+    override suspend fun embedImage(jpegBytes: ByteArray, contextKey: String?): List<Double> {
+        val fKey = if (!contextKey.isNullOrBlank()) {
+            "gemini_embed_$contextKey"
+        } else {
+            "gemini_embed_${sha256Short(jpegBytes)}"
+        }
         val isReplay = gateway.hasReplayFixture(fKey)
         if (!isReplay && !budget.canConsumeGemini(1)) {
             return computeLocalFallbackEmbedding(jpegBytes)
@@ -200,10 +204,14 @@ class GeminiFlashClient(
         }
     }
 
-    override suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>): Set<SimCategory> {
+    override suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>, contextKey: String?): Set<SimCategory> {
         if (keyframeJpegs.isEmpty()) return emptySet()
         val selected = keyframeJpegs.take(6)
-        val fKey = "gemini_precheck_${sha256Short(selected.first())}"
+        val fKey = if (!contextKey.isNullOrBlank()) {
+            "gemini_precheck_$contextKey"
+        } else {
+            "gemini_precheck_${sha256Short(selected.first())}"
+        }
         val isReplay = gateway.hasReplayFixture(fKey)
         budget.consumeGemini(1, isReplay = isReplay)
 

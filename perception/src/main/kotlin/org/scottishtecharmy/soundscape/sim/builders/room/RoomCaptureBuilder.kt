@@ -95,7 +95,7 @@ class RoomCaptureBuilder(
         // 2. Category precheck on 4-6 keyframes evenly spread around the room
         val precheckFrames = selectSpreadKeyframes(keyframes, maxCount = 6)
         val presentCategories = if (budget.canConsumeGemini(1)) {
-            categoryPrecheck.detectPresentCategories(precheckFrames.map { it.imageBytes })
+            categoryPrecheck.detectPresentCategories(precheckFrames.map { it.imageBytes }, contextKey = roomId)
         } else {
             DEFAULT_INDOOR_CATEGORIES
         }
@@ -112,13 +112,15 @@ class RoomCaptureBuilder(
 
         for (frame in keyframes) {
             val cam = frame.toPerspectiveCamera()
+            val frameOrigin = frame.cameraPositionEnu?.copy(up = 0.0) ?: EnuPoint(0.0, 0.0, 0.0)
             for (cat in categoriesToSegment) {
                 if (!budget.canConsumeSam(1)) break
                 val prompt = categoryPrompt(cat)
                 val instances = segmentationClient.segment(
                     imageJpegBytes = frame.imageBytes,
                     prompt = prompt,
-                    category = cat
+                    category = cat,
+                    contextKey = frame.frameId
                 )
 
                 for (inst in instances) {
@@ -134,7 +136,7 @@ class RoomCaptureBuilder(
                         for (u in sampleXs) {
                             val ray = cam.pixelToRay(u, inst.topY)
                             val pt = Geometry2D.groundPlanePoint(
-                                origin = EnuPoint(0.0, 0.0, 0.0),
+                                origin = frameOrigin,
                                 bearingDegrees = ray.bearingDegrees,
                                 elevationDegrees = ray.elevationDegrees,
                                 cameraHeightMeters = frame.cameraHeightMeters,
@@ -142,7 +144,8 @@ class RoomCaptureBuilder(
                                 maxDistanceMeters = 18.0
                             )
                             if (pt != null) {
-                                floorBoundaryPoints.add(ray.bearingDegrees to pt)
+                                val sectorBearing = Angles.bearingBetweenEnu(EnuPoint(0.0, 0.0, 0.0), pt)
+                                floorBoundaryPoints.add(sectorBearing to pt)
                             }
                         }
                     } else {
@@ -156,6 +159,7 @@ class RoomCaptureBuilder(
                         rawSightings.add(
                             RawRoomSighting(
                                 frame = frame,
+                                originEnu = frameOrigin,
                                 category = cat,
                                 promptLabel = prompt,
                                 bearingDegrees = ray.bearingDegrees,
@@ -190,21 +194,49 @@ class RoomCaptureBuilder(
         for (cluster in mergedClusters) {
             val best = cluster.maxByOrNull { it.sighting.confidence }!!.sighting
             val cropBytes = cropExtractor(best.frame.imageBytes, best.box)
+            val boxKey = "${best.frame.frameId}_${best.box.joinToString("_")}"
 
             // Verify low-confidence clusters (0.28..0.72) when verifier is provided
             val verdict = if (verifier != null && best.confidence < 0.72 && budget.canConsumeGemini(1)) {
-                verifier.verifyCrop(cropBytes, best.category, best.promptLabel)
+                verifier.verifyCrop(cropBytes, best.category, best.promptLabel, contextKey = boxKey)
             } else {
                 VerifierVerdict.YES
             }
             if (verdict == VerifierVerdict.NO) continue
 
-            // Average 3D position weighted by detector confidence
+            // If cluster contains sightings from translated camera positions (>= 0.35m baseline), attempt multi-view ray triangulation
+            val distinctOriginSightings = cluster.distinctBy {
+                "${round2(it.sighting.originEnu.east)}_${round2(it.sighting.originEnu.north)}"
+            }
+            val maxBaseline = if (distinctOriginSightings.size >= 2) {
+                var maxB = 0.0
+                for (i in distinctOriginSightings.indices) {
+                    for (j in i + 1 until distinctOriginSightings.size) {
+                        val d = distinctOriginSightings[i].sighting.originEnu.distanceTo2D(distinctOriginSightings[j].sighting.originEnu)
+                        if (d > maxB) maxB = d
+                    }
+                }
+                maxB
+            } else 0.0
+
+            val triangulatedPt = if (maxBaseline >= 0.35) {
+                Geometry2D.triangulateRays(
+                    rays = distinctOriginSightings.map {
+                        Ray2D(origin = it.sighting.originEnu, bearingDegrees = it.sighting.bearingDegrees)
+                    },
+                    minParallaxDegrees = 6.0,
+                    maxRmsResidualMeters = 1.25,
+                    maxDistanceMeters = 18.0
+                )?.point
+            } else null
+
+            // Average 3D position weighted by detector confidence (or triangulated XY when available)
             val totalWeight = cluster.sumOf { it.sighting.confidence }.coerceAtLeast(1e-6)
-            val avgEast = cluster.sumOf { it.position.east * it.sighting.confidence } / totalWeight
-            val avgNorth = cluster.sumOf { it.position.north * it.sighting.confidence } / totalWeight
+            val avgEast = triangulatedPt?.east ?: (cluster.sumOf { it.position.east * it.sighting.confidence } / totalWeight)
+            val avgNorth = triangulatedPt?.north ?: (cluster.sumOf { it.position.north * it.sighting.confidence } / totalWeight)
             val avgUp = cluster.sumOf { it.position.up * it.sighting.confidence } / totalWeight
             val meanConf = (cluster.sumOf { it.sighting.confidence } / cluster.size).coerceIn(0.0, 1.0)
+            val clusterMethod = if (triangulatedPt != null) "MULTI_VIEW_TRIANGULATION" else cluster.first().localisationMethod
 
             var ocrText: String? = null
             var ocrConf = meanConf
@@ -212,7 +244,7 @@ class RoomCaptureBuilder(
                 textReader != null &&
                 budget.canConsumeGemini(1)
             ) {
-                val ocr = textReader.readText(cropBytes)
+                val ocr = textReader.readText(cropBytes, contextKey = boxKey)
                 if (ocr != null && ocr.text.isNotBlank()) {
                     ocrText = ocr.text.trim()
                     ocrConf = ocr.confidence
@@ -235,7 +267,7 @@ class RoomCaptureBuilder(
                     normalizedBox = item.sighting.normalizedBox,
                     detectorConfidence = round3(item.sighting.confidence),
                     verifierResult = verdict,
-                    localisationMethod = item.localisationMethod
+                    localisationMethod = clusterMethod
                 )
             }
 
@@ -272,7 +304,7 @@ class RoomCaptureBuilder(
         val frameEmbeddings = mutableListOf<FrameEmbedding>()
         if (embedder != null) {
             for (ef in embeddingFrames) {
-                val vec = embedder.embedImage(ef.imageBytes)
+                val vec = embedder.embedImage(ef.imageBytes, contextKey = ef.frameId)
                 if (vec.isNotEmpty()) {
                     frameEmbeddings.add(
                         FrameEmbedding(
@@ -294,9 +326,14 @@ class RoomCaptureBuilder(
         } else null
 
         val stations = keyframes.map { kf ->
+            val pos = kf.cameraPositionEnu
             Station(
                 id = kf.frameId,
-                position = listOf(0.0, round3(kf.cameraHeightMeters), 0.0),
+                position = listOf(
+                    round3(pos?.east ?: 0.0),
+                    round3(kf.cameraHeightMeters),
+                    round3(pos?.north ?: 0.0)
+                ),
                 compassAngle = round2(kf.eulerAngles.yawDegrees),
                 capturedAtEpochMs = kf.timestampNs / 1_000_000L,
                 isPano = false
@@ -313,7 +350,7 @@ class RoomCaptureBuilder(
             geoAnchor = geoAnchor,
             provenance = Provenance(
                 createdAtEpochMs = createdAtEpochMs,
-                builderVersion = "0.4.0-step4",
+                builderVersion = "0.6.0-step6",
                 sources = listOf("MWDAT_GLASSES", "SAM_3_1", "GEMINI_FLASH"),
                 newestCaptureEpochMs = keyframes.maxOfOrNull { it.timestampNs / 1_000_000L },
                 geohash7 = geoAnchor?.let { Geohash.encode(it.latitude, it.longitude, precision = 7) }
@@ -350,6 +387,7 @@ class RoomCaptureBuilder(
 
     private data class RawRoomSighting(
         val frame: CaptureFrame,
+        val originEnu: EnuPoint,
         val category: SimCategory,
         val promptLabel: String,
         val bearingDegrees: Double,
@@ -370,27 +408,28 @@ class RoomCaptureBuilder(
         s: RawRoomSighting,
         floorPolygonEnu: List<EnuPoint>
     ): LocalizedRoomSighting? {
+        val origin = s.originEnu
         val isWallElevated = (s.category == SimCategory.SIGN || s.category == SimCategory.WINDOW)
         if (!isWallElevated) {
             val groundPt = Geometry2D.groundPlanePoint(
-                origin = EnuPoint(0.0, 0.0, 0.0),
+                origin = origin,
                 bearingDegrees = s.bearingDegrees,
                 elevationDegrees = s.elevationDegrees,
                 cameraHeightMeters = s.frame.cameraHeightMeters,
                 minPitchBelowHorizonDegrees = 4.0,
                 maxDistanceMeters = 18.0
             ) ?: return null
-            val dist = groundPt.horizontalNorm()
+            val dist = origin.distanceTo2D(groundPt)
             return LocalizedRoomSighting(
                 sighting = s,
                 position = groundPt,
                 distanceMeters = dist,
-                localisationMethod = "GROUND_PLANE_PITCH"
+                localisationMethod = if (s.frame.cameraPositionEnu != null) "POSE_GROUND_PLANE_PITCH" else "GROUND_PLANE_PITCH"
             )
         }
 
         // For wall-mounted SIGN / WINDOW, intersect bearing ray with reconstructed floor/wall polygon first
-        val ray2d = Ray2D(origin = EnuPoint(0.0, 0.0, 0.0), bearingDegrees = s.bearingDegrees)
+        val ray2d = Ray2D(origin = origin, bearingDegrees = s.bearingDegrees)
         val wallHit = if (floorPolygonEnu.size >= 3) {
             Geometry2D.intersectRayWithPolygon(ray2d, floorPolygonEnu, maxDistanceMeters = 18.0)
         } else null
@@ -408,7 +447,7 @@ class RoomCaptureBuilder(
 
         // Fallback if floor polygon is unavailable
         val fallbackGround = Geometry2D.groundPlanePoint(
-            origin = EnuPoint(0.0, 0.0, 0.0),
+            origin = origin,
             bearingDegrees = s.bearingDegrees,
             elevationDegrees = if (s.elevationDegrees <= -4.0) s.elevationDegrees else -18.0,
             cameraHeightMeters = s.frame.cameraHeightMeters
@@ -416,7 +455,7 @@ class RoomCaptureBuilder(
         return LocalizedRoomSighting(
             sighting = s,
             position = fallbackGround.copy(up = 1.6),
-            distanceMeters = fallbackGround.horizontalNorm(),
+            distanceMeters = origin.distanceTo2D(fallbackGround),
             localisationMethod = "WALL_DEFAULT_DEPTH"
         )
     }
@@ -440,11 +479,12 @@ class RoomCaptureBuilder(
                 if (cand.sighting.category != seed.sighting.category) continue
 
                 val dist2d = seed.position.distanceTo2D(cand.position)
+                val sameOrigin = seed.sighting.originEnu.distanceTo2D(cand.sighting.originEnu) < 0.25
                 val angDiff = Angles.absAngleDifference(seed.sighting.bearingDegrees, cand.sighting.bearingDegrees)
                 val relDistDiff = abs(seed.distanceMeters - cand.distanceMeters) /
                     maxOf(seed.distanceMeters, cand.distanceMeters, 0.5)
 
-                if (dist2d <= mergeDistanceMeters || (angDiff <= mergeBearingDegrees && relDistDiff <= 0.25)) {
+                if (dist2d <= mergeDistanceMeters || (sameOrigin && angDiff <= mergeBearingDegrees && relDistDiff <= 0.25)) {
                     used[j] = true
                     cluster.add(cand)
                 }

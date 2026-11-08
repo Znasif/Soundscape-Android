@@ -2,24 +2,27 @@ package org.scottishtecharmy.soundscape.sim.builders.room
 
 import kotlinx.serialization.Serializable
 import org.scottishtecharmy.soundscape.sim.geo.Angles
+import org.scottishtecharmy.soundscape.sim.geo.EnuPoint
 import org.scottishtecharmy.soundscape.sim.geo.PerspectiveCamera
 import org.scottishtecharmy.soundscape.sim.geo.Quaternion
 import kotlin.math.roundToInt
 
 /**
- * Single indoor head-turn frame captured from Ray-Ban Meta smart glasses (`mwdat-camera` + `mwdat-motion`).
+ * Single indoor head-turn frame captured from Ray-Ban Meta smart glasses (`mwdat-camera` + `mwdat-motion`),
+ * or from a 6-DoF indoor benchmark trajectory (such as Apple Hypersim) when [cameraPositionEnu] is provided.
  *
  * Pure Kotlin (`commonMain`-ready).
  *
  * @property frameId Unique identifier for this frame within the scan session.
  * @property timestampNs Capture timestamp in nanoseconds.
- * @property imageBytes Encoded JPEG image bytes (up to `720x1280`).
+ * @property imageBytes Encoded JPEG image bytes (up to `720x1280` or `1024x768`).
  * @property orientation Scalar-first fused IMU orientation `(w, x, y, z)` at capture time.
  * @property gyroMagnitudeRadPerSec Instantaneous angular velocity magnitude $\sqrt{\omega_x^2 + \omega_y^2 + \omega_z^2}$ in rad/s.
  * @property hFovDegrees Horizontal field of view in degrees (default `68.0°` for portrait `720x1280`).
  * @property imageWidth Frame width in pixels (default `720`).
  * @property imageHeight Frame height in pixels (default `1280`).
  * @property cameraHeightMeters Eye/glasses height above the floor in metres (default `1.65 m`).
+ * @property cameraPositionEnu Optional 3D camera position in local room ENU (`east`, `north`, `up = 0` on floor). Defaults to `null` (rotation-only glasses mode at `(0, 0)`).
  */
 data class CaptureFrame(
     val frameId: String,
@@ -30,7 +33,8 @@ data class CaptureFrame(
     val hFovDegrees: Double = 68.0,
     val imageWidth: Int = 720,
     val imageHeight: Int = 1280,
-    val cameraHeightMeters: Double = 1.65
+    val cameraHeightMeters: Double = 1.65,
+    val cameraPositionEnu: EnuPoint? = null
 ) {
     val eulerAngles = orientation.toYawPitchRoll()
 

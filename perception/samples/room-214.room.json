@@ -7,11 +7,11 @@
             "name": "Room 214 Door",
             "category": "DOOR",
             "position": [
-                0.007,
+                0.1,
                 0.0,
-                4.021
+                3.943
             ],
-            "confidence": 0.88,
+            "confidence": 0.86,
             "sources": [
                 "sam-3.1"
             ],
@@ -19,81 +19,81 @@
             "evidence": [
                 {
                     "stationId": "f-hor-0",
-                    "bearingDegrees": 0.07,
-                    "elevationDegrees": -22.27,
+                    "bearingDegrees": 1.62,
+                    "elevationDegrees": -22.99,
                     "box": [
-                        233,
-                        531,
-                        313,
-                        711
+                        247,
+                        537,
+                        327,
+                        717
                     ],
                     "normalizedBox": [
-                        0.3236111111111111,
-                        0.41484375,
-                        0.43472222222222223,
-                        0.55546875
+                        0.34305555555555556,
+                        0.41953125,
+                        0.45416666666666666,
+                        0.56015625
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 },
                 {
                     "stationId": "f-hor-1",
-                    "bearingDegrees": 0.09,
-                    "elevationDegrees": -22.38,
+                    "bearingDegrees": 1.73,
+                    "elevationDegrees": -22.41,
                     "box": [
-                        38,
-                        558,
-                        118,
-                        738
+                        56,
+                        555,
+                        136,
+                        735
                     ],
                     "normalizedBox": [
-                        0.05277777777777778,
-                        0.4359375,
-                        0.1638888888888889,
-                        0.5765625
+                        0.07777777777777778,
+                        0.43359375,
+                        0.18888888888888888,
+                        0.57421875
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 },
                 {
                     "stationId": "f-hor-16",
-                    "bearingDegrees": 0.09,
-                    "elevationDegrees": -22.34,
+                    "bearingDegrees": 1.15,
+                    "elevationDegrees": -22.31,
                     "box": [
-                        604,
-                        558,
-                        684,
-                        738
+                        616,
+                        560,
+                        696,
+                        740
                     ],
                     "normalizedBox": [
-                        0.8388888888888889,
-                        0.4359375,
-                        0.95,
-                        0.5765625
+                        0.8555555555555555,
+                        0.4375,
+                        0.9666666666666667,
+                        0.578125
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 },
                 {
                     "stationId": "f-hor-17",
-                    "bearingDegrees": 0.15,
-                    "elevationDegrees": -22.26,
+                    "bearingDegrees": 1.31,
+                    "elevationDegrees": -23.12,
                     "box": [
-                        409,
-                        531,
-                        489,
-                        711
+                        419,
+                        540,
+                        499,
+                        720
                     ],
                     "normalizedBox": [
-                        0.5680555555555555,
-                        0.41484375,
-                        0.6791666666666667,
-                        0.55546875
+                        0.5819444444444445,
+                        0.421875,
+                        0.6930555555555555,
+                        0.5625
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 }
@@ -104,11 +104,11 @@
             "name": "Room 214",
             "category": "SIGN",
             "position": [
-                0.507,
-                1.657,
-                4.008
+                0.55,
+                1.633,
+                3.913
             ],
-            "confidence": 0.88,
+            "confidence": 0.86,
             "sources": [
                 "sam-3.1"
             ],
@@ -116,61 +116,61 @@
             "evidence": [
                 {
                     "stationId": "f-hor-0",
-                    "bearingDegrees": 7.2,
-                    "elevationDegrees": 0.1,
+                    "bearingDegrees": 8.03,
+                    "elevationDegrees": -0.0,
                     "box": [
-                        308,
-                        481,
-                        358,
-                        511
+                        316,
+                        482,
+                        366,
+                        512
                     ],
                     "normalizedBox": [
-                        0.42777777777777776,
-                        0.37578125,
-                        0.49722222222222223,
-                        0.39921875
+                        0.4388888888888889,
+                        0.3765625,
+                        0.5083333333333333,
+                        0.4
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
                 },
                 {
                     "stationId": "f-hor-1",
-                    "bearingDegrees": 7.23,
-                    "elevationDegrees": 0.09,
+                    "bearingDegrees": 8.07,
+                    "elevationDegrees": -0.37,
                     "box": [
-                        103,
-                        481,
-                        153,
-                        511
+                        113,
+                        486,
+                        163,
+                        516
                     ],
                     "normalizedBox": [
-                        0.14305555555555555,
-                        0.37578125,
-                        0.2125,
-                        0.39921875
+                        0.15694444444444444,
+                        0.3796875,
+                        0.2263888888888889,
+                        0.403125
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
                 },
                 {
                     "stationId": "f-hor-17",
-                    "bearingDegrees": 7.19,
-                    "elevationDegrees": 0.09,
+                    "bearingDegrees": 7.89,
+                    "elevationDegrees": -0.38,
                     "box": [
-                        506,
-                        481,
-                        556,
-                        511
+                        513,
+                        486,
+                        563,
+                        516
                     ],
                     "normalizedBox": [
-                        0.7027777777777777,
-                        0.37578125,
-                        0.7722222222222223,
-                        0.39921875
+                        0.7125,
+                        0.3796875,
+                        0.7819444444444444,
+                        0.403125
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
                 }
@@ -181,52 +181,72 @@
             "name": "Reception Desk",
             "category": "RECEPTION_DESK",
             "position": [
-                2.987,
+                2.963,
                 0.0,
-                1.005
+                1.101
             ],
-            "confidence": 0.88,
+            "confidence": 0.86,
             "sources": [
                 "sam-3.1"
             ],
             "evidence": [
                 {
-                    "stationId": "f-hor-3",
-                    "bearingDegrees": 71.42,
-                    "elevationDegrees": -27.66,
+                    "stationId": "f-up-0",
+                    "bearingDegrees": 69.27,
+                    "elevationDegrees": -26.98,
                     "box": [
-                        312,
-                        650,
-                        432,
-                        760
+                        598,
+                        1067,
+                        718,
+                        1177
                     ],
                     "normalizedBox": [
-                        0.43333333333333335,
-                        0.5078125,
-                        0.6,
-                        0.59375
+                        0.8305555555555556,
+                        0.83359375,
+                        0.9972222222222222,
+                        0.91953125
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-3",
+                    "bearingDegrees": 69.88,
+                    "elevationDegrees": -28.38,
+                    "box": [
+                        299,
+                        657,
+                        419,
+                        767
+                    ],
+                    "normalizedBox": [
+                        0.4152777777777778,
+                        0.51328125,
+                        0.5819444444444445,
+                        0.59921875
+                    ],
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 },
                 {
                     "stationId": "f-hor-4",
-                    "bearingDegrees": 71.4,
-                    "elevationDegrees": -27.61,
+                    "bearingDegrees": 69.71,
+                    "elevationDegrees": -27.37,
                     "box": [
-                        138,
+                        122,
                         662,
-                        258,
+                        242,
                         772
                     ],
                     "normalizedBox": [
-                        0.19166666666666668,
+                        0.16944444444444445,
                         0.5171875,
-                        0.35833333333333334,
+                        0.33611111111111114,
                         0.603125
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 }
@@ -237,72 +257,72 @@
             "name": "Chair",
             "category": "CHAIR",
             "position": [
-                1.5,
+                1.44,
                 0.0,
-                -1.991
+                -1.943
             ],
-            "confidence": 0.88,
+            "confidence": 0.86,
             "sources": [
                 "sam-3.1"
             ],
             "evidence": [
                 {
                     "stationId": "f-hor-5",
-                    "bearingDegrees": 143.08,
-                    "elevationDegrees": -33.51,
+                    "bearingDegrees": 143.23,
+                    "elevationDegrees": -34.82,
                     "box": [
-                        627,
-                        780,
-                        687,
-                        870
+                        626,
+                        796,
+                        686,
+                        886
                     ],
                     "normalizedBox": [
-                        0.8708333333333333,
-                        0.609375,
-                        0.9541666666666667,
-                        0.6796875
+                        0.8694444444444445,
+                        0.621875,
+                        0.9527777777777777,
+                        0.6921875
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 },
                 {
                     "stationId": "f-hor-7",
-                    "bearingDegrees": 142.95,
-                    "elevationDegrees": -33.53,
+                    "bearingDegrees": 143.63,
+                    "elevationDegrees": -34.62,
                     "box": [
-                        272,
-                        731,
-                        332,
-                        821
+                        278,
+                        742,
+                        338,
+                        832
                     ],
                     "normalizedBox": [
-                        0.37777777777777777,
-                        0.57109375,
-                        0.46111111111111114,
-                        0.64140625
+                        0.3861111111111111,
+                        0.5796875,
+                        0.46944444444444444,
+                        0.65
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 },
                 {
                     "stationId": "f-hor-8",
-                    "bearingDegrees": 142.99,
-                    "elevationDegrees": -33.46,
+                    "bearingDegrees": 143.49,
+                    "elevationDegrees": -33.49,
                     "box": [
-                        95,
-                        761,
-                        155,
-                        851
+                        100,
+                        760,
+                        160,
+                        850
                     ],
                     "normalizedBox": [
-                        0.13194444444444445,
-                        0.59453125,
-                        0.2152777777777778,
-                        0.66484375
+                        0.1388888888888889,
+                        0.59375,
+                        0.2222222222222222,
+                        0.6640625
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 }
@@ -313,72 +333,72 @@
             "name": "Stairs",
             "category": "STAIRS",
             "position": [
-                -2.984,
+                -2.999,
                 0.0,
-                -1.999
+                -2.073
             ],
-            "confidence": 0.88,
+            "confidence": 0.86,
             "sources": [
                 "sam-3.1"
             ],
             "evidence": [
                 {
                     "stationId": "f-hor-10",
-                    "bearingDegrees": 236.2,
-                    "elevationDegrees": -24.72,
+                    "bearingDegrees": 235.79,
+                    "elevationDegrees": -24.6,
                     "box": [
-                        544,
-                        615,
-                        654,
-                        755
+                        540,
+                        613,
+                        650,
+                        753
                     ],
                     "normalizedBox": [
-                        0.7555555555555555,
-                        0.48046875,
-                        0.9083333333333333,
-                        0.58984375
+                        0.75,
+                        0.47890625,
+                        0.9027777777777778,
+                        0.58828125
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 },
                 {
                     "stationId": "f-up-1",
-                    "bearingDegrees": 236.2,
-                    "elevationDegrees": -24.64,
+                    "bearingDegrees": 234.88,
+                    "elevationDegrees": -23.88,
                     "box": [
-                        432,
-                        965,
-                        542,
-                        1105
+                        416,
+                        951,
+                        526,
+                        1091
                     ],
                     "normalizedBox": [
-                        0.6,
-                        0.75390625,
-                        0.7527777777777778,
-                        0.86328125
+                        0.5777777777777777,
+                        0.74296875,
+                        0.7305555555555555,
+                        0.85234375
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 },
                 {
                     "stationId": "f-hor-12",
-                    "bearingDegrees": 236.14,
-                    "elevationDegrees": -24.65,
+                    "bearingDegrees": 235.37,
+                    "elevationDegrees": -24.58,
                     "box": [
-                        184,
+                        177,
                         597,
-                        294,
+                        287,
                         737
                     ],
                     "normalizedBox": [
-                        0.25555555555555554,
+                        0.24583333333333332,
                         0.46640625,
-                        0.4083333333333333,
+                        0.39861111111111114,
                         0.57578125
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 }
@@ -389,92 +409,72 @@
             "name": "Chair",
             "category": "CHAIR",
             "position": [
-                -1.502,
+                -1.441,
                 0.0,
-                1.507
+                1.599
             ],
-            "confidence": 0.88,
+            "confidence": 0.86,
             "sources": [
                 "sam-3.1"
             ],
             "evidence": [
                 {
                     "stationId": "f-hor-14",
-                    "bearingDegrees": 315.04,
-                    "elevationDegrees": -37.77,
+                    "bearingDegrees": 317.6,
+                    "elevationDegrees": -37.16,
                     "box": [
-                        540,
+                        565,
                         805,
-                        600,
+                        625,
                         895
                     ],
                     "normalizedBox": [
-                        0.75,
+                        0.7847222222222222,
                         0.62890625,
-                        0.8333333333333334,
+                        0.8680555555555556,
                         0.69921875
                     ],
-                    "detectorConfidence": 0.88,
-                    "verifierResult": "YES",
-                    "localisationMethod": "GROUND_PLANE_PITCH"
-                },
-                {
-                    "stationId": "f-hor-15",
-                    "bearingDegrees": 315.12,
-                    "elevationDegrees": -37.75,
-                    "box": [
-                        371,
-                        775,
-                        431,
-                        865
-                    ],
-                    "normalizedBox": [
-                        0.5152777777777777,
-                        0.60546875,
-                        0.5986111111111111,
-                        0.67578125
-                    ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 },
                 {
                     "stationId": "f-hor-16",
-                    "bearingDegrees": 315.1,
-                    "elevationDegrees": -37.81,
+                    "bearingDegrees": 318.04,
+                    "elevationDegrees": -36.98,
                     "box": [
-                        209,
-                        785,
-                        269,
-                        875
+                        233,
+                        772,
+                        293,
+                        862
                     ],
                     "normalizedBox": [
-                        0.2902777777777778,
-                        0.61328125,
-                        0.3736111111111111,
-                        0.68359375
+                        0.3236111111111111,
+                        0.603125,
+                        0.40694444444444444,
+                        0.6734375
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 },
                 {
                     "stationId": "f-hor-17",
-                    "bearingDegrees": 315.14,
-                    "elevationDegrees": -37.84,
+                    "bearingDegrees": 318.33,
+                    "elevationDegrees": -38.29,
                     "box": [
-                        23,
-                        839,
-                        83,
-                        929
+                        57,
+                        832,
+                        117,
+                        922
                     ],
                     "normalizedBox": [
-                        0.03194444444444444,
-                        0.65546875,
-                        0.11527777777777778,
-                        0.72578125
+                        0.07916666666666666,
+                        0.65,
+                        0.1625,
+                        0.7203125
                     ],
-                    "detectorConfidence": 0.88,
+                    "detectorConfidence": 0.86,
                     "verifierResult": "YES",
                     "localisationMethod": "GROUND_PLANE_PITCH"
                 }
@@ -488,7 +488,7 @@
     },
     "provenance": {
         "createdAtEpochMs": 1710000000000,
-        "builderVersion": "0.4.0-step4",
+        "builderVersion": "0.6.0-step6",
         "sources": [
             "MWDAT_GLASSES",
             "SAM_3_1",
@@ -503,12 +503,12 @@
             "text": "Room 214",
             "confidence": 0.96,
             "position": [
-                0.507,
-                1.657,
-                4.008
+                0.55,
+                1.633,
+                3.913
             ],
             "stationId": "f-hor-0",
-            "bearingDegrees": 7.2
+            "bearingDegrees": 8.03
         }
     ],
     "stations": [
@@ -714,49 +714,114 @@
     "walkable": {
         "floorPolygon": [
             [
-                0.201,
+                0.433,
                 0.0,
-                4.003
+                3.897
             ],
             [
-                2.563,
+                1.583,
                 0.0,
-                4.045
+                4.06
             ],
             [
-                2.963,
+                2.482,
                 0.0,
-                3.035
+                3.923
             ],
             [
-                2.981,
+                3.083,
                 0.0,
-                -2.948
+                3.044
             ],
             [
-                2.761,
+                3.003,
                 0.0,
-                -3.979
+                1.365
             ],
             [
-                -2.563,
+                2.79,
                 0.0,
-                -4.045
+                0.641
             ],
             [
-                -3.035,
+                3.015,
                 0.0,
-                -2.963
+                0.022
             ],
             [
-                -2.981,
+                2.914,
                 0.0,
-                2.948
+                -1.037
             ],
             [
-                -2.761,
+                3.144,
                 0.0,
-                3.979
+                -1.863
+            ],
+            [
+                2.896,
+                0.0,
+                -3.755
+            ],
+            [
+                0.608,
+                0.0,
+                -3.986
+            ],
+            [
+                -0.433,
+                0.0,
+                -3.897
+            ],
+            [
+                -1.579,
+                0.0,
+                -4.162
+            ],
+            [
+                -2.654,
+                0.0,
+                -3.98
+            ],
+            [
+                -2.925,
+                0.0,
+                -2.125
+            ],
+            [
+                -2.79,
+                0.0,
+                -0.641
+            ],
+            [
+                -3.015,
+                0.0,
+                -0.022
+            ],
+            [
+                -2.914,
+                0.0,
+                1.037
+            ],
+            [
+                -3.144,
+                0.0,
+                1.863
+            ],
+            [
+                -2.896,
+                0.0,
+                3.755
+            ],
+            [
+                -1.082,
+                0.0,
+                3.983
+            ],
+            [
+                -0.395,
+                0.0,
+                3.802
             ]
         ]
     },
@@ -863,43 +928,43 @@
             {
                 "objectId": "lm-0",
                 "category": "DOOR",
-                "bearingDegrees": 0.09974385760546552,
-                "distanceMeters": 4.021006093007072,
+                "bearingDegrees": 1.4527897546261932,
+                "distanceMeters": 3.9442678661571655,
                 "text": "Room 214 Door"
             },
             {
                 "objectId": "lm-1",
                 "category": "SIGN",
-                "bearingDegrees": 7.209453284386396,
-                "distanceMeters": 4.039939727273168,
+                "bearingDegrees": 8.0009148521935,
+                "distanceMeters": 3.9514641590175152,
                 "text": "Room 214"
             },
             {
                 "objectId": "lm-2",
                 "category": "RECEPTION_DESK",
-                "bearingDegrees": 71.40407610129955,
-                "distanceMeters": 3.1515383545183138,
+                "bearingDegrees": 69.61579705186382,
+                "distanceMeters": 3.160944479107471,
                 "text": "Reception Desk"
             },
             {
                 "objectId": "lm-3",
                 "category": "CHAIR",
-                "bearingDegrees": 143.00598620949378,
-                "distanceMeters": 2.4928058488378113,
+                "bearingDegrees": 143.45704296595287,
+                "distanceMeters": 2.4184393728187605,
                 "text": "Chair"
             },
             {
                 "objectId": "lm-4",
                 "category": "STAIRS",
-                "bearingDegrees": 236.18162553746603,
-                "distanceMeters": 3.591692776393883,
+                "bearingDegrees": 235.34659274441856,
+                "distanceMeters": 3.6457276365631044,
                 "text": "Stairs"
             },
             {
                 "objectId": "lm-5",
                 "category": "CHAIR",
-                "bearingDegrees": 315.0952072561954,
-                "distanceMeters": 2.127687242054151,
+                "bearingDegrees": 317.97519574844097,
+                "distanceMeters": 2.1525059814086465,
                 "text": "Chair"
             }
         ]

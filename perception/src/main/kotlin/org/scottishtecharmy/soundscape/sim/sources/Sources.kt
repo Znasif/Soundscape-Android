@@ -528,7 +528,7 @@ interface TextReader {
  * Multimodal image/text embedding client interface for Step 4 room recognition.
  */
 interface Embedder {
-    suspend fun embedImage(jpegBytes: ByteArray): List<Double>
+    suspend fun embedImage(jpegBytes: ByteArray, contextKey: String? = null): List<Double>
 }
 
 /**
@@ -537,5 +537,5 @@ interface Embedder {
  * are visible so `SegmentationClient` is called only for present categories (plus `floor`).
  */
 interface CategoryPrecheck {
-    suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>): Set<SimCategory>
+    suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>, contextKey: String? = null): Set<SimCategory>
 }
