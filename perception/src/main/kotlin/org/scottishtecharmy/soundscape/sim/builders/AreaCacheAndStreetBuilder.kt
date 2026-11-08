@@ -78,12 +78,24 @@ sealed class BuildEvent {
     data class FetchingSources(val center: LatLon, val radiusMeters: Double) : BuildEvent()
     data class StationsSelected(val stations: List<Station>, val totalImagesFound: Int) : BuildEvent()
     data class ViewsPlanned(val views: List<PlannedView>) : BuildEvent()
+    data class DryRunPlan(
+        val plannedViews: Int,
+        val plannedSamCalls: Int,
+        val plannedVerifierCalls: Int,
+        val estimatedCostUsd: Double
+    ) : BuildEvent()
+    data class Feature(val obj: org.scottishtecharmy.soundscape.sim.model.SimObject) : BuildEvent()
+    data class Sign(val sign: org.scottishtecharmy.soundscape.sim.model.Sign) : BuildEvent()
     data class PerceptionProgress(
         val completedViews: Int,
         val totalViews: Int,
         val sightingsSoFar: Int
     ) : BuildEvent()
-    data class Completed(val environment: SimEnvironment) : BuildEvent()
+    data class Completed(
+        val environment: SimEnvironment,
+        val perceptionOnlyObjects: List<org.scottishtecharmy.soundscape.sim.model.SimObject> = emptyList()
+    ) : BuildEvent()
+    data class Failed(val message: String, val cause: Throwable? = null) : BuildEvent()
 }
 
 /**
@@ -137,7 +149,10 @@ class StreetBuilder(
         val mapFeatures = mapillarySource.getMapFeaturesInBbox(bbox)
         val overpassData = overpassSource.queryArea(config.center, config.radiusMeters)
 
-        val footprintsEnu = overpassData.buildings.map { b ->
+        val walledBuildings = overpassData.buildings.filter { it.tags["building"] != "roof" }
+            .ifEmpty { overpassData.buildings }
+
+        val footprintsEnu = walledBuildings.map { b ->
             b.polygon.map { localEnu.latLonToEnu(it) }
         }.filter { it.size >= 3 }
 
@@ -150,7 +165,7 @@ class StreetBuilder(
         )
         emit(BuildEvent.StationsSelected(selectedStations, images.size))
 
-        val initialFootprints = overpassData.buildings.map { b ->
+        val initialFootprints = walledBuildings.map { b ->
             val enuVerts = b.polygon.map { localEnu.latLonToEnu(it) }
             org.scottishtecharmy.soundscape.sim.model.BuildingFootprint(
                 osmId = b.osmId,
@@ -167,6 +182,26 @@ class StreetBuilder(
         )
         emit(BuildEvent.ViewsPlanned(plannedViews))
 
+        val prompts = listOf(
+            "door" to SimCategory.DOOR,
+            "shop sign" to SimCategory.SIGN,
+            "steps" to SimCategory.STEPS
+        )
+
+        if (config.dryRun) {
+            val plannedSam = minOf(plannedViews.size * prompts.size, budget.maxSamCalls)
+            val plannedVerifier = minOf(plannedSam * 2, budget.maxGeminiCalls)
+            val estCost = plannedSam * 0.0025 + plannedVerifier * 0.00015
+            emit(
+                BuildEvent.DryRunPlan(
+                    plannedViews = plannedViews.size,
+                    plannedSamCalls = plannedSam,
+                    plannedVerifierCalls = plannedVerifier,
+                    estimatedCostUsd = kotlin.math.round(estCost * 10000.0) / 10000.0
+                )
+            )
+        }
+
         val sightings = mutableListOf<PerceptionSighting>()
         val runPerception = config.enablePerception &&
             !config.dryRun &&
@@ -174,14 +209,8 @@ class StreetBuilder(
             segmentationClient != null
 
         if (runPerception) {
-            val prompts = listOf(
-                "door" to SimCategory.DOOR,
-                "shop sign" to SimCategory.SIGN,
-                "steps" to SimCategory.STEPS
-            )
-
             for ((viewIdx, view) in plannedViews.withIndex()) {
-                if (!budget.canConsumeSam(prompts.size)) break
+                if (!budget.canConsumeSam(1)) break
                 val cropImg = panoramaImageSource.extractPerspectiveCrop(
                     stationId = view.station.id,
                     compassAngleDegrees = view.station.compassAngle,
@@ -226,6 +255,7 @@ class StreetBuilder(
                                     bearingDegrees = worldRay.bearingDegrees,
                                     elevationDegrees = worldRay.elevationDegrees,
                                     box = inst.box,
+                                    normalizedBox = inst.normalizedBox,
                                     detectorConfidence = inst.confidence,
                                     verifierVerdict = verdict,
                                     signText = ocrText,
@@ -247,6 +277,13 @@ class StreetBuilder(
             mapFeatures = mapFeatures,
             perceptionSightings = sightings
         )
+
+        for (obj in aggregated.objects) {
+            emit(BuildEvent.Feature(obj))
+        }
+        for (sign in aggregated.signs) {
+            emit(BuildEvent.Sign(sign))
+        }
 
         val sourcesUsed = mutableListOf("OSM", "MAPILLARY")
         if (sightings.isNotEmpty()) {
@@ -282,6 +319,6 @@ class StreetBuilder(
         )
 
         areaCache.put(env)
-        emit(BuildEvent.Completed(env))
+        emit(BuildEvent.Completed(env, aggregated.perceptionOnlyObjects))
     }
 }

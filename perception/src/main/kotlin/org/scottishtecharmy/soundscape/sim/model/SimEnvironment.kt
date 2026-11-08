@@ -106,8 +106,10 @@ data class Evidence(
     val bearingDegrees: Double,
     val elevationDegrees: Double? = null,
     val box: List<Int>? = null,
+    val normalizedBox: List<Double>? = null,
     val detectorConfidence: Double? = null,
-    val verifierResult: VerifierVerdict? = null
+    val verifierResult: VerifierVerdict? = null,
+    val localisationMethod: String? = null
 )
 
 /**

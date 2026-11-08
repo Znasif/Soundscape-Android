@@ -29,6 +29,7 @@ data class PerceptionSighting(
     val bearingDegrees: Double,
     val elevationDegrees: Double,
     val box: List<Int>,
+    val normalizedBox: List<Double>? = null,
     val detectorConfidence: Double,
     val verifierVerdict: VerifierVerdict = VerifierVerdict.YES,
     val signText: String? = null,
@@ -41,7 +42,8 @@ data class PerceptionSighting(
 data class StreetAggregationResult(
     val buildingFootprints: List<BuildingFootprint>,
     val objects: List<SimObject>,
-    val signs: List<Sign>
+    val signs: List<Sign>,
+    val perceptionOnlyObjects: List<SimObject> = emptyList()
 )
 
 /**
@@ -69,7 +71,8 @@ object StreetAggregator {
                 verticesLatLon = b.polygon.map { listOf(it.latitude, it.longitude) }
             )
         }
-        val footprintPolygonsEnu: List<Pair<OsmBuilding, List<EnuPoint>>> = buildings.map { b ->
+        val walledBuildings = buildings.filter { it.tags["building"] != "roof" }.ifEmpty { buildings }
+        val footprintPolygonsEnu: List<Pair<OsmBuilding, List<EnuPoint>>> = walledBuildings.map { b ->
             b to b.polygon.map { localEnu.latLonToEnu(it) }
         }.filter { it.second.size >= 3 }
 
@@ -91,7 +94,14 @@ object StreetAggregator {
                     confidence = 0.85,
                     sources = mutableSetOf("OSM"),
                     text = ent.name,
-                    evidence = mutableListOf()
+                    evidence = mutableListOf(
+                        Evidence(
+                            stationId = ent.osmId,
+                            bearingDegrees = 0.0,
+                            detectorConfidence = 0.85,
+                            localisationMethod = "OSM_NODE_FACADE_SNAP"
+                        )
+                    )
                 )
             )
         }
@@ -121,7 +131,8 @@ object StreetAggregator {
                         Evidence(
                             stationId = imgId,
                             bearingDegrees = mf.alignedDirection ?: 0.0,
-                            detectorConfidence = 0.75
+                            detectorConfidence = 0.75,
+                            localisationMethod = "MAPILLARY_FEATURE"
                         )
                     }.toMutableList()
                 )
@@ -135,6 +146,25 @@ object StreetAggregator {
             footprintPolygonsEnu = footprintPolygonsEnu,
             maxFacadeSnapMeters = maxFacadeSnapMeters
         )
+        val deduplicatedPerceptionOnly = mergeCandidates(
+            localizedSightings.map { it.deepCopy() },
+            localEnu,
+            dedupRadiusMeters
+        ).map { cand ->
+            SimObject(
+                id = cand.id,
+                name = cand.name,
+                category = cand.category,
+                subCategory = cand.subCategory,
+                position = cand.enu.toPositionList(),
+                latitude = cand.latLon.latitude,
+                longitude = cand.latLon.longitude,
+                confidence = cand.confidence.coerceIn(0.0, 0.99),
+                sources = cand.sources.toList(),
+                text = cand.text,
+                evidence = cand.evidence
+            )
+        }
         rawCandidates.addAll(localizedSightings)
 
         // 4. Deduplicate & merge within dedupRadiusMeters (3 m) per category
@@ -263,7 +293,8 @@ object StreetAggregator {
         return StreetAggregationResult(
             buildingFootprints = footprints,
             objects = finalObjects,
-            signs = signs
+            signs = signs,
+            perceptionOnlyObjects = deduplicatedPerceptionOnly
         )
     }
 
@@ -279,7 +310,8 @@ object StreetAggregator {
         data class ProjectedSighting(
             val sighting: PerceptionSighting,
             val ray2D: Ray2D,
-            val initialPoint: EnuPoint
+            val initialPoint: EnuPoint,
+            val usedFootprintHit: Boolean
         )
 
         val projected = mutableListOf<ProjectedSighting>()
@@ -289,13 +321,14 @@ object StreetAggregator {
             var bestHitPoint: EnuPoint? = null
 
             for ((_, poly) in footprintPolygonsEnu) {
-                val hit = Geometry2D.intersectRayWithPolygon(ray, poly, maxDistanceMeters = 45.0)
+                val hit = Geometry2D.intersectRayWithPolygon(ray, poly, maxDistanceMeters = 55.0)
                 if (hit != null && hit.distanceMeters < bestHitDist) {
                     bestHitDist = hit.distanceMeters
                     bestHitPoint = hit.point
                 }
             }
 
+            val usedFootprint = bestHitPoint != null
             val point = bestHitPoint
                 ?: Geometry2D.groundPlanePoint(
                     origin = s.stationEnu,
@@ -308,7 +341,7 @@ object StreetAggregator {
                 }
                 ?: continue
 
-            projected.add(ProjectedSighting(s, ray, point))
+            projected.add(ProjectedSighting(s, ray, point, usedFootprint))
         }
 
         // Group projected sightings of the same category from different stations within 4.5m to attempt multi-ray triangulation
@@ -333,15 +366,28 @@ object StreetAggregator {
             }
 
             val distinctStations = cluster.map { it.sighting.stationId }.distinct()
+            var locMethod: String
             val finalEnu: EnuPoint = if (distinctStations.size >= 2) {
                 val triangulated = Geometry2D.triangulateRays(
                     rays = cluster.map { it.ray2D },
                     minParallaxDegrees = 6.0,
                     maxDistanceMeters = 45.0
                 )?.point
+                locMethod = if (triangulated != null) {
+                    "MULTI_RAY_TRIANGULATION_FACADE_SNAP"
+                } else if (seed.usedFootprintHit) {
+                    "SINGLE_RAY_FOOTPRINT_FACADE_SNAP"
+                } else {
+                    "GROUND_PLANE_FACADE_SNAP"
+                }
                 val candidatePt = triangulated ?: seed.initialPoint
                 snapToNearestBuildingEdge(candidatePt, footprintPolygonsEnu, maxFacadeSnapMeters) ?: candidatePt
             } else {
+                locMethod = if (seed.usedFootprintHit) {
+                    "SINGLE_RAY_FOOTPRINT_FACADE_SNAP"
+                } else {
+                    "GROUND_PLANE_FACADE_SNAP"
+                }
                 snapToNearestBuildingEdge(seed.initialPoint, footprintPolygonsEnu, maxFacadeSnapMeters) ?: seed.initialPoint
             }
 
@@ -380,8 +426,10 @@ object StreetAggregator {
                             bearingDegrees = it.sighting.bearingDegrees,
                             elevationDegrees = it.sighting.elevationDegrees,
                             box = it.sighting.box,
+                            normalizedBox = it.sighting.normalizedBox,
                             detectorConfidence = it.sighting.detectorConfidence,
-                            verifierResult = it.sighting.verifierVerdict
+                            verifierResult = it.sighting.verifierVerdict,
+                            localisationMethod = locMethod
                         )
                     }.toMutableList()
                 )
@@ -489,5 +537,18 @@ object StreetAggregator {
         val sources: MutableSet<String>,
         var text: String?,
         val evidence: MutableList<Evidence>
-    )
+    ) {
+        fun deepCopy(): MutableObjectCandidate = MutableObjectCandidate(
+            id = id,
+            name = name,
+            category = category,
+            subCategory = subCategory,
+            enu = enu,
+            latLon = latLon,
+            confidence = confidence,
+            sources = sources.toMutableSet(),
+            text = text,
+            evidence = evidence.toMutableList()
+        )
+    }
 }

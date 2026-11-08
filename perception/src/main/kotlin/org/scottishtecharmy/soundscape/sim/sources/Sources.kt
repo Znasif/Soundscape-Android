@@ -275,6 +275,14 @@ data class SegmentedInstance(
     val imageWidth: Int,
     val imageHeight: Int,
     val confidence: Double,
+    val normalizedBox: List<Double> = if (box.size == 4 && imageWidth > 0 && imageHeight > 0) {
+        listOf(
+            box[0].toDouble() / imageWidth,
+            box[1].toDouble() / imageHeight,
+            box[2].toDouble() / imageWidth,
+            box[3].toDouble() / imageHeight
+        )
+    } else emptyList(),
     val maskWidth: Int = 0,
     val maskHeight: Int = 0,
     val maskData: String? = null
