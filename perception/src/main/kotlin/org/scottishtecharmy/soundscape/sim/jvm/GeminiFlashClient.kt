@@ -12,6 +12,7 @@ import kotlinx.serialization.json.put
 import org.scottishtecharmy.soundscape.sim.model.SimCategory
 import org.scottishtecharmy.soundscape.sim.model.VerifierVerdict
 import org.scottishtecharmy.soundscape.sim.sources.Budget
+import org.scottishtecharmy.soundscape.sim.sources.CategoryPrecheck
 import org.scottishtecharmy.soundscape.sim.sources.Embedder
 import org.scottishtecharmy.soundscape.sim.sources.OcrResult
 import org.scottishtecharmy.soundscape.sim.sources.TextReader
@@ -23,9 +24,9 @@ import javax.imageio.ImageIO
 import kotlin.math.sqrt
 
 /**
- * JVM implementation of [Verifier], [TextReader], and [Embedder] backed by Google Gemini REST APIs:
- * - Crop verification & OCR: `gemini-3.8-flash` via `POST .../v1beta/models/gemini-3.8-flash:generateContent`
- *   with `thinkingBudget = 0` and header `x-goog-api-key: $GEMINI_API_KEY`.
+ * JVM implementation of [Verifier], [TextReader], [Embedder], and [CategoryPrecheck] backed by Google Gemini REST APIs:
+ * - Crop verification, OCR & room category precheck: `gemini-3.8-flash` via
+ *   `POST .../v1beta/models/gemini-3.8-flash:generateContent` with header `x-goog-api-key: $GEMINI_API_KEY`.
  * - Multimodal embeddings: `gemini-embedding-2-preview` via `:embedContent` (with deterministic local
  *   feature fallback when offline).
  */
@@ -35,7 +36,7 @@ class GeminiFlashClient(
     private val modelId: String = "gemini-3.8-flash",
     private val embeddingModelId: String = "gemini-embedding-2-preview",
     private val apiKeyProvider: () -> String = { System.getenv("GEMINI_API_KEY") ?: "" }
-) : Verifier, TextReader, Embedder {
+) : Verifier, TextReader, Embedder, CategoryPrecheck {
 
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -171,6 +172,66 @@ class GeminiFlashClient(
         } catch (_: Exception) {
             computeLocalFallbackEmbedding(jpegBytes)
         }
+    }
+
+    override suspend fun detectPresentCategories(keyframeJpegs: List<ByteArray>): Set<SimCategory> {
+        if (keyframeJpegs.isEmpty()) return emptySet()
+        budget.consumeGemini(1)
+
+        val selected = keyframeJpegs.take(6)
+        val prompt = "Inspect these indoor room keyframes and list which of the following categories are actually visible: " +
+            "door, desk, reception desk, counter, chair, table, sofa, sign, stairs, lift, window. " +
+            "Return ONLY a comma-separated list of present categories from that exact list."
+
+        val payload = buildJsonObject {
+            put("contents", buildJsonArray {
+                add(buildJsonObject {
+                    put("parts", buildJsonArray {
+                        for (jpeg in selected) {
+                            add(buildJsonObject {
+                                put("inline_data", buildJsonObject {
+                                    put("mime_type", "image/jpeg")
+                                    put("data", Base64.getEncoder().encodeToString(jpeg))
+                                })
+                            })
+                        }
+                        add(buildJsonObject {
+                            put("text", prompt)
+                        })
+                    })
+                })
+            })
+            put("generationConfig", buildJsonObject {
+                put("temperature", 0.0)
+                put("maxOutputTokens", 512)
+            })
+        }.toString()
+
+        val key = apiKeyProvider()
+        val headers = if (key.isNotBlank()) mapOf("x-goog-api-key" to key) else emptyMap()
+        val fKey = "gemini_precheck_${sha256Short(selected.first())}"
+
+        val resp = gateway.post(
+            url = "https://generativelanguage.googleapis.com/v1beta/models/$modelId:generateContent",
+            headers = headers,
+            body = payload,
+            fixtureKey = fKey
+        )
+
+        val text = extractCandidateText(json.parseToJsonElement(resp.body).jsonObject).lowercase()
+        val present = mutableSetOf<SimCategory>()
+        if ("reception desk" in text) present.add(SimCategory.RECEPTION_DESK)
+        if ("door" in text) present.add(SimCategory.DOOR)
+        if ("desk" in text) present.add(SimCategory.DESK)
+        if ("counter" in text) present.add(SimCategory.COUNTER)
+        if ("chair" in text) present.add(SimCategory.CHAIR)
+        if ("table" in text) present.add(SimCategory.TABLE)
+        if ("sofa" in text) present.add(SimCategory.SOFA)
+        if ("sign" in text) present.add(SimCategory.SIGN)
+        if ("stairs" in text || "steps" in text) present.add(SimCategory.STAIRS)
+        if ("lift" in text || "elevator" in text) present.add(SimCategory.LIFT)
+        if ("window" in text) present.add(SimCategory.WINDOW)
+        return present
     }
 
     fun parseVerifierResponseJson(responseJson: String): VerifierVerdict {

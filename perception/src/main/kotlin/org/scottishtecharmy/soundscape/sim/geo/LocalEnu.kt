@@ -46,6 +46,8 @@ data class EnuPoint(
     val north: Double,
     val up: Double = 0.0
 ) {
+    fun horizontalNorm(): Double = hypot(east, north)
+
     fun distanceTo2D(other: EnuPoint): Double =
         hypot(east - other.east, north - other.north)
 

@@ -1,0 +1,907 @@
+{
+    "name": "Room 214",
+    "kind": "ROOM",
+    "objects": [
+        {
+            "id": "room-door-1",
+            "name": "Room 214 Door",
+            "category": "DOOR",
+            "position": [
+                0.007,
+                0.0,
+                4.021
+            ],
+            "confidence": 0.88,
+            "sources": [
+                "sam-3.1"
+            ],
+            "text": "Room 214",
+            "evidence": [
+                {
+                    "stationId": "f-hor-0",
+                    "bearingDegrees": 0.07,
+                    "elevationDegrees": -22.27,
+                    "box": [
+                        233,
+                        531,
+                        313,
+                        711
+                    ],
+                    "normalizedBox": [
+                        0.3236111111111111,
+                        0.41484375,
+                        0.43472222222222223,
+                        0.55546875
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-1",
+                    "bearingDegrees": 0.09,
+                    "elevationDegrees": -22.38,
+                    "box": [
+                        38,
+                        558,
+                        118,
+                        738
+                    ],
+                    "normalizedBox": [
+                        0.05277777777777778,
+                        0.4359375,
+                        0.1638888888888889,
+                        0.5765625
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-16",
+                    "bearingDegrees": 0.09,
+                    "elevationDegrees": -22.34,
+                    "box": [
+                        604,
+                        558,
+                        684,
+                        738
+                    ],
+                    "normalizedBox": [
+                        0.8388888888888889,
+                        0.4359375,
+                        0.95,
+                        0.5765625
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-17",
+                    "bearingDegrees": 0.15,
+                    "elevationDegrees": -22.26,
+                    "box": [
+                        409,
+                        531,
+                        489,
+                        711
+                    ],
+                    "normalizedBox": [
+                        0.5680555555555555,
+                        0.41484375,
+                        0.6791666666666667,
+                        0.55546875
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-sign-2",
+            "name": "Room 214",
+            "category": "SIGN",
+            "position": [
+                0.507,
+                1.657,
+                4.008
+            ],
+            "confidence": 0.88,
+            "sources": [
+                "sam-3.1"
+            ],
+            "text": "Room 214",
+            "evidence": [
+                {
+                    "stationId": "f-hor-0",
+                    "bearingDegrees": 7.2,
+                    "elevationDegrees": 0.1,
+                    "box": [
+                        308,
+                        481,
+                        358,
+                        511
+                    ],
+                    "normalizedBox": [
+                        0.42777777777777776,
+                        0.37578125,
+                        0.49722222222222223,
+                        0.39921875
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
+                },
+                {
+                    "stationId": "f-hor-1",
+                    "bearingDegrees": 7.23,
+                    "elevationDegrees": 0.09,
+                    "box": [
+                        103,
+                        481,
+                        153,
+                        511
+                    ],
+                    "normalizedBox": [
+                        0.14305555555555555,
+                        0.37578125,
+                        0.2125,
+                        0.39921875
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
+                },
+                {
+                    "stationId": "f-hor-17",
+                    "bearingDegrees": 7.19,
+                    "elevationDegrees": 0.09,
+                    "box": [
+                        506,
+                        481,
+                        556,
+                        511
+                    ],
+                    "normalizedBox": [
+                        0.7027777777777777,
+                        0.37578125,
+                        0.7722222222222223,
+                        0.39921875
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "WALL_POLYGON_RAY_INTERSECTION"
+                }
+            ]
+        },
+        {
+            "id": "room-reception_desk-3",
+            "name": "Reception Desk",
+            "category": "RECEPTION_DESK",
+            "position": [
+                2.987,
+                0.0,
+                1.005
+            ],
+            "confidence": 0.88,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "f-hor-3",
+                    "bearingDegrees": 71.42,
+                    "elevationDegrees": -27.66,
+                    "box": [
+                        312,
+                        650,
+                        432,
+                        760
+                    ],
+                    "normalizedBox": [
+                        0.43333333333333335,
+                        0.5078125,
+                        0.6,
+                        0.59375
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-4",
+                    "bearingDegrees": 71.4,
+                    "elevationDegrees": -27.61,
+                    "box": [
+                        138,
+                        662,
+                        258,
+                        772
+                    ],
+                    "normalizedBox": [
+                        0.19166666666666668,
+                        0.5171875,
+                        0.35833333333333334,
+                        0.603125
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-4",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                1.5,
+                0.0,
+                -1.991
+            ],
+            "confidence": 0.88,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "f-hor-5",
+                    "bearingDegrees": 143.08,
+                    "elevationDegrees": -33.51,
+                    "box": [
+                        627,
+                        780,
+                        687,
+                        870
+                    ],
+                    "normalizedBox": [
+                        0.8708333333333333,
+                        0.609375,
+                        0.9541666666666667,
+                        0.6796875
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-7",
+                    "bearingDegrees": 142.95,
+                    "elevationDegrees": -33.53,
+                    "box": [
+                        272,
+                        731,
+                        332,
+                        821
+                    ],
+                    "normalizedBox": [
+                        0.37777777777777777,
+                        0.57109375,
+                        0.46111111111111114,
+                        0.64140625
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-8",
+                    "bearingDegrees": 142.99,
+                    "elevationDegrees": -33.46,
+                    "box": [
+                        95,
+                        761,
+                        155,
+                        851
+                    ],
+                    "normalizedBox": [
+                        0.13194444444444445,
+                        0.59453125,
+                        0.2152777777777778,
+                        0.66484375
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-stairs-5",
+            "name": "Stairs",
+            "category": "STAIRS",
+            "position": [
+                -2.984,
+                0.0,
+                -1.999
+            ],
+            "confidence": 0.88,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "f-hor-10",
+                    "bearingDegrees": 236.2,
+                    "elevationDegrees": -24.72,
+                    "box": [
+                        544,
+                        615,
+                        654,
+                        755
+                    ],
+                    "normalizedBox": [
+                        0.7555555555555555,
+                        0.48046875,
+                        0.9083333333333333,
+                        0.58984375
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-up-1",
+                    "bearingDegrees": 236.2,
+                    "elevationDegrees": -24.64,
+                    "box": [
+                        432,
+                        965,
+                        542,
+                        1105
+                    ],
+                    "normalizedBox": [
+                        0.6,
+                        0.75390625,
+                        0.7527777777777778,
+                        0.86328125
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-12",
+                    "bearingDegrees": 236.14,
+                    "elevationDegrees": -24.65,
+                    "box": [
+                        184,
+                        597,
+                        294,
+                        737
+                    ],
+                    "normalizedBox": [
+                        0.25555555555555554,
+                        0.46640625,
+                        0.4083333333333333,
+                        0.57578125
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                }
+            ]
+        },
+        {
+            "id": "room-chair-6",
+            "name": "Chair",
+            "category": "CHAIR",
+            "position": [
+                -1.502,
+                0.0,
+                1.507
+            ],
+            "confidence": 0.88,
+            "sources": [
+                "sam-3.1"
+            ],
+            "evidence": [
+                {
+                    "stationId": "f-hor-14",
+                    "bearingDegrees": 315.04,
+                    "elevationDegrees": -37.77,
+                    "box": [
+                        540,
+                        805,
+                        600,
+                        895
+                    ],
+                    "normalizedBox": [
+                        0.75,
+                        0.62890625,
+                        0.8333333333333334,
+                        0.69921875
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-15",
+                    "bearingDegrees": 315.12,
+                    "elevationDegrees": -37.75,
+                    "box": [
+                        371,
+                        775,
+                        431,
+                        865
+                    ],
+                    "normalizedBox": [
+                        0.5152777777777777,
+                        0.60546875,
+                        0.5986111111111111,
+                        0.67578125
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-16",
+                    "bearingDegrees": 315.1,
+                    "elevationDegrees": -37.81,
+                    "box": [
+                        209,
+                        785,
+                        269,
+                        875
+                    ],
+                    "normalizedBox": [
+                        0.2902777777777778,
+                        0.61328125,
+                        0.3736111111111111,
+                        0.68359375
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                },
+                {
+                    "stationId": "f-hor-17",
+                    "bearingDegrees": 315.14,
+                    "elevationDegrees": -37.84,
+                    "box": [
+                        23,
+                        839,
+                        83,
+                        929
+                    ],
+                    "normalizedBox": [
+                        0.03194444444444444,
+                        0.65546875,
+                        0.11527777777777778,
+                        0.72578125
+                    ],
+                    "detectorConfidence": 0.88,
+                    "verifierResult": "YES",
+                    "localisationMethod": "GROUND_PLANE_PITCH"
+                }
+            ]
+        }
+    ],
+    "geoAnchor": {
+        "latitude": 37.79545,
+        "longitude": -122.39373,
+        "source": "gps_coarse"
+    },
+    "provenance": {
+        "createdAtEpochMs": 1710000000000,
+        "builderVersion": "0.4.0-step4",
+        "sources": [
+            "MWDAT_GLASSES",
+            "SAM_3_1",
+            "GEMINI_FLASH"
+        ],
+        "newestCaptureEpochMs": 1000,
+        "geohash7": "9q8znb7"
+    },
+    "signs": [
+        {
+            "id": "room-sign-1",
+            "text": "Room 214",
+            "confidence": 0.96,
+            "position": [
+                0.507,
+                1.657,
+                4.008
+            ],
+            "stationId": "f-hor-0",
+            "bearingDegrees": 7.2
+        }
+    ],
+    "stations": [
+        {
+            "id": "f-hor-0",
+            "compassAngle": 10.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-1",
+            "compassAngle": 30.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-up-0",
+            "compassAngle": 45.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-3",
+            "compassAngle": 70.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-4",
+            "compassAngle": 90.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-5",
+            "compassAngle": 110.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-6",
+            "compassAngle": 130.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-7",
+            "compassAngle": 150.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-8",
+            "compassAngle": 170.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-9",
+            "compassAngle": 190.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-10",
+            "compassAngle": 210.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-up-1",
+            "compassAngle": 225.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-12",
+            "compassAngle": 250.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-13",
+            "compassAngle": 270.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-14",
+            "compassAngle": 290.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-15",
+            "compassAngle": 310.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-16",
+            "compassAngle": 330.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        },
+        {
+            "id": "f-hor-17",
+            "compassAngle": 350.0,
+            "capturedAtEpochMs": 1000,
+            "isPano": false,
+            "position": [
+                0.0,
+                1.65,
+                0.0
+            ]
+        }
+    ],
+    "walkable": {
+        "floorPolygon": [
+            [
+                0.201,
+                0.0,
+                4.003
+            ],
+            [
+                2.563,
+                0.0,
+                4.045
+            ],
+            [
+                2.963,
+                0.0,
+                3.035
+            ],
+            [
+                2.981,
+                0.0,
+                -2.948
+            ],
+            [
+                2.761,
+                0.0,
+                -3.979
+            ],
+            [
+                -2.563,
+                0.0,
+                -4.045
+            ],
+            [
+                -3.035,
+                0.0,
+                -2.963
+            ],
+            [
+                -2.981,
+                0.0,
+                2.948
+            ],
+            [
+                -2.761,
+                0.0,
+                3.979
+            ]
+        ]
+    },
+    "fingerprint": {
+        "normalizedTexts": [
+            "room 214"
+        ],
+        "distinctiveTokens": [
+            "214"
+        ],
+        "embeddings": [
+            [
+                0.6307,
+                -0.0185,
+                -0.6507,
+                -0.6846,
+                -0.0891,
+                0.5883,
+                0.7248,
+                0.195,
+                -0.5142,
+                -0.7506,
+                -0.2969,
+                0.4297,
+                0.7613,
+                0.3929,
+                -0.3367,
+                -0.7567
+            ],
+            [
+                0.6307,
+                -0.0185,
+                -0.6507,
+                -0.6846,
+                -0.0891,
+                0.5883,
+                0.7248,
+                0.195,
+                -0.5142,
+                -0.7506,
+                -0.2969,
+                0.4297,
+                0.7613,
+                0.3929,
+                -0.3367,
+                -0.7567
+            ],
+            [
+                0.6307,
+                -0.0185,
+                -0.6507,
+                -0.6846,
+                -0.0891,
+                0.5883,
+                0.7248,
+                0.195,
+                -0.5142,
+                -0.7506,
+                -0.2969,
+                0.4297,
+                0.7613,
+                0.3929,
+                -0.3367,
+                -0.7567
+            ],
+            [
+                0.6307,
+                -0.0185,
+                -0.6507,
+                -0.6846,
+                -0.0891,
+                0.5883,
+                0.7248,
+                0.195,
+                -0.5142,
+                -0.7506,
+                -0.2969,
+                0.4297,
+                0.7613,
+                0.3929,
+                -0.3367,
+                -0.7567
+            ],
+            [
+                0.6307,
+                -0.0185,
+                -0.6507,
+                -0.6846,
+                -0.0891,
+                0.5883,
+                0.7248,
+                0.195,
+                -0.5142,
+                -0.7506,
+                -0.2969,
+                0.4297,
+                0.7613,
+                0.3929,
+                -0.3367,
+                -0.7567
+            ]
+        ],
+        "objectBearings": [
+            {
+                "objectId": "lm-0",
+                "category": "DOOR",
+                "bearingDegrees": 0.09974385760546552,
+                "distanceMeters": 4.021006093007072,
+                "text": "Room 214 Door"
+            },
+            {
+                "objectId": "lm-1",
+                "category": "SIGN",
+                "bearingDegrees": 7.209453284386396,
+                "distanceMeters": 4.039939727273168,
+                "text": "Room 214"
+            },
+            {
+                "objectId": "lm-2",
+                "category": "RECEPTION_DESK",
+                "bearingDegrees": 71.40407610129955,
+                "distanceMeters": 3.1515383545183138,
+                "text": "Reception Desk"
+            },
+            {
+                "objectId": "lm-3",
+                "category": "CHAIR",
+                "bearingDegrees": 143.00598620949378,
+                "distanceMeters": 2.4928058488378113,
+                "text": "Chair"
+            },
+            {
+                "objectId": "lm-4",
+                "category": "STAIRS",
+                "bearingDegrees": 236.18162553746603,
+                "distanceMeters": 3.591692776393883,
+                "text": "Stairs"
+            },
+            {
+                "objectId": "lm-5",
+                "category": "CHAIR",
+                "bearingDegrees": 315.0952072561954,
+                "distanceMeters": 2.127687242054151,
+                "text": "Chair"
+            }
+        ]
+    }
+}

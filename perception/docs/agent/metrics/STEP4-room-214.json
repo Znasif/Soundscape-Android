@@ -1,0 +1,23 @@
+            {
+                "room": "Room 214 (Synthetic 6m x 8m Benchmark)",
+                "trueFloorAreaSqMeters": 48.0,
+                "estimatedFloorAreaSqMeters": 47.280124,
+                "relativeFloorAreaError": 0.014997416666666652,
+                "objectEvalMetrics": {
+    "predictedCount": 6,
+    "truthCount": 6,
+    "truePositives": 6,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "meanErrorMeters": 0.013167634523709823,
+    "medianErrorMeters": 0.012279267044959323,
+    "p90ErrorMeters": 0.019083581581529986
+},
+                "revisitYawOffsetTrueDegrees": 40.0,
+                "revisitYawOffsetRecoveredDegrees": 39.89,
+                "nearDuplicateRoom216FalseMatch": false,
+                "newRoomAbstained": true
+            }
